@@ -1,4 +1,6 @@
-data/gitrepo/*
+data/gitrepo/media/*
+data/gitrepo/pages/*
+
 obs-diffs/
 exports/
 data/cache/*

@@ -6,18 +6,6 @@ This is the default home page for Door43 testing environment that you will see b
 
    2. Copy conf/users.auth.php.dist to conf/users.auth.php (you can now login as admin, password admin)
 
-   3. Edit conf/local.php and change
-
-<blockquote>$conf['datadir'] = './data/pages';
-
-$conf['mediadir'] = './data/media';
-</blockquote>
-
-to 
- 
-<blockquote>$conf['datadir'] = './data/gitrepo/pages';
-
-$conf['mediadir'] = './data/gitrepo/media';
-</blockquote>
+   3. Copy conf/local_private.php.dist to local_private.php (this will set the media and pages dirs to data/gitrepo)
 
    4. Go get the repos with git (more information to come)

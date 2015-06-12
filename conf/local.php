@@ -90,8 +90,6 @@ $conf['plugin']['gitbacked']['repoPath'] = './data/gitrepo';
 $conf['plugin']['gitbacked']['repoWorkDir'] = './data/gitrepo';
 $conf['datadir'] = './data/pages';
 $conf['mediadir'] = './data/media';
-#$conf['datadir'] = './data/gitrepo/pages';
-#$conf['mediadir'] = './data/gitrepo/media';
 
 // end auto-generated content
 
