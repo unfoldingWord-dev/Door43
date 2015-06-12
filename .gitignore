@@ -2,5 +2,6 @@ data/
 obs-diffs/
 exports/
 
+conf/acl.auth.php
 conf/local_private.php
-
+conf/users.auth.php
