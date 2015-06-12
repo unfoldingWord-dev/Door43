@@ -1,0 +1,8 @@
+base    ditaa
+author  Andreas Gohr
+email   andi@splitbrain.org
+date    2010-11-24
+name    Ditaa-Plugin (ditaa 0.9)
+desc    Renders ASCII flowcharts contained in a DokuWiki page to images
+url     http://www.dokuwiki.org/plugin:ditaa
+

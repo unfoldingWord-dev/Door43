@@ -1,0 +1,7 @@
+base   door43obs
+author unfoldingWord.org
+email  https://unfoldingword.org/contact/
+date   2014-12-19
+name   door43obs plugin
+desc   Open Bible Stories support
+url    https://github.com/Door43/dokuwiki-plugin-obs

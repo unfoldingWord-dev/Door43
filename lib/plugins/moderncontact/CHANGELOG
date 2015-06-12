@@ -1,0 +1,39 @@
+2013-01-25 Marvin Thomas Rabe  <mrabe@marvinrabe.de>
+
+* Changed plugin name (thanks to Tekki)
+
+2012-06-09 Marvin Thomas Rabe  <mrabe@marvinrabe.de>
+
+* Spanish translation added (thanks to Cristian Wente)
+
+2012-06-06 Marvin Thomas Rabe  <mrabe@marvinrabe.de>
+
+* Reply-to set to senders email address (thanks to Cristian Wente)
+
+2011-09-14 Marvin Thomas Rabe  <mrabe@marvinrabe.de>
+
+* Polish translation added (thanks to Alex Setlak - http://alek.magazynek.org/)
+
+2011-04-16  Marvin Thomas Rabe  <mrabe@marvinrabe.de>
+
+* If user is already logged in then email and name field are already filled.
+* Updated path to plugin wiki site.
+
+2011-01-22  Marvin Thomas Rabe  <mrabe@marvinrabe.de>
+
+* Fixed localisation bug.
+* Added localization for success message.
+* Renamed some variables.
+* reCaptcha field has now a red border, if there is an error.
+
+2011-01-05  Marvin Thomas Rabe  <mrabe@marvinrabe.de>
+
+* Changelog added.
+* Mistakes in language files fixed.
+* Renamed plugin name translation to "Modern Contact Form".
+* Error with captcha parameter solved.
+* Readme updated.
+
+2010-12-28  Marvin Thomas Rabe  <mrabe@marvinrabe.de>
+
+* Initial release.

@@ -1,0 +1,7 @@
+base piwik2
+author Marcel Lange
+email info@aasgard.de
+date 2014-04-28
+name DokuWiki plugin for Piwik 2.x
+desc Plugin for the new 2.0 version of Piwik, the open source Google Analytics alternative (inspired by the piwik plugin from Heikki Hokkanen <hoxu@users.sf.net>, https://www.dokuwiki.org/plugin:piwik)
+url https://github.com/Bravehartk2/dokuwiki-piwik2

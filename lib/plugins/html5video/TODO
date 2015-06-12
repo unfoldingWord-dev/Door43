@@ -1,0 +1,3 @@
+* Allow for graceful fallback to other web video formats for different browsers
+
+* Might be a good idea to use a stylesheet instead of inline styles for alignment

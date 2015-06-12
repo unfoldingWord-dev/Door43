@@ -1,0 +1,20 @@
+
+#dokuwiki__pagetools ul li a.tx-export {
+    background-position: right -270px;
+    &:before { margin-top: -270px; }
+    &:hover, &:active, &:focus { background-position: right -315px; }
+}
+
+.mode_revisions #dokuwiki__pagetools ul li a.tx-export {
+    background-position: right -315px;
+    &:before { margin-top: -315px; }
+}
+
+[dir=rtl] #dokuwiki__pagetools ul li a.tx-export {
+    background-position: left -270px;
+    &:hover, &:active, &:focus { background-position: left -315px; }
+}
+
+[dir=rtl] .mode_revisions #dokuwiki__pagetools ul li a.tx-export {
+    background-position: left -315px;
+}

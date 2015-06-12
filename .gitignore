@@ -1,0 +1,6 @@
+data/
+obs-diffs/
+exports/
+
+conf/local_private.php
+

@@ -1,0 +1,66 @@
+<!--
+* Name: source_language.html
+* Description: The html and javascript that implements the UI for the SourceLanguages plugin.
+*
+* This comment block will be removed by the plugin before rendering.
+*
+* Author: Phil Hopper
+* Date:   2014-12-10
+-->
+<label for="selectObsSource">@sourceLabel@</label>&nbsp;<select id="selectObsSource">
+    <option>Select One</option>
+</select>
+<script type="text/javascript">
+    jQuery(function($) {
+
+        setTimeout(function() {
+
+            // We need to get the data from the plugin because of browser Cross-Origin restrictions.
+            var url = DOKU_BASE + 'lib/exe/ajax.php';
+
+            var dataValues = {
+                call: 'cross_origin_request',
+                contentType: 'application/json',
+                requestUrl: 'https://api.unfoldingword.org/obs/txt/1/obs-catalog.json'
+            };
+
+            var ajaxSettings = {
+                type: 'POST',
+                url: url,
+                data: dataValues
+            };
+
+            $.ajax(ajaxSettings).done(function(data) {
+
+                if (!data) return;
+
+                var select = $('#selectObsSource');
+
+                // Example of data received:
+                // {
+                //   "date_modified": "20141205",
+                //   "direction": "ltr",
+                //   "language": "en",
+                //   "status": {
+                //              ...
+                //              "checking_level": "3",
+                //              ...
+                //             },
+                //   "string": "English"
+                // }
+                for (var i = 0; i < data.length; i++) {
+
+                    var langData = data[i];
+
+                    if (langData['status']['checking_level'] !== '3')
+                        continue;
+
+                    select.append($('<option></option>')
+                            .attr('value', langData['language'])
+                            .text(langData['string'] + ' (' + langData['language'] + ')')
+                    );
+                }
+            });
+        }, 100);
+    }(jQuery));
+</script>

@@ -1,0 +1,70 @@
+<!--
+* Name: translate_button.html
+* Description: The html and javascript that implements the UI for the register translate plugin.
+*
+* This comment block will be removed by the plugin before rendering.
+*
+* Author: Phil Hopper
+* Date:   2015-02-26
+-->
+<script type="text/javascript">
+    function showDialog() {
+
+        jQuery('#door43TranslateRegisterDiv').dialog({
+            height: 500,
+            width: 700,
+            modal: true,
+            resize: function() {
+                var h = document.getElementsByClassName('ui-dialog')[0].offsetHeight;
+                h = h - 100;
+
+                if (h > 0)
+                    document.getElementById('door43TranslateRegisterText').style.height = h + 'px';
+            }
+        });
+    }
+
+    function saveTranslation() {
+
+        var url = DOKU_BASE + 'lib/exe/ajax.php';
+        var dataValues = {
+            call: 'door43_register_edit',
+            lang: document.getElementById('door43TranslateRegisterLang').value,
+            text: document.getElementById('door43TranslateRegisterText').value
+        };
+        var ajaxSettings = {
+            type: 'POST',
+            url: url,
+            data: dataValues
+        };
+        jQuery.ajax(ajaxSettings).done(function (data) {
+
+            if (data === 'OK') {
+
+                // setting this to 'true' causes the browser to NOT use cache to reload the page
+                var reloadFromServer = true;
+                location.reload(reloadFromServer)
+            }
+            else {
+                alert(data);
+            }
+        });
+    }
+
+    function closeDialog() {
+        jQuery('#door43TranslateRegisterDiv').dialog('close');
+    }
+</script>
+<div style="display: inline-block; position: absolute; right: 34px; top: 24px;">
+    <button onclick="showDialog();">@translateInto@</button>
+</div>
+<div id="door43TranslateRegisterDiv" title="@translateTitle@" style="display: none">
+    <input type="hidden" id="door43TranslateRegisterLang" value="{langCode}">
+    <div style="display: block; width: 100%">
+        <!--suppress HtmlFormInputWithoutLabel -->
+        <textarea id="door43TranslateRegisterText" style="width: 100%; height: 400px; resize: none;"></textarea>
+    </div>
+    <div style="display: inline-block; position: absolute; right: 16px; bottom: 10px;">
+        <button onclick="saveTranslation();">@saveButton@</button> <button onclick="closeDialog();">@cancelButton@</button>
+    </div>
+</div>

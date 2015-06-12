@@ -1,0 +1,10 @@
+====== Register as new user ======
+
+Fill in all the information below to create a new account in this wiki. Use a **valid e-mail address** – a temporary password will be sent to that address. The login name should include only letters, numbers, and underscores (_). //Note: if you do not want your real name displayed in the log for pages that you edit, use a nickname in the "Real name" box.//
+
+By creating an account on this website, you affirm that you have read and understood the [[en:legal:home|Terms & Conditions]] and agree to:
+
+  - Only add content to this website that does not infringe on someone else's copyright.
+  - Only add content to this website that does not conflict with the [[en:statement-of-faith|Statement of Faith]].
+  - Release your contributions to the content on this website under a [[en:legal:license|Creative Commons Attribution-ShareAlike 4.0 International License]].
+

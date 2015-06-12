@@ -1,0 +1,5 @@
+base slackinvite
+author Yvonne Lu
+email yvonnel@leapinglaptop.com
+name slackinvite Plugin
+desc a sign up form for users who want to join the team43's channel on slack 

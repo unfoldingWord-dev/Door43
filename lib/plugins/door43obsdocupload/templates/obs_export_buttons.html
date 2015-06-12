@@ -1,0 +1,117 @@
+<!--
+* Name: obs_export_buttons.html
+* Description: The html and javascript that implements the UI for the export plugin.
+*
+* This comment block will be removed by the plugin before rendering.
+*
+* Author: Phil Hopper
+* Date:   2015-05-23
+-->
+<script type="text/javascript">
+    jQuery().ready(function() {
+
+        var tools = jQuery('body').find('#dokuwiki__pagetools').find('div.tools ul');
+        var btn = jQuery('<li><a href="#" class="action tx-export">@getTemplate@</a></li>');
+
+        btn.on('click', function(event) {
+
+            // if we don't remove focus, the button appears to be stuck
+            jQuery(event.target).blur();
+            event.preventDefault();
+
+            jQuery('#door43ObsExportDiv').dialog({
+                height: 360,
+                width: 500,
+                modal: true,
+                resize: function() {
+                    var h = document.getElementsByClassName('ui-dialog')[0].offsetHeight;
+                    h = h - 100;
+
+                    if (h > 0)
+                        document.getElementById('door43TranslateRegisterText').style.height = h + 'px';
+                },
+                open: function() {
+
+                    if (!document.getElementById('door43ObsExportOptions').innerHTML) {
+
+                        var url = DOKU_BASE + 'lib/exe/ajax.php';
+
+                        var dataValues = {
+                            call: 'get_obs_doc_export_dlg'
+                        };
+
+                        var ajaxSettings = {
+                            type: 'GET',
+                            url: url,
+                            data: dataValues
+                        };
+
+                        jQuery.ajax(ajaxSettings).done(function(data) {
+                            document.getElementById('door43ObsExportOptions').innerHTML = data;
+
+                            // We need to get the data from the plugin because of browser Cross-Origin restrictions.
+                            var url = DOKU_BASE + 'lib/exe/ajax.php';
+
+                            var dataValues = {
+                                call: 'cross_origin_request',
+                                contentType: 'application/json',
+                                requestUrl: 'https://api.unfoldingword.org/obs/txt/1/obs-catalog.json'
+                            };
+
+                            var ajaxSettings = {
+                                type: 'POST',
+                                url: url,
+                                data: dataValues
+                            };
+
+                            jQuery.ajax(ajaxSettings).done(function(data) {
+
+                                if (!data) return;
+
+                                var select = jQuery('#selectObsDocxSource');
+
+                                for (var i = 0; i < data.length; i++) {
+
+                                    var langData = data[i];
+
+                                    if (langData['status']['checking_level'] !== '3')
+                                        continue;
+
+                                    select.append(jQuery('<option></option>')
+                                        .attr('value', langData['language'])
+                                        .text(langData['string'] + ' (' + langData['language'] + ')')
+                                    );
+                                }
+                            });
+                        });
+                    }
+                }
+            });
+        });
+        tools.append(btn);
+    });
+
+    function closeExportDialog() {
+        jQuery('#door43ObsExportDiv').dialog('close');
+    }
+
+    function exportSourceTemplate() {
+
+        var lang = document.getElementById('selectObsDocxSource');
+        if (!lang.value) return;
+
+        var images = document.getElementById('includeObsDocxImages').checked ? 1 : 0;
+
+        var url = DOKU_BASE + 'lib/exe/ajax.php?call=download_obs_template_docx&lang=' + lang.value + '&img=' + images;
+
+        window.open(url, '_blank');
+
+        closeExportDialog();
+    }
+</script>
+<div id="door43ObsExportDiv" title="@exportTitle@" style="display: none">
+    <div id="door43ObsExportOptions" style="display: block; width: 100%"></div>
+    <div style="display: inline-block; position: absolute; right: 16px; bottom: 10px;">
+        <button onclick="exportSourceTemplate();">@saveButton@</button> <button onclick="closeExportDialog();">@cancelButton@</button>
+    </div>
+</div>

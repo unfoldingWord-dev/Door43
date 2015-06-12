@@ -1,0 +1,17 @@
+Bună ziua!
+
+Paginile din numele de spațiu @PAGE@ al @TITLE@ wiki s-au modificat.
+Acestea sunt modificările:
+
+--------------------------------------------------------
+@DIFF@
+--------------------------------------------------------
+
+Pentru a anula notificarea paginii, logați-vă pe wiki la
+@DOKUWIKIURL@ apoi navigați la
+@SUBSCRIBE@
+și dezabonați-vă de la pagină și/sau modificările numelui de spațiu.
+
+--
+Acest mail a fost generat de DokuWiki la
+@DOKUWIKIURL@

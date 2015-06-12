@@ -1,0 +1,8 @@
+# General Plugin Info do not edit
+
+author Aurelien Bompard
+email  aurelien@bompard.org
+date   2008-02-26
+name   Fields plugin
+desc   Store and recall user-defined fields
+url    http://wiki.splitbrain.org/plugin:fields

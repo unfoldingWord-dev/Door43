@@ -1,0 +1,42 @@
+div.dokuwiki form.slackinvite_plugin {
+    width: 100%;
+    text-align: left;
+    display: block;
+}
+
+div.dokuwiki form.slackinvite_plugin fieldset {
+    width: auto;
+    display: inline;
+    text-align: left;
+    font-weight: bold;
+}
+
+div.dokuwiki form.slackinvite_plugin label {
+    float: left;
+    display: block;
+    margin: 5px;
+}
+
+div.dokuwiki form.slackinvite_plugin label span {
+    text-align: right;
+    width: 20em;
+    display: block;
+    float: left;
+}
+
+div.dokuwiki form.slackinvite_plugin label input {
+    display: inline;
+    margin-left: 5px;
+}
+
+div.dokuwiki form.slackinvite_plugin input.button {
+    float: left;
+    display: block;
+    margin: 5px;
+}
+
+div.dokuwiki form.slackinvite_plugin input.button {
+    float: left;
+    display: block;
+    margin: 5px;
+}
