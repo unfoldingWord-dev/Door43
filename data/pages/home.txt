@@ -1,0 +1,23 @@
+====== Setting Up Your Door43 ======
+
+This is the default home page for Door43 testing environment that you will see before setting up your copy to be like production. Here are the steps you need to take:
+
+   1. Copy conf/acl.auth.php.dist to conf/acl.auth.php
+
+   2. Copy conf/users.auth.php.dist to conf/users.auth.php (you can now login as admin, password admin)
+
+   3. Edit conf/local.php and change
+
+<blockquote>$conf['datadir'] = './data/pages';
+
+$conf['mediadir'] = './data/media';
+</blockquote>
+
+to 
+ 
+<blockquote>$conf['datadir'] = './data/gitrepo/pages';
+
+$conf['mediadir'] = './data/gitrepo/media';
+</blockquote>
+
+   4. Go get the repos with git (more information to come)

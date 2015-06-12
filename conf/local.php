@@ -88,8 +88,10 @@ $conf['plugin']['tag']['list_tags_of_subns'] = 1;
 $conf['plugin']['authmysql']['TablesToLock'] = array();
 $conf['plugin']['gitbacked']['repoPath'] = './data/gitrepo';
 $conf['plugin']['gitbacked']['repoWorkDir'] = './data/gitrepo';
-$conf['datadir'] = './data/gitrepo/pages';
-$conf['mediadir'] = './data/gitrepo/media';
+$conf['datadir'] = './data/pages';
+$conf['mediadir'] = './data/media';
+#$conf['datadir'] = './data/gitrepo/pages';
+#$conf['mediadir'] = './data/gitrepo/media';
 
 // end auto-generated content
 

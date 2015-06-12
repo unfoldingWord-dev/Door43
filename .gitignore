@@ -1,6 +1,12 @@
-data/
+data/gitrepo/*
 obs-diffs/
 exports/
+data/cache/*
+data/index/*
+data/attic/*
+data/locks/*
+data/media_attic/*
+data/tmp/*
 
 conf/acl.auth.php
 conf/local_private.php
