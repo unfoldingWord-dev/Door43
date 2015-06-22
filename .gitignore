@@ -1,17 +1,6 @@
-data/gitrepo/media/*
-data/gitrepo/pages/*
-
-obs-diffs/
-exports/
-data/cache/*
-data/index/*
-data/attic/*
-data/locks/*
-data/media_attic/*
-data/tmp/*
-
 conf/acl.auth.php
 conf/local_private.php
+conf/plugins.local_private.php
 conf/users.auth.php
 
 .idea
