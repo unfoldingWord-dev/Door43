@@ -1,3 +1,6 @@
 [submodule "lib/plugins/enhancedindexer"]
 	path = lib/plugins/enhancedindexer
 	url = https://github.com/unfoldingWord-dev/dokuwiki-enhancedindexer
+[submodule "lib/plugins/pagequery"]
+	path = lib/plugins/pagequery
+	url = https://github.com/superdav42/pagequery
