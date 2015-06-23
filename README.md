@@ -23,4 +23,4 @@ cp conf/acl.auth.php.dist conf/acl.auth.php
 
 (The above two steps, 5 and 6, will soon be replaced with a bootstrap.php file that will set up submodules and config files and content)
 
-7) You can now go to http://<your.door43.domain>/home?do=login and login as admin, password admin
+7) You can now go to http://&lt;your.door43.domain&gt;/home?do=login and login as admin, password admin
