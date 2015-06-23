@@ -103,7 +103,21 @@ class action_plugin_door43obsdocupload_ExportButtons extends Door43_Action_Plugi
         $url = "https://api.unfoldingword.org/obs/txt/1/{$langCode}/obs-{$langCode}.json";
         $raw = file_get_contents($url);
         $obs = json_decode($raw, true);
-        $markdown = '';
+
+        // get the front matter
+        $url = "https://api.unfoldingword.org/obs/txt/1/{$langCode}/obs-{$langCode}-front-matter.json";
+        $raw = file_get_contents($url);
+        if (($raw === false) && ($langCode != 'en')) {
+            $url = "https://api.unfoldingword.org/obs/txt/1/en/obs-en-front-matter.json";
+            $raw = file_get_contents($url);
+        }
+        $frontMatter = json_decode($raw, true);
+
+        // now put it all together
+        $markdown = $frontMatter['name'] . "\n";
+        $markdown .= str_repeat('=', strlen($frontMatter['name'])) . "\n\n";
+        $markdown .= $frontMatter['front-matter'] . "\n\n";
+        $markdown .= "-----\n\n";
 
         // get the images, download if requested to be included
         $images = array();
