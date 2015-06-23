@@ -6,3 +6,4 @@ conf/users.auth.php
 .idea
 
 conf/plugins.local.php.bak
+conf/local.php.bak
