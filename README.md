@@ -14,7 +14,7 @@ To setup:
 4) Make sure that your web server's process has write access to the conf and data directories and all files and subdirectories
 
 5) Setup the submodules, such as enhancedindexer and pagequery, by running the following commands:
-git submodule init
+git submodule init<br/>
 git submodule update
 
 6) Setup your user and acl config files by copying the .dist config files to their regular names:
