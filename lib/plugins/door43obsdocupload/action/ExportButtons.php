@@ -21,6 +21,25 @@ $door43shared->loadAjaxHelper();
 
 class action_plugin_door43obsdocupload_ExportButtons extends Door43_Action_Plugin {
 
+    private $tempDir;
+
+    public function __destruct() {
+
+        // cleanup
+        if (!empty($this->tempDir)) {
+
+            /* @var $door43shared helper_plugin_door43shared */
+            global $door43shared;
+
+            // $door43shared is a global instance, and can be used by any of the door43 plugins
+            if (empty($door43shared)) {
+                $door43shared = plugin_load('helper', 'door43shared');
+            }
+
+            $door43shared->delete_directory_and_files($this->tempDir);
+        }
+    }
+
     /**
      * Registers a callback function for a given event
      *
@@ -57,7 +76,7 @@ class action_plugin_door43obsdocupload_ExportButtons extends Door43_Action_Plugi
 
         $html = file_get_contents(dirname(dirname(__FILE__)) . '/templates/obs_export_buttons.html');
 
-        echo $this->translateHtml($html, $this->lang);
+        echo $this->translateHtml($html);
     }
 
     public function get_obs_doc_export_dlg() {
@@ -82,8 +101,8 @@ class action_plugin_door43obsdocupload_ExportButtons extends Door43_Action_Plugi
         // https://api.unfoldingword.org/obs/jpg/1/en/360px/obs-en-01-01.jpg
         // /var/www/vhosts/api.unfoldingword.org/httpdocs/obs/jpg/1/en/360px/obs-en-01-01.jpg
         $file_name = str_replace('https://api.unfoldingword.org/obs/',
-                                 '/var/www/vhosts/api.unfoldingword.org/httpdocs/obs/',
-                                 $url);
+            '/var/www/vhosts/api.unfoldingword.org/httpdocs/obs/',
+            $url);
 
         return (is_file($file_name)) ? $file_name : '';
     }
@@ -157,14 +176,12 @@ class action_plugin_door43obsdocupload_ExportButtons extends Door43_Action_Plugi
             $increment++;
         }
 
-        $tempDir = $tempDir . DIRECTORY_SEPARATOR . $increment;
-        mkdir($tempDir, 0755, true);
-
+        $tempDir = $this->get_temp_dir();
         $markdownFile = $tempDir . DIRECTORY_SEPARATOR . 'obs.md';
-        $docxFile = $tempDir . DIRECTORY_SEPARATOR . 'obs.docx';
         file_put_contents($markdownFile, $markdown);
 
         // convert to docx with pandoc
+        $docxFile = $tempDir . DIRECTORY_SEPARATOR . 'obs.docx';
         $cmd = "/usr/bin/pandoc \"$markdownFile\" -s -f markdown -t docx  -o \"$docxFile\"";
         exec($cmd, $output, $error);
 
@@ -184,16 +201,25 @@ class action_plugin_door43obsdocupload_ExportButtons extends Door43_Action_Plugi
             header('Content-Type: text/plain');
             echo $this->getLang('docxFileCreateError');
         }
+    }
 
-        // cleanup
-        /* @var $door43shared helper_plugin_door43shared */
-        global $door43shared;
+    private function get_temp_dir() {
 
-        // $door43shared is a global instance, and can be used by any of the door43 plugins
-        if (empty($door43shared)) {
-            $door43shared = plugin_load('helper', 'door43shared');
+        if (empty($this->tempDir)) {
+
+            $increment = 0;
+            $dir = sys_get_temp_dir() . DIRECTORY_SEPARATOR . 'obs2docx';
+
+            while (is_dir($dir . DIRECTORY_SEPARATOR . $increment)) {
+                $increment++;
+            }
+
+            $dir = $dir . DIRECTORY_SEPARATOR . $increment;
+            mkdir($dir, 0755, true);
+
+            $this->tempDir = $dir;
         }
 
-        $door43shared->delete_directory_and_files($tempDir);
+        return $this->tempDir;
     }
 }
