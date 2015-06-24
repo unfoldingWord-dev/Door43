@@ -10,3 +10,6 @@
 [submodule "lib/plugins/nsmsg"]
 	path = lib/plugins/nsmsg
 	url = https://github.com/unfoldingWord-dev/nsmsg
+[submodule "lib/plugins/usfmtag"]
+	path = lib/plugins/usfmtag
+	url = https://github.com/unfoldingWord-dev/Dokuwiki-USFMTag
