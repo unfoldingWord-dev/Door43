@@ -7,3 +7,6 @@
 [submodule "lib/plugins/gitcommit"]
 	path = lib/plugins/gitcommit
 	url = https://github.com/unfoldingWord-dev/dw-gitcommit
+[submodule "lib/plugins/nsmsg"]
+	path = lib/plugins/nsmsg
+	url = https://github.com/unfoldingWord-dev/nsmsg
