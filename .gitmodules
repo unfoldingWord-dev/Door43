@@ -4,3 +4,6 @@
 [submodule "lib/plugins/pagequery"]
 	path = lib/plugins/pagequery
 	url = https://github.com/superdav42/pagequery
+[submodule "lib/plugins/gitcommit"]
+	path = lib/plugins/gitcommit
+	url = https://github.com/unfoldingWord-dev/dw-gitcommit
