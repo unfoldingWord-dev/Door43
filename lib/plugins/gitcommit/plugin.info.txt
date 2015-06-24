@@ -1,7 +1,0 @@
-base   gitcommit
-author Dave Pearce
-email  dave@distantshores.org
-date   2014-09-01
-name   gitcommit plugin
-desc   Adds, commits, pushes and pulls the file just changed
-url    http://www.distantshores.org

@@ -4,3 +4,12 @@
 [submodule "lib/plugins/pagequery"]
 	path = lib/plugins/pagequery
 	url = https://github.com/superdav42/pagequery
+[submodule "lib/plugins/gitcommit"]
+	path = lib/plugins/gitcommit
+	url = https://github.com/unfoldingWord-dev/dw-gitcommit
+[submodule "lib/plugins/nsmsg"]
+	path = lib/plugins/nsmsg
+	url = https://github.com/unfoldingWord-dev/nsmsg
+[submodule "lib/plugins/usfmtag"]
+	path = lib/plugins/usfmtag
+	url = https://github.com/unfoldingWord-dev/Dokuwiki-USFMTag
