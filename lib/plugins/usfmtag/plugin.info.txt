@@ -1,7 +1,0 @@
-base   usfmtag
-author Yvonne
-email  yvonne@leapinglaptop.com
-date   2013-10-18
-name   usfmtag plugin
-desc   A text filter that converts USFM Scripture Text to HTML in Dokuwiki
-url    http://www.leapinglaptop.com/
