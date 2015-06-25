@@ -1,5 +1,5 @@
 base   door43obsaudioupload
-author unfoldingWord.org
+author Phil Hopper
 email  https://unfoldingword.org/contact/
 date   2014-12-19
 name   Door43 OBS Audio Upload plugin
