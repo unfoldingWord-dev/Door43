@@ -1,0 +1,15 @@
+Configure Open Bible Stories.
+
+The source language is using the default label text from /lang/en/lang.php
+
+[obssourcelang/]
+
+The destination language is using custom text for the label
+
+[obsdestinationlang]Please choose a destination language: [/obsdestinationlang]
+
+Select a source and destination language, then click this button
+
+[obscreatenow/]
+
+
