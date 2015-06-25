@@ -18,9 +18,13 @@ git submodule init<br/>
 git submodule update
 
 6) Setup your user and acl config files by copying the .dist config files to their regular names:<br/>
-cp conf/users.auth.php.dist conf/users.auth.php<br/>
-cp conf/acl.auth.php.dist conf/acl.auth.php
+cp conf/users.auth.php.dev conf/users.auth.php<br/>
+cp conf/acl.auth.php.dev conf/acl.auth.php
 
-(The above two steps, 5 and 6, will soon be replaced with a bootstrap.php file that will set up submodules and config files and content)
+7) Put other config files in place (this have different settings on production):
+cp conf/local.php.dev conf/local.php
+cp conf/plugin.local.php.dev conf/local.php
 
-7) You can now go to http://&lt;your.door43.domain&gt;/home?do=login and login as admin, password admin.
+(The above three steps, 5 thru 7, will soon be replaced with a bootstrap.php file that will set up submodules and config files and content)
+
+8) You can now go to http://&lt;your.door43.domain&gt;/home?do=login and login as admin, password admin.
