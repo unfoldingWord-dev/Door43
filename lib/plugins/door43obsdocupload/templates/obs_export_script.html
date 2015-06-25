@@ -29,14 +29,12 @@
 
     jQuery().ready(function() {
 
-        var tools = jQuery('body').find('#dokuwiki__pagetools').find('div.tools ul');
-        var btn = jQuery('<li><a href="#" class="action tx-export">@getTemplate@</a></li>');
+        var btn = jQuery('#getObsTemplateBtn');
 
-        btn.on('click', function(event) {
+        btn.on('click', function() {
 
             // if we don't remove focus, the button appears to be stuck
-            jQuery(event.target).blur();
-            event.preventDefault();
+            jQuery(this).children().blur();
 
             jQuery('#door43ObsExportDiv').dialog({
                 height: 360,
@@ -93,7 +91,6 @@
                 }
             });
         });
-        tools.append(btn);
     });
 
     function closeExportDialog() {
