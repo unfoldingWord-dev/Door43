@@ -23,6 +23,12 @@ class action_plugin_door43obsdocupload_ExportButtons extends Door43_Action_Plugi
 
     private $tempDir;
 
+    /**
+     * possible values: -1 = not set, 0 = false, 1 = true
+     * @var int
+     */
+    private $showButton = -1;
+
     public function __destruct() {
 
         // cleanup
@@ -47,36 +53,68 @@ class action_plugin_door43obsdocupload_ExportButtons extends Door43_Action_Plugi
      * @return void
      */
     public function register(Doku_Event_Handler $controller) {
-        $controller->register_hook('TPL_ACT_RENDER', 'AFTER', $this, 'handle_obs_action');
+        $controller->register_hook('TPL_ACT_RENDER', 'AFTER', $this, 'load_pagetools_script');
+        $controller->register_hook('TEMPLATE_PAGETOOLS_DISPLAY', 'BEFORE', $this, 'add_button');
         Door43_Ajax_Helper::register_handler($controller, 'get_obs_doc_export_dlg', array($this, 'get_obs_doc_export_dlg'));
         Door43_Ajax_Helper::register_handler($controller, 'download_obs_template_docx', array($this, 'download_obs_template_docx'));
     }
 
+    private function showToolstripButton() {
+
+        if ($this->showButton == -1) {
+
+            global $INFO;
+
+            $parts = explode(':', strtolower($INFO['id']));
+
+            // If this is an OBS request, the id will have these parts:
+            // [0] = language code / namespace
+            // [1] = 'obs'
+            // [2] = story number '01' - '50'
+            if (count($parts) < 2)
+                $this->showButton = 0;
+            elseif ($parts[1] !== 'obs')
+                $this->showButton = 0;
+            elseif (isset($parts[2]) && (preg_match('/^[0-9][0-9]$/', $parts[2]) !== 1))
+                $this->showButton = 0;
+            else
+                $this->showButton = 1;
+        }
+
+        return $this->showButton;
+    }
     /**
-     * This adds a button to the right-hand tool strip on OBS pages.
+     * This the script for the button in the right-hand tool strip on OBS pages.
      * @param Doku_Event $event  event object by reference
      * @param mixed $param  [the parameters passed as fifth argument to register_hook() when this handler was registered]
      * @return void
      */
-    public function handle_obs_action(Doku_Event &$event, /** @noinspection PhpUnusedParameterInspection */ $param) {
+    public function load_pagetools_script(Doku_Event &$event, /** @noinspection PhpUnusedParameterInspection */ $param) {
 
         if ($event->data !== 'show') return;
 
-        global $INFO;
+        if ($this->showToolstripButton() !== 1) return;
 
-        $parts = explode(':', strtolower($INFO['id']));
+        $html = file_get_contents(dirname(dirname(__FILE__)) . '/templates/obs_export_script.html');
 
-        // If this is an OBS request, the id will have these parts:
-        // [0] = language code / namespace
-        // [1] = 'obs'
-        // [2] = story number '01' - '50'
-        if (count($parts) < 2) return;
-        if ($parts[1] !== 'obs') return;
-        if (isset($parts[2]) && (preg_match('/^[0-9][0-9]$/', $parts[2]) !== 1)) return;
-
-        $html = file_get_contents(dirname(dirname(__FILE__)) . '/templates/obs_export_buttons.html');
+        // remove the initial doc comments
+        $html = preg_replace('/^\<!--(.|\n)*--\>(\n)/', '', $html, 1);
 
         echo $this->translateHtml($html);
+    }
+
+    /**
+     * Add 'Get template' button to the right-hand tool strip on OBS pages.
+     *
+     * @param Doku_Event $event
+     */
+    public function add_button(Doku_Event $event) {
+
+        if ($this->showToolstripButton() !== 1) return;
+
+        $btn = '<li id="getObsTemplateBtn"><a href="#" class=" tx-export" rel="nofollow" ><span>' . $this->getLang('getTemplate') . '</span></a></li>';
+
+        $event->data['items']['export_obs_template'] = $btn;
     }
 
     public function get_obs_doc_export_dlg() {
@@ -98,8 +136,8 @@ class action_plugin_door43obsdocupload_ExportButtons extends Door43_Action_Plugi
 
     private function get_image_file_from_url($url) {
 
-        // https://api.unfoldingword.org/obs/jpg/1/en/360px/obs-en-01-01.jpg
-        // /var/www/vhosts/api.unfoldingword.org/httpdocs/obs/jpg/1/en/360px/obs-en-01-01.jpg
+        // URL for hyperlinks: https://api.unfoldingword.org/obs/jpg/1/en/360px/obs-en-01-01.jpg
+        // Location on disk: /var/www/vhosts/api.unfoldingword.org/httpdocs/obs/jpg/1/en/360px/obs-en-01-01.jpg
         $file_name = str_replace('https://api.unfoldingword.org/obs/',
             '/var/www/vhosts/api.unfoldingword.org/httpdocs/obs/',
             $url);
