@@ -32,7 +32,7 @@ flush();
 <?php
 echo 'Putting config files in place...<br/>';
 echo `cp conf/local.php.dev conf/local.php`;
-echo `cp conf/plugins.local.php.dev conf/plugin.local.php`;
+echo `cp conf/plugins.local.php.dev conf/plugins.local.php`;
 echo `cp conf/acl.auth.php.dev conf/acl.auth.php`;
 echo `cp conf/users.auth.php.dev conf/users.auth.php`;
 
