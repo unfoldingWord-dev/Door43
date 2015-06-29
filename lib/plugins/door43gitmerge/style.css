@@ -1,0 +1,162 @@
+/**
+ * merge styles
+ */
+
+/* merge badge */
+#dokuwiki__pagetools ul li[data-badge] {
+    position: relative;
+}
+#dokuwiki__pagetools ul li[data-badge]::after {
+    content: attr(data-badge);
+    position: absolute;
+    bottom: -1px;
+    right: 0;
+    min-width: 12px;
+    height: 12px;
+    line-height: 12px;
+    font-size: 10px;
+    background-color: #c00;
+    color: #fff;
+    text-align: center;
+    border-radius: 7px;
+}
+#dokuwiki__pagetools ul li[data-badge=""]::after {
+    display: none;
+}
+
+/* merge icon */
+#dokuwiki__pagetools ul li a.merge {
+    background-position: right 0;
+}
+#dokuwiki__pagetools ul li a.merge::before {
+    content: url(pagetools-merge.png);
+    width: 30px;
+    background-color: #fbfaf9;
+}
+#dokuwiki__pagetools:hover ul li a.merge,
+#dokuwiki__pagetools ul li a.merge:focus,
+#dokuwiki__pagetools ul li a.merge:active {
+    background-image: url(pagetools-merge.png);
+}
+#dokuwiki__pagetools ul li a.merge:hover,
+#dokuwiki__pagetools ul li a.merge:active,
+#dokuwiki__pagetools ul li a.merge:focus {
+    background-position: right -45px;
+}
+
+/* merge interface */
+/** /
+.frame:not(.needs-merge) {
+  display: none;
+}
+.needs-merge .versions::before {
+  content: 'Click on the best translation for this frame:';
+  display: inline-block;
+  font-weight: bold;
+  margin-bottom: 1em;
+}
+.needs-merge .versions {
+  margin-bottom: 2em;
+}
+.needs-merge .versions label::before {
+  text-align: right;
+  position: absolute;
+  top: -8px;
+  font-size: 10px;
+  line-height: 14px;
+  padding: 0 .5em;
+  background: #ccc;
+}
+.needs-merge .ver-current::before {
+  content: 'Current Version';
+}
+.needs-merge .ver-new::before {
+  content: attr(data-user-name) '\'s Version';
+}
+.versions input {
+  position: absolute;
+  left: -9999px;
+}
+.needs-merge .versions label {
+  display: block;
+  position: relative;
+  border: solid 2px #ccc;
+  background: #fff;
+  margin-bottom: 1em;
+  padding: .5em;
+}
+.needs-merge .versions label p:last-child {
+  margin-bottom: 0;
+}
+.needs-merge .versions input:checked+label {
+  border-color: #9f9;
+  background: #cfc;
+}
+.needs-merge .versions input:checked+label::before {
+  background: #9f9;
+}
+/**/
+
+.frame-diffs>.table:not(.show) {
+  position: absolute;
+  height: 0;
+  overflow: hidden;
+  left: -9999px;
+}
+.door43gitmerge-actions {
+  display: block;
+  padding: .5em .5em 1.5em;
+  text-align: right;
+}
+.mode-edit .door43gitmerge-action-interface,
+.door43gitmerge-content,
+.door43gitmerge-edit-interface {
+  display: none;
+}
+.mode-edit .door43gitmerge-content,
+.mode-edit .door43gitmerge-edit-interface {
+  display: inline-block;
+}
+.door43gitmerge-content {
+  width: 100%;
+  margin-top: .5em;
+}
+.frame {
+  position: relative;
+  margin: 10px 0;
+  padding-top: 1em;
+}
+.frame+.frame:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  border-top: solid 1px #eee;
+}
+.frame.disabled::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  background: rgba(0,0,0,.25);
+}
+.frame-content-container {
+  position: relative;
+}
+.frame-content-container::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: 0;
+  bottom: -10px;
+  right: 0;
+  border-bottom: solid 1px #ccc;
+}
+.frame-version-selection {
+  padding: 1.5em 0 1em;
+  text-align: center;
+  font-weight: bold;
+}
