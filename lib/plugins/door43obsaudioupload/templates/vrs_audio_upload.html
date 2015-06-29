@@ -1,0 +1,51 @@
+<!--
+* Name: vrs_audio_upload.html
+* Description: The html that implements the UI for the VrsAudioUpload plugin.
+*
+* This comment block will be removed by the plugin before rendering.
+*
+* Author: Phil Hopper
+* Date:   2015-01-04
+-->
+<script type="text/template" id="qq-template">
+    <div class="qq-uploader-selector qq-uploader">
+        <div style="float: left; margin-bottom: 8px;">
+            <select id="obsaudioupload-select-chapter">
+                <option value="" selected="selected" disabled="disabled">@selectChapter@</option>
+            </select>
+        </div>
+        <div style="float: right;" class="qq-upload-drop-area-selector qq-upload-drop-area" >
+            <span>@dropFilesHere@</span>
+        </div>
+        <div style="clear: both"></div>
+        <span class="qq-drop-processing-selector qq-drop-processing">
+            <span>@processingFiles@</span>
+            <span class="qq-drop-processing-spinner-selector qq-drop-processing-spinner"></span>
+        </span>
+        <div id="obsaudioupload-page-list-div" style="overflow: hidden;">
+            <ul id="obsaudioupload-pages" style="float: left; padding-right: 4px; clear: both;" class="qq-upload-list">
+            </ul>
+            <ul id="obsaudioupload-files" style="overflow: auto;" class="obsaudioupload-sortable qq-upload-list-selector qq-upload-list">
+                <li class="obsaudioupload-draggable">
+                    <div class="qq-progress-bar-container-selector">
+                        <div class="qq-progress-bar-selector qq-progress-bar"></div>
+                    </div>
+                    <span class="qq-upload-spinner-selector qq-upload-spinner"></span>
+                    <span class="qq-upload-file-selector qq-upload-file"></span>
+                    <span class="qq-upload-size-selector qq-upload-size"></span>
+                    <span class="obsaudioupload-remove qq-upload-cancel-selector qq-upload-cancel" title="Remove">&#x2717;</span>
+                    <span class="qq-upload-status-text-selector qq-upload-status-text"></span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</script>
+<div class="obsaudioupload-not-logged-in" style="display: none;">
+    <p class="obsaudioupload-error">@loginRequired@</p>
+</div>
+<div class="obsaudioupload-logged-in" style="display: none; box-sizing: border-box; width: 100%; text-align: right;">
+    <div style="margin-bottom: 8px;"><!-- insert language selector here --></div>
+    <div id="obsaudioupload-selectButton"><button>@selectFiles@</button></div>
+    <div style="margin-top: 8px;"><button id="obsaudioupload-uploadButton">@uploadFiles@</button></div>
+</div>
+<div style="margin-top: 8px;" id="obs-fine-uploader"></div>

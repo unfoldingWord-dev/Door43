@@ -1,0 +1,3 @@
+====== Comparer ======
+
+This page helps determine if a frame of a chapter has been translated at the expected length.

@@ -1,5 +1,0 @@
-<?php
-/*
- * Plugin settings in this file will override plugin settings in the plugin.local.php file.
- */
-$plugins['gitcommit'] = 1;

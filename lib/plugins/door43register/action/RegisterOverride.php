@@ -124,7 +124,7 @@ class action_plugin_door43register_RegisterOverride extends DokuWiki_Action_Plug
 
     protected function getButton() {
 
-        $buttonText = file_get_contents(dirname(dirname(__FILE__)) . '/private/html/translate_button.html');
+        $buttonText = file_get_contents(dirname(dirname(__FILE__)) . '/templates/translate_button.html');
 
         // remove suppress comments
         $buttonText = preg_replace('/\<!--(\s)*suppress(.)*--\>(\n)/', '', $buttonText, 1);

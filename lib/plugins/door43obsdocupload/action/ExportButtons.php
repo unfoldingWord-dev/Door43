@@ -21,6 +21,31 @@ $door43shared->loadAjaxHelper();
 
 class action_plugin_door43obsdocupload_ExportButtons extends Door43_Action_Plugin {
 
+    private $tempDir;
+
+    /**
+     * possible values: -1 = not set, 0 = false, 1 = true
+     * @var int
+     */
+    private $showButton = -1;
+
+    public function __destruct() {
+
+        // cleanup
+        if (!empty($this->tempDir)) {
+
+            /* @var $door43shared helper_plugin_door43shared */
+            global $door43shared;
+
+            // $door43shared is a global instance, and can be used by any of the door43 plugins
+            if (empty($door43shared)) {
+                $door43shared = plugin_load('helper', 'door43shared');
+            }
+
+            $door43shared->delete_directory_and_files($this->tempDir);
+        }
+    }
+
     /**
      * Registers a callback function for a given event
      *
@@ -28,36 +53,68 @@ class action_plugin_door43obsdocupload_ExportButtons extends Door43_Action_Plugi
      * @return void
      */
     public function register(Doku_Event_Handler $controller) {
-        $controller->register_hook('TPL_ACT_RENDER', 'AFTER', $this, 'handle_obs_action');
+        $controller->register_hook('TPL_ACT_RENDER', 'AFTER', $this, 'load_pagetools_script');
+        $controller->register_hook('TEMPLATE_PAGETOOLS_DISPLAY', 'BEFORE', $this, 'add_button');
         Door43_Ajax_Helper::register_handler($controller, 'get_obs_doc_export_dlg', array($this, 'get_obs_doc_export_dlg'));
         Door43_Ajax_Helper::register_handler($controller, 'download_obs_template_docx', array($this, 'download_obs_template_docx'));
     }
 
+    private function showToolstripButton() {
+
+        if ($this->showButton == -1) {
+
+            global $INFO;
+
+            $parts = explode(':', strtolower($INFO['id']));
+
+            // If this is an OBS request, the id will have these parts:
+            // [0] = language code / namespace
+            // [1] = 'obs'
+            // [2] = story number '01' - '50'
+            if (count($parts) < 2)
+                $this->showButton = 0;
+            elseif ($parts[1] !== 'obs')
+                $this->showButton = 0;
+            elseif (isset($parts[2]) && (preg_match('/^[0-9][0-9]$/', $parts[2]) !== 1))
+                $this->showButton = 0;
+            else
+                $this->showButton = 1;
+        }
+
+        return $this->showButton;
+    }
     /**
-     * This adds a button to the right-hand tool strip on OBS pages.
+     * This the script for the button in the right-hand tool strip on OBS pages.
      * @param Doku_Event $event  event object by reference
      * @param mixed $param  [the parameters passed as fifth argument to register_hook() when this handler was registered]
      * @return void
      */
-    public function handle_obs_action(Doku_Event &$event, /** @noinspection PhpUnusedParameterInspection */ $param) {
+    public function load_pagetools_script(Doku_Event &$event, /** @noinspection PhpUnusedParameterInspection */ $param) {
 
         if ($event->data !== 'show') return;
 
-        global $INFO;
+        if ($this->showToolstripButton() !== 1) return;
 
-        $parts = explode(':', strtolower($INFO['id']));
+        $html = file_get_contents(dirname(dirname(__FILE__)) . '/templates/obs_export_script.html');
 
-        // If this is an OBS request, the id will have these parts:
-        // [0] = language code / namespace
-        // [1] = 'obs'
-        // [2] = story number '01' - '50'
-        if (count($parts) < 2) return;
-        if ($parts[1] !== 'obs') return;
-        if (isset($parts[2]) && (preg_match('/^[0-9][0-9]$/', $parts[2]) !== 1)) return;
+        // remove the initial doc comments
+        $html = preg_replace('/^\<!--(.|\n)*--\>(\n)/', '', $html, 1);
 
-        $html = file_get_contents(dirname(dirname(__FILE__)) . '/templates/obs_export_buttons.html');
+        echo $this->translateHtml($html);
+    }
 
-        echo $this->translateHtml($html, $this->lang);
+    /**
+     * Add 'Get template' button to the right-hand tool strip on OBS pages.
+     *
+     * @param Doku_Event $event
+     */
+    public function add_button(Doku_Event $event) {
+
+        if ($this->showToolstripButton() !== 1) return;
+
+        $btn = '<li id="getObsTemplateBtn"><a href="#" class=" tx-export" rel="nofollow" ><span>' . $this->getLang('getTemplate') . '</span></a></li>';
+
+        $event->data['items']['export_obs_template'] = $btn;
     }
 
     public function get_obs_doc_export_dlg() {
@@ -79,11 +136,11 @@ class action_plugin_door43obsdocupload_ExportButtons extends Door43_Action_Plugi
 
     private function get_image_file_from_url($url) {
 
-        // https://api.unfoldingword.org/obs/jpg/1/en/360px/obs-en-01-01.jpg
-        // /var/www/vhosts/api.unfoldingword.org/httpdocs/obs/jpg/1/en/360px/obs-en-01-01.jpg
+        // URL for hyperlinks: https://api.unfoldingword.org/obs/jpg/1/en/360px/obs-en-01-01.jpg
+        // Location on disk: /var/www/vhosts/api.unfoldingword.org/httpdocs/obs/jpg/1/en/360px/obs-en-01-01.jpg
         $file_name = str_replace('https://api.unfoldingword.org/obs/',
-                                 '/var/www/vhosts/api.unfoldingword.org/httpdocs/obs/',
-                                 $url);
+            '/var/www/vhosts/api.unfoldingword.org/httpdocs/obs/',
+            $url);
 
         return (is_file($file_name)) ? $file_name : '';
     }
@@ -103,7 +160,21 @@ class action_plugin_door43obsdocupload_ExportButtons extends Door43_Action_Plugi
         $url = "https://api.unfoldingword.org/obs/txt/1/{$langCode}/obs-{$langCode}.json";
         $raw = file_get_contents($url);
         $obs = json_decode($raw, true);
-        $markdown = '';
+
+        // get the front matter
+        $url = "https://api.unfoldingword.org/obs/txt/1/{$langCode}/obs-{$langCode}-front-matter.json";
+        $raw = file_get_contents($url);
+        if (($raw === false) && ($langCode != 'en')) {
+            $url = "https://api.unfoldingword.org/obs/txt/1/en/obs-en-front-matter.json";
+            $raw = file_get_contents($url);
+        }
+        $frontMatter = json_decode($raw, true);
+
+        // now put it all together
+        $markdown = $frontMatter['name'] . "\n";
+        $markdown .= str_repeat('=', strlen($frontMatter['name'])) . "\n\n";
+        $markdown .= $frontMatter['front-matter'] . "\n\n";
+        $markdown .= "-----\n\n";
 
         // get the images, download if requested to be included
         $images = array();
@@ -143,14 +214,12 @@ class action_plugin_door43obsdocupload_ExportButtons extends Door43_Action_Plugi
             $increment++;
         }
 
-        $tempDir = $tempDir . DIRECTORY_SEPARATOR . $increment;
-        mkdir($tempDir, 0755, true);
-
+        $tempDir = $this->get_temp_dir();
         $markdownFile = $tempDir . DIRECTORY_SEPARATOR . 'obs.md';
-        $docxFile = $tempDir . DIRECTORY_SEPARATOR . 'obs.docx';
         file_put_contents($markdownFile, $markdown);
 
         // convert to docx with pandoc
+        $docxFile = $tempDir . DIRECTORY_SEPARATOR . 'obs.docx';
         $cmd = "/usr/bin/pandoc \"$markdownFile\" -s -f markdown -t docx  -o \"$docxFile\"";
         exec($cmd, $output, $error);
 
@@ -170,16 +239,25 @@ class action_plugin_door43obsdocupload_ExportButtons extends Door43_Action_Plugi
             header('Content-Type: text/plain');
             echo $this->getLang('docxFileCreateError');
         }
+    }
 
-        // cleanup
-        /* @var $door43shared helper_plugin_door43shared */
-        global $door43shared;
+    private function get_temp_dir() {
 
-        // $door43shared is a global instance, and can be used by any of the door43 plugins
-        if (empty($door43shared)) {
-            $door43shared = plugin_load('helper', 'door43shared');
+        if (empty($this->tempDir)) {
+
+            $increment = 0;
+            $dir = sys_get_temp_dir() . DIRECTORY_SEPARATOR . 'obs2docx';
+
+            while (is_dir($dir . DIRECTORY_SEPARATOR . $increment)) {
+                $increment++;
+            }
+
+            $dir = $dir . DIRECTORY_SEPARATOR . $increment;
+            mkdir($dir, 0755, true);
+
+            $this->tempDir = $dir;
         }
 
-        $door43shared->delete_directory_and_files($tempDir);
+        return $this->tempDir;
     }
 }

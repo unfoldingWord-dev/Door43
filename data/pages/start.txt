@@ -1,0 +1,4 @@
+
+
+**Please run /boostrap.php to finish setting up your Door43...**
+

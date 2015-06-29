@@ -14,6 +14,11 @@ if (!defined('DS')) define('DS', DIRECTORY_SEPARATOR);
 class helper_plugin_door43shared extends DokuWiki_Plugin {
 
     /**
+     * @var door43Cache
+     */
+    private static $cache;
+
+    /**
      * Initialize
      */
     function helper_plugin_door43shared() {
@@ -64,5 +69,13 @@ class helper_plugin_door43shared extends DokuWiki_Plugin {
             else unlink("$dir/$file");
         }
         rmdir($dir);
+    }
+
+    public function getCache() {
+        require_once 'cache.php';
+        if (empty(self::$cache)) {
+            self::$cache = door43Cache::getInstance();
+        }
+        return self::$cache;
     }
 }
