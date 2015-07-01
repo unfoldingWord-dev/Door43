@@ -1,0 +1,39 @@
+#!/bin/sh
+#
+# This hook should be placed in a bare tS translation repository and will deploy the 
+# repository to the correct location on the file system and notify the gitmerge plugin
+# that updates are available.
+#
+# Change ROOTTREE to whatever directory you would like the repositories cloned to.
+#
+ 
+ROOTTREE=/var/lib/deployed_repositories
+
+# get repository name
+if [ $(git rev-parse --is-bare-repository) = true ]
+then
+  REPOSITORY_BASENAME=$(basename "$PWD")
+  REPOSITORY_BASENAME=${REPOSITORY_BASENAME%.git}
+else
+  REPOSITORY_BASENAME=$(basename $(readlink -nf "$PWD"/..))
+fi
+
+WORKTREE=$ROOTTREE/$GL_REPO #$REPOSITORY_BASENAME
+DEPLOY_DIR=$WORKTREE
+
+# clone repository
+echo Deploying repository to $DEPLOY_DIR.
+
+mkdir -p $DEPLOY_DIR
+GIT_WORK_TREE=$DEPLOY_DIR git checkout master -f
+
+# trigger indexing
+echo Triggering translation indexing.
+
+# we have to read stdin in order to avoid
+# sideband demutiplexer error
+# more details here: http://bit.ly/PzbRwo
+while read oldrev newrev refname
+do
+:
+done

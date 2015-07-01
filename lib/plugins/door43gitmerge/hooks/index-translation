@@ -1,7 +1,13 @@
-#!/bin/bash
+#!/bin/sh
+#
+# This hook should be placed in a bare tS translation repository and will
+# notify the gitmerge plugin that updates are available.
+#
+# Change URL to the base DokuWiki url where the plugin is installed.
+#
 
 # set base DokuWiki URL
-URL=http://YOURSITE.COM
+URL=http://test.door43.org/
 
 # ***DO NOT CHANGE ANYTHING BELOW THIS LINE***
 
