@@ -27,9 +27,6 @@ echo Deploying repository to $DEPLOY_DIR.
 mkdir -p $DEPLOY_DIR
 GIT_WORK_TREE=$DEPLOY_DIR git checkout master -f
 
-# trigger indexing
-echo Triggering translation indexing.
-
 # we have to read stdin in order to avoid
 # sideband demutiplexer error
 # more details here: http://bit.ly/PzbRwo

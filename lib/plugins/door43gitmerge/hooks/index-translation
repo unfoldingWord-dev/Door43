@@ -11,6 +11,9 @@ URL=http://test.door43.org/
 
 # ***DO NOT CHANGE ANYTHING BELOW THIS LINE***
 
+# trigger indexing
+echo Triggering translation indexing.
+
 # parse variables from path
 PWD=$(pwd)
 
