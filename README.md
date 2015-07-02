@@ -1,5 +1,3 @@
-[![Travis](https://travis-ci.org/unfoldingWord-dev/Door43.svg)](https://travis-ci.org/unfoldingWord-dev/Door43)
-
 Door43 DokuWiki Code
 ====================
 

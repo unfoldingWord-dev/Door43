@@ -1,4 +1,4 @@
 
 
-**Please run /bootstrap.php to finish setting up your Door43...**
+**Please run /boostrap.php to finish setting up your Door43...**
 
