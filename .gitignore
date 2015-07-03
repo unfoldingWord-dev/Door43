@@ -7,3 +7,5 @@ conf/plugins.local.php.bak
 conf/local.php.bak
 
 .idea
+vendor/
+composer.*

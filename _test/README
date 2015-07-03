@@ -1,0 +1,75 @@
+====== DokuWiki Test Suite ======
+
+This is the test suite to automatically test various parts of DokuWiki.
+
+===== Requirements =====
+
+  * PHPUnit 3.6.10+ http://www.phpunit.de/
+  * PHP 5.3+ http://www.php.net
+
+===== PHPUnit Installation ======
+
+You can install phpunit through your distribution's package manager or simply
+download the newest phar file into the _test directory:
+
+  cd _test/
+  wget https://phar.phpunit.de/phpunit.phar
+
+
+===== Running all tests =====
+
+Just change to the ''_test'' directory and run phpunit (depending on your install
+method):
+
+  cd _test/
+  phpunit
+
+or
+
+  cd _test/
+  php phpunit.phar
+
+===== Troubleshooting =====
+
+PHPUnit will fail on some systems with a //headers already sent// error.
+This is a known problem with PHPUnit, the error can be avoided by passing the
+'--stderr' flag to phpunit:
+
+  phpunit --stderr
+
+On windows you may have to enable OpenSSL support for https tests.
+Some of them point to httpclient_http.tests.php on the failure.
+To enable HTTPS support copy the ''libeay32.dll'' and ''ssleay32.dll''
+to your ''windows\system32'' folder and add the following line to your php.ini
+in the extension section:
+
+<code ini>
+extension=php_openssl.dll
+</code>
+
+===== Running selected Tests =====
+
+You can run a single test file by providing it as an argument to phpunit:
+
+  phpunit tests/inc/common_cleanText.test.php
+
+You can also use groups to exclude certain test from running. For example use
+the following command to avoid long running test or tests accessing the
+Internet.
+
+  phpunit --exclude-group slow,internet
+
+===== Create new Tests =====
+
+To create a test for DokuWiki, create a *.test.php file within the tests/
+folder. Please respect the folder structure and naming convention. Inside the
+file, implement a class, extending 'DokuWikiTest'. Every method, starting
+with 'test' will be called as a test (e.g. 'testIfThisIsValid');
+
+===== TODO for the test framework =====
+
+  * optional: add helper methods to TestRequest for easy form submission
+    * createForm(), ...
+  * check PHP Unit test_helpers https://github.com/sebastianbergmann/php-test-helpers
+
+
