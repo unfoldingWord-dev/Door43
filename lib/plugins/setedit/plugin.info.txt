@@ -1,0 +1,5 @@
+base setedit
+author Yvonne Lu
+email yvonnel@leapinglaptop.com
+name setedit Plugin
+desc Allow users to set editor preference between dw and ckgedit
