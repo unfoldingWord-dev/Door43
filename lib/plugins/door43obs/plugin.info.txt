@@ -1,6 +1,6 @@
 base   door43obs
 author Phil Hopper
-email  https://unfoldingword.org/contact/
+email  phillip_hopper@wycliffeassociates.org
 date   2014-12-19
 name   door43obs plugin
 desc   Open Bible Stories support
