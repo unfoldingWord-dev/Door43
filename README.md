@@ -36,6 +36,13 @@ it to the repo: `git update-index --assume-unchanged .htaccess`)
 
 8. You can now go to http://&lt;your.door43.domain&gt;/home?do=login and login as admin, password admin.
 
+9. You can manually check out content for each language by cloning their repo into data/gitrepo/pages:
+  ```
+  cd Door43/data/gitrepo/pages
+  git clone git@github.com:Door43/d43-<LanguageCode>.git <LanguageCode>
+  (e.g: git clone git@github.com:Door43/d43-en.git en) 
+  ```
+
 Steps 5 thru 7 above will soon be replaced with a bootstrap.php file that will set up submodules and config files and content.
 
 
