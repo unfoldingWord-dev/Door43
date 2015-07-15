@@ -31,7 +31,7 @@ it to the repo: `git update-index --assume-unchanged .htaccess`)
 7. Put other config files in place (this have different settings on production):
   ```
   cp conf/local.php.dev conf/local.php
-  cp conf/plugin.local.php.dev conf/local.php
+  cp conf/plugins.local.php.dev conf/plugins.local.php
   ```
 
 8. You can now go to http://&lt;your.door43.domain&gt;/home?do=login and login as admin, password admin.
