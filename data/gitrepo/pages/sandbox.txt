@@ -1,7 +1,7 @@
 Begin our plugin output:
 -------
 
-{{chunkprogress>parm1=value1&parm2=value2&parm3=value3}}
+{{chunkprogress>page=hello}}
 
 -------
 End our plugin output
