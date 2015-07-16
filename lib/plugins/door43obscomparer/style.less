@@ -64,26 +64,31 @@
     border-color: #eed3d7;
 }
 
-/**
- * dw2pdf obs-comparer-pagetools-link pagetool icon
- */
+//#dokuwiki__pagetools ul li a.obs-comparer-pagetools-link:before {
+//  content: url(images/pagetools-sprite.png);
+//}
+//
+//#dokuwiki__pagetools ul li a.obs-comparer-pagetools-link:focus,
+//#dokuwiki__pagetools ul li a.obs-comparer-pagetools-link:active {
+//  background-image: url(images/pagetools-sprite.png);
+//}
 
-/* compare source icon */
 #dokuwiki__pagetools ul li a.obs-comparer-pagetools-link {
-  background-position: right -1080px;
-}
-#dokuwiki__pagetools ul li a.obs-comparer-pagetools-link:before {
-  content: url(images/pagetools-sprite.png);
-  margin-top: -1080px;
-}
-#dokuwiki__pagetools:hover ul li a.obs-comparer-pagetools-link,
-#dokuwiki__pagetools ul li a.obs-comparer-pagetools-link:focus,
-#dokuwiki__pagetools ul li a.obs-comparer-pagetools-link:active {
-  background-image: url(images/pagetools-sprite.png);
-}
-#dokuwiki__pagetools ul li a.obs-comparer-pagetools-link:hover,
-#dokuwiki__pagetools ul li a.obs-comparer-pagetools-link:active,
-#dokuwiki__pagetools ul li a.obs-comparer-pagetools-link:focus {
-  background-position: right -1125px;
+  background-position: right -270px;
+  &:before { margin-top: -270px; }
+  &:hover, &:active, &:focus { background-position: right -315px; }
 }
 
+.mode_revisions #dokuwiki__pagetools ul li a.obs-comparer-pagetools-link {
+  background-position: right -315px;
+  &:before { margin-top: -315px; }
+}
+
+[dir=rtl] #dokuwiki__pagetools ul li a.obs-comparer-pagetools-link {
+  background-position: left -270px;
+  &:hover, &:active, &:focus { background-position: left -315px; }
+}
+
+[dir=rtl] .mode_revisions #dokuwiki__pagetools ul li a.obs-comparer-pagetools-link {
+  background-position: left -315px;
+}
