@@ -31,11 +31,37 @@ class syntax_plugin_chunkprogress extends DokuWiki_Syntax_Plugin {
 
 
     function handle($match, $state, $pos, &$handler){
-        return "Hello world!2";
+        $params = array(
+            "page" => "(no page)"
+        );
+        return $params;
     }
 
-    function render($mode, &$renderer, $data) {
-        $renderer->unformatted($data);
+    function render($mode, &$renderer, $params) {
+        $renderer->table_open();
+        $renderer->tablerow_open();
+        $renderer->tablecell_open();
+        $renderer->strong_open();
+        $renderer->unformatted("Key");
+        $renderer->strong_close();
+        $renderer->tablecell_close();
+        $renderer->tablecell_open();
+        $renderer->strong_open();
+        $renderer->unformatted("Value");
+        $renderer->strong_close();
+        $renderer->tablerow_close();
+        $renderer->tablecell_close();
+        foreach ($params as $key => $value) {
+            $renderer->tablerow_open();
+            $renderer->tablecell_open();
+            $renderer->unformatted($key);
+            $renderer->tablecell_close();
+            $renderer->tablecell_open();
+            $renderer->unformatted($value);
+            $renderer->tablecell_close();
+            $renderer->tablerow_close();
+        }
+        $renderer->table_close();
     }
 
 }
