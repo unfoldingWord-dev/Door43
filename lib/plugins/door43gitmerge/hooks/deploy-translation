@@ -10,22 +10,18 @@
 ROOTTREE=/var/lib/deployed_repositories
 
 # get repository name
-if [ $(git rev-parse --is-bare-repository) = true ]
-then
-  REPOSITORY_BASENAME=$(basename "$PWD")
-  REPOSITORY_BASENAME=${REPOSITORY_BASENAME%.git}
-else
-  REPOSITORY_BASENAME=$(basename $(readlink -nf "$PWD"/..))
-fi
-
-WORKTREE=$ROOTTREE/$GL_REPO #$REPOSITORY_BASENAME
+WORKTREE=$ROOTTREE/$GL_REPO
 DEPLOY_DIR=$WORKTREE
 
 # clone repository
 echo Deploying repository to $DEPLOY_DIR.
-
 mkdir -p $DEPLOY_DIR
 GIT_WORK_TREE=$DEPLOY_DIR git checkout master -f
+
+echo Fixing permissions
+chmod 755 $ROOTTREE
+find $ROOTTREE -type d -exec chmod 755 {} \;
+find $ROOTTREE -type f -exec chmod 644 {} \;
 
 # we have to read stdin in order to avoid
 # sideband demutiplexer error

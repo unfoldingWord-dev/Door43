@@ -1,3 +1,5 @@
+#
+# Change URL to the base DokuWiki url where the plugin is installed.
 #!/bin/sh
 #
 # This hook should be placed in a bare tS translation repository and will
@@ -7,16 +9,14 @@
 #
 
 # set base DokuWiki URL
-URL=http://test.door43.org/
+URL=http://test.door43.org
 
 # ***DO NOT CHANGE ANYTHING BELOW THIS LINE***
 
-# trigger indexing
 echo Triggering translation indexing.
 
-# parse variables from path
+# get repository name
 PWD=$(pwd)
-
 DIRS=(${PWD//\// })
 LAST=$((${#DIRS[@]} - 1))
 PROJECT_LANG=${DIRS[LAST]}
@@ -26,19 +26,41 @@ DEVICE=$(echo ${DIRS[LAST]} | sed 's/[^a-zA-Z0-9]//g')
 unset DIRS
 unset LAST
 
-DIRS=(${PROJECT_LANG//-// })
-LAST=$((${#DIRS[@]} - 1))
-LANG=$(echo ${DIRS[LAST]} | sed 's/[^a-zA-Z0-9]//g')
-unset DIRS[LAST]
+# retrieve project and language id
+PARTS=(${PROJECT_LANG//-/ })
+LAST=$((${#PARTS[@]} - 1))
+LANG=${PARTS[LAST]%.*}
+unset PARTS[LAST]
 ((LAST--))
-PROJECT=$(echo ${DIRS[LAST]} | sed 's/[^a-zA-Z0-9]//g')
-unset DIRS
+PROJECT=$(echo ${PARTS[LAST]})
+unset PARTS
 unset LAST
 
 # get file list
-FILES=$(git diff --name-only HEAD^ HEAD | grep '\.txt$' | tr "\\n" "," | sed 's/\//-/g' | sed 's/\.txt//g' | sed 's/,$//'; echo '')
+PUBLISHED=$(git ls-tree master READY)
+if [ -n "$PUBLISHED" ]
+then
+    # translation is published
+    FILES=$(git diff --name-only HEAD^ HEAD | grep '\.txt$' | tr "\\n" "," | sed 's/\//-/g' | sed 's/\.txt//g' | sed 's/,$//'; echo '')
+else
+    # translation is not published
+    # retrieve last published commit
+    LOG=$(git log -n1 --oneline -- READY | awk '{print $1;}')
+    COMMITS=(${LOG//\n/})
+    LAST=$((${#COMMITS[@]} - 1))
+    COMMIT=${COMMITS[LAST]}
+    unset LAST
+
+    echo Finding changes since $COMMIT
+    FILES=$(git diff --name-only $COMMIT  HEAD | grep '\.txt$' | tr "\\n" "," | sed 's/\//-/g' | sed 's/\.txt//g' | sed 's/,$//'; echo '')
+fi
+echo Files changed: $FILES
 
 # set params
 PARAMS=$(echo call=door43gitmerge\&action=mark-updated\&lang=$LANG\&project=$PROJECT\&device=$DEVICE\&files=$FILES)
+
+echo Sending data...
+echo $PARAMS
+echo To $URL
 
 curl -H "X-Requested-With: XMLHttpRequest" --request POST --data "$PARAMS" --url $URL/lib/exe/ajax.php -v
