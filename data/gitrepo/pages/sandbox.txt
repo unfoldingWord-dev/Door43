@@ -1,0 +1,17 @@
+Begin our plugin output:
+-------
+
+{{chunkprogress>parm1=value1&parm2=value2&parm3=value3}}
+
+-------
+End our plugin output
+
+
+Link to [[en:bible:notes:1ch:01:01|first chunk of 1 Chronicles]]
+
+Example of a plugin (from the [[en:bible:admin-reports:activity:activity-user|activity]] page)
+{{changes>user=admin&count=150&render=pagelist(header,date,user,nocomments)&maxage=1000800}}
+
+Another example:
+{{changes>}}
+

@@ -32,8 +32,14 @@ class syntax_plugin_chunkprogress extends DokuWiki_Syntax_Plugin {
 
     function handle($match, $state, $pos, &$handler){
         $params = array(
-            "page" => "(no page)"
+            "page" => "(no page)",
+            "raw_match" => $match
         );
+
+        
+
+
+
         return $params;
     }
 
