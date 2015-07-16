@@ -40,27 +40,34 @@ unset LAST
 PUBLISHED=$(git ls-tree master READY)
 if [ -n "$PUBLISHED" ]
 then
-    # translation is published
-    FILES=$(git diff --name-only HEAD^ HEAD | grep '\.txt$' | tr "\\n" "," | sed 's/\//-/g' | sed 's/\.txt//g' | sed 's/,$//'; echo '')
-else
-    # translation is not published
-    # retrieve last published commit
-    LOG=$(git log -n1 --oneline -- READY | awk '{print $1;}')
+    # get commit when last published started
+    LOG=$(git log -n1 --format=%H -- READY | awk '{print $1;}')
     COMMITS=(${LOG//\n/})
     LAST=$((${#COMMITS[@]} - 1))
     COMMIT=${COMMITS[LAST]}
     unset LAST
 
-    echo Finding changes since $COMMIT
-    FILES=$(git diff --name-only $COMMIT  HEAD | grep '\.txt$' | tr "\\n" "," | sed 's/\//-/g' | sed 's/\.txt//g' | sed 's/,$//'; echo '')
+    # get HEAD commit id
+    HEAD_COMMIT=$(git rev-parse HEAD)
+
+    if [ "$COMMIT" == "$HEAD_COMMIT" ]
+    then
+        echo Finding changes since $COMMIT
+        FILES=$(git diff --name-only $COMMIT^  HEAD | grep '\.txt$' | tr "\\n" "," | sed 's/\//-/g' | sed 's/\.txt//g' | sed 's/,$//'; echo '')
+    else
+        FILES=$(git diff --name-only HEAD^ HEAD | grep '\.txt$' | tr "\\n" "," | sed 's/\//-/g' | sed 's/\.txt//g' | sed 's/,$//'; echo '')
+    fi
+
+    echo Files changed: $FILES
+
+    # set params
+    PARAMS=$(echo call=door43gitmerge\&action=mark-updated\&lang=$LANG\&project=$PROJECT\&device=$DEVICE\&files=$FILES)
+
+    echo Sending data...
+    echo $PARAMS
+    echo To $URL
+
+    curl -H "X-Requested-With: XMLHttpRequest" --request POST --data "$PARAMS" --url $URL/lib/exe/ajax.php -v
+else
+    echo Indexing was not started because translation is not published
 fi
-echo Files changed: $FILES
-
-# set params
-PARAMS=$(echo call=door43gitmerge\&action=mark-updated\&lang=$LANG\&project=$PROJECT\&device=$DEVICE\&files=$FILES)
-
-echo Sending data...
-echo $PARAMS
-echo To $URL
-
-curl -H "X-Requested-With: XMLHttpRequest" --request POST --data "$PARAMS" --url $URL/lib/exe/ajax.php -v
