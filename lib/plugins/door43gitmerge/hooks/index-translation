@@ -40,23 +40,32 @@ unset LAST
 PUBLISHED=$(git ls-tree master READY)
 if [ -n "$PUBLISHED" ]
 then
-    # get commit when last published started
-    LOG=$(git log -n1 --format=%H -- READY | awk '{print $1;}')
+    # get the current publish marker
+    CURRENT_PUBLISH=$(git log -n1 --format=%H -- READY)
+
+    # get the last publish marker
+    LOG=$(git log -n2 --format=%H -- READY)
     COMMITS=(${LOG//\n/})
     LAST=$((${#COMMITS[@]} - 1))
-    COMMIT=${COMMITS[LAST]}
+    LAST_PUBLISH=${COMMITS[LAST]}
     unset LAST
+    unset COMMITS
+    unset LOG
 
     # get HEAD commit id
-    HEAD_COMMIT=$(git rev-parse HEAD)
+    HEAD=$(git rev-parse HEAD)
 
-    if [ "$COMMIT" == "$HEAD_COMMIT" ]
+    if [ "$HEAD" == "$CURRENT_PUBLISH" ]
     then
+        # find changes since the last publish
         echo Finding changes since $COMMIT
-        FILES=$(git diff --name-only $COMMIT^  HEAD | grep '\.txt$' | tr "\\n" "," | sed 's/\//-/g' | sed 's/\.txt//g' | sed 's/,$//'; echo '')
+        COMMIT=$LAST_PUBLISH
     else
-        FILES=$(git diff --name-only HEAD^ HEAD | grep '\.txt$' | tr "\\n" "," | sed 's/\//-/g' | sed 's/\.txt//g' | sed 's/,$//'; echo '')
+        # find changes just on the head
+        COMMIT=$HEAD
     fi
+
+    FILES=$(git diff --name-only $COMMIT^ HEAD | grep '\.txt$' | tr "\\n" "," | sed 's/\//-/g' | sed 's/\.txt//g' | sed 's/,$//'; echo '')
 
     echo Files changed: $FILES
 
