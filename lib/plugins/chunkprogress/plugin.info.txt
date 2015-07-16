@@ -1,0 +1,10 @@
+# General Plugin Info do not edit
+
+base   chunkprogress
+author Craig Oliver
+email  craig_oliver@wycliffeassociates.org
+date   2015-07-16
+name   Chunk Progress Plugin
+desc   Display the progress history of a chunk
+url    N/A
+
