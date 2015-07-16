@@ -82,11 +82,10 @@ function css_out(){
         if (isset($styleini['stylesheets'][$mediatype])) {
             $files[$mediatype] = array_merge($files[$mediatype], $styleini['stylesheets'][$mediatype]);
         }
+
         // load user styles
-        if(!empty($config_cascade['userstyle'][$mediatype])) {
-            foreach($config_cascade['userstyle'][$mediatype] as $userstyle) {
-                $files[$mediatype][$userstyle] = DOKU_BASE;
-            }
+        if(isset($config_cascade['userstyle'][$mediatype])){
+            $files[$mediatype][$config_cascade['userstyle'][$mediatype]] = DOKU_BASE;
         }
 
         $cache_files = array_merge($cache_files, array_keys($files[$mediatype]));
@@ -135,9 +134,6 @@ function css_out(){
     // end output buffering and get contents
     $css = ob_get_contents();
     ob_end_clean();
-
-    // strip any source maps
-    stripsourcemaps($css);
 
     // apply style replacements
     $css = css_applystyle($css, $styleini['replacements']);
