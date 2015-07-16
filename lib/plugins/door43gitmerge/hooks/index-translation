@@ -58,7 +58,7 @@ then
     if [ "$HEAD" == "$CURRENT_PUBLISH" ]
     then
         # find changes since the last publish
-        echo Finding changes since $COMMIT
+        echo Finding changes since $LAST_PUBLISH
         COMMIT=$LAST_PUBLISH
     else
         # find changes just on the head
