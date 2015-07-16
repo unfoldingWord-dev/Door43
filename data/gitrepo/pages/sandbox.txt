@@ -1,7 +1,7 @@
 Begin our plugin output:
 -------
 
-{{chunkprogress>page=hello}}
+{{chunkprogress>debug=true}}
 
 -------
 End our plugin output

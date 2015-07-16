@@ -33,6 +33,7 @@ class syntax_plugin_chunkprogress extends DokuWiki_Syntax_Plugin {
     function handle($match, $state, $pos, &$handler){
         $params = array(
             "page" => "",
+            "debug" => "false"
         );
 
 
@@ -70,30 +71,36 @@ class syntax_plugin_chunkprogress extends DokuWiki_Syntax_Plugin {
             $renderer->unformatted($params["message"]);
             $renderer->strong_close();
         }
-        $renderer->table_open();
-        $renderer->tablerow_open();
-        $renderer->tablecell_open();
-        $renderer->strong_open();
-        $renderer->unformatted("Key");
-        $renderer->strong_close();
-        $renderer->tablecell_close();
-        $renderer->tablecell_open();
-        $renderer->strong_open();
-        $renderer->unformatted("Value");
-        $renderer->strong_close();
-        $renderer->tablerow_close();
-        $renderer->tablecell_close();
-        foreach ($params as $key => $value) {
+
+        if ($params["debug"] == "true") {
+            $renderer->emphasis_open();
+            $renderer->unformatted("Debug: parameter dump");
+            $renderer->emphasis_close();
+            $renderer->table_open();
             $renderer->tablerow_open();
             $renderer->tablecell_open();
-            $renderer->unformatted($key);
+            $renderer->strong_open();
+            $renderer->unformatted("Key");
+            $renderer->strong_close();
             $renderer->tablecell_close();
             $renderer->tablecell_open();
-            $renderer->unformatted($value);
-            $renderer->tablecell_close();
+            $renderer->strong_open();
+            $renderer->unformatted("Value");
+            $renderer->strong_close();
             $renderer->tablerow_close();
+            $renderer->tablecell_close();
+            foreach ($params as $key => $value) {
+                $renderer->tablerow_open();
+                $renderer->tablecell_open();
+                $renderer->unformatted($key);
+                $renderer->tablecell_close();
+                $renderer->tablecell_open();
+                $renderer->unformatted($value);
+                $renderer->tablecell_close();
+                $renderer->tablerow_close();
+            }
+            $renderer->table_close();
         }
-        $renderer->table_close();
     }
 
 }
