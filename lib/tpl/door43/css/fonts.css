@@ -1,0 +1,41 @@
+@font-face {
+  font-family: 'NotoSans';
+  src: local("Noto Sans"), local("NotoSans");
+  src: url("../fonts/noto/notosans-regular.woff2") format("woff2"), url("../fonts/noto/notosans-regular.woff") format("woff"); }
+@font-face {
+  font-family: 'NotoSans';
+  font-style: italic;
+  src: local("Noto Sans"), local("NotoSans");
+  src: url("../fonts/noto/notosans-italic.woff2") format("woff2"), url("../fonts/noto/notosans-italic.woff") format("woff"); }
+@font-face {
+  font-family: 'NotoSans';
+  font-weight: bold;
+  src: local("Noto Sans"), local("NotoSans");
+  src: url("../fonts/noto/notosans-bold.woff2") format("woff2"), url("../fonts/noto/notosans-bold.woff") format("woff"); }
+@font-face {
+  font-family: 'NotoSans';
+  font-style: italic;
+  font-weight: bold;
+  src: local("Noto Sans"), local("NotoSans");
+  src: url("../fonts/noto/notosans-bolditalic.woff2") format("woff2"), url("../fonts/noto/notosans-bolditalic.woff") format("woff"); }
+@font-face {
+  font-family: 'NotoSansEthiopic';
+  src: local("Noto Sans Ethiopic"), local("NotoSansEthiopic");
+  src: url("../fonts/noto/notosansethiopic-regular.woff2") format("woff2"), url("../fonts/noto/notosansethiopic-regular.woff") format("woff"); }
+@font-face {
+  font-family: 'NotoSansEthiopic';
+  font-weight: bold;
+  src: local("Noto Sans Ethiopic"), local("NotoSansEthiopic");
+  src: url("../fonts/noto/notosansethiopic-bold.woff2") format("woff2"), url("../fonts/noto/notosansethiopic-bold.woff") format("woff"); }
+* {
+  font-family: NotoSans, sans-serif;
+  font-style: normal;
+  font-weight: 400; }
+
+:lang(am),
+:lang(gez),
+:lang(ti),
+:lang(tir),
+:lang(tig) {
+  font-family: NotoSansEthiopic, sans-serif; 
+}
