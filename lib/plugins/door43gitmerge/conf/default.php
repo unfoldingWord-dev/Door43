@@ -6,4 +6,4 @@
  */
 
 //$conf['fixme']    = 'FIXME';
-$conf['repo_path'] = '';
+$conf['repo_path'] = '/var/lib/deployed_repositories/tS';
