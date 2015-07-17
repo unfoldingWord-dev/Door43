@@ -36,11 +36,11 @@ class syntax_plugin_chunkprogress extends DokuWiki_Syntax_Plugin {
             "debug" => "false"
         );
 
-
         // Extract parameter string from match
         $begin_pos = strpos($match, ">") + 1;
         $end_pos = strpos($match, "}") - 1;
         $all_params_string = substr($match, $begin_pos, $end_pos - $begin_pos + 1);
+
         // Process parameters
         try {
             foreach(explode("&", $all_params_string) as $param_string) {
@@ -61,21 +61,52 @@ class syntax_plugin_chunkprogress extends DokuWiki_Syntax_Plugin {
             $params["message"] .= "EXCEPTION: Please tell a developer about this: " . $e->getMessage();
         }
 
+
+        // DEBUG Get page metadata
+        if (strlen($params["page"]) > 0) {
+            $metadata = p_get_metadata($params["page"]);
+            if (array_key_exists("title", $metadata)) {
+                $params["page_title"] = $metadata["title"];
+            } else {
+                $params["message"] .= "WARNING: Could not find a page named '" . $params["page"] . "'.  Did you use the form 'en:bible:notes:1ch:01:01'?";
+            }
+        }
+
+
+
         return $params;
     }
 
     function render($mode, &$renderer, $params) {
+
         // Print warnings or errors, if any
         if (array_key_exists("message", $params)) {
+            $renderer->p_open();
             $renderer->strong_open();
             $renderer->unformatted($params["message"]);
             $renderer->strong_close();
+            $renderer->p_close();
         }
 
+        // Print page title
+        if (array_key_exists("page_title", $params)) {
+            $renderer->header("Progress Report for " . $params["page_title"], 1);
+            $renderer->p_open();
+            $renderer->unformatted("(Page id: " . $params["page"] . " )", 1);
+            $renderer->p_close();
+        }
+
+        // Dump params if in debug mode
         if ($params["debug"] == "true") {
+
+            $renderer->hr();
+
+            $renderer->p_open();
             $renderer->emphasis_open();
             $renderer->unformatted("Debug: parameter dump");
             $renderer->emphasis_close();
+            $renderer->p_close();
+
             $renderer->table_open();
             $renderer->tablerow_open();
             $renderer->tablecell_open();
@@ -105,3 +136,4 @@ class syntax_plugin_chunkprogress extends DokuWiki_Syntax_Plugin {
 
 }
 
+// vim: foldmethod=indent
