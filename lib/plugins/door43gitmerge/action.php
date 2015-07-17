@@ -348,7 +348,13 @@ class action_plugin_door43gitmerge extends DokuWiki_Action_Plugin {
     }
 
     private function _user($device) {
-        return file_get_json($this->repo_path . $device . '/profile/contact.json');
+        $json =  file_get_json($this->repo_path . $device . '/profile/contact.json');
+        if($json === null) {
+            $json = array(
+                'name'=>$device
+            );
+        }
+        return $json;
     }
 
     private function _content($device, $frame) {
@@ -473,8 +479,9 @@ class action_plugin_door43gitmerge extends DokuWiki_Action_Plugin {
     private function _mark_updated($lang, $project, $device, $files) {
         $this->_init();
         $ready_file = $this->repo_path . $device . '/uw-' . $project . '-' . $lang . '/READY';
+        // NOTE: the hooks peform this check but we do it again for redundancy
         if (file_exists($ready_file)) {
-            //parse file list
+            // parse file list
             $files = explode(',', trim($files));
             $chapters = [];
             if (!empty($files)) {
@@ -487,7 +494,7 @@ class action_plugin_door43gitmerge extends DokuWiki_Action_Plugin {
             }
             unset($ready_file, $files, $file, $frame);
 
-            //update json
+            // update json
             if (!empty($chapters)) {
                 foreach ($chapters as $chapter => $frames) {
                     $merge_updated_file = $this->_get_log_filename($project, $lang, $chapter, 'updated');
@@ -503,10 +510,6 @@ class action_plugin_door43gitmerge extends DokuWiki_Action_Plugin {
                 }
             }
             unset($chapters, $chapter);
-        } else {
-            // the translation is not ready
-            // TODO: remove the $files from the update log. These have diverged since the translation was last ready.
-            // Anything else from this project can remain in the update log.
         }
     }
 
