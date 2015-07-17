@@ -1,0 +1,3 @@
+The hooks in this directory must be correctly copied into your git setup so that pushes to the repositorie(s) will initiate processes in this plugin.
+
+Be sure to update the hook with the correct server url after copying into place.

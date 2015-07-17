@@ -1,0 +1,5 @@
+This patch must be applied to the main template file in order to allow extensions to hook into the side menu.
+
+The patch should be applied to lib/tpl/door43/main.php
+
+Included in this directory is the diff (main.diff) and the patched file (main.php). You should just need to copy this main.php into the correct location

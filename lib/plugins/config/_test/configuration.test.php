@@ -12,6 +12,9 @@ class plugin_config_configuration_test extends DokuWikiTest {
     }
 
     function test_readconfig() {
+
+        $this->markTestSkipped('The test config.php and metadata.php files are missing');
+
         $confmgr = new configuration($this->meta);
 
         $conf = $confmgr->_read_config($this->config);

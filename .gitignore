@@ -1,10 +1,11 @@
 conf/acl.auth.php
-conf/local_private.php
-conf/plugins.local_private.php
+conf/local.php
+conf/plugins.local.php
 conf/users.auth.php
-
-.idea
 
 conf/plugins.local.php.bak
 conf/local.php.bak
-gitrepo/
+
+.idea
+vendor/
+composer.*
