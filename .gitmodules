@@ -13,3 +13,6 @@
 [submodule "lib/plugins/usfmtag"]
 	path = lib/plugins/usfmtag
 	url = https://github.com/unfoldingWord-dev/Dokuwiki-USFMTag
+[submodule "lib/plugins/fontface"]
+	path = lib/plugins/fontface
+	url = https://github.com/selfthinker/dokuwiki_plugin_fontface.git
