@@ -1,36 +1,59 @@
 <?php
 
+/** 
+ * PHP version 5
+ *
+ * Creates a progress report for a given chunk 
+ *
+ * @category Door43
+ * @package  DokuWiki
+ * @author   Craig Oliver <craig_oliver@wycliffeassociates.org>
+ * @license  GPL2 (I think)
+ * @link     ???
+ */
+
 // Must be run within Dokuwiki
-if(!defined('DOKU_INC')) die();
+if (!defined('DOKU_INC')) {
+    die();
+}
 
-if(!defined('DOKU_PLUGIN')) define('DOKU_PLUGIN',DOKU_INC.'lib/plugins/');
-require_once(DOKU_PLUGIN.'syntax.php');
+if (!defined('DOKU_PLUGIN')) {
+    define('DOKU_PLUGIN', DOKU_INC.'lib/plugins/');
+}
+require_once DOKU_PLUGIN.'syntax.php';
 
 
-class syntax_plugin_chunkprogress extends DokuWiki_Syntax_Plugin {
+class syntax_plugin_chunkprogress extends DokuWiki_Syntax_Plugin
+{
 
-    function getInfo() { 
-        return confToHash(dirname(__FILE__).'/plugin.info.txt'); 
+    public function getInfo()
+    {
+        return confToHash(dirname(__FILE__).'/plugin.info.txt');
     }
 
-    function getType() {
+    public function getType()
+    {
         return "substition";
     }
 
-    function getPType() {
+    public function getPType()
+    {
         return "block";
     }
 
-    function getSort() {
+    public function getSort()
+    {
         return 1;
     }
 
-    function connectTo($mode) {
-       $this->Lexer->addSpecialPattern('\{\{chunkprogress>[^}]*\}\}',$mode,'plugin_chunkprogress');
+    public function connectTo($mode)
+    {
+        $this->Lexer->addSpecialPattern('\{\{chunkprogress>[^}]*\}\}', $mode, 'plugin_chunkprogress');
     }
 
 
-    function handle($match, $state, $pos, &$handler){
+    public function handle($match, $state, $pos, &$handlerl)
+    {
         $params = array(
             "page" => "",
             "debug" => "false"
@@ -43,7 +66,7 @@ class syntax_plugin_chunkprogress extends DokuWiki_Syntax_Plugin {
 
         // Process parameters
         try {
-            foreach(explode("&", $all_params_string) as $param_string) {
+            foreach (explode("&", $all_params_string) as $param_string) {
                 $param_pair = explode("=", $param_string);
                 if (count($param_pair) == 2) {
                     $key = $param_pair[0];
@@ -51,10 +74,12 @@ class syntax_plugin_chunkprogress extends DokuWiki_Syntax_Plugin {
                     if (array_key_exists($key, $params)) {
                         $params[$key] = $value;
                     } else {
-                        $params["message"] .= "\nWARNING: didn't recognize parameter '" . $key . "' (maybe you misspelled it?)";
+                        $params["message"] .= "\nWARNING: didn't recognize parameter '" .
+                            $key . "' (maybe you misspelled it?)";
                     }
                 } else {
-                    $params["message"] .= "\nWARNING: didn't understand parameter '" . $param_string . "' (maybe you forgot the '=''?)";
+                    $params["message"] .= "\nWARNING: didn't understand parameter '" .
+                        $param_string . "' (maybe you forgot the '=''?)";
                 }
             }
         } catch (Exception $exception) {
@@ -68,7 +93,8 @@ class syntax_plugin_chunkprogress extends DokuWiki_Syntax_Plugin {
             if (array_key_exists("title", $metadata)) {
                 $params["page_title"] = $metadata["title"];
             } else {
-                $params["message"] .= "WARNING: Could not find a page named '" . $params["page"] . "'.  Did you use the form 'en:bible:notes:1ch:01:01'?";
+                $params["message"] .= "WARNING: Could not find a page named '" .
+                    $params["page"] . "'.  Did you use the form 'en:bible:notes:1ch:01:01'?";
             }
         }
 
@@ -77,7 +103,8 @@ class syntax_plugin_chunkprogress extends DokuWiki_Syntax_Plugin {
         return $params;
     }
 
-    function render($mode, &$renderer, $params) {
+    public function render($mode, &$renderer, $params)
+    {
 
         // Print warnings or errors, if any
         if (array_key_exists("message", $params)) {
@@ -98,7 +125,6 @@ class syntax_plugin_chunkprogress extends DokuWiki_Syntax_Plugin {
 
         // Dump params if in debug mode
         if ($params["debug"] == "true") {
-
             $renderer->hr();
 
             $renderer->p_open();
@@ -133,7 +159,6 @@ class syntax_plugin_chunkprogress extends DokuWiki_Syntax_Plugin {
             $renderer->table_close();
         }
     }
-
 }
 
 // vim: foldmethod=indent
