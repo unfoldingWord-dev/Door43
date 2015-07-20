@@ -150,9 +150,11 @@ class syntax_plugin_chunkprogress extends DokuWiki_Syntax_Plugin
             $page_revisions =array();
             foreach (array_reverse($page_revision_ids) as $revision_id) {
                 $page_revision_data = array();
-                $page_revision_data["timestamp"] = $revision_id;
+                $page_revision_data["revision_id"] = $revision_id;
                 $page_revision_data["timestamp_readable"] 
                     = date("Y-m-d H:i:s", $revision_id);
+                $page_revision_data["filename"] = wikiFN($page_id, $revision_id);
+
                 array_push($page_revisions, $page_revision_data);
             }
             $params["page_revisions"] = $page_revisions;
@@ -194,29 +196,16 @@ class syntax_plugin_chunkprogress extends DokuWiki_Syntax_Plugin
 
             $renderer->table_open();
 
-            $renderer->tablerow_open();
-
-            $renderer->tablecell_open();
-            $renderer->strong_open();
-            $renderer->unformatted("Revision ID");
-            $renderer->strong_close();
-            $renderer->tablecell_close();
-
-            $renderer->tablecell_open();
-            $renderer->strong_open();
-            $renderer->unformatted("Date");
-            $renderer->strong_close();
-            $renderer->tablecell_close();
-
-            $renderer->tablerow_close();
-
             foreach ($page_revisions as $revision) {
                 $renderer->tablerow_open();
                 $renderer->tablecell_open();
-                $renderer->unformatted($revision["timestamp"]);
+                $renderer->unformatted($revision["revision_id"]);
                 $renderer->tablecell_close();
                 $renderer->tablecell_open();
                 $renderer->unformatted($revision["timestamp_readable"]);
+                $renderer->tablecell_close();
+                $renderer->tablecell_open();
+                $renderer->unformatted($revision["filename"]);
                 $renderer->tablecell_close();
                 $renderer->tablerow_close();
             }
