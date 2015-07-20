@@ -23,3 +23,4 @@ Example of a plugin (from the [[en:bible:admin-reports:activity:activity-user|ac
 Another example:
 {{changes>}}
 
+{{tag>draft}}

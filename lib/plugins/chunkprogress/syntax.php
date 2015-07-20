@@ -147,6 +147,7 @@ class syntax_plugin_chunkprogress extends DokuWiki_Syntax_Plugin
         if (strlen($params["page"]) > 0) {
             $page_id = $params["page"];
             $page_revision_ids = getRevisions($page_id, 0, 10000);
+            array_unshift($page_revision_ids, "");
             $page_revisions =array();
             foreach (array_reverse($page_revision_ids) as $revision_id) {
                 $page_revision_data = array();
@@ -154,13 +155,24 @@ class syntax_plugin_chunkprogress extends DokuWiki_Syntax_Plugin
                 $page_revision_data["timestamp_readable"] 
                     = date("Y-m-d H:i:s", $revision_id);
                 $page_revision_data["filename"] = wikiFN($page_id, $revision_id);
-
+                $page_revision_data["tags"] = array();
+                $lines = gzfile($page_revision_data["filename"]);
+                foreach ($lines as $line) {
+                    $matches = array();
+                    preg_match("/{{tag>([^}]*)}}/", strtolower($line), $matches);
+                    if (count($matches) > 0) {
+                        //$tags = explode(" ", $matches[1]);
+                        //$page_revision_data["tags"] = $tags;
+                        $page_revision_data["tags"] = $matches[1];
+                    }
+                }
                 array_push($page_revisions, $page_revision_data);
             }
             $params["page_revisions"] = $page_revisions;
         }
 
         return $params;
+
     }
 
     /** 
@@ -198,15 +210,23 @@ class syntax_plugin_chunkprogress extends DokuWiki_Syntax_Plugin
 
             foreach ($page_revisions as $revision) {
                 $renderer->tablerow_open();
+
                 $renderer->tablecell_open();
                 $renderer->unformatted($revision["revision_id"]);
                 $renderer->tablecell_close();
+
                 $renderer->tablecell_open();
                 $renderer->unformatted($revision["timestamp_readable"]);
                 $renderer->tablecell_close();
+
                 $renderer->tablecell_open();
                 $renderer->unformatted($revision["filename"]);
                 $renderer->tablecell_close();
+
+                $renderer->tablecell_open();
+                $renderer->unformatted($revision["tags"]);
+                $renderer->tablecell_close();
+
                 $renderer->tablerow_close();
             }
             $renderer->table_close();
