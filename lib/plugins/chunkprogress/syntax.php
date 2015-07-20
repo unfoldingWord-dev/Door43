@@ -146,8 +146,16 @@ class syntax_plugin_chunkprogress extends DokuWiki_Syntax_Plugin
         // Get page history
         if (strlen($params["page"]) > 0) {
             $page_id = $params["page"];
-            $page_revisions = getRevisions($page_id, 0, 10000);
-            $params["page_revisions"] = array_reverse($page_revisions);
+            $page_revision_ids = getRevisions($page_id, 0, 10000);
+            $page_revisions =array();
+            foreach (array_reverse($page_revision_ids) as $revision_id) {
+                $page_revision_data = array();
+                $page_revision_data["timestamp"] = $revision_id;
+                $page_revision_data["timestamp_readable"] 
+                    = date("Y-m-d H:i:s", $revision_id);
+                array_push($page_revisions, $page_revision_data);
+            }
+            $params["page_revisions"] = $page_revisions;
         }
 
         return $params;
@@ -205,10 +213,10 @@ class syntax_plugin_chunkprogress extends DokuWiki_Syntax_Plugin
             foreach ($page_revisions as $revision) {
                 $renderer->tablerow_open();
                 $renderer->tablecell_open();
-                $renderer->unformatted($revision);
+                $renderer->unformatted($revision["timestamp"]);
                 $renderer->tablecell_close();
                 $renderer->tablecell_open();
-                $renderer->unformatted(date("Y-m-d H:i:s", $revision));
+                $renderer->unformatted($revision["timestamp_readable"]);
                 $renderer->tablecell_close();
                 $renderer->tablerow_close();
             }
