@@ -21,6 +21,7 @@ if (!defined('DOKU_PLUGIN')) {
     define('DOKU_PLUGIN', DOKU_INC.'lib/plugins/');
 }
 require_once DOKU_PLUGIN.'syntax.php';
+require_once DOKU_INC.'inc/changelog.php';
 
 
 /**
@@ -130,7 +131,7 @@ class syntax_plugin_chunkprogress extends DokuWiki_Syntax_Plugin
         }
 
 
-        // DEBUG Get page metadata
+        // Get page metadata
         if (strlen($params["page"]) > 0) {
             $metadata = p_get_metadata($params["page"]);
             if (array_key_exists("title", $metadata)) {
@@ -142,7 +143,12 @@ class syntax_plugin_chunkprogress extends DokuWiki_Syntax_Plugin
             }
         }
 
-
+        // Get page history
+        if (strlen($params["page"]) > 0) {
+            $page_id = $params["page"];
+            $page_revisions = getRevisions($page_id, 0, 10000);
+            $params["page_revisions"] = array_reverse($page_revisions);
+        }
 
         return $params;
     }
@@ -168,11 +174,47 @@ class syntax_plugin_chunkprogress extends DokuWiki_Syntax_Plugin
 
         // Print page title
         if (array_key_exists("page_title", $params)) {
-            $renderer->header("Progress Report for " . $params["page_title"], 1);
+            $renderer->header("Progress Report for " . $params["page_title"], 2, 0);
             $renderer->p_open();
             $renderer->unformatted("(Page id: " . $params["page"] . " )", 1);
             $renderer->p_close();
         }
+
+        // Print raw revisions
+        if (array_key_exists("page_revisions", $params)) {
+            $page_revisions = $params["page_revisions"];
+
+            $renderer->table_open();
+
+            $renderer->tablerow_open();
+
+            $renderer->tablecell_open();
+            $renderer->strong_open();
+            $renderer->unformatted("Revision ID");
+            $renderer->strong_close();
+            $renderer->tablecell_close();
+
+            $renderer->tablecell_open();
+            $renderer->strong_open();
+            $renderer->unformatted("Date");
+            $renderer->strong_close();
+            $renderer->tablecell_close();
+
+            $renderer->tablerow_close();
+
+            foreach ($page_revisions as $revision) {
+                $renderer->tablerow_open();
+                $renderer->tablecell_open();
+                $renderer->unformatted($revision);
+                $renderer->tablecell_close();
+                $renderer->tablecell_open();
+                $renderer->unformatted(date("Y-m-d H:i:s", $revision));
+                $renderer->tablecell_close();
+                $renderer->tablerow_close();
+            }
+            $renderer->table_close();
+        }
+
 
         // Dump params if in debug mode
         if ($params["debug"] == "true") {
@@ -203,7 +245,11 @@ class syntax_plugin_chunkprogress extends DokuWiki_Syntax_Plugin
                 $renderer->unformatted($key);
                 $renderer->tablecell_close();
                 $renderer->tablecell_open();
-                $renderer->unformatted($value);
+                if (is_array($value)) {
+                    $renderer->unformatted("Array length " . count($value));
+                } else {
+                    $renderer->unformatted($value);
+                }
                 $renderer->tablecell_close();
                 $renderer->tablerow_close();
             }
