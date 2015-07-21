@@ -35,7 +35,6 @@ require_once DOKU_INC.'inc/changelog.php';
  */
 class syntax_plugin_chunkprogress extends DokuWiki_Syntax_Plugin
 {
-
     /** 
      * Gets the info block for this plugin
      * @return the info block for this plugin 
@@ -161,9 +160,8 @@ class syntax_plugin_chunkprogress extends DokuWiki_Syntax_Plugin
                     $matches = array();
                     preg_match("/{{tag>([^}]*)}}/", strtolower($line), $matches);
                     if (count($matches) > 0) {
-                        //$tags = explode(" ", $matches[1]);
-                        //$page_revision_data["tags"] = $tags;
-                        $page_revision_data["tags"] = $matches[1];
+                        $tags = explode(" ", $matches[1]);
+                        $page_revision_data["tags"] = $tags;
                     }
                 }
                 array_push($page_revisions, $page_revision_data);
@@ -172,7 +170,6 @@ class syntax_plugin_chunkprogress extends DokuWiki_Syntax_Plugin
         }
 
         return $params;
-
     }
 
     /** 
@@ -184,7 +181,6 @@ class syntax_plugin_chunkprogress extends DokuWiki_Syntax_Plugin
      */
     public function render($mode, &$renderer, $params)
     {
-
         // Print warnings or errors, if any
         if (array_key_exists("message", $params)) {
             $renderer->p_open();
@@ -224,7 +220,7 @@ class syntax_plugin_chunkprogress extends DokuWiki_Syntax_Plugin
                 $renderer->tablecell_close();
 
                 $renderer->tablecell_open();
-                $renderer->unformatted($revision["tags"]);
+                $renderer->unformatted(implode(", ", $revision["tags"]));
                 $renderer->tablecell_close();
 
                 $renderer->tablerow_close();
