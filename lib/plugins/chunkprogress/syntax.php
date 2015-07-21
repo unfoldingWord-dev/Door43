@@ -175,12 +175,6 @@ class syntax_plugin_chunkprogress extends DokuWiki_Syntax_Plugin
                     $change_log_entry["user"] = "(unknown)";
                 }
 
-                echo "Revision Info:<br/>--------------<br/>";
-                foreach ($change_log_entry as $key => $value) {
-                    echo $key . ": " . $value . "<br/>";
-                }
-                echo "<br/>";
-
                 // Timestamp
                 if (array_key_exists("date", $change_log_entry)) {
                     $page_revision_data["timestamp_readable"]
