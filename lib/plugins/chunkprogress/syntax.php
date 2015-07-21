@@ -35,6 +35,11 @@ require_once DOKU_INC.'inc/changelog.php';
  */
 class syntax_plugin_chunkprogress extends DokuWiki_Syntax_Plugin
 {
+
+    /* Array of all possible status tags, in the order they usually occur. */
+    private static $_STATUS_TAGS = array(
+        "draft", "check", "review", "text", "discuss", "publish");
+
     /** 
      * Gets the info block for this plugin
      * @return the info block for this plugin 
@@ -148,6 +153,7 @@ class syntax_plugin_chunkprogress extends DokuWiki_Syntax_Plugin
             $page_revision_ids = getRevisions($page_id, 0, 10000);
             array_unshift($page_revision_ids, "");
             $page_revisions =array();
+            // Get data about each revision
             foreach (array_reverse($page_revision_ids) as $revision_id) {
                 $page_revision_data = array();
                 $page_revision_data["revision_id"] = $revision_id;
@@ -155,6 +161,7 @@ class syntax_plugin_chunkprogress extends DokuWiki_Syntax_Plugin
                     = date("Y-m-d H:i:s", $revision_id);
                 $page_revision_data["filename"] = wikiFN($page_id, $revision_id);
                 $page_revision_data["tags"] = array();
+                // Search page text for tags
                 $lines = gzfile($page_revision_data["filename"]);
                 foreach ($lines as $line) {
                     $matches = array();
@@ -164,6 +171,10 @@ class syntax_plugin_chunkprogress extends DokuWiki_Syntax_Plugin
                         $page_revision_data["tags"] = $tags;
                     }
                 }
+                // Weed out any status tags we don't care about
+                $page_status_tags = array_intersect(self::$_STATUS_TAGS, $tags);
+                $page_revision_data["status_tags"] = $page_status_tags;
+                // Add this revision to the array
                 array_push($page_revisions, $page_revision_data);
             }
             $params["page_revisions"] = $page_revisions;
@@ -207,20 +218,24 @@ class syntax_plugin_chunkprogress extends DokuWiki_Syntax_Plugin
             foreach ($page_revisions as $revision) {
                 $renderer->tablerow_open();
 
-                $renderer->tablecell_open();
-                $renderer->unformatted($revision["revision_id"]);
-                $renderer->tablecell_close();
+                //$renderer->tablecell_open();
+                //$renderer->unformatted($revision["revision_id"]);
+                //$renderer->tablecell_close();
 
                 $renderer->tablecell_open();
                 $renderer->unformatted($revision["timestamp_readable"]);
                 $renderer->tablecell_close();
 
-                $renderer->tablecell_open();
-                $renderer->unformatted($revision["filename"]);
-                $renderer->tablecell_close();
+                //$renderer->tablecell_open();
+                //$renderer->unformatted($revision["filename"]);
+                //$renderer->tablecell_close();
 
                 $renderer->tablecell_open();
                 $renderer->unformatted(implode(", ", $revision["tags"]));
+                $renderer->tablecell_close();
+
+                $renderer->tablecell_open();
+                $renderer->unformatted(implode(", ", $revision["status_tags"]));
                 $renderer->tablecell_close();
 
                 $renderer->tablerow_close();
