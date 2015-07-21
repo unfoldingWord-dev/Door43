@@ -157,12 +157,17 @@ class syntax_plugin_chunkprogress extends DokuWiki_Syntax_Plugin
             foreach (array_reverse($page_revision_ids) as $revision_id) {
                 $page_revision_data = array();
                 $page_revision_data["revision_id"] = $revision_id;
-                $page_revision_data["timestamp_readable"] 
-                    = date("Y-m-d H:i:s", $revision_id);
+                if ($revision_id == "") {
+                    $page_revision_data["timestamp_readable"] = "";
+                } else {
+                    $page_revision_data["timestamp_readable"] 
+                        = date("Y-m-d H:i:s", $revision_id);
+                }
                 $page_revision_data["filename"] = wikiFN($page_id, $revision_id);
                 $page_revision_data["tags"] = array();
                 // Search page text for tags
                 $lines = gzfile($page_revision_data["filename"]);
+                $page_revision_data["tags"] = array();
                 foreach ($lines as $line) {
                     $matches = array();
                     preg_match("/{{tag>([^}]*)}}/", strtolower($line), $matches);
@@ -171,9 +176,11 @@ class syntax_plugin_chunkprogress extends DokuWiki_Syntax_Plugin
                         $page_revision_data["tags"] = $tags;
                     }
                 }
-                // Weed out any status tags we don't care about
-                $page_status_tags = array_intersect(self::$_STATUS_TAGS, $tags);
-                $page_revision_data["status_tags"] = $page_status_tags;
+                // Pull out the status-related tags.
+                $page_revision_data["status_tags"] 
+                    = array_intersect(
+                        self::$_STATUS_TAGS, $page_revision_data["tags"]
+                    );
                 // Add this revision to the array
                 array_push($page_revisions, $page_revision_data);
             }

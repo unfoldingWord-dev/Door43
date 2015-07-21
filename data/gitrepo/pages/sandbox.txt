@@ -2,7 +2,7 @@
 
 {{chunkprogress>page=sandbox&debug=true}}
 
-{{tag>check awesome}}
+{{tag>draft check}}
 
 
 
