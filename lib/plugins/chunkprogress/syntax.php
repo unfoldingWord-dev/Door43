@@ -159,7 +159,11 @@ class syntax_plugin_chunkprogress extends DokuWiki_Syntax_Plugin
                 $page_revision_data = array();
                 $page_revision_data["revision_id"] = $revision_id;
                 if ($revision_id == "") {
-                    $page_revision_data["timestamp_readable"] = "(current version)";
+                    // This is the curent page
+                    $metadata_date = p_get_metadata($page_id, "date");
+                        $page_revision_data["timestamp_readable"] = date(
+                            "Y-m-d H:i:s", $metadata_date["modified"]
+                        ) . " (current)";
                 } else {
                     $page_revision_data["timestamp_readable"] 
                         = date("Y-m-d H:i:s", $revision_id);
@@ -187,6 +191,8 @@ class syntax_plugin_chunkprogress extends DokuWiki_Syntax_Plugin
                     // Add this revision to the array
                     array_push($page_revisions, $page_revision_data);
                 }
+                $prev_page_status_tags = $page_revision_data["status_tags"];
+
             }
             $params["page_revisions"] = $page_revisions;
         }

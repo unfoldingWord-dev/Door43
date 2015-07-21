@@ -1,25 +1,10 @@
 ====== Sandbox ======
 
-{{chunkprogress>page=sandbox}}
+{{chunkprogress>page=en:bible:notes:1ch:01:01}}
+{{chunkprogress>page=en:bible:notes:1ch:01:05}}
+{{chunkprogress>page=en:bible:notes:1ch:01:08}}
 
-{{tag>draft check}}
-
-
-
-
+{{tag>review}}
 
 
-
-
-
-
-
-
-Link to [[en:bible:notes:1ch:01:01|first chunk of 1 Chronicles]]
-
-Example of a plugin (from the [[en:bible:admin-reports:activity:activity-user|activity]] page)
-{{changes>user=admin&count=150&render=pagelist(header,date,user,nocomments)&maxage=1000800}}
-
-Another example:
-{{changes>}}
 
