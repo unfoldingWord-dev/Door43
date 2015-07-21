@@ -27,14 +27,12 @@ unset DIRS
 unset LAST
 
 # retrieve project and language id
+function join { local IFS="$1"; shift; echo "$*"; }
 PARTS=(${PROJECT_LANG//-/ })
-LAST=$((${#PARTS[@]} - 1))
-LANG=${PARTS[LAST]%.*}
-unset PARTS[LAST]
-((LAST--))
-PROJECT=$(echo ${PARTS[LAST]})
+GLOBAL_SCOPE=${PARTS[0]}
+PROJECT=${PARTS[1]}
+LANG=$(basename $(join - "${PARTS[@]:2}") .git)
 unset PARTS
-unset LAST
 
 # get file list
 PUBLISHED=$(git ls-tree master READY)
@@ -67,7 +65,7 @@ then
 
     FILES=$(git diff --name-only $COMMIT^ HEAD | grep '\.txt$' | tr "\\n" "," | sed 's/\//-/g' | sed 's/\.txt//g' | sed 's/,$//'; echo '')
 
-    echo Files changed: $FILES
+    echo Files changed: $FILES          
 
     # set params
     PARAMS=$(echo call=door43gitmerge\&action=mark-updated\&lang=$LANG\&project=$PROJECT\&device=$DEVICE\&files=$FILES)
