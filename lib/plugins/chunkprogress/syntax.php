@@ -1,9 +1,9 @@
 <?php
 
-/** 
+/**
  * PHP version 5
  *
- * Creates a progress report for a given chunk 
+ * Creates a progress report for a given chunk
  *
  * @category Door43
  * @package  DokuWiki
@@ -40,16 +40,16 @@ class syntax_plugin_chunkprogress extends DokuWiki_Syntax_Plugin
     private static $_STATUS_TAGS = array(
         "draft", "check", "review", "text", "discuss", "publish");
 
-    /** 
+    /**
      * Gets the info block for this plugin
-     * @return the info block for this plugin 
+     * @return the info block for this plugin
      */
     public function getInfo()
     {
         return confToHash(dirname(__FILE__).'/plugin.info.txt');
     }
 
-    /** 
+    /**
      * Gets the type for this plugin
      * @return "substition"
      */
@@ -58,7 +58,7 @@ class syntax_plugin_chunkprogress extends DokuWiki_Syntax_Plugin
         return "substition";
     }
 
-    /** 
+    /**
      * Gets the paragraph type of this plugin
      * @return "block"
      */
@@ -67,7 +67,7 @@ class syntax_plugin_chunkprogress extends DokuWiki_Syntax_Plugin
         return "block";
     }
 
-    /** 
+    /**
      * Gets the sort order for this plugin
      * @return the sort order (1 for now, 999 doesn't work)
      */
@@ -76,7 +76,7 @@ class syntax_plugin_chunkprogress extends DokuWiki_Syntax_Plugin
         return 1;
     }
 
-    /** 
+    /**
      * Connects the plugin to the text that triggers it
      * @param string $mode (TODO: not sure what this is for)
      * @return None
@@ -89,7 +89,7 @@ class syntax_plugin_chunkprogress extends DokuWiki_Syntax_Plugin
     }
 
 
-    /** 
+    /**
      * Pulls the data necessary for rendering
      * @param string $match   the text matched by the pattern
      * @param string $state   The type of pattern
@@ -119,18 +119,18 @@ class syntax_plugin_chunkprogress extends DokuWiki_Syntax_Plugin
                     if (array_key_exists($key, $params)) {
                         $params[$key] = $value;
                     } else {
-                        $params["message"] .= 
-                            "\nWARNING: didn't recognize parameter '" .
+                        $params["message"] .=
+                            "<br/>WARNING: didn't recognize parameter '" .
                             $key . "' (maybe you misspelled it?)";
                     }
                 } else {
-                    $params["message"] .= 
-                        "\nWARNING: didn't understand parameter '" .
+                    $params["message"] .=
+                        "<br/>WARNING: didn't understand parameter '" .
                         $param_string . "' (maybe you forgot the '=''?)";
                 }
             }
         } catch (Exception $exception) {
-            $params["message"] .= 
+            $params["message"] .=
                 "EXCEPTION: Please tell a developer about this: " . $e->getMessage();
         }
 
@@ -142,7 +142,7 @@ class syntax_plugin_chunkprogress extends DokuWiki_Syntax_Plugin
                 $params["page_title"] = $metadata["title"];
             } else {
                 $params["message"] .= "WARNING: Could not find a page named '" .
-                    $params["page"] . 
+                    $params["page"] .
                     "'.  Did you use the form 'en:bible:notes:1ch:01:01'?";
             }
         }
@@ -157,20 +157,49 @@ class syntax_plugin_chunkprogress extends DokuWiki_Syntax_Plugin
             // Get data about each revision
             foreach (array_reverse($page_revision_ids) as $revision_id) {
                 $page_revision_data = array();
+
+                // Get revision metadata
                 $page_revision_data["revision_id"] = $revision_id;
                 if ($revision_id == "") {
-                    // This is the curent page
-                    $metadata_date = p_get_metadata($page_id, "date");
-                        $page_revision_data["timestamp_readable"] = date(
-                            "Y-m-d H:i:s", $metadata_date["modified"]
-                        ) . " (current)";
+                    // Current page
+                    $change_log_entry = p_get_metadata($page_id)["last_change"];
                 } else {
-                    $page_revision_data["timestamp_readable"] 
-                        = date("Y-m-d H:i:s", $revision_id);
+                    // Revision
+                    $change_log_entry = getRevisionInfo($page_id, $revision_id);
                 }
+                if ($change_log_entry == null) {
+                    // Page has no history -- it's brand new or was imported
+                    $metadata = p_get_metadata($page_id);
+                    $change_log_entry = array();
+                    $change_log_entry["date"] = $metadata["date"]["modified"];
+                    $change_log_entry["user"] = "(unknown)";
+                }
+
+                echo "Revision Info:<br/>--------------<br/>";
+                foreach ($change_log_entry as $key => $value) {
+                    echo $key . ": " . $value . "<br/>";
+                }
+                echo "<br/>";
+
+                // Timestamp
+                if (array_key_exists("date", $change_log_entry)) {
+                    $page_revision_data["timestamp_readable"]
+                        = date("Y-m-d H:i:s", $change_log_entry["date"]);
+                } else {
+                    $page_revision_data["timestamp_readable"] = "(unknown)";
+                }
+
+                // User
+                $page_revision_data["user"] = $change_log_entry["user"];
+                if ($page_revision_data["user"] == "") {
+                    $page_revision_data["user"] = $change_log_entry["ip"];
+                }
+
+                // Get filename
                 $page_revision_data["filename"] = wikiFN($page_id, $revision_id);
-                $page_revision_data["tags"] = array();
+
                 // Search page text for tags
+                $page_revision_data["tags"] = array();
                 $lines = gzfile($page_revision_data["filename"]);
                 $page_revision_data["tags"] = array();
                 foreach ($lines as $line) {
@@ -181,16 +210,20 @@ class syntax_plugin_chunkprogress extends DokuWiki_Syntax_Plugin
                         $page_revision_data["tags"] = $tags;
                     }
                 }
+
                 // Pull out the status-related tags.
-                $page_revision_data["status_tags"] 
+                $page_revision_data["status_tags"]
                     = array_intersect(
                         self::$_STATUS_TAGS, $page_revision_data["tags"]
                     );
+
                 // Add page to array if status has changed
                 if ($page_revision_data["status_tags"] != $prev_page_status_tags) {
                     // Add this revision to the array
                     array_push($page_revisions, $page_revision_data);
                 }
+
+                // Remember page status for the future
                 $prev_page_status_tags = $page_revision_data["status_tags"];
 
             }
@@ -202,9 +235,9 @@ class syntax_plugin_chunkprogress extends DokuWiki_Syntax_Plugin
         return $params;
     }
 
-    /** 
+    /**
      * Renders the data to the page
-     * @param string $mode     Name of the format mode 
+     * @param string $mode     Name of the format mode
      * @param obj    $renderer ref to the Doku_Renderer
      * @param obj    $params   Parameter object returned by handle()
      * @return the parameters for render()
@@ -244,6 +277,12 @@ class syntax_plugin_chunkprogress extends DokuWiki_Syntax_Plugin
 
             $renderer->tablecell_open();
             $renderer->strong_open();
+            $renderer->unformatted("User (if known)");
+            $renderer->strong_close();
+            $renderer->tablecell_close();
+
+            $renderer->tablecell_open();
+            $renderer->strong_open();
             $renderer->unformatted("New Status");
             $renderer->strong_close();
             $renderer->tablecell_close();
@@ -268,6 +307,10 @@ class syntax_plugin_chunkprogress extends DokuWiki_Syntax_Plugin
                 //$renderer->tablecell_open();
                 //$renderer->unformatted(implode(", ", $revision["tags"]));
                 //$renderer->tablecell_close();
+
+                $renderer->tablecell_open();
+                $renderer->unformatted($revision["user"]);
+                $renderer->tablecell_close();
 
                 $renderer->tablecell_open();
                 $renderer->unformatted(implode(", ", $revision["status_tags"]));
