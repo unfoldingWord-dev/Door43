@@ -13,6 +13,7 @@ URL=http://test.door43.org
 
 # ***DO NOT CHANGE ANYTHING BELOW THIS LINE***
 
+NEVER="never"
 echo Triggering translation indexing.
 
 # get repository name
@@ -49,9 +50,9 @@ then
     LAST_PUBLISH=${COMMITS[LAST]}
     if [ "$LENGTH" -eq "1" ]
     then
-        # TRICKY: make sure initial publishes include all changes from the initial commit
+        # TRICKY: make sure initial publishes are treated as such
         echo This is the initial publish
-        LAST_PUBLISH="never" #$(git log --format=%H | tail -1)
+        LAST_PUBLISH=$NEVER
     fi
     unset LENGTH
     unset LAST
@@ -70,8 +71,8 @@ then
         # find changes just on the head
         COMMIT=$HEAD
     fi
-
-    if [ "$COMMIT" == "never" ]
+    
+    if [ "$COMMIT" == "$NEVER" ]
     then
         echo Finding changes since beginning of time
         FILES=$(git ls-tree --full-tree -r --name-only HEAD | grep '\.txt$' | tr "\\n" "," | sed 's/\//-/g' | sed 's/\.txt//g' | sed 's/,$//'; echo '')
