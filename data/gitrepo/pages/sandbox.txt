@@ -1,6 +1,6 @@
 ====== Sandbox ======
 
-{{chunkprogress>page=sandbox&debug=true}}
+{{chunkprogress>page=sandbox}}
 
 {{tag>draft check}}
 

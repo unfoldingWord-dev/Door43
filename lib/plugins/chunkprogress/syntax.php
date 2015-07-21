@@ -153,12 +153,13 @@ class syntax_plugin_chunkprogress extends DokuWiki_Syntax_Plugin
             $page_revision_ids = getRevisions($page_id, 0, 10000);
             array_unshift($page_revision_ids, "");
             $page_revisions =array();
+            $prev_page_status_tags = array();
             // Get data about each revision
             foreach (array_reverse($page_revision_ids) as $revision_id) {
                 $page_revision_data = array();
                 $page_revision_data["revision_id"] = $revision_id;
                 if ($revision_id == "") {
-                    $page_revision_data["timestamp_readable"] = "";
+                    $page_revision_data["timestamp_readable"] = "(current version)";
                 } else {
                     $page_revision_data["timestamp_readable"] 
                         = date("Y-m-d H:i:s", $revision_id);
@@ -181,11 +182,16 @@ class syntax_plugin_chunkprogress extends DokuWiki_Syntax_Plugin
                     = array_intersect(
                         self::$_STATUS_TAGS, $page_revision_data["tags"]
                     );
-                // Add this revision to the array
-                array_push($page_revisions, $page_revision_data);
+                // Add page to array if status has changed
+                if ($page_revision_data["status_tags"] != $prev_page_status_tags) {
+                    // Add this revision to the array
+                    array_push($page_revisions, $page_revision_data);
+                }
             }
             $params["page_revisions"] = $page_revisions;
         }
+
+
 
         return $params;
     }
@@ -222,6 +228,22 @@ class syntax_plugin_chunkprogress extends DokuWiki_Syntax_Plugin
 
             $renderer->table_open();
 
+            $renderer->tablerow_open();
+
+            $renderer->tablecell_open();
+            $renderer->strong_open();
+            $renderer->unformatted("Date");
+            $renderer->strong_close();
+            $renderer->tablecell_close();
+
+            $renderer->tablecell_open();
+            $renderer->strong_open();
+            $renderer->unformatted("New Status");
+            $renderer->strong_close();
+            $renderer->tablecell_close();
+
+            $renderer->tablerow_close();
+
             foreach ($page_revisions as $revision) {
                 $renderer->tablerow_open();
 
@@ -237,9 +259,9 @@ class syntax_plugin_chunkprogress extends DokuWiki_Syntax_Plugin
                 //$renderer->unformatted($revision["filename"]);
                 //$renderer->tablecell_close();
 
-                $renderer->tablecell_open();
-                $renderer->unformatted(implode(", ", $revision["tags"]));
-                $renderer->tablecell_close();
+                //$renderer->tablecell_open();
+                //$renderer->unformatted(implode(", ", $revision["tags"]));
+                //$renderer->tablecell_close();
 
                 $renderer->tablecell_open();
                 $renderer->unformatted(implode(", ", $revision["status_tags"]));
@@ -262,18 +284,23 @@ class syntax_plugin_chunkprogress extends DokuWiki_Syntax_Plugin
             $renderer->p_close();
 
             $renderer->table_open();
+
             $renderer->tablerow_open();
+
             $renderer->tablecell_open();
             $renderer->strong_open();
             $renderer->unformatted("Key");
             $renderer->strong_close();
             $renderer->tablecell_close();
+
             $renderer->tablecell_open();
             $renderer->strong_open();
             $renderer->unformatted("Value");
             $renderer->strong_close();
-            $renderer->tablerow_close();
             $renderer->tablecell_close();
+
+            $renderer->tablerow_close();
+
             foreach ($params as $key => $value) {
                 $renderer->tablerow_open();
                 $renderer->tablecell_open();
