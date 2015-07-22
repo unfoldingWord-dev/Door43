@@ -50,8 +50,8 @@ class FullTableDiffFormatter extends TableDiffFormatter {
     
 
     function __construct() {
-        $this->leading_context_lines = 20435345345345;
-        $this->trailing_context_lines = 2345345345345;
+        $this->leading_context_lines = PHP_INT_MAX; // print out max context will be all of it. 
+        $this->trailing_context_lines = PHP_INT_MAX;
     }
     
     function _block_header($xbeg, $xlen, $ybeg, $ylen) {
