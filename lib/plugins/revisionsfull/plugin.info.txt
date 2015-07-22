@@ -1,0 +1,7 @@
+base   door43register
+author Phil Hopper
+email  https://unfoldingword.org/contact/
+date   2014-12-19
+name   door43register plugin
+desc   Override the default register behavior
+url    https://github.com/Door43/dokuwiki-plugin-register
