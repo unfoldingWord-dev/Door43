@@ -12,6 +12,10 @@
  * @link     ???
  */
 
+/* Array of all possible status tags, in the order they usually occur. */
+global $CHUNKPROGRESS_STATUS_TAGS;
+$CHUNKPROGRESS_STATUS_TAGS = array(
+    "draft", "check", "review", "text", "discuss", "publish");
 
 /**
  * Extract parameters from plugin syntax match.  If any problems occurred,
@@ -113,8 +117,6 @@ function getPageUser($page_id, $revision_id)
 }
 
 
-
-
 /**
  * Retrieve tags from the given revision.  A tag statment looks like:
  *
@@ -130,7 +132,7 @@ function getPageUser($page_id, $revision_id)
  * @return An array containing the tags found (the array may be empty but will 
  * not be null)
  */
-function getTagsFromRevision($page_id, $revision_id)
+function getTags($page_id, $revision_id)
 {
     $tags = array();
     $lines = gzfile(wikiFN($page_id, $revision_id));
@@ -145,6 +147,35 @@ function getTagsFromRevision($page_id, $revision_id)
     return $tags;
 }
 
+
+/**
+ * Extract status tags from tag array.
+ *
+ * @param array $tags Array of tags
+ *
+ * @return An array containing the status tags found (the array may be empty 
+ * but will not be null)
+ */
+function getStatusTagsFromTags($tags)
+{
+    global $CHUNKPROGRESS_STATUS_TAGS;
+    return array_intersect($CHUNKPROGRESS_STATUS_TAGS, $tags);
+}
+
+
+/**
+ * Convenience function to get just the status tags from a page revision.
+ *
+ * @param string $page_id     The page ID
+ * @param string $revision_id The revision ID, or "" if current revision
+ *
+ * @return An array containing the status tags found (the array may be empty 
+ * but will not be null)
+ */
+function getStatusTags($page_id, $revision_id)
+{
+    return getStatusTagsFromTags(getTags($page_id, $revision_id));
+}
 
 
 // vim: foldmethod=indent

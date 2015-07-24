@@ -35,9 +35,6 @@ require_once "utils.php";
  */
 class syntax_plugin_chunkprogress extends DokuWiki_Syntax_Plugin
 {
-    /* Array of all possible status tags, in the order they usually occur. */
-    private static $_STATUS_TAGS = array(
-        "draft", "check", "review", "text", "discuss", "publish");
 
     /**
      * Gets the info block for this plugin
@@ -141,15 +138,9 @@ class syntax_plugin_chunkprogress extends DokuWiki_Syntax_Plugin
                 // User
                 $page_revision_data["user"] = getPageUser($page_id, $revision_id);
 
-                // Tags
-                $page_revision_data["tags"]
-                    = getTagsFromRevision($page_id, $revision_id);
-
-                // Narrow down to status-related tags.
+                // Get status tags from revision.
                 $page_revision_data["status_tags"]
-                    = array_intersect(
-                        self::$_STATUS_TAGS, $page_revision_data["tags"]
-                    );
+                    = getStatusTags($page_id, $revision_id);
 
                 // Add page to array if status has changed
                 if ($page_revision_data["status_tags"] != $prev_page_status_tags) {
