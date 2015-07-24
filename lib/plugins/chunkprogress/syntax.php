@@ -144,7 +144,7 @@ class syntax_plugin_chunkprogress extends DokuWiki_Syntax_Plugin
                     $metadata = p_get_metadata($page_id);
                     $change_log_entry = array();
                     $change_log_entry["date"] = $metadata["date"]["modified"];
-                    $change_log_entry["user"] = "(unknown)";
+                    $change_log_entry["user"] = "";
                 }
 
                 // Timestamp
@@ -157,9 +157,6 @@ class syntax_plugin_chunkprogress extends DokuWiki_Syntax_Plugin
 
                 // User
                 $page_revision_data["user"] = $change_log_entry["user"];
-                if ($page_revision_data["user"] == "") {
-                    $page_revision_data["user"] = $change_log_entry["ip"];
-                }
 
                 // Get filename
                 $page_revision_data["filename"] = wikiFN($page_id, $revision_id);
