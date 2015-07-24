@@ -50,20 +50,20 @@ function getParams($match, $expected_params)
                     $params[$key] = $value;
                 } else {
                     // We weren't expecting this parameter
-                    $params["message"] .=
-                        "<br/>WARNING: didn't recognize parameter '" .
+                    $params["message"]
+                        = "WARNING: didn't recognize parameter '" .
                         $key . "' (maybe you misspelled it?)";
                 }
             } else {
                 // We didn't find both a key and a value
-                $params["message"] .=
-                    "<br/>WARNING: didn't understand parameter '" .
+                $params["message"]
+                    = "WARNING: didn't understand parameter '" .
                     $param_string . "' (maybe you forgot the '=''?)";
             }
         }
     } catch (Exception $exception) {
-        $params["message"] .=
-            "EXCEPTION: Please tell a developer about this: " . $e->getMessage();
+        $params["message"]
+            = "EXCEPTION: Please tell a developer about this: " . $e->getMessage();
     }
 
     // Done
@@ -97,7 +97,7 @@ function getPageTimestamp($page_id, $revision_id)
  * @param string $page_id     The page ID
  * @param string $revision_id The revision ID, or "" if current revision
  *
- * @return the name of the user responsible for the revision, or "" if the user 
+ * @return the name of the user responsible for the revision, or "" if the user
  * could not be determined
  */
 function getPageUser($page_id, $revision_id)
@@ -121,15 +121,15 @@ function getPageUser($page_id, $revision_id)
  * Retrieve tags from the given revision.  A tag statment looks like:
  *
  * {{tag>tag1 tag2 tag3}}
- * 
- * Although pages usually only have one tag statment, it is possible for a page 
- * to have multiple statments, even on the same line.  Of course, it's possible 
+ *
+ * Although pages usually only have one tag statment, it is possible for a page
+ * to have multiple statments, even on the same line.  Of course, it's possible
  * a page has no tags too.
  *
  * @param string $page_id     The page ID
  * @param string $revision_id The revision ID, or "" if current revision
  *
- * @return An array containing the tags found (the array may be empty but will 
+ * @return An array containing the tags found (the array may be empty but will
  * not be null)
  */
 function getTags($page_id, $revision_id)
@@ -153,10 +153,10 @@ function getTags($page_id, $revision_id)
  *
  * @param array $tags Array of tags
  *
- * @return An array containing the status tags found (the array may be empty 
+ * @return An array containing the status tags found (the array may be empty
  * but will not be null)
  */
-function getStatusTagsFromTags($tags)
+function getStatusFromTags($tags)
 {
     global $CHUNKPROGRESS_STATUS_TAGS;
     return array_intersect($CHUNKPROGRESS_STATUS_TAGS, $tags);
@@ -169,13 +169,44 @@ function getStatusTagsFromTags($tags)
  * @param string $page_id     The page ID
  * @param string $revision_id The revision ID, or "" if current revision
  *
- * @return An array containing the status tags found (the array may be empty 
+ * @return An array containing the status tags found (the array may be empty
  * but will not be null)
  */
 function getStatusTags($page_id, $revision_id)
 {
-    return getStatusTagsFromTags(getTags($page_id, $revision_id));
+    return getStatusFromTags(getTags($page_id, $revision_id));
 }
+
+
+/**
+ * Convenience function to get just the status tags from a page revision.
+ *
+ * @param array $params The parameters given by the user
+ *
+ * @return An updated $params array with data filled in
+ */
+function handleActivityByUserReport($params)
+{
+    if ($params["namespace"] == "") {
+        $params["message"]
+            = "ERROR: Please specify the namespace, e.g. namespace=en:bible:notes";
+        return $params;
+    }
+    $namespace = $params["namespace"];
+
+
+
+    $params["report_title"] = "Activity by User";
+
+
+    return $params;
+}
+
+
+
+
+
+
 
 
 // vim: foldmethod=indent

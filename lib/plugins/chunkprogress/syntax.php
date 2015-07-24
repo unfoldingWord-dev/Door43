@@ -96,66 +96,28 @@ class syntax_plugin_chunkprogress extends DokuWiki_Syntax_Plugin
     public function handle($match, $state, $pos, &$handler)
     {
         $expected_params = array(
-            "page" => "",
+            "report" => "",
+            "namespace" => "",
             "debug" => "false"
         );
 
         // Extract parameters from match object
         $params = getParams($match, $expected_params);
 
-        // Get page metadata
-        if (strlen($params["page"]) > 0) {
-            $metadata = p_get_metadata($params["page"]);
-            if (array_key_exists("title", $metadata)) {
-                $params["page_title"] = $metadata["title"];
-            } else {
-                $params["message"] .= "WARNING: Could not find a page named '" .
-                    $params["page"] .
-                    "'.  Did you use the form 'en:bible:notes:1ch:01:01'?";
-            }
+        // Validate report type
+        if ($params["report"] == "") {
+            $params["message"]
+                = "ERROR: Please set the 'report' parameter to one of the following:"
+                . " 'activity-by-user', ...";
+        } else if ($params["report"] == "activity-by-user") {
+            return handleActivityByUserReport($params);
+        } else {
+            $params["message"]
+                = "ERROR: Unrecognized report type '"
+                . $params["report"]
+                . "' (maybe you misspelled it?)";
+            return $params;
         }
-
-        // Get page history
-        if (strlen($params["page"]) > 0) {
-            $page_id = $params["page"];
-
-            // Get page revisions
-            $page_revision_ids = getRevisions($page_id, 0, 10000);
-
-            // Add the current version of the page to the top of the revisions
-            array_unshift($page_revision_ids, "");
-
-            // Get data about each revision in order from oldest to newest
-            $page_revisions = array();
-            $prev_page_status_tags = array();
-            foreach (array_reverse($page_revision_ids) as $revision_id) {
-                $page_revision_data = array();
-
-                // Human-readable timestamp
-                $page_revision_data["timestamp_readable"] 
-                    = date("Y-m-d H:i:s", getPageTimestamp($page_id, $revision_id));
-
-                // User
-                $page_revision_data["user"] = getPageUser($page_id, $revision_id);
-
-                // Get status tags from revision.
-                $page_revision_data["status_tags"]
-                    = getStatusTags($page_id, $revision_id);
-
-                // Add page to array if status has changed
-                if ($page_revision_data["status_tags"] != $prev_page_status_tags) {
-                    // Add this revision to the array
-                    array_push($page_revisions, $page_revision_data);
-                }
-
-                // Remember page status for the future
-                $prev_page_status_tags = $page_revision_data["status_tags"];
-
-            }
-            $params["page_revisions"] = $page_revisions;
-        }
-
-
 
         return $params;
     }
@@ -165,7 +127,7 @@ class syntax_plugin_chunkprogress extends DokuWiki_Syntax_Plugin
      * @param string $mode     Name of the format mode
      * @param obj    $renderer ref to the Doku_Renderer
      * @param obj    $params   Parameter object returned by handle()
-     * @return the parameters for render()
+     * @return Nothing?
      */
     public function render($mode, &$renderer, $params)
     {
@@ -176,122 +138,16 @@ class syntax_plugin_chunkprogress extends DokuWiki_Syntax_Plugin
             $renderer->unformatted($params["message"]);
             $renderer->strong_close();
             $renderer->p_close();
+            return;
         }
 
         // Print page title
-        if (array_key_exists("page_title", $params)) {
-            $renderer->header("Progress Report for " . $params["page_title"], 2, 0);
-            $renderer->p_open();
-            $renderer->unformatted("(Page id: " . $params["page"] . " )", 1);
-            $renderer->p_close();
+        if (array_key_exists("report_title", $params)) {
+            $renderer->header($params["report_title"], 2, 0);
         }
 
-        // Print raw revisions
-        if (array_key_exists("page_revisions", $params)) {
-            $page_revisions = $params["page_revisions"];
-
-            $renderer->table_open();
-
-            $renderer->tablerow_open();
-
-            $renderer->tablecell_open();
-            $renderer->strong_open();
-            $renderer->unformatted("Date");
-            $renderer->strong_close();
-            $renderer->tablecell_close();
-
-            $renderer->tablecell_open();
-            $renderer->strong_open();
-            $renderer->unformatted("User (if known)");
-            $renderer->strong_close();
-            $renderer->tablecell_close();
-
-            $renderer->tablecell_open();
-            $renderer->strong_open();
-            $renderer->unformatted("New Status");
-            $renderer->strong_close();
-            $renderer->tablecell_close();
-
-            $renderer->tablerow_close();
-
-            foreach ($page_revisions as $revision) {
-                $renderer->tablerow_open();
-
-                //$renderer->tablecell_open();
-                //$renderer->unformatted($revision["revision_id"]);
-                //$renderer->tablecell_close();
-
-                $renderer->tablecell_open();
-                $renderer->unformatted($revision["timestamp_readable"]);
-                $renderer->tablecell_close();
-
-                //$renderer->tablecell_open();
-                //$renderer->unformatted($revision["filename"]);
-                //$renderer->tablecell_close();
-
-                //$renderer->tablecell_open();
-                //$renderer->unformatted(implode(", ", $revision["tags"]));
-                //$renderer->tablecell_close();
-
-                $renderer->tablecell_open();
-                $renderer->unformatted($revision["user"]);
-                $renderer->tablecell_close();
-
-                $renderer->tablecell_open();
-                $renderer->unformatted(implode(", ", $revision["status_tags"]));
-                $renderer->tablecell_close();
-
-                $renderer->tablerow_close();
-            }
-            $renderer->table_close();
-        }
-
-
-        // Dump params if in debug mode
-        if ($params["debug"] == "true") {
-            $renderer->hr();
-
-            $renderer->p_open();
-            $renderer->emphasis_open();
-            $renderer->unformatted("Debug: parameter dump");
-            $renderer->emphasis_close();
-            $renderer->p_close();
-
-            $renderer->table_open();
-
-            $renderer->tablerow_open();
-
-            $renderer->tablecell_open();
-            $renderer->strong_open();
-            $renderer->unformatted("Key");
-            $renderer->strong_close();
-            $renderer->tablecell_close();
-
-            $renderer->tablecell_open();
-            $renderer->strong_open();
-            $renderer->unformatted("Value");
-            $renderer->strong_close();
-            $renderer->tablecell_close();
-
-            $renderer->tablerow_close();
-
-            foreach ($params as $key => $value) {
-                $renderer->tablerow_open();
-                $renderer->tablecell_open();
-                $renderer->unformatted($key);
-                $renderer->tablecell_close();
-                $renderer->tablecell_open();
-                if (is_array($value)) {
-                    $renderer->unformatted("Array length " . count($value));
-                } else {
-                    $renderer->unformatted($value);
-                }
-                $renderer->tablecell_close();
-                $renderer->tablerow_close();
-            }
-            $renderer->table_close();
-        }
     }
+
 }
 
 // vim: foldmethod=indent
