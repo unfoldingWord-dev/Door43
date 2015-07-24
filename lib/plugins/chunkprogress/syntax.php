@@ -21,6 +21,7 @@ if (!defined('DOKU_PLUGIN')) {
     define('DOKU_PLUGIN', DOKU_INC.'lib/plugins/');
 }
 require_once DOKU_PLUGIN.'syntax.php';
+require_once "utils.php";
 
 
 /**
@@ -98,41 +99,13 @@ class syntax_plugin_chunkprogress extends DokuWiki_Syntax_Plugin
      */
     public function handle($match, $state, $pos, &$handler)
     {
-        $params = array(
+        $expected_params = array(
             "page" => "",
             "debug" => "false"
         );
 
-        // Extract parameter string from match
-        $begin_pos = strpos($match, ">") + 1;
-        $end_pos = strpos($match, "}") - 1;
-        $all_params_string = substr($match, $begin_pos, $end_pos - $begin_pos + 1);
-
-        // Process parameters
-        try {
-            foreach (explode("&", $all_params_string) as $param_string) {
-                $param_pair = explode("=", $param_string);
-                if (count($param_pair) == 2) {
-                    $key = $param_pair[0];
-                    $value = $param_pair[1];
-                    if (array_key_exists($key, $params)) {
-                        $params[$key] = $value;
-                    } else {
-                        $params["message"] .=
-                            "<br/>WARNING: didn't recognize parameter '" .
-                            $key . "' (maybe you misspelled it?)";
-                    }
-                } else {
-                    $params["message"] .=
-                        "<br/>WARNING: didn't understand parameter '" .
-                        $param_string . "' (maybe you forgot the '=''?)";
-                }
-            }
-        } catch (Exception $exception) {
-            $params["message"] .=
-                "EXCEPTION: Please tell a developer about this: " . $e->getMessage();
-        }
-
+        // Extract parameters from match object
+        $params = getParams($match, $expected_params);
 
         // Get page metadata
         if (strlen($params["page"]) > 0) {
