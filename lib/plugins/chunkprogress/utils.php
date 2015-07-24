@@ -67,5 +67,53 @@ function getParams($match, $expected_params)
 }
 
 
+/**
+ * Pull timestamp from page metadata
+ *
+ * @param string $page_id     The page ID
+ * @param string $revision_id The revision ID, or "" if current revision
+ *
+ * @return the (numeric) date the page was modified
+ */
+function getPageTimestamp($page_id, $revision_id)
+{
+    if ($revision_id == "") {
+        // No revision id, return modification date of current page
+        return p_get_metadata($page_id)["date"]["modified"];
+    } else {
+        // Return date of revision
+        return getRevisionInfo($page_id, $revision_id)["date"];
+    }
+}
+
+
+/**
+ * Pull the user that modified the page from metadata
+ *
+ * @param string $page_id     The page ID
+ * @param string $revision_id The revision ID, or "" if current revision
+ *
+ * @return the name of the user responsible for the revision, or "" if the user 
+ * could not be determined
+ */
+function getPageUser($page_id, $revision_id)
+{
+    if ($revision_id == "") {
+        // Try to pull the user from the last_change metadata
+        $metadata = p_get_metadata($page_id);
+        if (array_key_exists("last_change", $metadata)) {
+            return $metadata["last_change"]["user"];
+        }
+        // There's no data as to who updated this, return empty user
+        return "";
+    } else {
+        // Return user associated with revision
+        return getRevisionInfo($page_id, $revision_id)["user"];
+    }
+}
+
+
+
+
 
 // vim: foldmethod=indent

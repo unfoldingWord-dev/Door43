@@ -130,33 +130,12 @@ class syntax_plugin_chunkprogress extends DokuWiki_Syntax_Plugin
             foreach (array_reverse($page_revision_ids) as $revision_id) {
                 $page_revision_data = array();
 
-                // Get revision metadata
-                $page_revision_data["revision_id"] = $revision_id;
-                if ($revision_id == "") {
-                    // Current page
-                    $change_log_entry = p_get_metadata($page_id)["last_change"];
-                } else {
-                    // Revision
-                    $change_log_entry = getRevisionInfo($page_id, $revision_id);
-                }
-                if ($change_log_entry == null) {
-                    // Page has no history -- it's brand new or was imported
-                    $metadata = p_get_metadata($page_id);
-                    $change_log_entry = array();
-                    $change_log_entry["date"] = $metadata["date"]["modified"];
-                    $change_log_entry["user"] = "";
-                }
-
-                // Timestamp
-                if (array_key_exists("date", $change_log_entry)) {
-                    $page_revision_data["timestamp_readable"]
-                        = date("Y-m-d H:i:s", $change_log_entry["date"]);
-                } else {
-                    $page_revision_data["timestamp_readable"] = "(unknown)";
-                }
+                // Human-readable timestamp
+                $page_revision_data["timestamp_readable"] 
+                    = date("Y-m-d H:i:s", getPageTimestamp($page_id, $revision_id));
 
                 // User
-                $page_revision_data["user"] = $change_log_entry["user"];
+                $page_revision_data["user"] = getPageUser($page_id, $revision_id);
 
                 // Get filename
                 $page_revision_data["filename"] = wikiFN($page_id, $revision_id);
