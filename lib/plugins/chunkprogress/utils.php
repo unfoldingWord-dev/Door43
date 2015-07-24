@@ -115,5 +115,36 @@ function getPageUser($page_id, $revision_id)
 
 
 
+/**
+ * Retrieve tags from the given revision.  A tag statment looks like:
+ *
+ * {{tag>tag1 tag2 tag3}}
+ * 
+ * Although pages usually only have one tag statment, it is possible for a page 
+ * to have multiple statments, even on the same line.  Of course, it's possible 
+ * a page has no tags too.
+ *
+ * @param string $page_id     The page ID
+ * @param string $revision_id The revision ID, or "" if current revision
+ *
+ * @return An array containing the tags found (the array may be empty but will 
+ * not be null)
+ */
+function getTagsFromRevision($page_id, $revision_id)
+{
+    $tags = array();
+    $lines = gzfile(wikiFN($page_id, $revision_id));
+    foreach ($lines as $line) {
+        $matches = array();
+        preg_match_all("/{{tag>([^}]*)}}/", strtolower($line), $matches);
+        // $matches[1] contains all instances of the the space-separated tags
+        foreach ($matches[1] as $match) {
+            $tags = array_merge($tags, explode(" ", $match));
+        }
+    }
+    return $tags;
+}
+
+
 
 // vim: foldmethod=indent

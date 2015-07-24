@@ -141,22 +141,11 @@ class syntax_plugin_chunkprogress extends DokuWiki_Syntax_Plugin
                 // User
                 $page_revision_data["user"] = getPageUser($page_id, $revision_id);
 
-                // Get filename
-                $page_revision_data["filename"] = wikiFN($page_id, $revision_id);
+                // Tags
+                $page_revision_data["tags"]
+                    = getTagsFromRevision($page_id, $revision_id);
 
-                // Search page text for tags
-                $page_revision_data["tags"] = array();
-                $lines = gzfile($page_revision_data["filename"]);
-                foreach ($lines as $line) {
-                    $matches = array();
-                    preg_match("/{{tag>([^}]*)}}/", strtolower($line), $matches);
-                    if (count($matches) > 0) {
-                        $tags = explode(" ", $matches[1]);
-                        $page_revision_data["tags"] = $tags;
-                    }
-                }
-
-                // Pull out the status-related tags.
+                // Narrow down to status-related tags.
                 $page_revision_data["status_tags"]
                     = array_intersect(
                         self::$_STATUS_TAGS, $page_revision_data["tags"]
