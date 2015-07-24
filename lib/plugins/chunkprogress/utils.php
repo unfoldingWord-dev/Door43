@@ -38,16 +38,20 @@ function getParams($match, $expected_params)
         foreach (explode("&", $all_params_string) as $param_string) {
             $param_pair = explode("=", $param_string);
             if (count($param_pair) == 2) {
+                // We found a key and a value
                 $key = $param_pair[0];
                 $value = $param_pair[1];
                 if (array_key_exists($key, $params)) {
+                    // This is an expected paramater, assign value
                     $params[$key] = $value;
                 } else {
+                    // We weren't expecting this parameter
                     $params["message"] .=
                         "<br/>WARNING: didn't recognize parameter '" .
                         $key . "' (maybe you misspelled it?)";
                 }
             } else {
+                // We didn't find both a key and a value
                 $params["message"] .=
                     "<br/>WARNING: didn't understand parameter '" .
                     $param_string . "' (maybe you forgot the '=''?)";
@@ -58,8 +62,10 @@ function getParams($match, $expected_params)
             "EXCEPTION: Please tell a developer about this: " . $e->getMessage();
     }
 
+    // Done
     return $params;
 }
+
 
 
 // vim: foldmethod=indent
