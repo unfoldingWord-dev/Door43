@@ -35,7 +35,6 @@ require_once "utils.php";
  */
 class syntax_plugin_chunkprogress extends DokuWiki_Syntax_Plugin
 {
-
     /* Array of all possible status tags, in the order they usually occur. */
     private static $_STATUS_TAGS = array(
         "draft", "check", "review", "text", "discuss", "publish");
@@ -148,7 +147,6 @@ class syntax_plugin_chunkprogress extends DokuWiki_Syntax_Plugin
                 // Search page text for tags
                 $page_revision_data["tags"] = array();
                 $lines = gzfile($page_revision_data["filename"]);
-                $page_revision_data["tags"] = array();
                 foreach ($lines as $line) {
                     $matches = array();
                     preg_match("/{{tag>([^}]*)}}/", strtolower($line), $matches);
