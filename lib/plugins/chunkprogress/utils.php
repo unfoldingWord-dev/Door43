@@ -187,6 +187,7 @@ function getStatusTags($page_id, $revision_id)
  */
 function handleActivityByUserReport($params)
 {
+    global $conf;
     if ($params["namespace"] == "") {
         $params["message"]
             = "ERROR: Please specify the namespace, e.g. namespace=en:bible:notes";
@@ -194,7 +195,19 @@ function handleActivityByUserReport($params)
     }
     $namespace = $params["namespace"];
 
-
+    // Find all pages under namespace
+    $data = array();
+    $opts = array("depth" => 0);
+    $dir = str_replace(":", DIRECTORY_SEPARATOR, $namespace);
+    search($data, $conf["datadir"], search_allpages, $opts, $dir);
+    // Each item in $data looks like this:
+    // -------------------
+    // id: en:bible:notes:1ch:01:01
+    // rev: 1437760017
+    // mtime: 1437760017
+    // size: 1599
+    
+    debugEchoArray($data, "Pages");
 
     $params["report_title"] = "Activity by User";
 
@@ -203,8 +216,29 @@ function handleActivityByUserReport($params)
 }
 
 
-
-
+/**
+ * Debug function to echo out an array
+ *
+ * @param array $array  the array to print
+ * @param array $title  optional title to print above the array
+ * @param array $indent Number of spaces to indent
+ *
+ * @return Nothing
+ */
+function debugEchoArray($array, $title="(array)", $indent=0)
+{
+    $indent_str = str_repeat("&nbsp;", $indent);
+    echo $indent_str . $title . "<br/>";
+    echo $indent_str . "-------------------" . "<br/>";
+    foreach ($array as $key => $value) {
+        if (is_array($value)) {
+            debugEchoArray($value, "(array)", $indent+4);
+        } else {
+            echo $indent_str . $key . ": " . $value . "<br/>";
+        }
+    }
+    echo "<br/>";
+}
 
 
 
