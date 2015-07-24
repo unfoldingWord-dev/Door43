@@ -122,11 +122,16 @@ class syntax_plugin_chunkprogress extends DokuWiki_Syntax_Plugin
         // Get page history
         if (strlen($params["page"]) > 0) {
             $page_id = $params["page"];
+
+            // Get page revisions
             $page_revision_ids = getRevisions($page_id, 0, 10000);
+
+            // Add the current version of the page to the top of the revisions
             array_unshift($page_revision_ids, "");
-            $page_revisions =array();
+
+            // Get data about each revision in order from oldest to newest
+            $page_revisions = array();
             $prev_page_status_tags = array();
-            // Get data about each revision
             foreach (array_reverse($page_revision_ids) as $revision_id) {
                 $page_revision_data = array();
 
