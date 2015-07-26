@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Page Not Found</title>
+
+  <meta name="description" content="Unrestricted biblical content in every language">
+  <meta name="keywords" content="Unrestricted biblical content in every language">
+
+  <link rel="stylesheet" type="text/css" href="/css/main.css">
+  <link rel="stylesheet" type="text/css" href="/css/parallax.css">
+  <link rel="stylesheet" type="text/css" href="/css/eg-attachments.css">
+  <link rel="stylesheet" type="text/css" href="/css/public.css?ver=5.1.1">
+  <link rel="stylesheet" type="text/css" href="/css/dashicons.min.css">
+  <link rel="canonical" href="https://unfoldingword.org/404.html">
+  <link rel="alternate" type="application/rss+xml" title="unfoldingWord"
+        href="https://unfoldingword.org/feed.xml">
+  <link rel="" href="/favicon.ico" type="image/x-icon">
+
+  <style type="text/css">
+    .site-title a {
+      background: url(/assets/img/cropped-uW-logo-1200w-white1.png) no-repeat !important;
+    }
+  </style>
+
+  <script type="text/javascript">
+    var BASE_URL = '';
+  </script>
+  <script type="text/javascript" src="/js/util.js"></script>
+  <script type="text/javascript" src="/js/jquery.min.js"></script>
+  <script type="text/javascript" src="/js/responsive-menu.js"></script>
+  <script type="text/javascript" src="/js/parallax.js"></script>
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-60106521-1']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+</head>
+
+  <body class="home page page-id-15 page-template-default custom-header header-image full-width-content parallax-pro-blue" itemscope="itemscope" itemtype="http://schema.org/WebPage">
+  <header class="site-header" role="banner" itemscope="itemscope" itemtype="http://schema.org/WPHeader">
+  <div class="wrap">
+    <div class="title-area">
+      <h1 class="site-title" itemprop="headline"><a href="/">unfoldingWord</a></h1>
+
+      <h2 class="site-description" itemprop="description">unrestricted Biblical content in every language.</h2>
+    </div>
+    <aside class="widget-area header-widget-area">
+      <section class="widget widget_nav_menu">
+        <div class="widget-wrap">
+          <nav class="nav-header" role="navigation" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
+  <ul id="menu-main-menu" class="menu genesis-nav-menu responsive-menu">
+    <li class="menu-item menu-item-has-children"><a href="/content">Content</a>
+<ul class="sub-menu">
+<li class="menu-item"><a href="/bible">Bible</a></li>
+<li class="menu-item"><a href="/stories">Open Bible Stories</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-has-children"><a href="/tools">Tools</a>
+<ul class="sub-menu">
+<li class="menu-item"><a href="/apps">Mobile Apps</a></li>
+<li class="menu-item"><a href="/services">Web Services</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-has-children"><a href="/training">Training</a>
+<ul class="sub-menu">
+<li class="menu-item"><a href="/academy">translationAcademy</a></li>
+<li class="menu-item"><a href="/audio">Audio Recording</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-has-children"><a href="/about">About</a>
+<ul class="sub-menu">
+<li class="menu-item"><a href="/faith">Statement of Faith</a></li>
+<li class="menu-item"><a href="/guidelines">Translation Guidelines</a></li>
+<li class="menu-item"><a href="/principles">Guiding Principles</a></li>
+<li class="menu-item"><a href="/license">License &amp; Copyright</a></li>
+<li class="menu-item"><a href="/gateway">Gateway Languages</a></li>
+<li class="menu-item"><a href="/translation">Bible Translation 3.0</a></li>
+<li class="menu-item"><a href="/quality">Quality Assurance</a></li>
+</ul>
+</li>
+<li class="menu-item"><a href="/contact">Contact</a></li>
+
+  </ul>
+</nav>
+
+        </div>
+      </section>
+    </aside>
+  </div>
+</header>
+
+  <div class="site-inner">
+    <div class="content-sidebar-wrap">
+      <main class="content" role="main" itemprop="mainContentOfPage">
+        <article class="post-75 page type-page status-publish entry" itemscope="itemscope"
+                 itemtype="http://schema.org/CreativeWork">
+          <header class="entry-header"><h1 class="entry-title" itemprop="headline">Page Not Found</h1></header>
+          <div class="page-content">
+            <div class="wrapper">
+              <div class="entry-content" itemprop="text">
+                <p>Sorry! The requested page is not available. Please choose a page from the menu or <a href="/contact">contact us</a>.</p>
+
+              </div>
+              
+            </div>
+          </div>
+        </article>
+      </main>
+    </div>
+  </div>
+  <footer class="site-footer" role="contentinfo" itemscope="itemscope" itemtype="http://schema.org/WPFooter">
+  <div class="footer-widgets">
+    <div class="wrap">
+      <div class="footer-widgets-1 widget-area">
+        <section id="text-5" class="widget widget_text">
+          <div class="widget-wrap"><h4 class="widget-title widgettitle">end the spiritual famine.</h4>
+
+            <div class="textwidget">help <a href="http://door43.org/en/get-started">translate</a> or <a href="/give">donate</a>
+              to a project.
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+  <div class="wrap">
+    <nav class="nav-secondary" role="navigation" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
+  <div class="wrap">
+    <ul class="menu genesis-nav-menu menu-secondary">
+      <li class="menu-item"><a href="/content">Content</a></li>
+<li class="menu-item"><a href="/tools">Tools</a></li>
+<li class="menu-item"><a href="/training">Training</a></li>
+<li class="menu-item"><a href="/about">About</a></li>
+<li class="menu-item"><a href="/contact">Contact</a></li>
+
+    </ul>
+  </div>
+</nav>
+
+    <p style="margin-top:18px">
+      <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
+        <img alt="Creative Commons License" style="border-width:0" src="/assets/img/CC-BY-SA-icon-88x31.png" /></a>
+      <br />
+      <span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">The content of this page ("<a xmlns:dct="http://purl.org/dc/terms/" href="https://unfoldingword.org/404.html" rel="dct:source">Page Not Found</a>") from </span>
+      <span xmlns:cc="http://creativecommons.org/ns#" property="cc:attributionName">unfoldingWord</span> is licensed under a
+      <br /><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+    </p>
+  </div>
+</footer>
+
+  </body>
+</html>
