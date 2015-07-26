@@ -9,3 +9,8 @@ conf/local.php.bak
 .idea
 vendor/
 composer.*
+
+lib/plugins/ckgedit/fckeditor/userfiles/file
+lib/plugins/ckgedit/fckeditor/userfiles/flash
+lib/plugins/ckgedit/fckeditor/userfiles/image
+lib/plugins/ckgedit/fckeditor/userfiles/media
