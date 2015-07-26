@@ -1,7 +1,0 @@
-base   door43obscomparer
-author Richard Mahn
-email  rich@themahn.com
-date   2015-05-11
-name   door43 comparer plugin
-desc   Compares the text of a given language with a source language (e.g. English) to see if it was translated as expected
-url    https://github.com/unfoldingWord-dev/dokuwiki-plugin-obs-comparer
