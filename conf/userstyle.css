@@ -1,11 +1,11 @@
-@import url(http://fonts.googleapis.com/css?family=Lato:400,700,400italic);
+@import url(http://fonts.googleapis.com/css?family=Noto%20Sans:400,700,400italic);
 
 /*
  * TEXT
  */
 
-body, p { font-family: 'Lato', sans-serif; font-weight: 400; }
-h1, h2, h3, h4 { font-family: 'Lato', sans-serif; font-weight: 700; }
+body, p { font-family: 'Noto Sans', sans-serif; font-weight: 400; }
+h1, h2, h3, h4 { font-family: 'Noto Sans', sans-serif; font-weight: 700; }
 
 .dokuwiki .docInfo { color: #aaa; }
 
