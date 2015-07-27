@@ -276,6 +276,9 @@ function handleActivityByUserReport($params)
     }
     $params["end_timestamp"] = $end_timestamp;
 
+
+    $params["report_title"] = "Activity by User for " . $namespace . " from " . $start_date . " to " . $end_date;
+
     // Find all pages in the namespace
     $pages = getAllPagesInNamespace($namespace);
     $params["debug_num_pages_in_ns"] = count($pages);
@@ -361,7 +364,6 @@ function handleActivityByUserReport($params)
             }
         }
     }
-    //debugEchoArray($last_status_by_user_by_page, "Status by user by page");
 
     // Create count of status by user
     $count_of_status_by_user = array();
@@ -370,23 +372,69 @@ function handleActivityByUserReport($params)
             if (array_key_exists($user, $count_of_status_by_user) == false) {
                 $count_of_status_by_user[$user] = array();
             }
-            if (array_key_exists($last_status, $count_of_status_by_user[$user]) == false) {
+            if (array_key_exists(
+                $last_status, $count_of_status_by_user[$user]
+            ) == false) {
                 $count_of_status_by_user[$user][$last_status] = 0;
             }
             $count_of_status_by_user[$user][$last_status] += 1;
         }
     }
-    debugEchoArray($count_of_status_by_user, "Count of status by user");
-
-
-
-
-
-    $params["report_title"] = "Activity by User";
+    $params["user_status_count"] = $count_of_status_by_user;
 
     return $params;
 }
 
 
+/**
+ * Renders activity report to the page
+ * @param string $mode     Name of the format mode
+ * @param obj    $renderer ref to the Doku_Renderer
+ * @param obj    $params   Parameter object returned by handle()
+ * @return Nothing?
+ */
+function renderActivityByUserReport($mode, &$renderer, $params)
+{
+    global $CHUNKPROGRESS_STATUS_TAGS;
+
+    $renderer->table_open();
+
+    $renderer->tablerow_open();
+
+    $renderer->tablecell_open();
+    $renderer->strong_open();
+    $renderer->unformatted("User");
+    $renderer->strong_close();
+    $renderer->tablecell_close();
+
+    foreach ($CHUNKPROGRESS_STATUS_TAGS as $status) {
+        $renderer->tablecell_open();
+        $renderer->strong_open();
+        $renderer->unformatted($status);
+        $renderer->strong_close();
+        $renderer->tablecell_close();
+    }
+
+    $renderer->tablerow_close();
+
+    $user_status_count = $params["user_status_count"];
+    foreach ($user_status_count as $user => $statuses) {
+        $renderer->tablerow_open();
+        $renderer->tablecell_open();
+        $renderer->unformatted($user);
+        $renderer->tablecell_close();
+        foreach ($CHUNKPROGRESS_STATUS_TAGS as $status) {
+            $renderer->tablecell_open();
+            if (array_key_exists($status, $statuses)) {
+                $renderer->unformatted($statuses[$status]);
+            }
+            $renderer->tablecell_close();
+        }
+        $renderer->tablerow_close();
+    }
+
+    $renderer->table_close();
+
+}
 
 

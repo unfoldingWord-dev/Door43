@@ -167,6 +167,11 @@ class syntax_plugin_chunkprogress extends DokuWiki_Syntax_Plugin
             $renderer->header($params["report_title"], 2, 0);
         }
 
+        // Render report if recognized
+        if ($params["report"] == "activity_by_user") {
+            renderActivityByUserReport($mode, $renderer, $params);
+        }
+
         // Dump params if in debug mode
         if ($params["debug"] == "true") {
             $renderer->hr();
