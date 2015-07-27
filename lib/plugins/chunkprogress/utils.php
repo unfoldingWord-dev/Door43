@@ -213,14 +213,14 @@ function getAllPagesInNamespace($namespace)
  */
 function handleActivityByUserReport($params)
 {
-    if ($params["namespace"] == "") {
+    $namespace = $params["namespace"];
+    if ($namespace == "") {
         $params["message"]
             = "ERROR: Please specify the namespace, e.g. namespace=en:bible:notes";
         return $params;
     }
-    $namespace = $params["namespace"];
     $data = getAllPagesInNamespace($namespace);
-    debugEchoArray($data, "Pages");
+    //debugEchoArray($data, "Pages");
 
     $params["report_title"] = "Activity by User";
 

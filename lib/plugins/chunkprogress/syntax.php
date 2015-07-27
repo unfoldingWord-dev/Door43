@@ -23,6 +23,10 @@ if (!defined('DOKU_PLUGIN')) {
 require_once DOKU_PLUGIN.'syntax.php';
 require_once "utils.php";
 
+/* Array of all possible reports */
+global $CHUNKPROGRESS_REPORT_TYPES;
+$CHUNKPROGRESS_REPORT_TYPES = array("activity_by_user");
+
 
 /**
  * Creates a report showing the progress of a chunk through its stages.
@@ -95,6 +99,8 @@ class syntax_plugin_chunkprogress extends DokuWiki_Syntax_Plugin
      */
     public function handle($match, $state, $pos, &$handler)
     {
+        global $CHUNKPROGRESS_REPORT_TYPES;
+
         $expected_params = array(
             "report" => "",
             "namespace" => "",
@@ -106,17 +112,28 @@ class syntax_plugin_chunkprogress extends DokuWiki_Syntax_Plugin
 
         // Validate report type
         if ($params["report"] == "") {
+
+            // Blank report
             $params["message"]
-                = "ERROR: Please set the 'report' parameter to one of the following:"
-                . " 'activity-by-user', ...";
-        } else if ($params["report"] == "activity-by-user") {
+                = "ERROR: Please set the 'report' parameter"
+                . " to one of the following: "
+                . implode(", ", $CHUNKPROGRESS_REPORT_TYPES) . ".";
+
+        } else if ($params["report"] == "activity_by_user") {
+
+            // Activity by user
             return handleActivityByUserReport($params);
+
         } else {
+
+            // Unrecognized report
             $params["message"]
-                = "ERROR: Unrecognized report type '"
+                = "ERROR: Unrecognized 'report' parameter '"
                 . $params["report"]
-                . "' (maybe you misspelled it?)";
+                . "' (maybe you misspelled it?) Valid values for 'report' are: "
+                . implode(", ", $CHUNKPROGRESS_REPORT_TYPES) . ".";
             return $params;
+
         }
 
         return $params;
