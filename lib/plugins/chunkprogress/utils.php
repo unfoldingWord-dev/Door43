@@ -280,9 +280,7 @@ function handleActivityByUserReport($params)
     $pages = getAllPagesInNamespace($namespace);
     $params["debug_num_pages_in_ns"] = count($pages);
 
-    // Examine each page in turn to get info about it.  We can't build a master 
-    // index because it takes up more space than a single array is allowed to 
-    // take(!)
+    // Build an array of the last update by user by page
     $num_revisions = 0;
     $num_revisions_within_dates = 0;
     $num_revisions_with_matching_users = 0;
@@ -349,32 +347,23 @@ function handleActivityByUserReport($params)
     $params["debug_num_revisions_with_matching_users"]
         = $num_revisions_with_matching_users;
 
-    debugEchoArray(
-        $last_revision_by_user_by_page,
-        "Last Revision by User then by Page"
-    );
+    // Identify status of last change per user
+    $last_status_by_user_by_page = array();
+    foreach ($last_revision_by_user_by_page as $user => $page_ids) {
+        foreach ($page_ids as $page_id => $last_revision_id) {
+            $statuses = getStatusTags($page_id, $last_revision_id);
+            if (count($statuses) > 0) {
+                if (array_key_exists($user, $last_status_by_user_by_page) == false) {
+                    $last_status_by_user_by_page[$user] = array();
+                }
+                $last_status_by_user_by_page[$user][$page_id]
+                    = implode(", ", $statuses);
+            }
+        }
+    }
+    debugEchoArray($last_status_by_user_by_page, "Last status by user by page");
 
 
-    // echo "Pages changed since ".$params["start_date"].": "
-        // . count($pages) . "<br/>";
-    
-    // Lookup all revisions of every page that fall within the range.
-    // $revisions = array();
-    // $revision_count = 0;
-    // foreach ($pages as $page) {
-        // $revision_ids = getRevisions($page_id, 0, 10000);
-        // foreach ($revision_ids as $revision_id) {
-    // if ($revision_id > $start_timestamp 
-    // and $revision_id < $end_timestamp) {
-                // if (array_key_exists($page_id, $revisions) == false) {
-                    // $revisions[$page_id] = array();
-                // }
-                // array_push($revisions[$page_id], $revision_id);
-                // $revision_count += 1;
-            // }
-        // }
-    // }
-    // echo "Total number of revisions to consider: " . $revision_count;
 
 
 
