@@ -1,6 +1,19 @@
 conf/acl.auth.php
-conf/local_private.php
-conf/plugins.local_private.php
+conf/local.php
+conf/plugins.local.php
 conf/users.auth.php
 
+conf/plugins.local.php.bak
+conf/local.php.bak
+
 .idea
+vendor/
+composer.*
+
+obs-diffs/
+
+lib/plugins/ckgedit/fckeditor/userfiles/file
+lib/plugins/ckgedit/fckeditor/userfiles/flash
+lib/plugins/ckgedit/fckeditor/userfiles/image
+lib/plugins/ckgedit/fckeditor/userfiles/media
+lib/plugins/slackinvite/slackinvite.private.php

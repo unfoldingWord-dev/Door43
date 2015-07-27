@@ -1,0 +1,4 @@
+The hooks in this directory must be correctly copied into your git setup so that pushes to the repositorie(s) will initiate processes in this plugin.
+
+If you are using gitolite you can follow the instructions under **repo-specific hooks** at [gitolite.com](http://gitolite.com/gitolite/non-core.html).
+Be sure that `deploy-translation` is fired before `index-translation` otherwise the plugin won't be able to find the necessary files.

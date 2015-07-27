@@ -1,0 +1,7 @@
+base   door43obsaudioupload
+author Phil Hopper
+email  phillip_hopper@wycliffeassociates.org
+date   2014-12-19
+name   Door43 OBS Audio Upload plugin
+desc   Uploads audio files for Open Bible Stories
+url    https://github.com/unfoldingWord-dev/dokuwiki-plugin-obs-audio-upload
