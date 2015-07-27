@@ -73,9 +73,9 @@ class action_plugin_slackinvite extends DokuWiki_Action_Plugin {
             //<config>
             date_default_timezone_set('America/Phoenix');
             mb_internal_encoding("UTF-8");
-            $slackHostName='team43';
-            $slackAutoJoinChannels='C04PNHLCE'; //#general
-            $slackAuthToken='xoxp-4804598406-5082983720-6096638884-be9393';
+            $slackHostName = $this->getConf('slack_host_name');
+            $slackAutoJoinChannels =  $this->getConf('slack_auto_join_channels');
+            $slackAuthToken = $this->getConf('slack_auth_token');
             //</config>
             //
             // <invite to slack>
@@ -119,7 +119,7 @@ class action_plugin_slackinvite extends DokuWiki_Action_Plugin {
                             $replyRaw = curl_exec($ch);
                             $reply=json_decode($replyRaw,true);
                             if($reply['ok']==false) {
-                                $txt = sprintf($this->getlang('invite_failed'), $user['fname'], $user['email'], $reply['error']);
+                                $txt = sprintf($this->getlang('invite_failed'), $user['fname'], $user['lname'], $user['email'], $reply['error']);
                                 msg($txt, -1);
                              
                                 
