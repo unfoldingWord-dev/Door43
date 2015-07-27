@@ -13,7 +13,7 @@ class HTTPMockClient extends HTTPClient {
      */
     function __construct() {
         parent::__construct();
-        $this->timeout = 8; // slightly faster timeouts
+        $this->timeout = 30; // slightly faster timeouts
     }
 
     /**
