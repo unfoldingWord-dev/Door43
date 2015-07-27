@@ -101,6 +101,8 @@ class syntax_plugin_chunkprogress extends DokuWiki_Syntax_Plugin
     {
         global $CHUNKPROGRESS_REPORT_TYPES;
 
+        $handle_start_timestamp = microtime(true);
+
         $expected_params = array(
             "report" => "",
             "namespace" => "",
@@ -122,7 +124,7 @@ class syntax_plugin_chunkprogress extends DokuWiki_Syntax_Plugin
 
         } else if ($params["report"] == "activity_by_user") {
             // Activity by user
-            return handleActivityByUserReport($params);
+            $params = handleActivityByUserReport($params);
 
         } else {
             // Unrecognized report
@@ -134,6 +136,9 @@ class syntax_plugin_chunkprogress extends DokuWiki_Syntax_Plugin
             return $params;
 
         }
+
+        $params["debug_handle_elapsed_time"]
+            = microtime(true) - $handle_start_timestamp;
 
         return $params;
     }

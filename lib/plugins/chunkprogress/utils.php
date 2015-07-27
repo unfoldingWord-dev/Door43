@@ -361,7 +361,22 @@ function handleActivityByUserReport($params)
             }
         }
     }
-    debugEchoArray($last_status_by_user_by_page, "Last status by user by page");
+    //debugEchoArray($last_status_by_user_by_page, "Status by user by page");
+
+    // Create count of status by user
+    $count_of_status_by_user = array();
+    foreach ($last_status_by_user_by_page as $user => $page_ids) {
+        foreach ($page_ids as $page_id => $last_status) {
+            if (array_key_exists($user, $count_of_status_by_user) == false) {
+                $count_of_status_by_user[$user] = array();
+            }
+            if (array_key_exists($last_status, $count_of_status_by_user[$user]) == false) {
+                $count_of_status_by_user[$user][$last_status] = 0;
+            }
+            $count_of_status_by_user[$user][$last_status] += 1;
+        }
+    }
+    debugEchoArray($count_of_status_by_user, "Count of status by user");
 
 
 
