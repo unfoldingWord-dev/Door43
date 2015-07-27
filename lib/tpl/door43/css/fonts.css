@@ -23,11 +23,7 @@
   src: url("fonts/noto/notosansethiopic-bold.woff2") format("woff2"), url("fonts/noto/notosansethiopic-bold.woff") format("woff");
 }
 
-* {
-  font-family: 'Noto Sans', sans-serif;
-  font-style: normal;
-  font-weight: 400; 
-}
+* { font-family: 'Noto Sans', sans-serif; }
 
 :lang(am),
 :lang(gez),
