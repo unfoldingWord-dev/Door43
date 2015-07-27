@@ -179,6 +179,32 @@ function getStatusTags($page_id, $revision_id)
 
 
 /**
+ * Convenience function to get all the current pages in the given namespace.
+ * 
+ * Each returned page entry has the following structure:
+ *
+ * id: en:bible:notes:1ch:01:01
+ * rev: 1437760017
+ * mtime: 1437760017
+ * size: 1599
+ *
+ * @param array $namespace The namespace to search
+ *
+ * @return An array containing the details of each page in the namespace
+ */
+function getAllPagesInNamespace($namespace)
+{
+    // Find all pages under namespace
+    global $conf;
+    $data = array();
+    $opts = array("depth" => 0);
+    $dir = str_replace(":", DIRECTORY_SEPARATOR, $namespace);
+    search($data, $conf["datadir"], search_allpages, $opts, $dir);
+    return $data;
+}
+
+
+/**
  * Convenience function to get just the status tags from a page revision.
  *
  * @param array $params The parameters given by the user
@@ -187,30 +213,16 @@ function getStatusTags($page_id, $revision_id)
  */
 function handleActivityByUserReport($params)
 {
-    global $conf;
     if ($params["namespace"] == "") {
         $params["message"]
             = "ERROR: Please specify the namespace, e.g. namespace=en:bible:notes";
         return $params;
     }
     $namespace = $params["namespace"];
-
-    // Find all pages under namespace
-    $data = array();
-    $opts = array("depth" => 0);
-    $dir = str_replace(":", DIRECTORY_SEPARATOR, $namespace);
-    search($data, $conf["datadir"], search_allpages, $opts, $dir);
-    // Each item in $data looks like this:
-    // -------------------
-    // id: en:bible:notes:1ch:01:01
-    // rev: 1437760017
-    // mtime: 1437760017
-    // size: 1599
-    
+    $data = getAllPagesInNamespace($namespace);
     debugEchoArray($data, "Pages");
 
     $params["report_title"] = "Activity by User";
-
 
     return $params;
 }
@@ -221,7 +233,7 @@ function handleActivityByUserReport($params)
  *
  * @param array $array  the array to print
  * @param array $title  optional title to print above the array
- * @param array $indent Number of spaces to indent
+ * @param array $indent optional number of spaces to indent
  *
  * @return Nothing
  */
