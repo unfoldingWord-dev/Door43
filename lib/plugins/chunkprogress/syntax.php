@@ -104,6 +104,8 @@ class syntax_plugin_chunkprogress extends DokuWiki_Syntax_Plugin
         $expected_params = array(
             "report" => "",
             "namespace" => "",
+            "start_date" => "",
+            "end_date" => "",
             "debug" => "false"
         );
 
@@ -112,7 +114,6 @@ class syntax_plugin_chunkprogress extends DokuWiki_Syntax_Plugin
 
         // Validate report type
         if ($params["report"] == "") {
-
             // Blank report
             $params["message"]
                 = "ERROR: Please set the 'report' parameter"
@@ -120,12 +121,10 @@ class syntax_plugin_chunkprogress extends DokuWiki_Syntax_Plugin
                 . implode(", ", $CHUNKPROGRESS_REPORT_TYPES) . ".";
 
         } else if ($params["report"] == "activity_by_user") {
-
             // Activity by user
             return handleActivityByUserReport($params);
 
         } else {
-
             // Unrecognized report
             $params["message"]
                 = "ERROR: Unrecognized 'report' parameter '"
@@ -163,8 +162,52 @@ class syntax_plugin_chunkprogress extends DokuWiki_Syntax_Plugin
             $renderer->header($params["report_title"], 2, 0);
         }
 
+        // Dump params if in debug mode
+        if ($params["debug"] == "true") {
+            $renderer->hr();
+
+            $renderer->p_open();
+            $renderer->emphasis_open();
+            $renderer->unformatted("Debug: parameter dump");
+            $renderer->emphasis_close();
+            $renderer->p_close();
+
+            $renderer->table_open();
+
+            $renderer->tablerow_open();
+
+            $renderer->tablecell_open();
+            $renderer->strong_open();
+            $renderer->unformatted("Key");
+            $renderer->strong_close();
+            $renderer->tablecell_close();
+
+            $renderer->tablecell_open();
+            $renderer->strong_open();
+            $renderer->unformatted("Value");
+            $renderer->strong_close();
+            $renderer->tablecell_close();
+
+            $renderer->tablerow_close();
+
+            foreach ($params as $key => $value) {
+                $renderer->tablerow_open();
+                $renderer->tablecell_open();
+                $renderer->unformatted($key);
+                $renderer->tablecell_close();
+                $renderer->tablecell_open();
+                if (is_array($value)) {
+                    $renderer->unformatted("Array length " . count($value));
+                } else {
+                    $renderer->unformatted($value);
+                }
+                $renderer->tablecell_close();
+                $renderer->tablerow_close();
+            }
+            $renderer->table_close();
+        }
+
     }
 
 }
 
-// vim: foldmethod=indent

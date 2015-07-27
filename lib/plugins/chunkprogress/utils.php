@@ -17,6 +17,32 @@ global $CHUNKPROGRESS_STATUS_TAGS;
 $CHUNKPROGRESS_STATUS_TAGS = array(
     "draft", "check", "review", "text", "discuss", "publish");
 
+
+/**
+ * Debug function to echo out an array
+ *
+ * @param array $array  the array to print
+ * @param array $title  optional title to print above the array
+ * @param array $indent optional number of spaces to indent
+ *
+ * @return Nothing
+ */
+function debugEchoArray($array, $title="(array)", $indent=0)
+{
+    $indent_str = str_repeat("&nbsp;", $indent);
+    echo $indent_str . $title . "<br/>";
+    echo $indent_str . "-------------------" . "<br/>";
+    foreach ($array as $key => $value) {
+        if (is_array($value)) {
+            debugEchoArray($value, "(array)", $indent+4);
+        } else {
+            echo $indent_str . $key . ": " . $value . "<br/>";
+        }
+    }
+    echo "<br/>";
+}
+
+
 /**
  * Extract parameters from plugin syntax match.  If any problems occurred,
  * the "message" attribute of the returned array will be set with an array
@@ -213,14 +239,63 @@ function getAllPagesInNamespace($namespace)
  */
 function handleActivityByUserReport($params)
 {
+    // Validate namespace
     $namespace = $params["namespace"];
     if ($namespace == "") {
         $params["message"]
             = "ERROR: Please specify the namespace, e.g. namespace=en:bible:notes";
         return $params;
     }
-    $data = getAllPagesInNamespace($namespace);
-    //debugEchoArray($data, "Pages");
+
+    // Validate start_date
+    $start_date = $params["start_date"];
+    if ($start_date == "") {
+        $start_date = "1970-01-01";
+    }
+    $start_timestamp = strtotime($start_date);
+    if ($start_timestamp == false) {
+        $params["message"]
+            = "ERROR: start_date: Couldn't understand '".$start_date."' as a date.";
+        return $params;
+    }
+    $params["start_timestamp"] = $start_timestamp;
+
+    // Validate end_date
+    $end_date = $params["end_date"];
+    if ($end_date == "") {
+        $end_date = date("Y-m-d");
+    }
+    $end_timestamp = strtotime($end_date);
+    if ($end_timestamp == false) {
+        $params["message"]
+            = "ERROR: end_date: Couldn't understand '".$end_date."' as a date.";
+        return $params;
+    }
+    $params["end_timestamp"] = $end_timestamp;
+
+    // Find all pages in the namespace
+    $pages = getAllPagesInNamespace($namespace);
+    echo "Pages in namespace: " . count($pages) . "<br/>";
+
+    // Consider only pages that have changed since the start date.  (Pages 
+    // whose last revision date are before start_date are by definition outside 
+    // the scope of the report.)
+    $found_pages = array();
+    foreach ($pages as $page) {
+        if ($page["rev"] >= $start_timestamp) {
+            array_push($found_pages, $page);
+        }
+    }
+    $pages = $found_pages;
+    echo "Pages changed since ".$params["start_date"].": "
+        . count($pages) . "<br/>";
+    
+
+    // foreach ($pages as $page_data) {
+        // $revisions = getRevisions($page_data["id"], 0, 10000);
+
+    // }
+
 
     $params["report_title"] = "Activity by User";
 
@@ -228,31 +303,5 @@ function handleActivityByUserReport($params)
 }
 
 
-/**
- * Debug function to echo out an array
- *
- * @param array $array  the array to print
- * @param array $title  optional title to print above the array
- * @param array $indent optional number of spaces to indent
- *
- * @return Nothing
- */
-function debugEchoArray($array, $title="(array)", $indent=0)
-{
-    $indent_str = str_repeat("&nbsp;", $indent);
-    echo $indent_str . $title . "<br/>";
-    echo $indent_str . "-------------------" . "<br/>";
-    foreach ($array as $key => $value) {
-        if (is_array($value)) {
-            debugEchoArray($value, "(array)", $indent+4);
-        } else {
-            echo $indent_str . $key . ": " . $value . "<br/>";
-        }
-    }
-    echo "<br/>";
-}
 
 
-
-
-// vim: foldmethod=indent
