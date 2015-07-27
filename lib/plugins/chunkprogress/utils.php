@@ -34,7 +34,7 @@ function debugEchoArray($array, $title="(array)", $indent=0)
     echo $indent_str . "-------------------" . "<br/>";
     foreach ($array as $key => $value) {
         if (is_array($value)) {
-            debugEchoArray($value, "(array)", $indent+4);
+            debugEchoArray($value, $key . ": (array)", $indent+4);
         } else {
             echo $indent_str . $key . ": " . $value . "<br/>";
         }
@@ -239,6 +239,9 @@ function getAllPagesInNamespace($namespace)
  */
 function handleActivityByUserReport($params)
 {
+    global $cache_revinfo;
+
+
     // Validate namespace
     $namespace = $params["namespace"];
     if ($namespace == "") {
@@ -275,26 +278,104 @@ function handleActivityByUserReport($params)
 
     // Find all pages in the namespace
     $pages = getAllPagesInNamespace($namespace);
-    echo "Pages in namespace: " . count($pages) . "<br/>";
+    $params["debug_num_pages_in_ns"] = count($pages);
 
-    // Consider only pages that have changed since the start date.  (Pages 
-    // whose last revision date are before start_date are by definition outside 
-    // the scope of the report.)
-    $found_pages = array();
+    // Examine each page in turn to get info about it.  We can't build a master 
+    // index because it takes up more space than a single array is allowed to 
+    // take(!)
+    $num_revisions = 0;
+    $num_revisions_within_dates = 0;
+    $num_revisions_with_matching_users = 0;
+    $page_count = 0;
+    $last_revision_by_user_by_page = array();
     foreach ($pages as $page) {
-        if ($page["rev"] >= $start_timestamp) {
-            array_push($found_pages, $page);
+
+        // Ignore any pages that haven't been changed since the begin date.
+        if ($page["rev"] < $start_timestamp) {
+            continue;
+        }
+
+        // Clear the Dokuwiki revision cache.  This is potentially fragile, but 
+        // we don't do this, the DokuWiki cache for this script will grow until 
+        // it blows out the memory for this thread.
+        $cache_revinfo = array();
+
+        // Get all revisions for this page.
+        $page_id = $page["id"];
+        $revision_ids = getRevisions(
+            $page_id,
+            0,
+            10000
+        );
+
+        // Reverse the array so that it goes least-recent to most-recent
+        $revision_ids = array_reverse($revision_ids);
+
+        // Push the current revision onto the stack.
+        array_push($revision_ids, $page["rev"]);
+
+        // Count number of revisions for debugging
+        $num_revisions += count($revision_ids);
+
+        // Consider each revision
+        $prev_status_tags = array();
+        foreach ($revision_ids as $revision_id) {
+            if ($revision_id < $start_timestamp or $revision_id > $end_timestamp) {
+                // Ignore revisions that fall outside the date window
+                continue;
+            }
+
+            // Count number of revisions for debugging
+            $num_revisions_within_dates += 1;
+
+            // Get info for this revision
+            $user = getPageUser($page_id, $revision_id);
+
+            // TODO: Filter by user list; for now ignore empty users
+            if ($user == "") {
+                continue;
+            }
+            $num_revisions_with_matching_users += 1;
+
+            // Remember the most recent revision by user
+            if (array_key_exists($user, $last_revision_by_user_by_page) == false) {
+                $last_revision_by_user_by_page[$user] = array();
+            }
+            $last_revision_by_user_by_page[$user][$page_id] = $revision_id;
         }
     }
-    $pages = $found_pages;
-    echo "Pages changed since ".$params["start_date"].": "
-        . count($pages) . "<br/>";
+    $params["debug_num_revisions_in_ns"] = $num_revisions;
+    $params["debug_num_revisions_within_dates"] = $num_revisions_within_dates;
+    $params["debug_num_revisions_with_matching_users"]
+        = $num_revisions_with_matching_users;
+
+    debugEchoArray(
+        $last_revision_by_user_by_page,
+        "Last Revision by User then by Page"
+    );
+
+
+    // echo "Pages changed since ".$params["start_date"].": "
+        // . count($pages) . "<br/>";
     
-
-    // foreach ($pages as $page_data) {
-        // $revisions = getRevisions($page_data["id"], 0, 10000);
-
+    // Lookup all revisions of every page that fall within the range.
+    // $revisions = array();
+    // $revision_count = 0;
+    // foreach ($pages as $page) {
+        // $revision_ids = getRevisions($page_id, 0, 10000);
+        // foreach ($revision_ids as $revision_id) {
+    // if ($revision_id > $start_timestamp 
+    // and $revision_id < $end_timestamp) {
+                // if (array_key_exists($page_id, $revisions) == false) {
+                    // $revisions[$page_id] = array();
+                // }
+                // array_push($revisions[$page_id], $revision_id);
+                // $revision_count += 1;
+            // }
+        // }
     // }
+    // echo "Total number of revisions to consider: " . $revision_count;
+
 
 
     $params["report_title"] = "Activity by User";
