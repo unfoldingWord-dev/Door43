@@ -277,7 +277,9 @@ function handleActivityByUserReport($params)
     $params["end_timestamp"] = $end_timestamp;
 
 
-    $params["report_title"] = "Activity by User for " . $namespace . " from " . $start_date . " to " . $end_date;
+    $params["report_title"]
+        = "Activity by User for " . $namespace
+        . " from " . $start_date . " to " . $end_date;
 
     // Find all pages in the namespace
     $pages = getAllPagesInNamespace($namespace);
