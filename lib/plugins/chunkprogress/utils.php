@@ -92,6 +92,11 @@ function getParams($match, $expected_params)
             = "EXCEPTION: Please tell a developer about this: " . $e->getMessage();
     }
 
+    // Explode users
+    if ($params["users"] != "") {
+        $params["users"] = explode(" ", $params["users"]);
+    }
+
     // Done
     return $params;
 }
@@ -334,8 +339,15 @@ function handleActivityByUserReport($params)
             // Get info for this revision
             $user = getPageUser($page_id, $revision_id);
 
-            // TODO: Filter by user list; for now ignore empty users
+            // Filter on users.
             if ($user == "") {
+                // Ignore empty users.
+                continue;
+            } elseif ($params["users"] != ""
+                and in_array($user, $params["users"]) == false
+            ) {
+                // This user isn't in the list, ignore this revision
+                error_log("'" . $user . "' not in " . json_encode($params["users"]));
                 continue;
             }
             $num_revisions_with_matching_users += 1;

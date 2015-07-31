@@ -108,6 +108,7 @@ class syntax_plugin_chunkprogress extends DokuWiki_Syntax_Plugin
             "namespace" => "",
             "start_date" => "",
             "end_date" => "",
+            "users" => "",
             "debug" => "false"
         );
 
@@ -213,7 +214,8 @@ class syntax_plugin_chunkprogress extends DokuWiki_Syntax_Plugin
                 $renderer->tablecell_close();
                 $renderer->tablecell_open();
                 if (is_array($value)) {
-                    $renderer->unformatted("Array length " . count($value));
+                    // $renderer->unformatted("Array length " . count($value));
+                    $renderer->unformatted(json_encode($value));
                 } else {
                     $renderer->unformatted($value);
                 }
@@ -227,3 +229,4 @@ class syntax_plugin_chunkprogress extends DokuWiki_Syntax_Plugin
 
 }
 
+// vim: foldmethod=indent
