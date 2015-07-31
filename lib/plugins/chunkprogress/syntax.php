@@ -152,6 +152,8 @@ class syntax_plugin_chunkprogress extends DokuWiki_Syntax_Plugin
      */
     public function render($mode, &$renderer, $params)
     {
+        $render_start_timestamp = microtime(true);
+
         // Print warnings or errors, if any
         if (array_key_exists("message", $params)) {
             $renderer->p_open();
@@ -171,6 +173,10 @@ class syntax_plugin_chunkprogress extends DokuWiki_Syntax_Plugin
         if ($params["report"] == "activity_by_user") {
             renderActivityByUserReport($mode, $renderer, $params);
         }
+
+        // Done (except for debug)
+        $params["debug_render_elapsed_time"]
+            = microtime(true) - $render_start_timestamp;
 
         // Dump params if in debug mode
         if ($params["debug"] == "true") {
