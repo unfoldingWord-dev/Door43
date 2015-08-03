@@ -347,7 +347,6 @@ function handleActivityByUserReport($params)
                 and in_array($user, $params["users"]) == false
             ) {
                 // This user isn't in the list, ignore this revision
-                error_log("'" . $user . "' not in " . json_encode($params["users"]));
                 continue;
             }
             $num_revisions_with_matching_users += 1;

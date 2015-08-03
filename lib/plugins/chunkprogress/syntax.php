@@ -229,4 +229,3 @@ class syntax_plugin_chunkprogress extends DokuWiki_Syntax_Plugin
 
 }
 
-// vim: foldmethod=indent
