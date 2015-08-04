@@ -30,13 +30,9 @@ function handleActivityByUserReport($params)
     global $cache_revinfo;
 
 
-    // Validate namespace
+    $params = validateNamespace($params);
     $namespace = $params["namespace"];
-    if ($namespace == "") {
-        $params["message"]
-            = "ERROR: Please specify the namespace, e.g. namespace=en:bible:notes";
-        return $params;
-    }
+
 
     // Validate start_date
     $start_date = $params["start_date"];
@@ -231,6 +227,23 @@ function renderActivityByUserReport($mode, &$renderer, $params)
 
     $renderer->table_close();
 
+}
+
+
+/**
+ * Convenience function to validate the namespace.
+ *
+ * @param array $params The parameters given by the user
+ *
+ * @return An updated $params array with data filled in
+ */
+function validateNamespace($params)
+{
+    if ($params["namespace"] == "") {
+        $params["message"]
+            = "ERROR: Please specify the namespace, e.g. namespace=en:bible:notes";
+    }
+    return $params;
 }
 
 
