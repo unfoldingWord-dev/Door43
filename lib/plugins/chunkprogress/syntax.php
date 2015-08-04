@@ -21,7 +21,7 @@ if (!defined('DOKU_PLUGIN')) {
     define('DOKU_PLUGIN', DOKU_INC.'lib/plugins/');
 }
 require_once DOKU_PLUGIN.'syntax.php';
-require_once "utils.php";
+require_once "report_activity_by_user.php";
 
 /* Array of all possible reports */
 global $CHUNKPROGRESS_REPORT_TYPES;
