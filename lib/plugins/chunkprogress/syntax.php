@@ -144,7 +144,7 @@ class syntax_plugin_chunkprogress extends DokuWiki_Syntax_Plugin
         }
 
         $params["debug_handle_elapsed_time"]
-            = microtime(true) - $handle_start_timestamp;
+            = round(microtime(true) - $handle_start_timestamp, 3);
 
         return $params;
     }
@@ -190,7 +190,7 @@ class syntax_plugin_chunkprogress extends DokuWiki_Syntax_Plugin
 
         // Done (except for debug)
         $params["debug_render_elapsed_time"]
-            = microtime(true) - $render_start_timestamp;
+            = round(microtime(true) - $render_start_timestamp, 3);
 
         // Dump params if in debug mode
         if ($params["debug"] == "true") {
