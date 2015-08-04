@@ -214,7 +214,6 @@ class TestOfDoku_Parser_Quotes extends TestOfDoku_Parser {
         $this->assertEquals(array_map('stripbyteindex',$this->H->calls),$calls, 'wikitext => '.$raw);
     }
     function testDoubleQuoteClosingSpecial2() {
-        $this->markTestSkipped('Skipped because it is failing');
         $raw = 'Foo hello") Bar';
         $this->P->addMode('quotes',new Doku_Parser_Mode_Quotes());
         $this->H->status['doublequote'] = 0;
@@ -274,8 +273,6 @@ class TestOfDoku_Parser_Quotes extends TestOfDoku_Parser {
     }
 
     function testDoubleQuotesEnclosingBrackets() {
-        $this->markTestSkipped('Skipped because it is failing');
-
         $raw = 'Foo "{hello}" Bar';
         $this->P->addMode('quotes',new Doku_Parser_Mode_Quotes());
         $this->P->parse($raw);
@@ -296,8 +293,6 @@ class TestOfDoku_Parser_Quotes extends TestOfDoku_Parser {
     }
 
     function testDoubleQuotesEnclosingLink() {
-        $this->markTestSkipped('Skipped because it is failing');
-
         $raw = 'Foo "[[www.domain.com]]" Bar';
         $this->P->addMode('quotes',new Doku_Parser_Mode_Quotes());
         $this->P->parse($raw);

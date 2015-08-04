@@ -268,7 +268,10 @@ class admin_plugin_acl extends DokuWiki_Admin_Plugin {
         usort($data,array($this,'_tree_sort'));
         $count = count($data);
         if($count>0) for($i=1; $i<$count; $i++){
-            if($data[$i-1]['id'] == $data[$i]['id'] && $data[$i-1]['type'] == $data[$i]['type']) unset($data[$i]);
+            if($data[$i-1]['id'] == $data[$i]['id'] && $data[$i-1]['type'] == $data[$i]['type']) {
+                unset($data[$i]);
+                $i++;  // duplicate found, next $i can't be a duplicate, so skip forward one
+            }
         }
         return $data;
     }
@@ -329,7 +332,7 @@ class admin_plugin_acl extends DokuWiki_Admin_Plugin {
         echo $this->getLang('acl_perms').' ';
         $inl =  $this->_html_select();
         echo '<input type="text" name="acl_w" class="edit" value="'.(($inl)?'':hsc(ltrim($this->who,'@'))).'" />'.NL;
-        echo '<input type="submit" value="'.$this->getLang('btn_select').'" class="button" />'.NL;
+        echo '<button type="submit">'.$this->getLang('btn_select').'</button>'.NL;
         echo '</div>'.NL;
 
         echo '<div id="acl__info">';
@@ -388,10 +391,10 @@ class admin_plugin_acl extends DokuWiki_Admin_Plugin {
         echo $this->_html_checkboxes($current,empty($this->ns),'acl');
 
         if(is_null($current)){
-            echo '<input type="submit" name="cmd[save]" class="button" value="'.$lang['btn_save'].'" />'.NL;
+            echo '<button type="submit" name="cmd[save]">'.$lang['btn_save'].'</button>'.NL;
         }else{
-            echo '<input type="submit" name="cmd[save]" class="button" value="'.$lang['btn_update'].'" />'.NL;
-            echo '<input type="submit" name="cmd[del]" class="button" value="'.$lang['btn_delete'].'" />'.NL;
+            echo '<button type="submit" name="cmd[save]">'.$lang['btn_update'].'</button>'.NL;
+            echo '<button type="submit" name="cmd[del]">'.$lang['btn_delete'].'</button>'.NL;
         }
 
         echo '</fieldset>';
@@ -488,7 +491,7 @@ class admin_plugin_acl extends DokuWiki_Admin_Plugin {
     function _html_list_acl($item){
         $ret = '';
         // what to display
-        if($item['label']){
+        if(!empty($item['label'])){
             $base = $item['label'];
         }else{
             $base = ':'.$item['id'];
@@ -496,8 +499,11 @@ class admin_plugin_acl extends DokuWiki_Admin_Plugin {
         }
 
         // highlight?
-        if( ($item['type']== $this->current_item['type'] && $item['id'] == $this->current_item['id']))
+        if( ($item['type']== $this->current_item['type'] && $item['id'] == $this->current_item['id'])) {
             $cl = ' cur';
+        } else {
+            $cl = '';
+        }
 
         // namespace or page?
         if($item['type']=='d'){
@@ -635,7 +641,7 @@ class admin_plugin_acl extends DokuWiki_Admin_Plugin {
 
         echo '<tr>';
         echo '<th class="action" colspan="4">';
-        echo '<input type="submit" value="'.$lang['btn_update'].'" name="cmd[update]" class="button" />';
+        echo '<button type="submit" name="cmd[update]">'.$lang['btn_update'].'</button>';
         echo '</th>';
         echo '</tr>';
         echo '</table>';
@@ -676,7 +682,6 @@ class admin_plugin_acl extends DokuWiki_Admin_Plugin {
      */
     function _acl_add($acl_scope, $acl_user, $acl_level){
         global $config_cascade;
-        $acl_config = file_get_contents($config_cascade['acl']['default']);
         $acl_user = auth_nameencode($acl_user,true);
 
         // max level for pagenames is edit
@@ -686,9 +691,7 @@ class admin_plugin_acl extends DokuWiki_Admin_Plugin {
 
         $new_acl = "$acl_scope\t$acl_user\t$acl_level\n";
 
-        $new_config = $acl_config.$new_acl;
-
-        return io_saveFile($config_cascade['acl']['default'], $new_config);
+        return io_saveFile($config_cascade['acl']['default'], $new_acl, true);
     }
 
     /**
@@ -698,15 +701,11 @@ class admin_plugin_acl extends DokuWiki_Admin_Plugin {
      */
     function _acl_del($acl_scope, $acl_user){
         global $config_cascade;
-        $acl_config = file($config_cascade['acl']['default']);
         $acl_user = auth_nameencode($acl_user,true);
 
         $acl_pattern = '^'.preg_quote($acl_scope,'/').'[ \t]+'.$acl_user.'[ \t]+[0-8].*$';
 
-        // save all non!-matching
-        $new_config = preg_grep("/$acl_pattern/", $acl_config, PREG_GREP_INVERT);
-
-        return io_saveFile($config_cascade['acl']['default'], join('',$new_config));
+        return io_deleteFromFile($config_cascade['acl']['default'], "/$acl_pattern/", true);
     }
 
     /**
@@ -756,6 +755,8 @@ class admin_plugin_acl extends DokuWiki_Admin_Plugin {
      */
     function _html_select(){
         $inlist = false;
+        $usel = '';
+        $gsel = '';
 
         if($this->who &&
            !in_array($this->who,$this->usersgroups) &&
@@ -764,17 +765,15 @@ class admin_plugin_acl extends DokuWiki_Admin_Plugin {
             if($this->who{0} == '@'){
                 $gsel = ' selected="selected"';
             }else{
-                $usel   = ' selected="selected"';
+                $usel = ' selected="selected"';
             }
         }else{
-            $usel = '';
-            $gsel = '';
             $inlist = true;
         }
 
         echo '<select name="acl_t" class="edit">'.NL;
-        echo '  <option value="__g__" class="aclgroup"'.$gsel.'>'.$this->getLang('acl_group').':</option>'.NL;
-        echo '  <option value="__u__"  class="acluser"'.$usel.'>'.$this->getLang('acl_user').':</option>'.NL;
+        echo '  <option value="__g__" class="aclgroup"'.$gsel.'>'.$this->getLang('acl_group').'</option>'.NL;
+        echo '  <option value="__u__"  class="acluser"'.$usel.'>'.$this->getLang('acl_user').'</option>'.NL;
         if (!empty($this->specials)) {
             echo '  <optgroup label="&#160;">'.NL;
             foreach($this->specials as $ug){

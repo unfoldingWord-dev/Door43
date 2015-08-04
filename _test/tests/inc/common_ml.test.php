@@ -154,7 +154,7 @@ class common_ml_test extends DokuWikiTest {
 
         $args = array('a' => 'b', 'c' => 'd', 'rev' => '');
 
-        $expect = DOKU_BASE . $this->script . '?a=b&amp;c=d&amp;rev=&amp;media=some:img.jpg';
+        $expect = DOKU_BASE . $this->script . '?a=b&amp;c=d&amp;media=some:img.jpg';
         $this->assertEquals($expect, ml('some:img.jpg', $args));
     }
 }

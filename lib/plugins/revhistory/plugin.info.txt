@@ -1,0 +1,6 @@
+base revhistory
+author johnathan@missionaldigerati.org
+email johnathan@missionaldigerati.org
+date 2015-07-29
+name Revision History Plugin
+desc An action based plugin that provides an API endpoint to request revision history.

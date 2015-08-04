@@ -83,6 +83,7 @@ class action_plugin_door43obsdocupload_ExportButtons extends Door43_Action_Plugi
 
         return $this->showButton;
     }
+
     /**
      * This the script for the button in the right-hand tool strip on OBS pages.
      * @param Doku_Event $event  event object by reference
@@ -96,9 +97,6 @@ class action_plugin_door43obsdocupload_ExportButtons extends Door43_Action_Plugi
         if ($this->showToolstripButton() !== 1) return;
 
         $html = file_get_contents(dirname(dirname(__FILE__)) . '/templates/obs_export_script.html');
-
-        // remove the initial doc comments
-        $html = preg_replace('/^\<!--(.|\n)*--\>(\n)/', '', $html, 1);
 
         echo $this->translateHtml($html);
     }
@@ -150,25 +148,43 @@ class action_plugin_door43obsdocupload_ExportButtons extends Door43_Action_Plugi
         global $INPUT;
         $langCode = $INPUT->str('lang');
         $includeImages = $INPUT->bool('img');
+        $draft = $INPUT->bool('draft');
 
-        // get the metadata
-        $url = "https://api.unfoldingword.org/obs/txt/1/{$langCode}/status-{$langCode}.json";
-        $raw = file_get_contents($url);
-        $metaData = json_decode($raw, true);
+        if ($draft && ($langCode != 'en')) {
 
-        // get the obs data
-        $url = "https://api.unfoldingword.org/obs/txt/1/{$langCode}/obs-{$langCode}.json";
-        $raw = file_get_contents($url);
-        $obs = json_decode($raw, true);
+            // get the metadata
+            $metaData = array('version' => 'DRAFT');
 
-        // get the front matter
-        $url = "https://api.unfoldingword.org/obs/txt/1/{$langCode}/obs-{$langCode}-front-matter.json";
-        $raw = file_get_contents($url);
-        if (($raw === false) && ($langCode != 'en')) {
+            // get the obs data
+            $obs = $this->get_draft_obs($langCode);
+
+            // get the front matter
             $url = "https://api.unfoldingword.org/obs/txt/1/en/obs-en-front-matter.json";
             $raw = file_get_contents($url);
+            $frontMatter = json_decode($raw, true);
         }
-        $frontMatter = json_decode($raw, true);
+        else {
+
+            // get the metadata
+            $url = "https://api.unfoldingword.org/obs/txt/1/{$langCode}/status-{$langCode}.json";
+            $raw = file_get_contents($url);
+            $metaData = json_decode($raw, true);
+
+            // get the obs data
+            $url = "https://api.unfoldingword.org/obs/txt/1/{$langCode}/obs-{$langCode}.json";
+            $raw = file_get_contents($url);
+            $obs = json_decode($raw, true);
+
+            // get the front matter
+            $url = "https://api.unfoldingword.org/obs/txt/1/{$langCode}/obs-{$langCode}-front-matter.json";
+            $raw = file_get_contents($url);
+            if (($raw === false) && ($langCode != 'en')) {
+                $url = "https://api.unfoldingword.org/obs/txt/1/en/obs-en-front-matter.json";
+                $raw = file_get_contents($url);
+            }
+            $frontMatter = json_decode($raw, true);
+        }
+
 
         // now put it all together
         $markdown = $frontMatter['name'] . "\n";
@@ -259,5 +275,46 @@ class action_plugin_door43obsdocupload_ExportButtons extends Door43_Action_Plugi
         }
 
         return $this->tempDir;
+    }
+
+    /**
+     * @param string $langCode The namespace to use as the source
+     * @return array
+     */
+    private function get_draft_obs($langCode) {
+
+        global $conf;
+
+        $obs = array('chapters' => array());
+
+        $pagesDir = $conf['datadir'];
+        $srcDir = $pagesDir . DS . $langCode . DS . 'obs';
+
+        $files = glob($srcDir . DS . '*.txt');
+        foreach($files as $file) {
+            $srcText = file_get_contents($file);
+            $parts = array_values(array_filter(explode("\n", $srcText)));
+
+            // build the chapter
+            $chapNum = substr(basename($file), 0, -4);
+            $chapter = array('number' => $chapNum);
+            $chapter['title'] = trim($parts[0], "= \t\n\r\0\x0B");
+            $chapter['ref'] = trim($parts[count($parts) - 1], "/ \t\n\r\0\x0B");
+            $chapter['frames'] = array();
+
+            // frames
+            $frameNum = 1;
+            for ($i=1; $i < (count($parts) - 1); $i = $i+2) {
+
+                $frame = array('id' => $chapNum . '-' . str_pad($frameNum++, 2, '0', STR_PAD_LEFT));
+                $frame['img'] = trim($parts[$i], "{} \t\n\r\0\x0B");
+                $frame['text'] = $parts[$i + 1];
+                $chapter['frames'][] = $frame;
+            }
+            $obs['chapters'][] = $chapter;
+        }
+
+
+        return $obs;
     }
 }

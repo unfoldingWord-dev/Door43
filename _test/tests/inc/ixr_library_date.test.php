@@ -9,8 +9,6 @@ class ixr_library_date_test extends DokuWikiTest {
 
 
     function test_parseIso(){
-        $this->markTestSkipped('Skipped because it is failing');
-
         // multiple tests
         $tests = array(
             // full datetime, different formats

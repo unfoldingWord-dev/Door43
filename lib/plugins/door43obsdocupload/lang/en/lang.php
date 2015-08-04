@@ -13,7 +13,8 @@
 // custom language strings for the plugin
 $lang['getTemplate'] = 'Get template';
 $lang['exportTitle'] = 'Export OBS Template';
-$lang['sourceLabel'] = 'Template Source Language';
+$lang['draftLabel'] = 'Use the current language as a DRAFT template';
+$lang['sourceLabel'] = 'Use checked source language';
 $lang['docxFileCreateError'] = 'Error creating the docx file';
 $lang['includeImagesLabel'] = 'Include all images in the file';
 $lang['includeSub3Label'] = 'Include Level 1 and 2 languages';
