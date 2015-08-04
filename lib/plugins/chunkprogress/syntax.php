@@ -22,6 +22,7 @@ if (!defined('DOKU_PLUGIN')) {
 }
 require_once DOKU_PLUGIN.'syntax.php';
 require_once "report_activity_by_user.php";
+require_once "report_activity_by_namespace.php";
 
 /* Array of all possible reports */
 global $CHUNKPROGRESS_REPORT_TYPES;
@@ -127,6 +128,10 @@ class syntax_plugin_chunkprogress extends DokuWiki_Syntax_Plugin
             // Activity by user
             $params = handleActivityByUserReport($params);
 
+        } else if ($params["report"] == "activity_by_namespace") {
+            // Activity by user
+            $params = handleActivityByNamespaceReport($params);
+
         } else {
             // Unrecognized report
             $params["message"]
@@ -172,7 +177,15 @@ class syntax_plugin_chunkprogress extends DokuWiki_Syntax_Plugin
 
         // Render report if recognized
         if ($params["report"] == "activity_by_user") {
+
+            // Activity by user
             renderActivityByUserReport($mode, $renderer, $params);
+
+        } else if ($params["report"] == "activity_by_namespace") {
+
+            // Activity by namespace
+            renderActivityByNamespaceReport($mode, $renderer, $params);
+
         }
 
         // Done (except for debug)
@@ -181,6 +194,7 @@ class syntax_plugin_chunkprogress extends DokuWiki_Syntax_Plugin
 
         // Dump params if in debug mode
         if ($params["debug"] == "true") {
+        
             $renderer->hr();
 
             $renderer->p_open();
