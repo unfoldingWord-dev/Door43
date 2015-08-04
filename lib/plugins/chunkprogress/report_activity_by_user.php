@@ -30,17 +30,13 @@ function handleActivityByUserReport($params)
     $namespace = $params["namespace"];
 
     $params = validateStartDate($params);
-    $start_date = $params["start_date"];
     $start_timestamp = $params["start_timestamp"];
 
     $params = validateEndDate($params);
-    $end_date = $params["end_date"];
-    $end_timestamp = $params["end_timestamp"];
-
 
     $params["report_title"]
         = "Activity by User for " . $namespace
-        . " from " . $start_date . " to " . $end_date;
+        . " from " .  $params["start_date"] . " to " . $params["end_date"];
 
     // Find all pages in the namespace
     $pages = getAllPagesInNamespace($namespace);
@@ -84,7 +80,9 @@ function handleActivityByUserReport($params)
         // Consider each revision
         $prev_status_tags = array();
         foreach ($revision_ids as $revision_id) {
-            if ($revision_id < $start_timestamp or $revision_id > $end_timestamp) {
+            if ($revision_id < $start_timestamp
+                or $revision_id > $params["end_timestamp"]
+            ) {
                 // Ignore revisions that fall outside the date window
                 continue;
             }
