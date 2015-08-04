@@ -37,20 +37,9 @@ function handleActivityByUserReport($params)
     $start_date = $params["start_date"];
     $start_timestamp = $params["start_timestamp"];
 
-
-
-    // Validate end_date
+    $params = validateEndDate($params);
     $end_date = $params["end_date"];
-    if ($end_date == "") {
-        $end_date = date("Y-m-d");
-    }
-    $end_timestamp = strtotime($end_date);
-    if ($end_timestamp == false) {
-        $params["message"]
-            = "ERROR: end_date: Couldn't understand '".$end_date."' as a date.";
-        return $params;
-    }
-    $params["end_timestamp"] = $end_timestamp;
+    $end_timestamp = $params["end_timestamp"];
 
 
     $params["report_title"]
@@ -223,6 +212,30 @@ function renderActivityByUserReport($mode, &$renderer, $params)
 
 
 /**
+ * Convenience function to validate the end date.
+ *
+ * @param array $params The parameters given by the user
+ *
+ * @return An updated $params array with data filled in
+ */
+function validateEndDate($params)
+{
+    // Validate end_date
+    if ($params["end_date"] == "") {
+        $params["end_date"] = date("Y-m-d");
+    }
+    $end_timestamp = strtotime($params["end_date"]);
+    if ($end_timestamp == false) {
+        $params["message"]
+            = "ERROR: end_date: Couldn't understand '"
+            . $params["end_date"]."' as a date.";
+    }
+    $params["end_timestamp"] = $end_timestamp;
+    return $params;
+}
+
+
+/**
  * Convenience function to validate the start date.
  *
  * @param array $params The parameters given by the user
@@ -237,8 +250,8 @@ function validateStartDate($params)
     $start_timestamp = strtotime($params["start_date"]);
     if ($start_timestamp == false) {
         $params["message"]
-            = "ERROR: Couldn't understand '".$params["start_date"]."' as a date.";
-        return $params;
+            = "ERROR: start_date: Couldn't understand '"
+            . $params["start_date"]."' as a date.";
     }
     $params["start_timestamp"] = $start_timestamp;
     return $params;
