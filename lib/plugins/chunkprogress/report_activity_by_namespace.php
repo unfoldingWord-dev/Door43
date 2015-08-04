@@ -46,6 +46,7 @@ function handleActivityByNamespaceReport($params)
     $params["debug_num_pages_in_ns"] = count($pages);
 
     $sub_namespaces = array();
+    $num_revisions_within_dates = 0;
     foreach ($pages as $page) {
 
         // Ignore any pages that haven't been changed since the begin date.
@@ -63,25 +64,51 @@ function handleActivityByNamespaceReport($params)
         // removing the namespace from every page we get the path of the page 
         // within that namespace.  We use stren() + 1 to also catch the colon at 
         // the end of the parent namespace.
-        $local_page_id = substr($page["id"], strlen($namespace) + 1);
-        // error_log($page["id"] . " -> " . $local_page_id);
+        $page_id = $page["id"];
+        $local_page_id = substr($page_id, strlen($namespace) + 1);
         $local_page_id_parts = explode(":", $local_page_id);
-        // error_log($page["id"] . " -> " . $local_page_id_parts[0]);
         // The sub-namespace corresponds to the "book" if using a namespace like 
         // "en:bible:notes".
         $local_page_sub_namespace = $local_page_id_parts[0];
         if (in_array($local_page_sub_namespace, $sub_namespaces) == false) {
             array_push($sub_namespaces, $local_page_sub_namespace);
-            // error_log("Added " . $local_page_sub_namespace);
-            // error_log("Size of sub_namespaces: " . count($sub_namespaces));
         }
 
-    }
+        // Get all revisions for this page.
+        $revision_ids = getRevisions(
+            $page_id,
+            0,
+            10000
+        );
 
-    // Debug
-    foreach ($sub_namespaces as $sub_namespace) {
-        error_log($sub_namespace);
+        // Reverse the array so that it goes least-recent to most-recent
+        $revision_ids = array_reverse($revision_ids);
+
+        // Push the current revision onto the stack.
+        array_push($revision_ids, $page["rev"]);
+
+        // Count number of revisions for debugging
+        $num_revisions += count($revision_ids);
+
+        // Consider each revision
+        $prev_status_tags = array();
+        foreach ($revision_ids as $revision_id) {
+            if ($revision_id < $params["start_timestamp"]
+                or $revision_id > $params["end_timestamp"]
+            ) {
+                // Ignore revisions that fall outside the date window
+                continue;
+            }
+
+            // Count number of revisions for debugging
+            $num_revisions_within_dates += 1;
+
+
+        }
     }
+    $params["debug_num_revisions_in_ns"] = $num_revisions;
+    $params["debug_num_revisions_within_dates"] = $num_revisions_within_dates;
+
 
     return $params;
 }
