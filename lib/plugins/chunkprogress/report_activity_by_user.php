@@ -48,6 +48,7 @@ function handleActivityByUserReport($params)
     $num_revisions_with_matching_users = 0;
     $page_count = 0;
     $last_revision_by_user_by_page = array();
+    $page_current_revisions = array();
     foreach ($pages as $page) {
 
         // Ignore any pages that haven't been changed since the begin date.
@@ -73,6 +74,7 @@ function handleActivityByUserReport($params)
 
         // Push the current revision onto the stack.
         array_push($revision_ids, $page["rev"]);
+        $page_current_revisions[$page_id] = $page["rev"];
 
         // Count number of revisions for debugging
         $num_revisions += count($revision_ids);
@@ -121,7 +123,14 @@ function handleActivityByUserReport($params)
     $last_status_by_user_by_page = array();
     foreach ($last_revision_by_user_by_page as $user => $page_ids) {
         foreach ($page_ids as $page_id => $last_revision_id) {
-            $statuses = getStatusTags($page_id, $last_revision_id);
+            // $statuses = getStatusTags($page_id, $last_revision_id);
+            // Get status tags (we have to make the call differently based on 
+            // whether or not this is the current revision)
+            if ($last_revision_id == $page_current_revisions[$page_id]) {
+                $statuses = getStatusTags($page_id, "");
+            } else {
+                $statuses = getStatusTags($page_id, $last_revision_id);
+            }
             if (count($statuses) > 0) {
                 if (array_key_exists($user, $last_status_by_user_by_page) == false) {
                     $last_status_by_user_by_page[$user] = array();

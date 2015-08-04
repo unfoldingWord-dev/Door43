@@ -47,6 +47,7 @@ function handleActivityByNamespaceReport($params)
 
     $sub_namespaces = array();
     $num_revisions_within_dates = 0;
+    $page_current_revisions = array();
     foreach ($pages as $page) {
 
         // Ignore any pages that haven't been changed since the begin date.
@@ -54,20 +55,20 @@ function handleActivityByNamespaceReport($params)
             continue;
         }
 
-        // Clear the Dokuwiki revision cache.  This is potentially fragile, but 
-        // we don't do this, the DokuWiki cache for this script will grow until 
+        // Clear the Dokuwiki revision cache.  This is potentially fragile, but
+        // we don't do this, the DokuWiki cache for this script will grow until
         // it blows out the memory for this thread.
         $cache_revinfo = array();
 
-        // Because we searched for all pages in $namespace, we can make the 
-        // assumption that every page begins with the namespace.  Thus by 
-        // removing the namespace from every page we get the path of the page 
-        // within that namespace.  We use stren() + 1 to also catch the colon at 
+        // Because we searched for all pages in $namespace, we can make the
+        // assumption that every page begins with the namespace.  Thus by
+        // removing the namespace from every page we get the path of the page
+        // within that namespace.  We use stren() + 1 to also catch the colon at
         // the end of the parent namespace.
         $page_id = $page["id"];
         $local_page_id = substr($page_id, strlen($namespace) + 1);
         $local_page_id_parts = explode(":", $local_page_id);
-        // The sub-namespace corresponds to the "book" if using a namespace like 
+        // The sub-namespace corresponds to the "book" if using a namespace like
         // "en:bible:notes".
         $local_page_sub_namespace = $local_page_id_parts[0];
         if (in_array($local_page_sub_namespace, $sub_namespaces) == false) {
@@ -86,6 +87,7 @@ function handleActivityByNamespaceReport($params)
 
         // Push the current revision onto the stack.
         array_push($revision_ids, $page["rev"]);
+        $page_current_revisions[$page_id] = $page["rev"];
 
         // Count number of revisions for debugging
         $num_revisions += count($revision_ids);
@@ -103,6 +105,13 @@ function handleActivityByNamespaceReport($params)
             // Count number of revisions for debugging
             $num_revisions_within_dates += 1;
 
+            // Get status tags (we have to make the call differently based on 
+            // whether or not this is the current revision)
+            if ($revision_id == $page_current_revisions[$page_id]) {
+                $status_tags = getStatusTags($page_id, "");
+            } else {
+                $status_tags = getStatusTags($page_id, $revision_id);
+            }
 
         }
     }

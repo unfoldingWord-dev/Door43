@@ -205,7 +205,8 @@ function getPageUser($page_id, $revision_id)
 function getTags($page_id, $revision_id)
 {
     $tags = array();
-    $lines = gzfile(wikiFN($page_id, $revision_id));
+    $filename = wikiFN($page_id, $revision_id);
+    $lines = gzfile($filename);
     foreach ($lines as $line) {
         $matches = array();
         preg_match_all("/{{tag>([^}]*)}}/", strtolower($line), $matches);
