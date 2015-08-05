@@ -14,7 +14,7 @@ This repo is our unified DokuWiki + plugins repo.
    ```
 
 3. Update your webserver to have a virtual host that points to the Door43 directory. (If you instead have Door43 as a
-   subdirectory in your htdocs directory, you will need to change the RewriteBase in the .htaccess file and then run this command so it doesn't commit
+   subdirectory in your main web root directory, you will need to change the RewriteBase in the .htaccess file and then run this command so it doesn't commit
    it to the repo: `git update-index --assume-unchanged .htaccess`)
 
 4. Make sure you are on the development branch:
