@@ -61,7 +61,11 @@ This repo is our unified DokuWiki + plugins repo.
 
 ### Updating Door43 and its submodules and other repos
 
-* If you ever want to update your Door43 installation, run ./door43_update.sh (Will update Door43 repo, Submodule repos and language repos)
+* If you ever want to update your Door43 installation, run the following:
+  ```
+  ./door43_update.sh
+  ```
+  (Will update Door43 repo, Submodule repos and language repos)
 
 ### Unit Testing
 
