@@ -1,50 +1,57 @@
 [![Travis](https://travis-ci.org/unfoldingWord-dev/Door43.svg)](https://travis-ci.org/unfoldingWord-dev/Door43)
 
-# Door43 DokuWiki Code
+### Door43 DokuWiki Code
 
 This repo is our unified DokuWiki + plugins repo.
 
-To setup:
+To setup for development:
 
-1. Clone this Door43 repo onto your web server.
+1. Fork this Door43 repo into your own Github account with the Fork button at the top
 
-2. Make a virtual host that points to the Door43 directory. (If you instead have Door43 as a subdirectory in your htdocs
-directory, you will need to change the RewriteBase in the .htaccess file and then run this command so it doesn't commit
-it to the repo: `git update-index --assume-unchanged .htaccess`)
+2. Clone your forked copy of Door43 onto your machine
+   ```
+   git clone git@github.com:<username>/Door43.git
+   ```
 
-3. Switch to the development branch: `git checkout development`
+3. Update your webserver to have a virtual host that points to the Door43 directory. (If you instead have Door43 as a
+   subdirectory in your htdocs directory, you will need to change the RewriteBase in the .htaccess file and then run this command so it doesn't commit
+   it to the repo: `git update-index --assume-unchanged .htaccess`)
 
-4. Make sure that your web server's process has write access to the conf and data directories and all files and subdirectories.
+4. Make sure you are on the development branch:
+   ```
+   git checkout development
+   ```
 
-5. Setup the submodules, such as enhancedindexer and pagequery, by running the following commands:
+5. Make sure that your web server's process has write access to the conf and data directories and all files and subdirectories.
+   Exaple:
+   ```
+   cd Door43
+   chown -R www.www .
+   or
+   chmod -R a+rw .
+   ```
+
+6. Run the door43_bootstrap.sh Bootstrap script. (You will need to be working on a Linux box or through Git Bash shell on Windows)
+   ```
+   cd Door43
+   ./door43_bootstrap.sh (install language repos when promted)
+   ```
+
+7. You can now go to http://&lt;your.door43.domain&gt;/home?do=login and login as admin, password admin.
+
+### Updating Door43 and its submodules and other repos
+
+* If you ever want to update your Door43 installation, run ./door43_update.sh (Will update Door43 repo, Submodule repos and language repos)
+
+* You can add more languages this way:
   ```
-  git submodule init
-  git submodule update
+  cd Door43
+  ./install_language.sh <IETF Language Code(s)>
   ```
-
-6. Setup your user and acl config files by copying the .dist config files to their regular names:<br/>
+  Example (installs Chinese):
   ```
-  cp conf/users.auth.php.dev conf/users.auth.php
-  cp conf/acl.auth.php.dev conf/acl.auth.php
+  ./install_language.sh zh
   ```
-
-7. Put other config files in place (this have different settings on production):
-  ```
-  cp conf/local.php.dev conf/local.php
-  cp conf/plugins.local.php.dev conf/plugins.local.php
-  ```
-
-8. You can now go to http://&lt;your.door43.domain&gt;/home?do=login and login as admin, password admin.
-
-9. You can manually check out content for each language by cloning their repo into data/gitrepo/pages:
-  ```
-  cd Door43/data/gitrepo/pages
-  git clone git@github.com:Door43/d43-<LanguageCode>.git <LanguageCode>
-  (e.g: git clone git@github.com:Door43/d43-en.git en) 
-  ```
-
-Steps 5 thru 7 above will soon be replaced with a bootstrap.php file that will set up submodules and config files and content.
-
 
 ### Unit Testing
 
