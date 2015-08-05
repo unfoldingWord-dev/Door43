@@ -6,14 +6,14 @@ This repo is our unified DokuWiki + plugins repo.
 
 ### Setting Up Your Door43 Development Environment
 
-1. Fork this Door43 repo into your own Github account with the Fork button at the top of https://github.com/unfoldingWord-dev/Door43
+1. Fork this Door43 repo into your own GitHub account with the Fork button at the top of https://github.com/unfoldingWord-dev/Door43
 
 2. Clone your forked copy of Door43 onto your machine
    ```
    git clone git@github.com:<username>/Door43.git
    ```
 
-3. Update your webserver to have a virtual host that points to the Door43 directory. (If you instead have Door43 as a
+3. Update your web server to have a virtual host that points to the Door43 directory. (If you instead have Door43 as a
    subdirectory in your main web root directory, you will need to change the RewriteBase in the .htaccess file and then run this command so it doesn't commit
    it to the repo: `git update-index --assume-unchanged .htaccess`)
 
@@ -54,9 +54,10 @@ This repo is our unified DokuWiki + plugins repo.
   ```
 
 * Be sure to keep them updated:
+  (Will update all installed language repos)
   ```
   cd Door43
-  ./update_languages.sh <IETF Language Code(s)>
+  ./update_languages.sh
   ```
 
 ### Updating Door43 and its submodules and other repos
@@ -64,7 +65,7 @@ This repo is our unified DokuWiki + plugins repo.
 * If you ever want to update your Door43 installation, run the following:
 
   (Will update Door43 repo, Submodule repos and language repos)
-  
+
   ```
   cd Door43
   ./door43_update.sh
