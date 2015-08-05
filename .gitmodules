@@ -16,6 +16,3 @@
 [submodule "lib/plugins/setedit"]
 	path = lib/plugins/setedit
 	url = https://github.com/yvonnel098/setedit
-[submodule "dokuwiki-plugin-namespace-export"]
-	path = dokuwiki-plugin-namespace-export
-	url = https://github.com/In-the-World/dokuwiki-plugin-namespace-export
