@@ -38,25 +38,25 @@ class action_plugin_door43obs_PopulateOBS extends DokuWiki_Action_Plugin {
         header('Content-Type: text/plain');
 
         // get the iso codes for the source and destination languages
-        $srcIso = $INPUT->str('sourceLang');
-        $dstIso = $this->get_iso_from_language_name_string($INPUT->str('destinationLang'));
+        $srcLangCode = $INPUT->str('sourceLang');
+        $dstLangCode = $this->get_lang_code_from_language_name_string($INPUT->str('destinationLang'));
 
         // check if the destination namespace exists
         $pagesDir = $conf['datadir'];
-        $dstNamespaceDir = $pagesDir . DS . $dstIso;
+        $dstNamespaceDir = $pagesDir . DS . $dstLangCode;
         if (!$this->check_namespace($dstNamespaceDir)) {
 
             // if not found, report an error
-            echo sprintf($this->get_error_message('obsNamespaceNotFound'), $dstIso);
+            echo sprintf($this->get_error_message('obsNamespaceNotFound'), $dstLangCode);
             return;
         }
 
         // check if the source obs directory exists
-        $srcDir = $pagesDir . DS . $srcIso . DS . 'obs';
+        $srcDir = $pagesDir . DS . $srcLangCode . DS . 'obs';
         if (!is_dir($srcDir)) {
 
             // if not found, report an error
-            echo sprintf($this->get_error_message('obsSourceDirNotFound'), $srcIso);
+            echo sprintf($this->get_error_message('obsSourceDirNotFound'), $srcLangCode);
             return;
         }
 
@@ -69,7 +69,7 @@ class action_plugin_door43obs_PopulateOBS extends DokuWiki_Action_Plugin {
             if (!empty($files) && (count($files) > 5)) {
 
                 // if there are, report an error
-                echo sprintf($this->get_success_message('obsDestinationDirExists'), "/$dstIso/obs", "$dstIso/obs");
+                echo sprintf($this->get_success_message('obsDestinationDirExists'), "/$dstLangCode/obs", "$dstLangCode/obs");
                 return;
             }
         }
@@ -78,40 +78,44 @@ class action_plugin_door43obs_PopulateOBS extends DokuWiki_Action_Plugin {
         $templateDir = $pagesDir . '/templates/obs3/obs';
 
         // Now copy the obs files from $srcDir to $dstDir
-        $this->copy_obs_files($srcDir, $dstDir, $templateDir, $srcIso, $dstIso);
+        $this->copy_obs_files($srcDir, $dstDir, $templateDir, $srcLangCode, $dstLangCode);
 
         // update home.txt
         $templateDir = $pagesDir . '/templates';
-        $this->update_home_txt($templateDir, $dstNamespaceDir, $dstIso);
+        $this->update_home_txt($templateDir, $dstNamespaceDir, $dstLangCode);
 
         // update sidebar.txt
-        $this->update_sidebar_txt($templateDir, $dstNamespaceDir, $dstIso);
+        $this->update_sidebar_txt($templateDir, $dstNamespaceDir, $dstLangCode);
 
         // make uwadmin status page
         $adminDir = $pagesDir . "/en/uwadmin";
-        $this->copy_status_txt($templateDir, $adminDir, $dstIso);
+        $this->copy_status_txt($templateDir, $adminDir, $dstLangCode);
 
-        // update changes pages
-        $script = '/var/www/vhosts/door43.org/tools/obs/dokuwiki/obs-gen-changes-pages.sh';
-        if (is_file($script))
-            shell_exec($script);
+        // skip this section during unit testing
+        if(!defined('DOKU_UNITTEST')) {
 
-        // git add, commit, push
-        $this->git_push($adminDir, 'Added uwadmin obs page for ' . $dstIso);
-        $this->git_push(dirname($dstDir), 'Initial import of OBS');
+            // update changes pages
+            $script = '/var/www/vhosts/door43.org/tools/obs/dokuwiki/obs-gen-changes-pages.sh';
+            if (is_file($script))
+                shell_exec($script);
 
-        echo sprintf($this->get_success_message('obsCreatedSuccess'), $dstIso, "/$dstIso/obs");
+            // git add, commit, push
+            $this->git_push($adminDir, 'Added uwadmin obs page for ' . $dstLangCode);
+            $this->git_push($dstNamespaceDir, 'Initial import of OBS');
+        }
+
+        echo sprintf($this->get_success_message('obsCreatedSuccess'), $dstLangCode, "/$dstLangCode/obs");
     }
 
     private function get_error_message($langStringKey) {
         return '<span style="color: #990000;">' . $this->getLang($langStringKey) . '</span><br>';
     }
 
-    private function get_success_message($langStringKey) {
+    public function get_success_message($langStringKey) {
         return '<span style="color: #005500;">' . $this->getLang($langStringKey) . '</span><br>';
     }
 
-    private function get_iso_from_language_name_string($languageName) {
+    private function get_lang_code_from_language_name_string($languageName) {
 
         // extract iso code from the destination language field, i.e.: "English (en)"
         $pattern = '/\([^\(\)]+\)$/';
@@ -132,13 +136,13 @@ class action_plugin_door43obs_PopulateOBS extends DokuWiki_Action_Plugin {
         return is_dir($namespaceDir);
     }
 
-    private function copy_obs_files($srcDir, $dstDir, $templateDir, $srcIso, $dstIso) {
+    private function copy_obs_files($srcDir, $dstDir, $templateDir, $srcLangCode, $dstLangCode) {
 
         if (!is_dir($dstDir))
-            mkdir($dstDir, 0755);
+            mkdir($dstDir, 0755, true);
 
         // create the 01.txt through 50.txt source files
-        $this->create_files_from_json($srcIso, $dstDir);
+        $this->create_files_from_json($srcLangCode, $dstDir);
 
         // copy some files from source directory
         $files = array('back-matter.txt', 'front-matter.txt', 'cover-matter.txt');
@@ -158,18 +162,18 @@ class action_plugin_door43obs_PopulateOBS extends DokuWiki_Action_Plugin {
 
             $srcFile = $templateDir . DS . $file;
             $outFile = $dstDir . DS . $file;
-            $this->copy_template_file($srcFile, $outFile, $dstIso);
+            $this->copy_template_file($srcFile, $outFile, $dstLangCode);
         }
 
         // create the obs.txt home page
         $srcFile = dirname($templateDir) . DS . 'obs.txt';
         $outFile = dirname($dstDir) . DS . 'obs.txt';
-        $this->copy_template_file($srcFile, $outFile, $dstIso);
+        $this->copy_template_file($srcFile, $outFile, $dstLangCode);
     }
 
-    private function create_files_from_json($srcIso, $dstDir) {
+    private function create_files_from_json($srcLangCode, $dstDir) {
 
-        $src = file_get_contents("https://api.unfoldingword.org/obs/txt/1/{$srcIso}/obs-{$srcIso}.json");
+        $src = file_get_contents("https://api.unfoldingword.org/obs/txt/1/{$srcLangCode}/obs-{$srcLangCode}.json");
         $srcClass = json_decode($src, true);
 
         // chapters
@@ -222,45 +226,45 @@ class action_plugin_door43obs_PopulateOBS extends DokuWiki_Action_Plugin {
         return $returnVal;
     }
 
-    private function copy_template_file($srcFile, $outFile, $dstIso) {
+    private function copy_template_file($srcFile, $outFile, $dstLangCode) {
 
         $text = file_get_contents($srcFile);
-        file_put_contents($outFile, str_replace('LANGCODE', $dstIso, $text));
+        file_put_contents($outFile, str_replace('LANGCODE', $dstLangCode, $text));
         chmod($outFile, 0644);
     }
 
-    private function update_home_txt($templateDir, $dstNamespaceDir, $dstIso) {
+    private function update_home_txt($templateDir, $dstNamespaceDir, $dstLangCode) {
 
         $homeFile = $dstNamespaceDir . DS . 'home.txt';
         if (!is_file($homeFile)) {
 
             $srcFile = $templateDir . DS . 'home.txt';
-            $this->copy_template_file($srcFile, $homeFile, $dstIso);
+            $this->copy_template_file($srcFile, $homeFile, $dstLangCode);
         }
 
         $text = file_get_contents($homeFile);
-        $text .= "\n===== Resources =====\n\n  * **[[{$dstIso}:obs|Open Bible Stories ({$dstIso})]]**";
+        $text .= "\n===== Resources =====\n\n  * **[[{$dstLangCode}:obs|Open Bible Stories ({$dstLangCode})]]**";
         file_put_contents($homeFile, $text);
     }
 
-    private function update_sidebar_txt($templateDir, $dstNamespaceDir, $dstIso) {
+    private function update_sidebar_txt($templateDir, $dstNamespaceDir, $dstLangCode) {
 
         $sidebarFile = $dstNamespaceDir . DS . 'sidebar.txt';
         if (!is_file($sidebarFile)) {
 
             $srcFile = $templateDir . DS . 'sidebar.txt';
-            $this->copy_template_file($srcFile, $sidebarFile, $dstIso);
+            $this->copy_template_file($srcFile, $sidebarFile, $dstLangCode);
         }
 
         $text = file_get_contents($sidebarFile);
-        $text .= "\n**Resources**\n\n  * [[{$dstIso}:obs|Open Bible Stories ({$dstIso})]]\n\n**Latest OBS Status**\n{{page>en:uwadmin:{$dstIso}:obs:status}}";
+        $text .= "\n**Resources**\n\n  * [[{$dstLangCode}:obs|Open Bible Stories ({$dstLangCode})]]\n\n**Latest OBS Status**\n{{page>en:uwadmin:{$dstLangCode}:obs:status}}";
         file_put_contents($sidebarFile, $text);
     }
 
-    private function copy_status_txt($templateDir, $adminDir, $dstIso) {
+    private function copy_status_txt($templateDir, $adminDir, $dstLangCode) {
 
-        $adminDir .= "/{$dstIso}/obs";
-        if (!is_dir($adminDir)) mkdir($adminDir, 0755);
+        $adminDir .= "/{$dstLangCode}/obs";
+        if (!is_dir($adminDir)) mkdir($adminDir, 0755, true);
 
         $statusFile = $adminDir . DS . 'status.txt';
         $srcFile = $templateDir . DS . 'status.txt';
