@@ -4,7 +4,7 @@
 
 This repo is our unified DokuWiki + plugins repo.
 
-To setup for development:
+### Setting Up Your Door43 Development Environment
 
 1. Fork this Door43 repo into your own Github account with the Fork button at the top of https://github.com/unfoldingWord-dev/Door43
 
