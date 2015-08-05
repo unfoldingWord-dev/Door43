@@ -23,7 +23,8 @@ To setup for development:
    ```
 
 5. Make sure that your web server's process has write access to the conf and data directories and all files and subdirectories.
-   Exaple:
+
+   Example:
    ```
    cd Door43
    chown -R www.www .
@@ -34,24 +35,33 @@ To setup for development:
 6. Run the door43_bootstrap.sh Bootstrap script. (You will need to be working on a Linux box or through Git Bash shell on Windows)
    ```
    cd Door43
-   ./door43_bootstrap.sh (install language repos when promted)
+   ./door43_bootstrap.sh
    ```
+   (install language repos when prompted)
 
 7. You can now go to http://&lt;your.door43.domain&gt;/home?do=login and login as admin, password admin.
+
+### Adding More Language Repos
+
+* You can add more language repos to your Door43 this way:
+  ```
+  cd Door43
+  ./install_languages.sh <IETF Language Code(s)>
+  ```
+  Example (installs Chinese and French):
+  ```
+  ./install_languages.sh zh fr
+  ```
+
+* Be sure to keep them updated:
+  ```
+  cd Door43
+  ./update_languages.sh <IETF Language Code(s)>
+  ```
 
 ### Updating Door43 and its submodules and other repos
 
 * If you ever want to update your Door43 installation, run ./door43_update.sh (Will update Door43 repo, Submodule repos and language repos)
-
-* You can add more languages this way:
-  ```
-  cd Door43
-  ./install_language.sh <IETF Language Code(s)>
-  ```
-  Example (installs Chinese):
-  ```
-  ./install_language.sh zh
-  ```
 
 ### Unit Testing
 
