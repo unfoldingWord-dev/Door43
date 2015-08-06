@@ -47,6 +47,7 @@ function handleActivityByNamespaceReport($params)
 
     $sub_namespaces = array();
     $num_revisions_within_dates = 0;
+    $count_by_sub_namespace_then_status = array();
     foreach ($pages as $page) {
 
         // Ignore any pages that haven't been changed since the begin date.
@@ -69,9 +70,9 @@ function handleActivityByNamespaceReport($params)
         $local_page_id_parts = explode(":", $local_page_id);
         // The sub-namespace corresponds to the "book" if using a namespace like
         // "en:bible:notes".
-        $local_page_sub_namespace = $local_page_id_parts[0];
-        if (in_array($local_page_sub_namespace, $sub_namespaces) == false) {
-            array_push($sub_namespaces, $local_page_sub_namespace);
+        $sub_namespace = $local_page_id_parts[0];
+        if (in_array($sub_namespace, $sub_namespaces) == false) {
+            array_push($sub_namespaces, $sub_namespace);
         }
 
         // Get all revisions for this page.
@@ -92,14 +93,21 @@ function handleActivityByNamespaceReport($params)
         $num_revisions += count($revision_ids);
 
         // Consider each revision
-        $prev_status_tags = array();
+        $prev_status_tags = null;
         $prev_revision_id = null;
         foreach ($revision_ids as $revision_id) {
             if ($revision_id >= $params["start_timestamp"]
-                or $revision_id <= $params["end_timestamp"]
+                and $revision_id <= $params["end_timestamp"]
             ) {
                 // Count number of revisions for debugging
                 $num_revisions_within_dates += 1;
+
+                // Load status tags for previous version if necessary.  This 
+                // happens when the current version is within the time window 
+                // but the previous version was not.
+                if ($prev_revision_id != null and $prev_status_tags == null) {
+                    $prev_status_tags = getStatusTags($page_id, $prev_revision_id);
+                }
 
                 // Get status tags (we have to make the call differently based on 
                 // whether or not this is the current revision)
@@ -108,13 +116,49 @@ function handleActivityByNamespaceReport($params)
                 } else {
                     $status_tags = getStatusTags($page_id, $revision_id);
                 }
+
+                // Compare status tags to see if they've changed.
+                if ($prev_status_tags != null
+                    and $status_tags != $prev_status_tags
+                ) {
+                    // Status tags have changed.
+
+                    // Create sub-namespace in report if needed.
+                    if (array_key_exists(
+                        $sub_namespace, $count_by_sub_namespace_then_status
+                    ) == false) {
+                        $count_by_sub_namespace_then_status[$sub_namespace]
+                            = array();
+                    }
+
+                    foreach ($status_tags as $status_tag) {
+
+                        // Create status count if it doesn't already exist.
+                        if (array_key_exists(
+                            $status_tag, 
+                            $count_by_sub_namespace_then_status[$sub_namespace]
+                        ) == false) {
+                            $count_by_sub_namespace_then_status
+                                [$sub_namespace][$status_tag] = 0;
+                        }
+
+                        // Increment status count.
+                        $count_by_sub_namespace_then_status
+                            [$sub_namespace][$status_tag] += 1;
+                    }
+                    
+                }
+
             }
-            // Remember previous revision id
+            // Remember previous revision 
             $prev_revision_id = $revision_id;
+            $prev_status_tags = $status_tags;
         }
     }
     $params["debug_num_revisions_in_ns"] = $num_revisions;
     $params["debug_num_revisions_within_dates"] = $num_revisions_within_dates;
+    $params["count_by_sub_namespace_then_status"] 
+        = $count_by_sub_namespace_then_status;
 
 
     return $params;
@@ -152,21 +196,22 @@ function renderActivityByNamespaceReport($mode, &$renderer, $params)
 
     $renderer->tablerow_close();
 
-    // $user_status_count = $params["user_status_count"];
-    // foreach ($user_status_count as $user => $statuses) {
-    //     $renderer->tablerow_open();
-    //     $renderer->tablecell_open();
-    //     $renderer->unformatted($user);
-    //     $renderer->tablecell_close();
-    //     foreach ($CHUNKPROGRESS_STATUS_TAGS as $status) {
-    //         $renderer->tablecell_open();
-    //         if (array_key_exists($status, $statuses)) {
-    //             $renderer->unformatted($statuses[$status]);
-    //         }
-    //         $renderer->tablecell_close();
-    //     }
-    //     $renderer->tablerow_close();
-    // }
+    $count_by_sub_namespace_then_status 
+        = $params["count_by_sub_namespace_then_status"];
+    foreach ($count_by_sub_namespace_then_status as $sub_namespace => $statuses) {
+        $renderer->tablerow_open();
+        $renderer->tablecell_open();
+        $renderer->unformatted($sub_namespace);
+        $renderer->tablecell_close();
+        foreach ($CHUNKPROGRESS_STATUS_TAGS as $status) {
+            $renderer->tablecell_open();
+            if (array_key_exists($status, $statuses)) {
+                $renderer->unformatted($statuses[$status]);
+            }
+            $renderer->tablecell_close();
+        }
+        $renderer->tablerow_close();
+    }
 
     $renderer->table_close();
 
