@@ -47,7 +47,6 @@ function handleActivityByNamespaceReport($params)
 
     $sub_namespaces = array();
     $num_revisions_within_dates = 0;
-    $page_current_revisions = array();
     foreach ($pages as $page) {
 
         // Ignore any pages that haven't been changed since the begin date.
@@ -87,32 +86,31 @@ function handleActivityByNamespaceReport($params)
 
         // Push the current revision onto the stack.
         array_push($revision_ids, $page["rev"]);
-        $page_current_revisions[$page_id] = $page["rev"];
+        $current_revision_id = $page["rev"];
 
         // Count number of revisions for debugging
         $num_revisions += count($revision_ids);
 
         // Consider each revision
         $prev_status_tags = array();
+        $prev_revision_id = null;
         foreach ($revision_ids as $revision_id) {
-            if ($revision_id < $params["start_timestamp"]
-                or $revision_id > $params["end_timestamp"]
+            if ($revision_id >= $params["start_timestamp"]
+                or $revision_id <= $params["end_timestamp"]
             ) {
-                // Ignore revisions that fall outside the date window
-                continue;
+                // Count number of revisions for debugging
+                $num_revisions_within_dates += 1;
+
+                // Get status tags (we have to make the call differently based on 
+                // whether or not this is the current revision)
+                if ($revision_id == $current_revision_id) {
+                    $status_tags = getStatusTags($page_id, "");
+                } else {
+                    $status_tags = getStatusTags($page_id, $revision_id);
+                }
             }
-
-            // Count number of revisions for debugging
-            $num_revisions_within_dates += 1;
-
-            // Get status tags (we have to make the call differently based on 
-            // whether or not this is the current revision)
-            if ($revision_id == $page_current_revisions[$page_id]) {
-                $status_tags = getStatusTags($page_id, "");
-            } else {
-                $status_tags = getStatusTags($page_id, $revision_id);
-            }
-
+            // Remember previous revision id
+            $prev_revision_id = $revision_id;
         }
     }
     $params["debug_num_revisions_in_ns"] = $num_revisions;
