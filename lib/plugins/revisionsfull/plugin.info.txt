@@ -1,0 +1,7 @@
+base   revisionsfull
+author David Stone
+email  https://unfoldingword.org/contact/
+date   2015-7-21
+name   Revisions Full
+desc   Adds option to see entire page in revision history display and easily switch between revisions
+url    https://github.com/unfoldingWord-dev/Door43

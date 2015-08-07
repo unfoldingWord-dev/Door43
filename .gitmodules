@@ -13,3 +13,12 @@
 [submodule "lib/plugins/usfmtag"]
 	path = lib/plugins/usfmtag
 	url = https://github.com/unfoldingWord-dev/Dokuwiki-USFMTag
+[submodule "lib/plugins/setedit"]
+	path = lib/plugins/setedit
+	url = https://github.com/yvonnel098/setedit
+[submodule "lib/plugins/namespace-export"]
+	path = lib/plugins/namespace-export
+	url = https://github.com/In-the-World/dokuwiki-plugin-namespace-export
+[submodule "lib/plugins/door43nsexport"]
+	path = lib/plugins/door43nsexport
+	url = https://github.com/In-the-World/door43nsexport
