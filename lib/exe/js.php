@@ -289,11 +289,7 @@ function js_compress($s){
     // items that don't need spaces next to them
     $chars = "^&|!+\-*\/%=\?:;,{}()<>% \t\n\r'\"[]";
 
-    // items which need a space if the sign before and after whitespace is equal.
-    // E.g. '+ ++' may not be compressed to '+++' --> syntax error.
-    $ops = "+-";
-
-    $regex_starters = array("(", "=", "[", "," , ":", "!", "&", "|");
+    $regex_starters = array("(", "=", "[", "," , ":", "!");
 
     $whitespaces_chars = array(" ", "\t", "\n", "\r", "\0", "\x0B");
 
@@ -393,27 +389,19 @@ function js_compress($s){
 
         // whitespaces
         if( $ch == ' ' || $ch == "\r" || $ch == "\n" || $ch == "\t" ){
-            $lch = substr($result,-1);
-
-            // Only consider deleting whitespace if the signs before and after
-            // are not equal and are not an operator which may not follow itself.
-            if ((!$lch || $s[$i+1] == ' ')
-                || $lch != $s[$i+1]
-                || strpos($ops,$s[$i+1]) === false) {
-                // leading spaces
-                if($i+1 < $slen && (strpos($chars,$s[$i+1]) !== false)){
-                    $i = $i + 1;
-                    continue;
-                }
-                // trailing spaces
-                //  if this ch is space AND the last char processed
-                //  is special, then skip the space
-                if($lch && (strpos($chars,$lch) !== false)){
-                    $i = $i + 1;
-                    continue;
-                }
+            // leading spaces
+            if($i+1 < $slen && (strpos($chars,$s[$i+1]) !== false)){
+                $i = $i + 1;
+                continue;
             }
-
+            // trailing spaces
+            //  if this ch is space AND the last char processed
+            //  is special, then skip the space
+            $lch = substr($result,-1);
+            if($lch && (strpos($chars,$lch) !== false)){
+                $i = $i + 1;
+                continue;
+            }
             // else after all of this convert the "whitespace" to
             // a single space.  It will get appended below
             $ch = ' ';
@@ -425,10 +413,6 @@ function js_compress($s){
     }
 
     return trim($result);
-}
-
-function stripsourcemaps(&$text){
-    $text = preg_replace('/^(\/\/|\/\*)[@#]\s+sourceMappingURL=.*?(\*\/)?$/im', '\\1\\2', $text);
 }
 
 //Setup VIM: ex: et ts=4 :
