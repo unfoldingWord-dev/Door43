@@ -68,7 +68,6 @@ $conf['plugin']['ckgedit']['guest_media'] = 0;
 $conf['plugin']['ckgedit']['acl_del'] = 1;
 $conf['plugin']['ckgedit']['direction'] = 'dokuwiki';
 $conf['plugin']['ckgedit']['dw_priority'] = 1;
-$conf['plugin']['door43gitmerge']['mergens'] = 'en';
 $conf['plugin']['translation']['translations'] = 'bhj arz zmz ttt-x-ismai ttt-x-txizi bal prs lgg pgg ab abp abs ae af aii ak am an ar as av ay az ba be bg bh bi blx bm bn bnp bo br bs ca ce ch cnh co cr cs cu cv cy da de dv dz ee el en eo es et eu fa ff fi fj fo fr frd fy ga gaj gd gl gn gu gv ha he hi ho hr ht hu hy hz ia id ie ig ii ik ilo io is it iu ja jit jmd jv ka kg ki kj kk kl km kn ko kr ks ku kv kw ky la lb lg li lki ln lo loe lt lv mg mh mi mk ml mn mr ms mt my mzn na nb nd ne ng nl nn no nr nv nxl ny oc oj om or os pa pi pl ppq ps pt pt-br qu rm rn ro ru rw sa sc sd sdh se sg shn si sk sl slu sm sn so sq sr ss st su sv sw ta te tg th ti tk tl tn to tr ts tt tw ty ug uk ur uz ve vi vo wa wo xh xmf yao yi yo za zh zh-tw zu bho tdj ums dgo brx ktu lua kmb tll es-419 mgh';
 $conf['plugin']['translation']['dropdown'] = '2';
 $conf['plugin']['translation']['display'] = 'langcode,name';

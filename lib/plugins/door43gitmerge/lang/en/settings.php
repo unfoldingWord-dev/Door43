@@ -1,4 +1,4 @@
-t<?php
+<?php
 /**
  * english language file for translationmerge plugin
  *

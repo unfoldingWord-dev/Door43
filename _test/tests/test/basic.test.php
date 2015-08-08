@@ -177,8 +177,7 @@ class InttestsBasicTest extends DokuWikiTest {
         $response = $request->get(array('id' => 'mailinglist'), '/doku.php');
 
         // output check
-        // 2015-07-03, Phil Hopper: this is silly and also failing
-        //$this->assertTrue(strpos($response->getContent(), 'Netiquette') !== false);
+        $this->assertTrue(strpos($response->getContent(), 'Netiquette') !== false);
     }
 
 }

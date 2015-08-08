@@ -16,6 +16,12 @@
 [submodule "lib/plugins/setedit"]
 	path = lib/plugins/setedit
 	url = git@github.com:yvonnel098/setedit.git
+[submodule "lib/plugins/namespace-export"]
+	path = lib/plugins/namespace-export
+	url = https://github.com/In-the-World/dokuwiki-plugin-namespace-export
+[submodule "lib/plugins/door43nsexport"]
+	path = lib/plugins/door43nsexport
+	url = https://github.com/In-the-World/door43nsexport
 [submodule "lib/plugins/pageredirect"]
 	path = lib/plugins/pageredirect
 	url = git@github.com:glensc/dokuwiki-plugin-pageredirect.git
