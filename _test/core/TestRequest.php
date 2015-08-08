@@ -40,31 +40,13 @@ class TestRequest {
     /**
      * Executes the request
      *
-     * @param string $uri
+     * @param string $url  end URL to simulate, needs to start with /doku.php currently
      * @return TestResponse the resulting output of the request
-     * @throws Exception
-     * @internal param string $url end URL to simulate, needs to start with /doku.php currently
      */
     public function execute($uri='/doku.php') {
         global $INPUT;
+        global $ID;
         global $INFO;
-
-        // fix global scope because doku.php is being run inside a class function rather than in the global scope
-        if (!isset($GLOBALS['updateVersion'])) $GLOBALS['updateVersion'] = 0;
-        if (!isset($GLOBALS['QUERY'])) $GLOBALS['QUERY'] = '';
-        if (!isset($GLOBALS['ID'])) $GLOBALS['ID'] = '';
-        if (!isset($GLOBALS['REV'])) $GLOBALS['REV'] = 0;
-        if (!isset($GLOBALS['IDX'])) $GLOBALS['IDX'] = '';
-        if (!isset($GLOBALS['DATE'])) $GLOBALS['DATE'] = 0;
-        if (!isset($GLOBALS['RANGE'])) $GLOBALS['RANGE'] = '';
-        if (!isset($GLOBALS['HIGH'])) $GLOBALS['HIGH'] = '';
-        if (!isset($GLOBALS['TEXT'])) $GLOBALS['TEXT'] = '';
-        if (!isset($GLOBALS['PRE'])) $GLOBALS['PRE'] = '';
-        if (!isset($GLOBALS['SUF'])) $GLOBALS['SUF'] = '';
-        if (!isset($GLOBALS['SUM'])) $GLOBALS['SUM'] = '';
-        if (!isset($GLOBALS['JSINFO'])) $GLOBALS['JSINFO'] = array();
-
-        if (!isset($INFO['perm'])) $INFO['perm'] = AUTH_READ;
 
         // save old environment
         $server = $_SERVER;

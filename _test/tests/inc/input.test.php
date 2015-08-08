@@ -14,22 +14,7 @@ class input_test extends DokuWikiTest {
         'empty'  => '',
         'emptya' => array(),
         'do'     => array('save' => 'Speichern'),
-
     );
-
-    /**
-     * custom filter function
-     *
-     * @param $string
-     * @return mixed
-     */
-    public function myfilter($string) {
-        $string = str_replace('foo', 'bar', $string);
-        $string = str_replace('baz', '', $string);
-        return $string;
-    }
-
-
 
     public function test_str() {
         $_REQUEST      = $this->data;
@@ -227,6 +212,25 @@ class input_test extends DokuWikiTest {
         $this->assertEquals('foo',$test);
         $_REQUEST['string'] = 'bla';
         $this->assertEquals('bla',$test);
+    }
+
+    public function test_valid(){
+        $_REQUEST = $this->data;
+        $_POST    = $this->data;
+        $_GET     = $this->data;
+        $INPUT    = new Input();
+
+        $valids = array(17, 'foo');
+        $this->assertSame(null, $INPUT->valid('nope', $valids));
+        $this->assertSame('bang', $INPUT->valid('nope', $valids, 'bang'));
+        $this->assertSame(17, $INPUT->valid('int', $valids));
+        $this->assertSame('foo', $INPUT->valid('string', $valids));
+        $this->assertSame(null, $INPUT->valid('array', $valids));
+
+        $valids = array(true);
+        $this->assertSame(true, $INPUT->valid('string', $valids));
+        $this->assertSame(true, $INPUT->valid('one', $valids));
+        $this->assertSame(null, $INPUT->valid('zero', $valids));
     }
 
     public function test_extract(){

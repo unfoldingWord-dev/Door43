@@ -8,8 +8,6 @@ require_once DOKU_INC . 'inc/parser/renderer.php';
 class Test_resolveInterwiki extends DokuWikiTest {
 
     function testDefaults() {
-        $this->markTestSkipped('Skipped because it is failing');
-
         $Renderer = new Doku_Renderer();
         $Renderer->interwiki = getInterwiki();
         $Renderer->interwiki['scheme'] = '{SCHEME}://example.com';

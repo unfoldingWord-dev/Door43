@@ -4,8 +4,6 @@
  * Class cache_use_test
  *
  * Tests if caching can actually be used
- *
- * @todo tests marked as flaky until Ticket #694 has been fixed
  */
 class cache_use_test extends DokuWikiTest {
     /** @var cache_renderer $cache */
@@ -20,21 +18,22 @@ class cache_use_test extends DokuWikiTest {
         $conf['cachetime'] = 0;  // ensure the value is not -1, which disables caching
 
         saveWikiText($ID, 'Content', 'Created');
+        // set the modification time a second in the past in order to ensure that the cache is newer than the page
+        touch($file, time()-1);
 
         $this->cache = new cache_renderer($ID, $file, 'xhtml');
         $this->cache->storeCache('Test');
+    }
 
-        // set the modification times explicitly (overcome Issue #694)
-        $time = time();
-        touch($file, $time-1);
-        touch($this->cache->cache, $time);
+    function test_use() {
+        $this->assertTrue($this->cache->useCache());
     }
 
     /**
      * In all the following tests the cache should not be usable
      * as such, they are meaningless if test_use didn't pass.
      *
-     * @group flaky
+     * @depends test_use
      */
     function test_purge() {
         /* @var Input $INPUT */
@@ -46,7 +45,7 @@ class cache_use_test extends DokuWikiTest {
     }
 
     /**
-     * @group flaky
+     * @depends test_use
      */
     function test_filedependency() {
         // give the dependent src file the same mtime as the cache
@@ -55,7 +54,7 @@ class cache_use_test extends DokuWikiTest {
     }
 
     /**
-     * @group flaky
+     * @depends test_use
      */
     function test_age() {
         // need to age both our source file & the cache
@@ -69,7 +68,7 @@ class cache_use_test extends DokuWikiTest {
     }
 
     /**
-     * @group flaky
+     * @depends test_use
      */
     function test_confnocaching() {
         global $conf;
