@@ -13,3 +13,75 @@
 [submodule "lib/plugins/usfmtag"]
 	path = lib/plugins/usfmtag
 	url = https://github.com/unfoldingWord-dev/Dokuwiki-USFMTag
+[submodule "lib/plugins/setedit"]
+	path = lib/plugins/setedit
+	url = git@github.com:yvonnel098/setedit.git
+[submodule "lib/plugins/pageredirect"]
+	path = lib/plugins/pageredirect
+	url = git@github.com:glensc/dokuwiki-plugin-pageredirect.git
+[submodule "lib/plugins/blockquote"]
+	path = lib/plugins/blockquote
+	url = https://github.com/dokufreaks/plugin-blockquote
+[submodule "lib/plugins/bookcreator"]
+	path = lib/plugins/bookcreator
+	url = git@github.com:Klap-in/dokuwiki-plugin-bookcreator.git
+[submodule "lib/plugins/changes"]
+	path = lib/plugins/changes
+	url = git@github.com:cosmocode/changes.git
+[submodule "lib/plugins/ckgedit"]
+	path = lib/plugins/ckgedit
+	url = git@github.com:turnermm/ckgedit.git
+[submodule "lib/plugins/definitionlist"]
+	path = lib/plugins/definitionlist
+	url = git@github.com:samwilson/dokuwiki-plugin-definitionlist.git
+[submodule "lib/plugins/discussion"]
+	path = lib/plugins/discussion
+	url = git@github.com:dokufreaks/plugin-discussion.git
+[submodule "lib/plugins/ditaa"]
+	path = lib/plugins/ditaa
+	url = https://github.com/splitbrain/dokuwiki-plugin-ditaa/
+[submodule "lib/plugins/dw2pdf"]
+	path = lib/plugins/dw2pdf
+	url = https://github.com/splitbrain/dokuwiki-plugin-dw2pdf
+[submodule "lib/plugins/googlefonts"]
+	path = lib/plugins/googlefonts
+	url = git@github.com:Azurewren/dokuwiki-plugin-googlefonts.git
+[submodule "lib/plugins/graphviz"]
+	path = lib/plugins/graphviz
+	url = git@github.com:superdav42/dokuwiki-plugin-graphviz.git
+[submodule "lib/plugins/html5video"]
+	path = lib/plugins/html5video
+	url = git@github.com:Fweeb/dokuwiki_plugin_html5video.git
+[submodule "lib/plugins/include"]
+	path = lib/plugins/include
+	url = git@github.com:dokufreaks/plugin-include.git
+[submodule "lib/plugins/markdownextra"]
+	path = lib/plugins/markdownextra
+	url = git@github.com:naokij/dokuwiki-plugin-markdownextra.git
+[submodule "lib/plugins/moderncontact"]
+	path = lib/plugins/moderncontact
+	url = git@github.com:marvinrabe/dokuwiki-contact.git
+[submodule "lib/plugins/move"]
+	path = lib/plugins/move
+	url = git@github.com:michitux/dokuwiki-plugin-move.git
+[submodule "lib/plugins/nspages"]
+	path = lib/plugins/nspages
+	url = git@github.com:gturri/nspages.git
+[submodule "lib/plugins/odt"]
+	path = lib/plugins/odt
+	url = git@github.com:LarsGit223/dokuwiki-plugin-odt.git
+[submodule "lib/plugins/pagelist"]
+	path = lib/plugins/pagelist
+	url = git@github.com:dokufreaks/plugin-pagelist.git
+[submodule "lib/plugins/piwik2"]
+	path = lib/plugins/piwik2
+	url = git@github.com:Bravehartk2/dokuwiki-piwik2.git
+[submodule "lib/plugins/searchindex"]
+	path = lib/plugins/searchindex
+	url = git@github.com:splitbrain/dokuwiki-plugin-searchindex.git
+[submodule "lib/plugins/swiftmail"]
+	path = lib/plugins/swiftmail
+	url = git@github.com:splitbrain/dokuwiki-plugin-swiftmail.git
+[submodule "lib/plugins/tag"]
+	path = lib/plugins/tag
+	url = git@github.com:dokufreaks/plugin-tag.git

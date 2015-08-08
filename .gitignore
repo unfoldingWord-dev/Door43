@@ -9,3 +9,4 @@ conf/local.php.bak
 .idea
 vendor/
 composer.*
+nbproject/
