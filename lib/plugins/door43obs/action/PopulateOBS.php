@@ -28,6 +28,7 @@ class action_plugin_door43obs_PopulateOBS extends DokuWiki_Action_Plugin {
      */
     public function register(Doku_Event_Handler $controller) {
         Door43_Ajax_Helper::register_handler($controller, 'create_obs_now', array($this, 'initialize_obs_content'));
+        Door43_Ajax_Helper::register_handler($controller, 'create_obs_notes', array($this, 'initialize_obs_notes'));
     }
 
     public function initialize_obs_content() {
@@ -105,6 +106,110 @@ class action_plugin_door43obs_PopulateOBS extends DokuWiki_Action_Plugin {
         }
 
         echo sprintf($this->get_success_message('obsCreatedSuccess'), $dstLangCode, "/$dstLangCode/obs");
+    }
+
+    public function initialize_obs_notes() {
+
+        global $conf;
+        global $INPUT;
+
+        header('Content-Type: text/plain');
+
+        // get the iso codes for the source and destination languages
+        $srcLangCode = $INPUT->str('sourceLang');
+        $dstLangCode = $this->get_lang_code_from_language_name_string($INPUT->str('destinationLang'));
+
+        // check if the destination namespace exists
+        $pagesDir = $conf['datadir'];
+        $dstNamespaceDir = $pagesDir . DS . $dstLangCode;
+        if (!$this->check_namespace($dstNamespaceDir)) {
+
+            // if not found, report an error
+            echo sprintf($this->get_error_message('obsNamespaceNotFound'), $dstLangCode);
+            return;
+        }
+
+        // check if the source obs notes directory exists
+        $srcNamespaceDir = $pagesDir . DS . $srcLangCode;
+        $srcDir = $srcNamespaceDir . DS . 'obs' . DS . 'notes';
+        if (!is_dir($srcDir)) {
+
+            // if not found, report an error
+            echo sprintf($this->get_error_message('obsNotesSourceDirNotFound'), $srcLangCode);
+            return;
+        }
+
+        // check if the destination obs notes directory already exists
+        $dstDir = $dstNamespaceDir . DS . 'obs' . DS . 'notes';
+        if (is_dir($dstDir)) {
+
+            // if the directory exists, are there txt files in it?
+            $files = glob($dstDir . DS . '*.txt', GLOB_NOSORT);
+            if (!empty($files) && (count($files) > 5)) {
+
+                // if there are, report an error
+                echo sprintf($this->get_success_message('obsNotesDestinationDirExists'),
+                    "/$dstLangCode/obs/notes", "$dstLangCode/obs/notes");
+                return;
+            }
+        }
+
+        // copy the obs notes files from $srcDir to $dstDir
+        $this->copy_obs_text_files($srcDir, $dstDir, $srcLangCode, $dstLangCode);
+
+        // copy notes/frames directory
+        $this->copy_obs_text_files($srcDir . DS . 'frames', $dstDir . DS . 'frames', $srcLangCode, $dstLangCode);
+
+        // copy notes/questions directory
+        $this->copy_obs_text_files($srcDir . DS . 'questions', $dstDir . DS . 'questions', $srcLangCode, $dstLangCode);
+
+        // create notes.txt
+        $srcFile = dirname($srcDir) . DS . 'notes.txt';
+        $this->copy_text_file($srcFile, dirname($dstDir), $srcLangCode, $dstLangCode);
+
+        // copy the key terms files from $srcDir to $dstDir
+        $srcDir = $srcNamespaceDir . DS . 'obe' . DS . 'kt';
+        $dstDir = $dstNamespaceDir . DS . 'obe' . DS . 'kt';
+        $this->copy_obs_text_files($srcDir, $dstDir, $srcLangCode, $dstLangCode);
+
+        // copy the 'other' files from $srcDir to $dstDir
+        $srcDir = $srcNamespaceDir . DS . 'obe' . DS . 'other';
+        $dstDir = $dstNamespaceDir . DS . 'obe' . DS . 'other';
+        $this->copy_obs_text_files($srcDir, $dstDir, $srcLangCode, $dstLangCode);
+
+        // create home.txt
+        $srcFile = dirname($srcDir) . DS . 'home.txt';
+        $this->copy_text_file($srcFile, dirname($dstDir), $srcLangCode, $dstLangCode);
+
+        // create ktobs.txt
+        $srcFile = dirname($srcDir) . DS . 'ktobs.txt';
+        $this->copy_text_file($srcFile, dirname($dstDir), $srcLangCode, $dstLangCode);
+
+        // copy scripture notes
+        $srcDir = $srcNamespaceDir . DS . 'bible' . DS . 'notes';
+        $dstDir = $dstNamespaceDir . DS . 'bible' . DS . 'notes';
+        $this->copy_obs_text_files($srcDir, $dstDir, $srcLangCode, $dstLangCode);
+        if (is_dir($srcDir)) {
+            $dirs = glob($srcDir . DS . '*', GLOB_ONLYDIR);
+            foreach($dirs as $dir) {
+                if ($dir != $srcDir)
+                    $this->copy_obs_text_files($dir, $dstDir . DS . basename($dir), $srcLangCode, $dstLangCode, true);
+            }
+        }
+
+        // skip this section during unit testing
+        if(!defined('DOKU_UNITTEST')) {
+
+            // update changes pages
+            $script = '/var/www/vhosts/door43.org/tools/obs/dokuwiki/obs-gen-changes-pages.sh';
+            if (is_file($script))
+                shell_exec($script);
+
+            // git add, commit, push
+            $this->git_push($dstNamespaceDir, 'Initial import of OBS notes');
+        }
+
+        echo sprintf($this->get_success_message('obsNotesCreatedSuccess'), $dstLangCode, "/$dstLangCode/obs/notes");
     }
 
     private function get_error_message($langStringKey) {
@@ -291,6 +396,44 @@ class action_plugin_door43obs_PopulateOBS extends DokuWiki_Action_Plugin {
             echo "<br>Git Response: $result1<br><br>Git Response: $result2<br><br>Git Response: $result3<br><br>";
 
         chdir($originalDir);
+    }
+
+    private function copy_obs_text_files($srcDir, $dstDir, $srcLangCode, $dstLangCode, $recursive = false) {
+
+        if (!is_dir($dstDir))
+            mkdir($dstDir, 0755, true);
+
+        $files = glob($srcDir . DS . '*.txt');
+        foreach($files as $file) {
+            $this->copy_text_file($file, $dstDir, $srcLangCode, $dstLangCode);
+        }
+
+        // if recursive, step through the sub-directories also
+        if ($recursive) {
+
+            $dirs = glob($srcDir . DS . '*', GLOB_ONLYDIR);
+
+            foreach($dirs as $dir) {
+                if ($dir != $srcDir)
+                    $this->copy_obs_text_files($dir, $dstDir . DS . basename($dir), $srcLangCode, $dstLangCode, true);
+            }
+        }
+    }
+
+    private function copy_text_file($srcFile, $dstDir, $srcLangCode, $dstLangCode) {
+
+        // do not overwrite existing files
+        $dstFile = $dstDir . DS . basename($srcFile);
+        if (file_exists($dstFile)) return;
+
+        // read the source file
+        $srcText = file_get_contents($srcFile);
+
+        // replace source language code
+        $dstText = str_replace("[:{$srcLangCode}:", "[:{$dstLangCode}:", $srcText);
+
+        file_put_contents($dstFile, $dstText);
+        chmod($dstFile, 0644);
     }
 }
 
