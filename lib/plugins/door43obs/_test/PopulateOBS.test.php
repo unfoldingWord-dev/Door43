@@ -18,8 +18,6 @@ class PopulateOBS_plugin_test extends DokuWikiTest {
 
     public static function setUpBeforeClass() {
         parent::setUpBeforeClass();
-
-
     }
 
     public function setUp() {
@@ -33,8 +31,6 @@ class PopulateOBS_plugin_test extends DokuWikiTest {
         $INPUT->get->set('sourceLang', self::$srcNs);
         $INPUT->get->set('destinationLang', self::$destNs);
 
-        //TestUtils::rcopy(TMP_DIR, dirname(__FILE__) . '/data/');
-
         // create source files in ./pages/en/obs
         $this->obsSrcDir = TMP_DIR . '/data/pages/' . self::$srcNs . '/obs';
         if (!is_dir($this->obsSrcDir)) mkdir($this->obsSrcDir, 0755, true);
@@ -42,7 +38,6 @@ class PopulateOBS_plugin_test extends DokuWikiTest {
         file_put_contents($this->obsSrcDir . '/back-matter.txt', 'back-matter.txt');
         file_put_contents($this->obsSrcDir . '/front-matter.txt', 'front-matter.txt');
         file_put_contents($this->obsSrcDir . '/cover-matter.txt', 'cover-matter.txt');
-
 
         // create source files in ./pages/templates/obs3/obs
         $this->templateDir = TMP_DIR . '/data/pages/templates';
