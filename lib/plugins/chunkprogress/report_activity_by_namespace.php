@@ -48,6 +48,7 @@ function handleActivityByNamespaceReport($params)
     $sub_namespaces = array();
     $num_revisions_within_dates = 0;
     $count_by_sub_namespace_then_status = array();
+    $count_by_sub_namespace_then_status["TOTAL"] = array();
     foreach ($pages as $page) {
 
         // Ignore any pages that haven't been changed since the begin date.
@@ -145,6 +146,19 @@ function handleActivityByNamespaceReport($params)
                         // Increment status count.
                         $count_by_sub_namespace_then_status
                             [$sub_namespace][$status_tag] += 1;
+                       
+                        // Create total status count if it doesn't already exist.
+                        if (array_key_exists(
+                            $status_tag, 
+                            $count_by_sub_namespace_then_status["TOTAL"]
+                        ) == false) {
+                            $count_by_sub_namespace_then_status
+                                ["TOTAL"][$status_tag] = 0;
+                        }
+
+                        // Increment total status count.
+                        $count_by_sub_namespace_then_status
+                            ["TOTAL"][$status_tag] += 1;
                     }
                     
                 }
@@ -155,6 +169,12 @@ function handleActivityByNamespaceReport($params)
             $prev_status_tags = $status_tags;
         }
     }
+
+    // Move total line to the bottom
+    $total_row = $count_by_sub_namespace_then_status["TOTAL"];
+    unset($count_by_sub_namespace_then_status["TOTAL"]);
+    $count_by_sub_namespace_then_status["TOTAL"] = $total_row;
+
     $params["debug_num_revisions_in_ns"] = $num_revisions;
     $params["debug_num_revisions_within_dates"] = $num_revisions_within_dates;
     $params["count_by_sub_namespace_then_status"] 
