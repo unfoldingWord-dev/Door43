@@ -25,7 +25,6 @@ function handleActivityByUserReport($params)
 {
     global $cache_revinfo;
 
-
     $params = validateNamespace($params);
     $namespace = $params["namespace"];
 
@@ -142,21 +141,34 @@ function handleActivityByUserReport($params)
     }
 
     // Create count of status by user
-    $count_of_status_by_user = array();
+    $count_by_user_then_status = array();
+    $count_by_user_then_status["TOTAL"] = array();
     foreach ($last_status_by_user_by_page as $user => $page_ids) {
         foreach ($page_ids as $page_id => $last_status) {
-            if (array_key_exists($user, $count_of_status_by_user) == false) {
-                $count_of_status_by_user[$user] = array();
+            if (array_key_exists($user, $count_by_user_then_status) == false) {
+                $count_by_user_then_status[$user] = array();
             }
             if (array_key_exists(
-                $last_status, $count_of_status_by_user[$user]
+                $last_status, $count_by_user_then_status[$user]
             ) == false) {
-                $count_of_status_by_user[$user][$last_status] = 0;
+                $count_by_user_then_status[$user][$last_status] = 0;
             }
-            $count_of_status_by_user[$user][$last_status] += 1;
+            $count_by_user_then_status[$user][$last_status] += 1;
+            if (array_key_exists(
+                $last_status, $count_by_user_then_status["TOTAL"]
+            ) == false) {
+                $count_by_user_then_status["TOTAL"][$last_status] = 0;
+            }
+            $count_by_user_then_status["TOTAL"][$last_status] += 1;
         }
     }
-    $params["user_status_count"] = $count_of_status_by_user;
+    
+    // Move total line to the bottom
+    $total_row = $count_by_user_then_status["TOTAL"];
+    unset($count_by_user_then_status["TOTAL"]);
+    $count_by_user_then_status["TOTAL"] = $total_row;
+
+    $params["user_status_count"] = $count_by_user_then_status;
 
     return $params;
 }
