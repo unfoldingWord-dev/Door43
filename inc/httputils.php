@@ -166,7 +166,10 @@ function http_rangeRequest($fh,$size,$mime){
         fseek($fh,$start); //seek to start of range
         $chunk = ($len > HTTP_CHUNK_SIZE) ? HTTP_CHUNK_SIZE : $len;
         while (!feof($fh) && $chunk > 0) {
-            @set_time_limit(30); // large files can take a lot of time
+
+            // This time limit is interfering with unit testing in Netbeans
+            if (!defined('DOKU_UNITTEST')) @set_time_limit(30); // large files can take a lot of time
+
             print fread($fh, $chunk);
             flush();
             $len -= $chunk;
