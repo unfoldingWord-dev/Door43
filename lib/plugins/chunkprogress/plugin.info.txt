@@ -6,5 +6,5 @@ email  craig_oliver@wycliffeassociates.org
 date   2015-07-16
 name   Chunk Progress Plugin
 desc   Display the progress history of a chunk
-url    N/A
+url    https://github.com/unfoldingWord-dev/Door43
 
