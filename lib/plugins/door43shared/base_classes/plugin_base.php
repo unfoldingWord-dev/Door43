@@ -139,9 +139,6 @@ class Door43_Syntax_Plugin extends DokuWiki_Syntax_Plugin {
         // Load the template for the button
         $text = file_get_contents($this->root . '/templates/' . $this->templateFileName);
 
-        // remove the initial doc comments
-        $text = preg_replace('/^\<!--(.|\n)*--\>(\n)/', '', $text, 1);
-
         $text = $this->translateHtml($text);
 
         return $text;
