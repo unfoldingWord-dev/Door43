@@ -464,7 +464,7 @@ class helper_plugin_translation extends DokuWiki_Plugin {
         $html = file_get_contents(dirname(__FILE__) . DIRECTORY_SEPARATOR . 'private' . DIRECTORY_SEPARATOR . 'html' . DIRECTORY_SEPARATOR . 'auto_complete_language.html');
 
         // remove the initial doc comments
-        $html = preg_replace('/^\<!--(\n|.)*?--\>(\n)?/', '', $html, 1);
+        $html = preg_replace('/^\<!--(\n|.)*?--\>(\n)?/U', '', $html, 1);
 
         // set id, name, style and class
         $html = str_replace('id=""', 'id="' . $id . '"', $html);

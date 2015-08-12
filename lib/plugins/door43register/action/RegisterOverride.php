@@ -129,9 +129,6 @@ class action_plugin_door43register_RegisterOverride extends DokuWiki_Action_Plug
         // remove suppress comments
         $buttonText = preg_replace('/\<!--(\s)*suppress(.)*--\>(\n)/', '', $buttonText, 1);
 
-        // remove the initial doc comments
-        $buttonText = preg_replace('/^\<!--(.|\n)*--\>(\n)/', '', $buttonText, 1);
-
         // translate
         $buttonText = $this->translateHtml($buttonText);
 

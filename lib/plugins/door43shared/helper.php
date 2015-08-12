@@ -46,6 +46,9 @@ class helper_plugin_door43shared extends DokuWiki_Plugin {
      */
     public function translateHtml($html, $langArray) {
 
+        // remove the initial doc comments
+        $html = preg_replace('/^\<!--(.|\n)*--\>(\n)/U', '', $html, 1);
+
         // replace all strings from the passed $langArray
         $temp = preg_replace_callback('/@(.+?)@/',
             function($matches) use ($langArray) {

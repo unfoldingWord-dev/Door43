@@ -97,9 +97,6 @@ class action_plugin_door43obsdocupload_ExportButtons extends Door43_Action_Plugi
 
         $html = file_get_contents(dirname(dirname(__FILE__)) . '/templates/obs_export_script.html');
 
-        // remove the initial doc comments
-        $html = preg_replace('/^\<!--(.|\n)*--\>(\n)/', '', $html, 1);
-
         echo $this->translateHtml($html);
     }
 
