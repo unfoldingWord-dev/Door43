@@ -1,0 +1,52 @@
+====== Romans 13:1-2 ======
+
+===== TFT: =====
+
+<usfm>
+\v 1 Every \add believer\add* must be subject to civil officials. \add Remember that\add* God is the only one \add who gives officials their\add* authority. Furthermore, those officials that exist are ones who have been appointed by God \f + \ft Or:God has appointed \f*.
+\v 2 So whoever resists the officials is resisting what God has established. Furthermore, those who resist officials will bring on themselves \add from the officials\add* the punishment \add that God considers fitting\add*.
+</usfm>
+
+===== UDB: =====
+
+<usfm>
+\v 1 Every believer must obey the government officials. Remember that God is the only one who gives officials their authority. Furthermore, those officials that exist are ones who have been appointed by God.
+\v 2 So whoever resists the officials is resisting what God has established. Furthermore, those who resist officials will cause the officials to punish them.
+</usfm>
+
+===== ULB: =====
+
+<usfm>
+\c 13
+\p
+\v 1 Let every soul be obedient to higher authorities, for there is no authority unless it comes from God; and the ones that exist have been appointed by God.
+\v 2 Therefore he who resists that authority opposes the command of God; and those who oppose it will receive judgment upon themselves.
+</usfm>
+
+===== Important Terms: =====
+
+  * [[:en:obe:kt:soul|soul]]
+  * [[:en:obe:other:obey|obedient]]
+  * [[:en:obe:kt:authority|authority]]
+  * [[:en:obe:kt:god|God]]
+  * [[:en:obe:kt:appoint|appointed]]
+  * [[:en:obe:other:command|command]]
+  * [[:en:obe:kt:judge|judgment]]
+
+===== Translation Notes: =====
+
+  * **Let every soul be obedient to** - "Every Christian should obey" (see UDB) or "Everyone should obey" (See: [[en:ta:translate:metonymy|]])
+  * **higher authorities** - "government officials"
+  * **for**  - "because"
+  * **the ones that exist have been appointed by God** - "the people who are in authority are there because God put them there" (See: [[:en:ta:translate:active|Active or Passive]])
+  * **that authority**  - "that government authority"
+  * **those who oppose it**  - "those who oppose government authority"
+
+===== Links: =====
+
+  * **[[:en:bible:notes:rom:questions:comprehension:13|Romans Chapter 13 Comprehension Questions]]**
+**[[:en:bible:notes:rom:12:19|<<]] | [[:en:bible:notes:rom:13:03|>>]]**
+
+~~DISCUSSION~~{{tag>publish}}
+
+~~NOCACHE~~

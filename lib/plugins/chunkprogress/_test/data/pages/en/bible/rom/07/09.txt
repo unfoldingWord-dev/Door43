@@ -1,0 +1,44 @@
+====== Romans 07:9-10 ======
+
+===== TFT: =====
+
+<usfm>
+\v 9 Formerly, when I did not \add know\add* what God's laws \add required\add*, I used to live \add without worrying about what I was doing\add*. But when I \add became aware that God\add* commanded, \add "You must not covet\add*," I suddenly realized \f + \ft personification \f* that I was sinning,
+\v 10 and \add I realized that\add* I was separated from God. The laws that \add I thought would enable me to\add* live \add eternally as a result of my obeying them\add* caused me \add to realize that\add* I was separated from God!
+</usfm>
+
+===== UDB: =====
+
+<usfm>
+\v 9 Formerly, when I did not know what God's Law required, I used to sin without worrying about what I was doing. But when I became aware that God had given us his Law, I suddenly realized that I was sinning,
+\v 10 and I realized that I was apart from God. The Law that was supposed to allow me to live forever, if I obeyed it, was leading me to die instead.
+</usfm>
+
+===== ULB: =====
+
+<usfm>
+\v 9 I was alive without the Law once, but when the commandment came, sin regained life and I died.
+\v 10 The commandment, which was to bring life, I found to be death.
+</usfm>
+
+===== Important Terms: =====
+    * [[en:obe:kt:life|alive]]
+    *[[en:obe:kt:lawofmoses|Law]] 
+    *[[en:obe:other:commandment|commandment]]
+    *[[en:obe:kt:sin|sin]]
+    *[[en:obe:kt:death|died]]  
+    
+
+===== Translation Notes: =====
+
+  * **sin regained life** - This can mean 1) "I realized that I was sinning (UDB) or 2) "I strongly desired to sin." (See: [[en:ta:translate:personification]])
+  * **The commandment, which was to bring life, I found to be death** - Paul did not literally die. Alternate translation: "God gave me the commandment so I would live, but it killed me instead." (See: [[en:ta:translate:metaphor|]])
+
+===== Links: =====
+
+  * **[[:en:bible:notes:rom:questions:comprehension:07|Romans Chapter 07 Comprehension Questions]]**
+**[[:en:bible:notes:rom:07:07|<<]] | [[:en:bible:notes:rom:07:11|>>]]**
+
+~~DISCUSSION~~{{tag>publish}}
+
+~~NOCACHE~~

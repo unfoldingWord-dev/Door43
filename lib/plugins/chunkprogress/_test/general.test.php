@@ -48,4 +48,27 @@ class general_plugin_door43obs_test extends DokuWikiTest
         $this->assertRegExp('/^\d\d\d\d-\d\d-\d\d$/', $info['date']);
         $this->assertTrue(false !== strtotime($info['date']));
     }
+
+    /**
+     * Run activity by namespace report, verify correct values appear 
+     * @return nothing
+     */
+    public function test_activity_by_namespace()
+    {
+        // copy the test data
+        echo TMP_DIR;
+        TestUtils::rcopy(TMP_DIR, dirname(__FILE__) . '/data/');
+        TestUtils::rcopy(TMP_DIR, dirname(__FILE__) . '/attic/');
+
+        $this->pluginsEnabled[] = 'chunkprogress';
+        $thisPlugin = plugin_load('syntax', 'chunkprogress_chunkprogress');
+        $request = new TestRequest();
+        $response = $request->get(
+            array('id' => 'test_activity_by_namespace'), '/doku.php'
+        );
+        $content = $response->getContent();
+
+        echo $content;
+
+    }
 }

@@ -1,0 +1,57 @@
+====== Romans 03:25-26 ======
+
+
+===== TFT: =====
+
+<usfm>
+\v 25 God showed that Christ was the one who would atone for \f + \ft Or: forgive \f* our sins \add with the\add* blood \add that flowed from his body when he died. God redeems\f + \ft Or: forgives \f*\add* us because of our trusting \add in Christ's having died for us. God wanted\add* to show that he acts justly. \add He wanted to do that\add* because, before \add Christ came, God\add* did not punish \add everyone who sinned. So it seemed as though he was not being just\add*. But he was overlooking their sins during \add that time\add*,
+\v 26 because he is patient. \add God arranged for Christ to die for us\add*. By doing that, he now shows that he is just, and he shows that he is justly able to erase the record of sins for everyone who trusts\f + \ft Or: believes \f* in Jesus.
+
+
+\p
+</usfm>
+
+
+===== UDB: =====
+
+<usfm>
+\v 25 God showed that Christ turned away his anger by shedding his blood when he died, and we must believe in what he did for us. The sacrifice of Christ shows that God acted in a just manner. Otherwise, one might not have thought he was just, because he had overlooked sins that people had previously committed, for he is patient.
+\v 26 God appointed Christ to die for us. By doing that, he now shows that he is just, and he shows that he is justly able to erase the record of sins for everyone who trusts in Jesus.
+
+
+
+
+\p
+</usfm>
+
+
+===== ULB: =====
+
+<usfm>
+\v 25 For God provided Christ Jesus as a propitiation through faith in his blood; he offered Christ as proof of his justice and because of his passing over of previous sins in his patience.
+\v 26 This all happened for the demonstration of his righteousness at this present time, for him to prove himself just, and to show that he is the one who justifies anyone because of faith in Jesus.
+</usfm>
+
+
+===== Important Terms: =====
+
+  * [[:en:obe:kt:god|God]]
+  * [[:en:obe:kt:propitiation|propitiation]]
+  * [[:en:obe:kt:blood|blood]]
+  * [[:en:obe:kt:jesus|Christ Jesus]]
+  * [[:en:obe:kt:justice|justice]]
+  * [[:en:obe:kt:righteous|righteousness]]
+
+===== Translation Notes: =====
+
+  * **passing over**  - This can mean 1) ignoring or 2) forgiving.
+  * **This all happened for the demonstration of his righteousness at this present time, for him to prove himself just, and to show that he is the one who justifies anyone because of faith in Jesus**  - "He did this to demonstrate his righteousness at this present time; he shows that he is both just and the one who justifies everyone who has faith in Jesus"
+
+===== Links: =====
+
+  * **[[:en:bible:notes:rom:questions:comprehension:03|Romans Chapter 03 Comprehension Questions]]**
+**[[:en:bible:notes:rom:03:23|<<]] | [[:en:bible:notes:rom:03:27|>>]]**
+
+~~DISCUSSION~~{{tag>publish propitiation}}
+
+~~NOCACHE~~

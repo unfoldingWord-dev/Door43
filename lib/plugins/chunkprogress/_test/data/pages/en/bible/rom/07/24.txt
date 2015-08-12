@@ -1,0 +1,49 @@
+====== Romans 07:24-25 ======
+
+===== TFT: =====
+
+<usfm>
+\v 24 \add When I consider this\add*, I \add feel that I\add* am a very wretched person. I want someone to set me free from the control of what my body \add desires\add*, in order that I might not be separated from God.\f + \ft Or: Will someone set me free from the control of what my body \add desires\add*, in order that I might not be separated from God? \f* \f + \ft rhetorical question \f* \add I also think that what I have experienced is the same as what all believers experience\add*.
+\v 25 I thank God that it is by Jesus Christ our Lord \add that we can be free from the control of what our bodies desire\add*. So, \add with our minds, you and\add* I on the one hand want to obey God's laws. \add But also\add*, \add you and\add* I \add often let\add* our sinful \add desires control us\add* because of our self-directed nature.
+</usfm>
+
+===== UDB: =====
+
+<usfm>
+\v 24 When I consider this, I feel that I am a very wretched person. I want someone to set me free from the control of what my body desires, in order that I might not be separated from God.
+\v 25 I thank God that it is by Jesus Christ our Lord that he sets us free from the control of what our bodies desire. So with our minds, you and I on the one hand want to obey God's Law. But also, you and I often let our sinful desires control us because of our old sinful nature.
+</usfm>
+
+===== ULB: =====
+
+<usfm>
+\v 24 I am a miserable man! Who will deliver me from this body of death?
+\v 25 But thanks to God through Jesus Christ our Lord. So then I myself on the one hand with the mind serve the Law of God, but on the other hand serve the principle of sin with the flesh.
+</usfm>
+
+===== Important Terms: =====
+
+  * [[:en:obe:kt:death|death]]
+  * [[:en:obe:kt:god|God]]
+  * [[:en:obe:kt:jesus|Jesus Christ]]
+  * [[:en:obe:kt:lordgod|Lord]]
+  * [[:en:obe:other:serve|serve]]
+  * [[:en:obe:kt:lawofmoses|Law of God]]
+  * [[:en:obe:other:law|principle]]
+  * [[:en:obe:kt:sin|sin]]
+  * [[:en:obe:kt:flesh|flesh]]
+
+===== Translation Notes: =====
+
+  * **I am a miserable man! Who will deliver me from this body of death?** - "I want someone to set me free from the control of what my body desires" (UDB). If your language has a way to show that both the exclamation and the question are highly emotional, use it here. (See: [[:en:ta:translate:rhetoricalquestion]])
+  * **thanks to God through Jesus Christ our Lord** - This is the answer to the question in 7:24 (see UDB).
+  * **So then I myself on the one hand with the mind serve the Law of God, but on the other hand serve the principle of sin with the flesh** - Alternate translation: "My mind chooses to please God, but my flesh chooses to obey sin." The mind and flesh are used here to show how they compare to serve either God's Laws or the principle of sin. With the mind or intellect one can choose to please and obey God and with the flesh or physical nature to serve sin. (See: [[:en:ta:translate:metaphor]])
+
+===== Links: =====
+
+  * **[[:en:bible:notes:rom:questions:comprehension:07|Romans Chapter 07 Comprehension Questions]]**
+**[[:en:bible:notes:rom:07:22|<<]] | [[:en:bible:notes:rom:08:01|>>]]**
+
+~~DISCUSSION~~{{tag>publish}}
+
+~~NOCACHE~~

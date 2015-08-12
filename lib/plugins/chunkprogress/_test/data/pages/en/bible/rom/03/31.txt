@@ -1,0 +1,44 @@
+====== Romans 03:31 ======
+
+===== TFT: =====
+
+<usfm>
+\v 31 So, \add if someone should ask concerning the laws that God gave Moses\add*, "By saying \add that God erases the record of our sins because of our\add* trusting \add in Christ\add*, does that mean that those laws now are useless?", \add I would reply\add*, "Certainly not. Instead, we truly fulfill the laws \add that God gave Moses\add*."
+</usfm>
+
+===== UDB: =====
+
+<usfm>
+\v 31 So suppose someone asked me about the Law that God gave Moses, "If you say that God makes us right with himself because we trust in Christ, does that mean that the Law is now useless?" I would reply, "Certainly not. Instead, that Law is truly valid."
+</usfm>
+
+===== ULB: =====
+
+<usfm>
+\p
+\v 31 Do we then nullify the Law through faith? May it never be. Instead, we uphold the Law.
+</usfm>
+
+===== Important Terms: =====
+
+  * [[:en:obe:kt:lawofmoses|Law]]
+  * [[:en:obe:kt:faith|faith]]
+
+
+===== Translation Notes: =====
+
+Paul continues to answer rhetorical questions to emphasize that each point he is making is certainly true. (See: [[:en:ta:translate:rhetoricalquestion]])
+
+  * **Do we then nullify the Law through faith?** - Alternate translation: "Should we ignore the Law because we have faith?"
+  * **May it never be**  - "Of course that is not true!" or "Certainly not!" (UDB). This expression give the strongest possible negative answer to the preceding rhetorical question. You may want have a similar expression in your language that you could use here. (See: [[:en:ta:translate:rhetoricalquestion]])
+  * **we uphold the Law** - Alternate translation: "we obey the Law"
+  * **we** - This pronoun refers to Paul, other believers, and the readers. (See: [[en:ta:translate:inclusive|]])
+
+===== Links: =====
+
+  * **[[:en:bible:notes:rom:questions:comprehension:03|Romans Chapter 03 Comprehension Questions]]**
+**[[:en:bible:notes:rom:03:29|<<]] | [[:en:bible:notes:rom:04:01|>>]]**
+
+~~DISCUSSION~~{{tag>publish}}
+
+~~NOCACHE~~

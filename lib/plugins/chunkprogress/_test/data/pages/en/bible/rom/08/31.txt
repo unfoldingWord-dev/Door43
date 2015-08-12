@@ -1,0 +1,54 @@
+====== Romans 08:31-32 ======
+
+
+===== TFT: =====
+
+<usfm>
+\v 31 So I will tell you what we must conclude from \add all\add* these things \add that God does for us\add*.\f + \ft Or: what shall we conclude from \add all\add* these things \add that God does for us\add*? \f* \f + \ft rhetorical question \f* Because God \add is acting\add* on our behalf, no one can win against us!\f + \ft Or: can anyone prevail against us? ( Or: it does not matter if anyone opposes us )! \f* \f + \ft rhetorical question \f*
+\v 32 God did not spare even his very own Son. Instead, he turned him over \add to others to cruelly kill him\add* in order that all we \add who believe in him\add* may benefit \add from his dying for us. Therefore, because God did that\add*, he will also certainly give us freely everything \add that we need to live for him\add*, in addition to \add giving us\add* Christ.\f + \ft Or: will he not also certainly give us freely everything \add that we need to live for him\add*, in addition to \add giving us\add* Christ? \f* \f + \ft rhetorical question \f*
+</usfm>
+
+
+===== UDB: =====
+
+<usfm>
+\v 31 So I will tell you what we must learn from all these things that God does for us. Because God is acting on our behalf, no one can win against us!
+\v 32 God did not spare even his very own Son. Instead, he turned him over to others to cruelly kill him in order that all we who believe in him may benefit from his dying for us. Because God did that, he will also certainly give us freely everything that we need to live for him, in addition to giving us Christ.
+</usfm>
+
+
+===== ULB: =====
+
+<usfm>
+\p
+\v 31 What then shall we say about these things? If God is for us, who is against us?
+\v 32 He who did not spare his own Son but delivered him up on behalf of us all, how will he not also with him freely give us all things?
+</usfm>
+
+
+===== Important Terms: =====
+  * [[en:obe:kt:god|God]]
+  * [[en:obe:kt:sonofgod|Son]]
+  * [[en:obe:kt:deliverer|delivered]]
+
+===== Translation Notes: =====
+
+    * **What then shall we say about these things? If God is for us, who is against us?** - Paul uses questions to emphasize the main point of what he said previously. Alternate translation: "This is what we should know from all of this: since God is helping us, no one can defeat us." (See: [[en:ta:translate:rhetoricalquestion]])
+    * **but delivered him up** - "but handed him over to his enemies"
+    * **how will he not also with him freely give us all things?** - Paul is using a question for emphasis. Alternate translation: "he will certainly and freely give us all things."
+
+  
+===== Links: =====
+
+  * **[[en/bible/notes:rom/questions/comprehension/08|Romans Chapter 08 Comprehension Questions]]**
+
+ 
+
+**[[en/bible/notes/rom/08/28|<<]] | [[en/bible/notes/rom/08/33|>>]]**
+
+~~DISCUSSION~~
+
+
+{{tag>publish}}
+
+~~NOCACHE~~

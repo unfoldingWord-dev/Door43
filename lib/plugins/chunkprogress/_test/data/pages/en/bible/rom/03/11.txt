@@ -1,0 +1,51 @@
+====== Romans 03:11-12 ======
+
+===== TFT: =====
+
+<usfm>
+\v 11 There is no one who understands \add how to live properly\add* \f + \ft Or: \add about God\add* \f*. There is no one who seeks\f + \ft Or: desires \f* \add to know\add* God!
+\p
+\v 12 Absolutely everyone has turned away \f + \ft metaphor \f* \add from God\add*. God considers them depraved \f + \ft Or: Everyone has become useless \add to God\add* \f*. There is no one who acts righteously; no, there is not even one!
+\q
+</usfm>
+
+===== UDB: =====
+
+<usfm>
+\v 11 There is no one who understands how to live properly. There is no one who seeks to know God!
+\p
+\v 12 Absolutely everyone has turned away from God. God considers them depraved. There is no one who acts righteously; no, there is not even one!
+\q
+</usfm>
+
+===== ULB: =====
+
+<usfm>
+\q
+\v 11 There is none who understands.
+\q There is none who seeks after God.
+\q
+\v 12 They have all turned away, they together have become useless.
+\q There is none who does good, no, not as many as one.
+</usfm>
+
+===== Important Terms: =====
+
+  * [[:en:obe:kt:god|God]]
+  * [[:en:obe:kt:turn|turn]]
+  * [[:en:obe:kt:good|good]]
+
+===== Translation Notes: =====
+
+  * **none who understands** - "None really understands God's truth"
+  * **none who seeks after God** - "none who sincerely tries to have a righteous relationship with God"
+  * **turned away** - "rejected God and his righteous will for them" (See: [[en:ta:translate:implicitexplicit|]])
+  * **have become useless** - "have become worthless as far as God's will for them is concerned"
+===== Links: =====
+
+  * **[[:en:bible:notes:rom:questions:comprehension:03|Romans Chapter 03 Comprehension Questions]]**
+**[[:en:bible:notes:rom:03:09|<<]] | [[:en:bible:notes:rom:03:13|>>]]**
+
+~~DISCUSSION~~{{tag>publish}}
+
+~~NOCACHE~~
