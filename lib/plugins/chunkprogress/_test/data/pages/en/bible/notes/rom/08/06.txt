@@ -1,0 +1,47 @@
+====== Romans 08:6-8 ======
+
+===== TFT: =====
+
+<usfm>
+\v 6 Those people who \f + \ft personification \f* think about and are concerned about what their self-directed nature \add desires\add* will not live eternally \f + \ft Or: will be separated from God \f*. But those people who think about and are concerned about what \add God's\add* Spirit \add desires\add* will live \add eternally\add* and have \add inner\add* peace.
+\v 7 Let me explain this. \add To the extent that\add* people \f + \ft personification \f* think about and are concerned about what their self-directed nature \add desires\add*, they are acting contrary to God. They do not obey the laws of God. In fact, they are not even able \add to obey his laws\add*.
+\v 8 The people who let their self-directed nature \add control them\add* cannot do what pleases God.
+</usfm>
+
+===== UDB: =====
+
+<usfm>
+\v 6 Those who think about and are concerned about what their evil nature desires will not live forever. But those who want what God's Spirit desires will live forever and have peace.
+\v 7 Let me explain this. To the extent that people want what their evil nature desires, they are acting contrary to God. They do not obey his Law. In fact, they are not even able to obey his Law.
+\v 8 The people who do what their evil nature tells them cannot please God.
+</usfm>
+
+===== ULB: =====
+
+<usfm>
+\v 6 For the mentality of the flesh is death, but the mentality of the Spirit is life and peace,
+\v 7 because the mentality of the flesh is hostile toward God, for it is not subject to God's Law, nor is it able to be.
+\v 8 Those who are in the flesh are not able to please God.
+</usfm>
+
+===== Important Terms: =====
+
+  * [[:en:obe:kt:flesh|flesh]]
+  * [[:en:obe:kt:death|death]]
+  * [[:en:obe:kt:holyspirit|Spirit]]
+  * [[:en:obe:kt:life|life]]
+  * [[:en:obe:other:peace|peace]]
+  * [[:en:obe:kt:lawofmoses|God's Law]]
+
+===== Translation Notes: =====
+
+  * **mentality of the flesh...the mentality of the Spirit** - "the way sinful people think...the way people who listen to the Holy Spirit think" (See: [[en:ta:translate:personification]])
+
+===== Links: =====
+
+  * **[[:en:bible:notes:rom:questions:comprehension:08|Romans Chapter 08 Comprehension Questions]]**
+**[[:en:bible:notes:rom:08:03|<<]] | [[:en:bible:notes:rom:08:09|>>]]**
+
+~~DISCUSSION~~{{tag>publish mgr}}
+
+~~NOCACHE~~

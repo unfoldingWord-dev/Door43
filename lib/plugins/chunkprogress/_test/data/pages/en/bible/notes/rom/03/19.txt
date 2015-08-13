@@ -1,0 +1,57 @@
+====== Romans 03:19-20 ======
+
+===== TFT: =====
+
+<usfm>
+\v 19 Furthermore, we know that it is to \add Jewish\add* people, \add who are\add* required to obey \add God's\add* laws, that Moses wrote those laws \f + \ft personification \f*. \add We can infer from this that\add* there are no \add Jews or non-Jews\add* \f + \ft synecdoche \f* who are able to say anything \add in reply to God's saying that he will punish them for having sinned\add*. God has declared everyone in the world \f + \ft metonymy \f* guilty!
+\v 20 It is not because people have done the things that God's laws \add require\add* that \add God\add* will erase the record of their sins\f + \ft Or: declare them no longer guilty for sin \f*, \add because no one has done those things completely\add*. In fact, the result of \add our knowing God's\add* laws is that we know clearly that we have sinned \f + \ft Or: are sinful \f*.
+
+
+\p
+</usfm>
+
+===== UDB: =====
+
+<usfm>
+\v 19 Furthermore, we know that it is to Jewish people, who are required to obey God's laws, that Moses wrote those laws. We can learn from this that there are no Jews or non-Jews who are able to say anything when God says that he will punish them for having sinned. God has declared everyone in the world guilty!
+\v 20 It is not because people have done the things that God's laws require that God will erase the record of their sins, because no one has done those things completely. In fact, the result of our knowing God's laws is that we know clearly that we have sinned.
+
+
+
+
+\p
+</usfm>
+
+===== ULB: =====
+
+<usfm>
+\p
+\v 19 Now we know that whatever the Law says, it speaks to the ones under the Law, in order that every mouth may be closed, and all the world may become answerable to God.
+\v 20 This is because no flesh will be justified by the works of the Law in his sight. For through the Law comes the knowledge of sin.
+</usfm>
+
+===== Important Terms: =====
+
+  * [[:en:obe:kt:lawofmoses|Law]]
+  * [[:en:obe:kt:world|world]]
+  * [[:en:obe:kt:god|God]]
+  * [[:en:obe:kt:flesh|flesh]]
+  * [[:en:obe:kt:works|works]]
+  * [[:en:obe:kt:justify|justified]]
+  * [[:en:obe:kt:sin|sin]]
+
+===== Translation Notes: =====
+
+  * **whatever the Law says, it speaks to**  - "everything that the Law says people should do is for" or "all the commands that Moses wrote in the Law are for" (See: [[:en:ta:translate:personification|Personification]])
+  * **in order that every mouth may be closed**  - "so that no people will be able to say anything valid to defend themselves" (See: [[:en:ta:translate:synecdoche|Synecdoche]]) Alternate translation using an active form: "In this way God keeps people from saying they are innocent of sin."
+  * **For**  - This can mean 1) "Therefore" or 2) "This is because" or 3) "Instead."
+  * **through the Law comes the knowledge of sin**  - "when someone knows God's law, he realizes that he is not righteous but rather sinful before God"
+
+===== Links: =====
+
+  * **[[:en:bible:notes:rom:questions:comprehension:03|Romans Chapter 03 Comprehension Questions]]**
+**[[:en:bible:notes:rom:03:15|<<]] | [[:en:bible:notes:rom:03:21|>>]]**
+
+~~DISCUSSION~~{{tag>publish lawofmoses}}
+
+~~NOCACHE~~

@@ -1,0 +1,67 @@
+====== Romans 10:16-17 ======
+
+
+===== TFT: =====
+
+<usfm>
+\v 16  \add I would reply in this way to people who say such things: God has indeed sent people to preach the message about Christ\add*. But not all  \add the people of Israel\add* have paid attention to the good message! \add It is like what\add* Isaiah said  \add when he felt very discouraged\add*, "Lord, it seems as if hardly anyone believed what they heard us\add \f + \ft exclusive \f*\add* preach!\f + \ft Or: has anyone believed what they heard us\add ( exclusive )\add* preach? \f* \f + \ft rhetorical question \f*"
+\v 17 So then, \add I tell you that people\add* are believing  \add in Christ\add* as a result of hearing  \add the message about him\add*, and people are hearing  \add the message\add* as a result of  \add people\add* preaching  \add about\add* Christ!
+
+
+\p
+</usfm>
+
+
+===== UDB: =====
+
+<usfm>
+\v 16  I would reply in this way to those who say such things: God has indeed sent people to preach the message about Christ. But not all the people of Israel have paid attention to the good news! It is like what Isaiah said when he felt very discouraged: "Lord, it seems as if hardly anyone believed what they heard us preach!"
+\v 17 So then, I tell you that people are believing in Christ because they hear about him, and people are hearing the message because others are preaching about Christ!
+
+
+
+
+\p
+</usfm>
+
+
+===== ULB: =====
+
+<usfm>
+\p
+\v 16 But they did not all listen to the gospel. For Isaiah says, "Lord, who has believed our message?"
+\v 17 So faith comes from hearing, and hearing by the word of Christ.
+</usfm>
+
+
+===== Important Terms: =====
+
+  * [[:en:obe:kt:goodnews|gospel]]
+  * [[:en:obe:other:isaiah|Isaiah]]
+  * [[:en:obe:kt:believe|believed]]
+  * [[:en:obe:kt:faith|faith]]
+  * [[en:obe:kt:word|word]]
+  * [[:en:obe:kt:christ|Christ]]
+ 
+
+===== Translation Notes: =====
+
+
+    * **But they did not all listen**  - "But not all Jews listened"
+    * **Lord, who has believed our message?** - Paul is using this question to emphasize that Isaiah prophesied in the Scriptures that many Jews would not believe in Jesus. Here, "our" refers to God and Isaiah. Alternate translation: "Lord, so many of them do not believe our message." (See: [[en:ta:translate:rhetoricalquestion]])
+
+  
+===== Links: =====
+
+  * **[[en/bible/notes:rom/questions/comprehension/10|Romans Chapter 10 Comprehension Questions]]**
+
+ 
+
+**[[en/bible/notes/rom/10/14|<<]] | [[en/bible/notes/rom/10/18|>>]]**
+
+~~DISCUSSION~~
+
+
+{{tag>publish}}
+
+~~NOCACHE~~

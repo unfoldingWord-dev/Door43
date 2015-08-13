@@ -1,0 +1,56 @@
+====== Romans 10:4-5 ======
+
+===== TFT: =====
+
+<usfm>
+\v 4 They wanted God to erase the record of their sins  \add as a result of their obeying his laws. But\add* because of what Christ has done, it is no longer necessary for  \add people to obey\add* the laws  \add God gave Moses in order for the record of their sins to be erased\add*. Now God will erase the record of sins of everyone who trusts  \add in what Christ has done\add*.
+
+
+\p
+\v 5 In regard to  \add the old\add* way, Moses wrote  \add concerning people who obey God's\add* laws, "It is the people who have done  \add perfectly\add* the things  \add that the laws require\add* who will gain  \add eternal\add* life by  \add doing\add* them."
+</usfm>
+
+===== UDB: =====
+
+<usfm>
+\v 4 Christ has perfectly obeyed the Law in order to put everyone who believes in him right with God. So the Law is no longer necessary for us.
+
+
+
+\p
+\v 5 Moses wrote about people who tried to obey all of God's laws: "It is the people who have done perfectly the things that the Law requires who will live forever."
+</usfm>
+
+===== ULB: =====
+
+<usfm>
+\v 4 For Christ is the fulfillment of the Law for righteousness for everyone who believes.
+\v 5 For Moses writes about the righteousness that comes from the Law: "The man who does the righteousness of the Law will live by this righteousness."
+</usfm>
+
+===== Important Terms: =====
+
+  * [[en:obe:kt:christ|Christ]]
+  * [[en:obe:kt:fulfill|fulfillment]]
+  * [[:en:obe:kt:lawofmoses|Law]]
+  * [[:en:obe:kt:righteous|righteousness]]
+  * [[:en:obe:kt:believe|believes]]
+  * [[en:obe:other:moses|Moses]]
+  * [[en:obe:other:written|writes]]
+ 
+===== Translation Notes: =====
+
+  * **For Christ is the fulfillment of the Law**  - "For Christ completely fulfilled the Law"
+  * **for righteousness for everyone who believes **  - "in order that he may make everyone who believes in him right before God"
+  * **the righteousness that comes from the Law**  - "how the Law makes a person right before God"
+  * **The man who does the righteousness of the Law will live by this righteousness**  - "The person who perfectly obeys the Law will live because the Law will make him right before God."
+  * **will live** - This can refer to 1) eternal life (see UDB) or 2) mortal life in fellowship with God.
+
+===== Links: =====
+
+  * **[[:en:bible:notes:rom:questions:comprehension:10|Romans Chapter 10 Comprehension Questions]]**
+**[[:en:bible:notes:rom:10:01|<<]] | [[:en:bible:notes:rom:10:06|>>]]**
+
+~~DISCUSSION~~{{tag>publish}}
+
+~~NOCACHE~~

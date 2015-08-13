@@ -1,0 +1,47 @@
+====== Romans 03:27-28 ======
+
+===== TFT: =====
+
+<usfm>
+\v 27 It is not at all \f + \ft rhetorical question \f* because of\add our obeying the\add* laws \add of Moses that God erases the record of our sins\add*. So, there is no way that we can boast \add that God does that because of our obeying those laws\add*.\f + \ft Or: how can we boast \add about God erasing the record of our sins because of our obeying those laws\add*? \f* \f + \ft rhetorical question \f* Instead, \add it is because of our\add* believing, Or: trusting\add in Christ that God erases the record of our sins\add*.
+\v 28 \add We cannot boast about that\add*, because we conclude that the record of our sins is erased \f + \ft Or:God erases the record of our sins \f* because of our trusting \add in Christ\add*. God does not erase the record of our sins because of our obeying the laws \add that he gave to Moses, because it is impossible for us to completely obey them\add*.
+</usfm>
+
+===== UDB: =====
+
+<usfm>
+\v 27 It is not at all because we obey the laws of Moses that God erases the record of our sins. So there is no way that we can boast that God favors us because we obeyed those laws. Instead, it is because we believe in Christ that God erases the record of our sins.
+\v 28 So it is clear that God makes someone right with himself if that person trusts in Christ—not if that person obeys the Law.
+</usfm>
+
+===== ULB: =====
+
+<usfm>
+\v 27 Where then is boasting? It is excluded. On what grounds? Of works? No, but on the grounds of faith.
+\v 28 We conclude therefore that a person is justified by faith without the works of the Law.
+</usfm>
+
+===== Important Terms: =====
+
+  * [[:en:obe:kt:boast|boasting]]
+  * [[:en:obe:kt:works|works]]
+  * [[:en:obe:kt:faith|faith]]
+  * [[:en:obe:kt:justify|justified]]
+  * [[:en:obe:kt:lawofmoses|Law]]
+
+===== Translation Notes: =====
+
+Paul answers rhetorical questions to emphasize that each point he is making is certainly true. (See: [[en:ta:translate:rhetoricalquestion|]])
+
+  * **On what grounds?** - "For what reason?" or "Why is boasting excluded?" or "Why can we not boast?"
+  * **Of works?** - "Is boasting excluded because we obey the law?"
+  * **on the grounds of faith** - "because we believe in Jesus"
+  * **without** - "apart from"
+===== Links: =====
+
+  * **[[:en:bible:notes:rom:questions:comprehension:03|Romans Chapter 03 Comprehension Questions]]**
+**[[:en:bible:notes:rom:03:25|<<]] | [[:en:bible:notes:rom:03:29|>>]]**
+
+~~DISCUSSION~~{{tag>publish works}}
+
+~~NOCACHE~~

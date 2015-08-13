@@ -1,0 +1,62 @@
+====== Romans 07:13-14 ======
+
+
+===== TFT: =====
+
+<usfm>
+\v 13 So, \add if someone were to object\add* saying, "\add The laws that God gave Moses\add*, which are good, resulted in my being separated from God!\f + \ft Or: did they result in my being separated from God? \f* \f + \ft rhetorical question \f*" \add I would reply\add*, "Certainly they did not \add do that!\add*" But instead, those \add laws\add*, which are good, stimulated \add my desire to\add* sin. I knew that the result was that I was separated from God. And also, because I \add learned what God had\add* commanded, \add I knew that\add* what I was doing was \add truly\add* sinful.
+
+
+\p
+\v 14 We know that the laws \add that God gave Moses came from God's\add* Spirit. But as for me, I am \add influenced by my\add* self-directed nature. \add It is as though\add* I have been forced to become a slave of \add my desire to\add* sin \f + \ft metaphor \f*.
+</usfm>
+
+
+===== UDB: =====
+
+<usfm>
+\v 13 So, if someone said to me, "The Law that God gave Moses, which is good, drove me away from God!" I would reply, "Certainly it did not do that!" But instead, the Law, which is good, made me want to sin. I knew that as a result, I was far away from God. And also, because I learned what God had commanded, I knew that what I was doing was truly sinful.
+
+
+\p
+\v 14 We know that the Law that Moses came from God. But as for me, I am a person who sins. It is as though I had been forced to become a slave of my desire to sin; I had to do whatever my mind told me to do.
+</usfm>
+
+
+===== ULB: =====
+
+<usfm>
+\p
+\v 13 Then did what is good become death to me? May it never be. But sin, in order that it might be shown to be sin through what is good, brought about death in me. This was in order that through the commandment, sin might become sinful beyond measure.
+\v 14 For we know that the Law is spiritual, but I am of the flesh. I have been sold under slavery to sin.
+</usfm>
+
+
+===== Important Terms: =====
+
+  * [[:en:obe:kt:death|death]]
+  * [[:En:obe:kt:sin|sin]]
+  * [[:en:obe:other:commandment|commandment]]
+  * [[:en:obe:kt:spirit|spiritual]]
+  * [[:en:obe:other:servant|slavery]]
+  
+
+===== Translation Notes: =====
+
+
+  * **Then** - Paul is introducing a new topic.
+  * **what is good** - God's law
+  * **become death to me** - "cause me to die"
+  * **May it never be** - "Of course that is not true!" This expression give the strongest possible negative answer to the preceding rhetorical question. You may want have a similar expression in your language that you could use here. (See: [[:en:ta:translate:rhetoricalquestion]])
+  * **sin...brought about death in me** - Paul is viewing sin as though it were a person who could act. (See: [[en:ta:translate:personification]])         
+  * **brought about death in me** - "separated me from God"
+  * **through the commandment** - "because I disobeyed the commandment"
+  
+===== Links: =====
+
+  * **[[:en:bible:notes:rom:questions:comprehension:07|Romans Chapter 07 Comprehension Questions]]**
+**[[:en:bible:notes:rom:07:11|<<]] | [[:en:bible:notes:rom:07:15|>>]]**
+
+~~DISCUSSION~~{{tag>publish}}
+
+~~NOCACHE~~

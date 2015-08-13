@@ -1,0 +1,74 @@
+====== Romans 10:8-10 ======
+
+
+===== TFT: =====
+
+<usfm>
+\v 8 But instead, \add those who believe in Christ\add* \f + \ft personification \f* can say what \f + \ft rhetorical question \f* \add Moses also said\add*, "You\add \f + \ft singular \f*\add* can find out about  \add God's\add* message very easily. You can speak \f + \ft metonymy \f* about it; you can think \f + \ft metonymy \f* about it." This is the message that we proclaim, that people must believe  \add in Christ\add*.
+\v 9  \add This message is that\add* if anyone of you confesses\f + \ft Or: says \f* publicly that Jesus is Lord, and if you\add \f + \ft singular \f*\add* believe inwardly that God raised him from the dead\f + \ft Or: after he died \f*, you will be saved \f + \ft Or:\add God\add* will save you \f*.
+\v 10 If people believe inwardly  \add that Christ died and that God caused him to become alive again\add* \f + \ft chiasmus \f*, the result is that  \add God will erase the record of their sins\add*. And  \add for\add* those who state\f + \ft Or: declare \f* publicly  \add that Jesus is their Lord\add*, the result is that  \add God\add* will save them.
+</usfm>
+
+
+===== UDB: =====
+
+<usfm>
+\v 8 But instead, those who believe in Christ can say what Moses wrote: “You can find out about God's message very easily. You can speak about it and think about it." This is the message that we proclaim: that people must believe in Christ.
+\v 9  This message is that if anyone of you confirms that Jesus is Lord, and if you truly believe that God raised him from the dead, he will save you.
+\v 10 If people believe these things, God will put them right with himself. And for those who state publicly that Jesus is Lord—God will save them.
+</usfm>
+
+
+===== ULB: =====
+
+<usfm>
+\v 8 But what does it say? 
+\q "The word is near you, 
+\q in your mouth and in your heart."
+\p
+That is the word of faith, which we proclaim.
+\v 9 For if you acknowledge with your mouth Jesus as Lord, and believe in your heart that God raised him from the dead, you will be saved.
+\v 10 For with the heart man believes for righteousness, and with the mouth he acknowledges for salvation.
+</usfm>
+
+
+===== Important Terms: =====
+
+  * [[en:obe:kt:word]]
+  * [[en:obe:other:heart|heart]]
+  * [[en:obe:kt:word|word]]
+  * [[en:obe:kt:faith|faith]]
+  * [[:en:obe:other:proclaim|proclaim]]
+  * [[en:obe:kt:lordgod|Lord]]
+  * [[en:obe:kt:believe|believe]]
+  * [[en:obe:kt:raise|raised]]
+  * [[:en:obe:kt:save|saved]]
+  * [[:en:obe:kt:salvation|salvation]]
+ 
+
+===== Translation Notes: =====
+
+
+    * **But what does it say?**  - The word "it" refers to "righteousness" in 10:6. Here Paul describes "righteousness" as a person that can speak. Paul uses a question to emphasize the answer he is about to give. Alternate translation: "But this is what Moses says" (See: [[en:ta:translate:personification]] and [[en:ta:translate:rhetoricalquestion]])
+    * **The word is near you**  - "The message is right here"
+    * **in your mouth** - The word "mouth" refers to what a person speaks. This can be translated as a new sentence: "It is in what you say." (See: [[en:ta:translate:metonymy]]) 
+    * **and in your heart** - The word "heart" refers to a person's mind or what he thinks. Alternate translation: "and it is in what you think."
+    * **if you acknowledge with your mouth Jesus as Lord** - "if you confess that Jesus is Lord"
+    * **believe in your heart** - "accept as true"
+    * **you will be saved** - This can be translated with an active verb: "God will save you." (See: [[en:ta:translate:active]])
+    * **For with the heart man believes for righteousness, and with the mouth he acknowledges for salvation** - "For it is with the mind that a person trusts and is right before God, and it is with the mouth that a person confesses and God saves him"
+  
+===== Links: =====
+
+  * **[[en/bible/notes:rom/questions/comprehension/10|Romans Chapter 10 Comprehension Questions]]**
+
+ 
+
+**[[en/bible/notes/rom/10/06|<<]] | [[en/bible/notes/rom/10/11|>>]]**
+
+~~DISCUSSION~~
+
+
+{{tag>publish}}
+
+~~NOCACHE~~

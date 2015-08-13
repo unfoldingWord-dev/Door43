@@ -1,0 +1,58 @@
+====== Romans 07:11-12 ======
+
+===== TFT: =====
+
+<usfm>
+\v 11 \add My desire to\add* sin found a way \f + \ft personification \f* to deceive me \add by making me think wrongly that\add* I could keep \add on sinning and at the same time obey\add* those laws \add enough so that I would live eternally\add*, and \add thus it\add* caused me to be separated from God \f + \ft personification \f*.
+\v 12 So \add we conclude that\add* the laws \add that God gave to Moses\add* are holy. What God commanded \add about not coveting, along with all the other things that he commanded\add*, is also holy, and it is just and good.
+
+
+\p
+</usfm>
+
+===== UDB: =====
+
+<usfm>
+\v 11 When I wanted to sin, I thought that I would live forever if I obeyed the Law enough. But I was mistaken: I thought I could keep sinning at the same time. In fact, God was going to separate me from him forever because I did not truly obey the Law.
+\v 12 So we know that the Law that God gave to Moses is perfectly good. Everything that God commands us to do is also holy, just, and good.
+
+
+
+
+
+\p
+</usfm>
+
+===== ULB: =====
+
+<usfm>
+\v 11 For sin, taking the opportunity through the commandment, deceived me, and through the commandment it killed me.
+\v 12 Therefore the Law is holy, and the commandment holy, righteous, and good.
+</usfm>
+
+===== Important Terms: =====
+
+  * [[:en:obe:kt:sin|sin]]
+  * [[:en:obe:other:commandment|commandment]]
+  * [[:en:obe:kt:deceive|deceived]]
+  * [[:en:obe:kt:lawofmoses|Law]]
+  * [[:en:obe:kt:holy|holy]]
+  * [[:en:obe:kt:righteous|righteous]]
+  * [[:en:obe:kt:good|good]]
+
+===== Translation Notes: =====
+
+  * **sin, taking the opportunity through the commandment, deceived me, and through the commandment it killed me.** - As in [[:en:bible:notes:rom:07:07|7:7-8]], Paul is describing sin as a person who can do 3 things: take the opportunity, deceive, and kill. "because I wanted to sin, I deceived myself into thinking that I could sin and obey the commandment at the same time, but God punished me for disobeying the commandment by separating me from him." (See: [[:en:ta:translate:personification]]) 
+  * **sin** - "my desire to sin" (See: [[en:ta:translate:metonymy|]])
+  * **taking the opportunity through the commandment** - See how you translated this in [[:en:bible:notes:rom:07:07|7:8]].
+  * **it killed me** - "it separated me from God" (See UDB, [[en:ta:translate:metaphor|]]))
+  * **Therefore** - Because the law allows sin to be recognized as a deceiver and killer
+
+===== Links: =====
+
+  * **[[:en:bible:notes:rom:questions:comprehension:07|Romans Chapter 07 Comprehension Questions]]**
+**[[:en:bible:notes:rom:07:09|<<]] | [[:en:bible:notes:rom:07:13|>>]]**
+
+~~DISCUSSION~~{{tag>publish}}
+
+~~NOCACHE~~

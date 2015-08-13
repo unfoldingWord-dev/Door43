@@ -1,0 +1,58 @@
+====== Romans 10:14-15 ======
+
+
+===== TFT: =====
+
+<usfm>
+\v 14  \add In regard to the people of Israel rejecting the gospel, some people might object by saying\add*, \f + \ft Or: \add This raises another problem about the Jews\add*: \f* "They certainly cannot ask  \add Christ\add* \add to help\f + \ft Or: save them\add* if they have not  \add first\add* believed  \add in him\add*!\f + \ft Or: How \f* can they ask  \add Christ to help, Or: save them\add* if they have not  \add first\add* believed  \add in him\add*? \f* \f + \ft rhetorical question \f* And they certainly cannot believe  \add in him\add* if they have not heard about him!\f + \ft Or: how can they believe  \add in him\add* if they have not heard about him? \f* \f + \ft rhetorical question \f* And they certainly cannot hear  \add about him\add* if someone does not preach to them  \add about him\add*!\f + \ft Or: how can they hear  \add about him\add* if someone does not preach to them  \add about him\add*? \f* \f + \ft rhetorical question \f*
+\v 15 And those who preach to them  \add about Christ\add*, certainly cannot preach if they are not sent  \add by God\add* \f + \ft Or:if  \add God\add* does not send them \f* \add to preach!\add*\f + \ft Or: how can they preach if they are not sent  \add by God\add* \f + \ft Or:if  \add God\add* does not send them \f* \add to preach\add*? \f* \f + \ft rhetorical question \f* \add His sending messengers to them would be\add* just like it is written \f + \ft Or:like someone wrote \f* \add in the Scriptures\add*, 'The arrival \f + \ft metonymy \f* of those who preach the good message is wonderful!'"
+</usfm>
+
+
+===== UDB: =====
+
+<usfm>
+\v 14 Most of the Jews have certainly not believed in Christ, and some people might try to explain why they have not done so. They might say, “The Jews certainly cannot ask Christ to help them if they have not first believed in him! And they certainly cannot believe in him if they have not heard about him! And they certainly cannot hear about him if someone does not preach to them about him!
+\v 15 And those who could preach to them about Christ, certainly cannot do so if God does not send them. But if some believers preached to them, it would be just like the scriptures say: ‘It is wonderful when people come and bring good news!'"
+</usfm>
+
+
+===== ULB: =====
+
+<usfm>
+\v 14 How then can they call on him in whom they have not believed? And how can they believe in him of whom they have not heard? And how can they hear without a preacher?
+\v 15 And how can they preach, unless they are sent?—As it is written, "How beautiful are the feet of those who proclaim glad tidings of good things!"
+</usfm>
+
+
+===== Important Terms: =====
+
+  * [[en:obe:kt:call|call]]
+  * [[en:obe:kt:believe|believed]]
+  * [[:en:obe:other:preach|preacher, preach]]
+  * [[en:obe:other:send|sent]]
+  * [[:en:obe:other:written|written]]
+  * [[en:obe:other:proclaim|proclaim]]
+  * [[en:obe:kt:good|good]]
+===== Translation Notes: =====
+
+  * **How then can they call on him in whom they have not believed?**  - Paul uses a question to emphasize the importance of taking the good news of Christ to those who have not heard. The word "they" refers to those who do not yet belong to God. Alternate translation: "Those who do not believe in God cannot call on him." (See: [[:en:ta:translate:rhetoricalquestion|Rhetorical Question]])
+  * **And how can they believe in him of whom they have not heard?**  - Paul uses another question for the same reason. Alternate translations: "And they cannot believe in him if they have not heard his message" or "And they cannot believe in him if they have not heard the message about him."
+  * **And how can they hear without a preacher?**  - Paul uses another question for the same reason. Alternate translation:"And they cannot hear the message if someone does not tell them."
+  * **And how can they preach, unless they are sent?**  - Paul uses another question for the same reason. The word "they" refers to those who belong to God." This can be translated with an active verb: "And they cannot tell other people the message unless someone sends them." (See: [[:en:ta:translate:active]])
+  * **"How beautiful are the feet of those who proclaim glad tidings of good things!"**  - Paul uses "feet" to represent those who travel and bring the message to those who have not heard it. Alternate translation: "It is wonderful when messengers come and tell us the good news." (See: [[:en:ta:translate:metonymy|Metonymy]])
+
+===== Links: =====
+
+  * **[[en/bible/notes:rom/questions/comprehension/10|Romans Chapter 10 Comprehension Questions]]**
+
+ 
+
+**[[en/bible/notes/rom/10/11|<<]] | [[en/bible/notes/rom/10/16|>>]]**
+
+~~DISCUSSION~~
+
+
+{{tag>publish}}
+
+~~NOCACHE~~

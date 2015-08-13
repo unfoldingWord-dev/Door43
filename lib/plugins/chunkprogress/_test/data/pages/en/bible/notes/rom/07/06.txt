@@ -1,0 +1,48 @@
+====== Romans 07:6 ======
+
+===== TFT: =====
+
+<usfm>
+\v 6 But now we are freed \f + \ft Or:free \f* from \add having\add* \add to obey all the Jewish\add* rituals—\add it is as though\add* we have died. The result is that now we are not controlled by those rituals \f + \ft Or:those rituals do not control us now \f*. So we serve God, not by \add having to obey\add* those rituals, which is the old way, but in the new way, as \add God's\add* Spirit \add helps us to serve him\add*.
+
+
+\p
+</usfm>
+
+===== UDB: =====
+
+<usfm>
+\v 6 But now God has freed us from having to obey Law of Moses—it is as though we have died, and the Law can no longer tell us what to do. God has done this for us so that we may worship him in a new way that the Spirit shows us, rather than in the old way that the Law required.
+
+
+
+
+
+\p
+</usfm>
+
+===== ULB: =====
+
+<usfm>
+\v 6 But now we have been released from the Law, we have died to that by which we were held. so as to serve in newness of the Spirit, and not in oldness of the letter.
+</usfm>
+
+===== Important Terms: =====
+
+  * [[:en:obe:kt:lawofmoses|Law]]
+  * [[:en:obe:kt:death|died]]
+  * [[:en:obe:other:serve|serve]]
+  * [[:en:obe:kt:holyspirit|Spirit]]
+
+===== Translation Notes: =====
+
+  * **we** - This pronoun refers to Paul and the believers. (See: [[en:ta:translate:inclusive]])
+  * **the letter** - the Law of Moses
+===== Links: =====
+
+  * **[[:en:bible:notes:rom:questions:comprehension:07|Romans Chapter 07 Comprehension Questions]]**
+**[[:en:bible:notes:rom:07:04|<<]] | [[:en:bible:notes:rom:07:07|>>]]**
+
+~~DISCUSSION~~{{tag>publish}}
+
+~~NOCACHE~~
