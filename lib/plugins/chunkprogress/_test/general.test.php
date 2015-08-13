@@ -20,7 +20,7 @@
  * @license  GPL2 (I think)
  * @link     ???
  */
-class general_plugin_door43obs_test extends DokuWikiTest
+class general_plugin_chunkprogress_test extends DokuWikiTest
 {
 
     /**
@@ -84,22 +84,30 @@ class general_plugin_door43obs_test extends DokuWikiTest
         );
         $content = $response->getContent();
 
-        echo $content;
-        echo "TMP_DIR: " . TMP_DIR . "\n";
-        foreach (scandir(TMP_DIR) as $key => $value) {
-            echo "  " . $key . ": " . $value . "\n";
-        }
-        echo "DATA_DIR:" . "\n";
-        foreach (scandir(TMP_DIR . "/data") as $key => $value) {
-            echo "  " . $key . ": " . $value . "\n";
-        }
-        echo "ATTIC_DIR:" . "\n";
-        foreach (scandir(TMP_DIR . "/data/attic") as $key => $value) {
-            echo "  " . $key . ": " . $value . "\n";
-        }
-        echo "en:" . "\n";
-        foreach (scandir(TMP_DIR . "/data/attic/en") as $key => $value) {
-            echo "  " . $key . ": " . $value . "\n";
-        }
+        $this->assertNotEmpty($content);
+
+        // Verify totals
+        $this->assertRegExp(
+            "/TOTAL<[^>]*><[^>]*>6<[^>]*><[^>]*>35<[^>]*><[^>]*>30/", $content
+        );
+
+        // Verify timestamps were understood correctly
+        $this->assertRegExp(
+            "/start_timestamp<[^>]*><[^>]*>1435723200/", $content
+        );
+        $this->assertRegExp(
+            "/end_timestamp<[^>]*><[^>]*>1435982400/", $content
+        );
+
+        // Verify page counts 
+        $this->assertRegExp(
+            "/debug_num_pages_in_ns<[^>]*><[^>]*>70/", $content
+        );
+        $this->assertRegExp(
+            "/debug_num_revisions_in_ns<[^>]*><[^>]*>2039/", $content
+        );
+        $this->assertRegExp(
+            "/debug_num_revisions_within_dates<[^>]*><[^>]*>169/", $content
+        );
     }
 }
