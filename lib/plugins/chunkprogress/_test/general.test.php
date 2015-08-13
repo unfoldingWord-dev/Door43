@@ -24,6 +24,29 @@ class general_plugin_door43obs_test extends DokuWikiTest
 {
 
     /**
+     * Set up before class
+     * @return nothing
+     */
+    public static function setUpBeforeClass() 
+    {
+        parent::setUpBeforeClass();
+
+        // copy the test data
+        TestUtils::rcopy(TMP_DIR, dirname(__FILE__) . '/data/');
+        TestUtils::rcopy(TMP_DIR, dirname(__FILE__) . '/attic/');
+    }
+
+    /**
+     * Set up before test
+     * @return nothing
+     */
+    public function setUp() 
+    {
+        $this->pluginsEnabled[] = 'chunkprogress';
+        parent::setUp();
+    }
+
+    /**
      * Simple test to make sure the plugin.info.txt is in the correct format
      * @return nothing
      */
@@ -55,13 +78,7 @@ class general_plugin_door43obs_test extends DokuWikiTest
      */
     public function test_activity_by_namespace()
     {
-        // copy the test data
-        echo TMP_DIR;
-        TestUtils::rcopy(TMP_DIR, dirname(__FILE__) . '/data/');
-        TestUtils::rcopy(TMP_DIR, dirname(__FILE__) . '/attic/');
-
-        $this->pluginsEnabled[] = 'chunkprogress';
-        $thisPlugin = plugin_load('syntax', 'chunkprogress_chunkprogress');
+        $thisPlugin = plugin_load('syntax', 'chunkprogress');
         $request = new TestRequest();
         $response = $request->get(
             array('id' => 'test_activity_by_namespace'), '/doku.php'
