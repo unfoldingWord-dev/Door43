@@ -33,7 +33,6 @@ class general_plugin_door43obs_test extends DokuWikiTest
 
         // copy the test data
         TestUtils::rcopy(TMP_DIR, dirname(__FILE__) . '/data/');
-        TestUtils::rcopy(TMP_DIR, dirname(__FILE__) . '/attic/');
     }
 
     /**
@@ -86,6 +85,21 @@ class general_plugin_door43obs_test extends DokuWikiTest
         $content = $response->getContent();
 
         echo $content;
-
+        echo "TMP_DIR: " . TMP_DIR . "\n";
+        foreach (scandir(TMP_DIR) as $key => $value) {
+            echo "  " . $key . ": " . $value . "\n";
+        }
+        echo "DATA_DIR:" . "\n";
+        foreach (scandir(TMP_DIR . "/data") as $key => $value) {
+            echo "  " . $key . ": " . $value . "\n";
+        }
+        echo "ATTIC_DIR:" . "\n";
+        foreach (scandir(TMP_DIR . "/data/attic") as $key => $value) {
+            echo "  " . $key . ": " . $value . "\n";
+        }
+        echo "en:" . "\n";
+        foreach (scandir(TMP_DIR . "/data/attic/en") as $key => $value) {
+            echo "  " . $key . ": " . $value . "\n";
+        }
     }
 }
