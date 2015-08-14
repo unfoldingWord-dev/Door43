@@ -9,8 +9,6 @@ require_once 'parser.inc.php';
 class TestOfDoku_Parser_Media extends TestOfDoku_Parser {
 
     function testVideoOGVExternal() {
-        $this->markTestSkipped('Skipped because it is failing');
-
         $file = 'http://some.where.far/away.ogv';
         $parser_response = p_get_instructions('{{' . $file . '}}');
 
@@ -44,8 +42,6 @@ class TestOfDoku_Parser_Media extends TestOfDoku_Parser {
      * unknown extension of external media file
      */
     function testVideoVIDExternal() {
-        $this->markTestSkipped('Skipped because it is failing');
-
         $file = 'http://some.where.far/away.vid';
         $parser_response = p_get_instructions('{{' . $file . '}}');
 
@@ -72,8 +68,6 @@ class TestOfDoku_Parser_Media extends TestOfDoku_Parser {
 
 
     function testVideoOGVInternal() {
-        $this->markTestSkipped('Skipped because it is failing');
-
         $file = 'wiki:kind_zu_katze.ogv';
         $parser_response = p_get_instructions('{{' . $file . '}}');
 

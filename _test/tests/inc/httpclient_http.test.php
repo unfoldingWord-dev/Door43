@@ -289,7 +289,6 @@ class httpclient_http_test extends DokuWikiTest {
      * This address caused trouble with stream_select()
      *
      * @group internet
-     * @group flaky
      */
     function test_wikimatrix(){
         $http = new HTTPMockClient();

@@ -60,8 +60,7 @@ class InttestsBasicTest extends DokuWikiTest {
         $this->assertEquals('wiki:dokuwiki', $request->getPost('id'));
 
         // output check
-        // 2015-07-03, Phil Hopper: this is silly and also failing
-        //$this->assertTrue(strpos($response->getContent(), 'Andreas Gohr') !== false);
+        $this->assertTrue(strpos($response->getContent(), 'Andreas Gohr') !== false);
     }
 
     function testPostGet() {
@@ -85,8 +84,7 @@ class InttestsBasicTest extends DokuWikiTest {
         $this->assertEquals('wiki:dokuwiki', $request->getGet('id'));
 
         // output check
-        // 2015-07-03, Phil Hopper: this is silly and also failing
-        //$this->assertTrue(strpos($response->getContent(), 'Andreas Gohr') !== false);
+        $this->assertTrue(strpos($response->getContent(), 'Andreas Gohr') !== false);
     }
 
     function testGet() {
@@ -118,8 +116,7 @@ class InttestsBasicTest extends DokuWikiTest {
         $this->assertEquals('bar', $request->getGet('test'));
 
         // output check
-        // 2015-07-03, Phil Hopper: this is silly and also failing
-        //$this->assertTrue(strpos($response->getContent(), 'Andreas Gohr') !== false);
+        $this->assertTrue(strpos($response->getContent(), 'Andreas Gohr') !== false);
     }
 
     function testScripts() {

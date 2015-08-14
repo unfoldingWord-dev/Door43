@@ -148,7 +148,6 @@ def');
     }
 
     function testTableHead() {
-        $this->markTestSkipped('Skipped because it is failing');
         $this->P->addMode('table',new Doku_Parser_Mode_Table());
         $this->P->parse('
 abc
@@ -233,8 +232,6 @@ def');
     }
 
     function testTableHeadMultiline() {
-        $this->markTestSkipped('Skipped because it is failing');
-
         $this->P->addMode('table',new Doku_Parser_Mode_Table());
         $this->P->parse('
 abc
@@ -478,8 +475,6 @@ def');
     }
     
     function testRowSpanTableHead() {
-        $this->markTestSkipped('Skipped because it is failing');
-
         $this->P->addMode('table',new Doku_Parser_Mode_Table());
         $this->P->parse('
 abc
@@ -538,8 +533,6 @@ def');
     }
 
     function testRowSpanAcrossTableHeadBoundary() {
-        $this->markTestSkipped('Skipped because it is failing');
-
         $this->P->addMode('table',new Doku_Parser_Mode_Table());
         $this->P->parse('
 abc

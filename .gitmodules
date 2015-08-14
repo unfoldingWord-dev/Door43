@@ -22,3 +22,72 @@
 [submodule "lib/plugins/door43nsexport"]
 	path = lib/plugins/door43nsexport
 	url = https://github.com/In-the-World/door43nsexport
+[submodule "lib/plugins/pageredirect"]
+	path = lib/plugins/pageredirect
+	url = https://github.com/glensc/dokuwiki-plugin-pageredirect
+[submodule "lib/plugins/blockquote"]
+	path = lib/plugins/blockquote
+	url = https://github.com/dokufreaks/plugin-blockquote
+[submodule "lib/plugins/bookcreator"]
+	path = lib/plugins/bookcreator
+	url = https://github.com/Klap-in/dokuwiki-plugin-bookcreator
+[submodule "lib/plugins/changes"]
+	path = lib/plugins/changes
+	url = https://github.com/cosmocode/changes
+[submodule "lib/plugins/ckgedit"]
+	path = lib/plugins/ckgedit
+	url = https://github.com/turnermm/ckgedit
+[submodule "lib/plugins/definitionlist"]
+	path = lib/plugins/definitionlist
+	url = https://github.com/samwilson/dokuwiki-plugin-definitionlist
+[submodule "lib/plugins/discussion"]
+	path = lib/plugins/discussion
+	url = https://github.com/dokufreaks/plugin-discussion
+[submodule "lib/plugins/ditaa"]
+	path = lib/plugins/ditaa
+	url = https://github.com/splitbrain/dokuwiki-plugin-ditaa/
+[submodule "lib/plugins/dw2pdf"]
+	path = lib/plugins/dw2pdf
+	url = https://github.com/splitbrain/dokuwiki-plugin-dw2pdf
+[submodule "lib/plugins/googlefonts"]
+	path = lib/plugins/googlefonts
+	url = https://github.com/Azurewren/dokuwiki-plugin-googlefonts
+[submodule "lib/plugins/graphviz"]
+	path = lib/plugins/graphviz
+	url = https://github.com/superdav42/dokuwiki-plugin-graphviz
+[submodule "lib/plugins/html5video"]
+	path = lib/plugins/html5video
+	url = https://github.com/Fweeb/dokuwiki_plugin_html5video
+[submodule "lib/plugins/include"]
+	path = lib/plugins/include
+	url = https://github.com/dokufreaks/plugin-include
+[submodule "lib/plugins/markdownextra"]
+	path = lib/plugins/markdownextra
+	url = https://github.com/naokij/dokuwiki-plugin-markdownextra
+[submodule "lib/plugins/moderncontact"]
+	path = lib/plugins/moderncontact
+	url = https://github.com/marvinrabe/dokuwiki-contact
+[submodule "lib/plugins/move"]
+	path = lib/plugins/move
+	url = https://github.com/michitux/dokuwiki-plugin-move
+[submodule "lib/plugins/nspages"]
+	path = lib/plugins/nspages
+	url = https://github.com/gturri/nspages
+[submodule "lib/plugins/odt"]
+	path = lib/plugins/odt
+	url = https://github.com/LarsGit223/dokuwiki-plugin-odt
+[submodule "lib/plugins/pagelist"]
+	path = lib/plugins/pagelist
+	url = https://github.com/dokufreaks/plugin-pagelist
+[submodule "lib/plugins/piwik2"]
+	path = lib/plugins/piwik2
+	url = https://github.com/Bravehartk2/dokuwiki-piwik2
+[submodule "lib/plugins/searchindex"]
+	path = lib/plugins/searchindex
+	url = https://github.com/splitbrain/dokuwiki-plugin-searchindex
+[submodule "lib/plugins/swiftmail"]
+	path = lib/plugins/swiftmail
+	url = https://github.com/splitbrain/dokuwiki-plugin-swiftmail
+[submodule "lib/plugins/tag"]
+	path = lib/plugins/tag
+	url = https://github.com/dokufreaks/plugin-tag

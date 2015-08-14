@@ -18,12 +18,6 @@
         </testsuite>
     </testsuites>
 
-    <groups>
-        <exclude>
-            <group>flaky</group>
-        </exclude>
-    </groups>
-
     <filter>
         <whitelist addUncoveredFilesFromWhitelist="false">
             <directory suffix=".php">../</directory>
