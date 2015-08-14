@@ -1,0 +1,69 @@
+====== Romans 12:1-2 ======
+
+===== TFT: =====
+
+<usfm>
+\v 1 My fellow believers, since God has acted mercifully \add toward you\add* in so many ways, I appeal to \add all of\add* you that you present yourselves \f + \ft synecdoche \f* \add to him by making yourselves like\add* holy sacrifices \f + \ft metaphor \f*. \add Make yourselves sacrifices\add* that he is pleased with, sacrifices that are living\f + \ft Or: alive \f*, \add not ones that are dead\f + \ft Or: killed \f*. Since God has done so much for you\f + \ft Or: us \f*\add*, this is the \add only\add* appropriate way to serve him.
+\v 2 Do not let anything non-Christian determine how you should act. Instead, let God change your \add way of life\add* by making your way of thinking new, in order that you may know what he wants you to do. That is, you will know what is good, and you will know what pleases\add God\add*, and you will know how to be all that he wants you to be.
+
+
+\p
+</usfm>
+
+===== UDB: =====
+
+<usfm>
+\v 1 My fellow believers, since God has acted mercifully toward you in so many ways, I appeal to all of you that you present yourselves like a sacrifice that is alive, a sacrifice that you give to God alone and that pleases him. This is the only right way to worship him.
+\v 2 Do not let unbelievers guide you in how you behave. Instead, let God change your way of thinking and always make it new, in order that you may know what he wants you to do, so you may know how to act in ways that please him, the ways in which he himself acts. 
+
+
+
+
+
+\p
+</usfm>
+
+===== ULB: =====
+
+<usfm>
+\c 12
+\p
+\v 1 I urge you therefore, brothers, by the mercies of God, to present your bodies a living sacrifice, holy, acceptable to God, which is your spiritual service.
+\v 2 Do not be conformed to this world, but be transformed by the renewal of your mind, for you to know what is the good, acceptable, and perfect will of God.
+</usfm>
+
+===== Important Terms: =====
+
+  * [[:en:obe:kt:brother|brothers]]
+  * [[:en:obe:kt:mercy|mercies]]
+  * [[:en:obe:kt:god|God]]
+  * [[:en:obe:kt:body|bodies]]
+  * [[:en:obe:kt:life|living]]
+  * [[:en:obe:other:sacrifice|sacrifice]]
+  * [[:en:obe:kt:holy|holy]]
+  * [[:en:obe:kt:spirit|spiritual]]
+  * [[:en:obe:other:serve|service]]
+  * [[:en:obe:kt:world|world]]
+  * [[:en:obe:kt:good|good]]
+  * [[:en:obe:kt:perfect|perfect]]
+  * [[:en:obe:kt:willofgod|will of God]]
+
+===== Translation Notes: =====
+
+  * **I urge you therefore, brothers, by the mercies of God**  - "Fellow believers, because of the great mercy that God has given you I very much want you"
+  * **to present your bodies a living sacrifice**  - Here Paul uses the word "bodies" to refer to the whole person. Paul is comparing a believer in Christ who completely obeys God to the animals that the Jews killed and then offered to God. Alternate translation: "offer yourselves completely to God while you are alive as if you were a dead sacrifice on a temple altar." (See: [[:en:ta:translate:synecdoche|Synecdoche]] and [[:en:ta:translate:metaphor|Metaphor]])
+  * **holy, acceptable to God**  - This can mean 1) morally pure, "pleasing to God" (See: [[:en:ta:translate:doublet|Doublet]]) or 2) "dedicated to God alone and pleasing to him."
+  * **which is your spiritual service**  - Possible meanings are 1) "which is the the right way to think about worshiping God" or 2) "which is how you worship God in your spirit."
+  * **Do not be conformed to this world** - This can mean 1) "Do not behave as the world behaves" (see UDB) or 2) "Do not think the way the world does."
+  * **Do not be conformed** - This can mean 1) "Do not let the world tell you what to do" or "Do not...what to think" (see UDB) or 2) "Do not allow yourself to act as the world does" or "Do not...to think...does." (See: [[:en:ta:translate:active|Active or Passive]])
+  * **this world** - unbelievers who live in the world (See: [[:en:ta:translate:metonymy|Metonymy]])
+  * **but be transformed by the renewal of your mind**  - This can be translated with an active verb: "but let God change the way you think" or "but let God change the way you behave by first changing the way you think." (See: [[en:ta:translate:active|]])
+
+===== Links: =====
+
+  * **[[:en:bible:notes:rom:questions:comprehension:12|Romans Chapter 12 Comprehension Questions]]**
+**[[:en:bible:notes:rom:11:35|<<]] | [[:en:bible:notes:rom:12:03|>>]]**
+
+~~DISCUSSION~~{{tag>publish}}
+
+~~NOCACHE~~

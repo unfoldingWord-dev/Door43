@@ -1,0 +1,49 @@
+====== Romans 03:23-24 ======
+
+
+===== TFT: =====
+
+<usfm>
+\v 23 All people have done evil, and all people have failed to accomplish the glorious \add goals\add* that God \add set for them\add*.
+\v 24 Our record of sins has been erased \f + \ft Or:God erased the record of our sins \f* by his acting kindly \add to forgive our sins\add*, without our doing anything to earn it. Christ Jesus accomplished this \add by dying for us\add*.
+</usfm>
+
+
+===== UDB: =====
+
+<usfm>
+\v 23 All people have done evil, and everyone has failed to accomplish the glorious goals that God set for them.
+\v 24 Our record of sins has been erased by his acting kindly to forgive our sins, without our doing anything to earn it. Christ Jesus accomplished this by dying for us.
+</usfm>
+
+
+===== ULB: =====
+
+<usfm>
+\v 23 for all have sinned and come short of the glory of God,
+\v 24 being justified freely by his grace through the redemption that is in Christ Jesus.
+</usfm>
+
+
+===== Important Terms: =====
+
+  * [[:en:obe:kt:sin|sinned]]
+  * [[en:obe:kt:glory|glory]]
+  * [[en:obe:kt:god|God]]
+  * [[en:obe:kt:justify|justified]]
+  * [[:en:obe:kt:grace|grace]]
+  * [[:en:obe:kt:redeem|redemption]]
+  * [[en:obe:kt:jesus|Christ Jesus]]
+
+===== Translation Notes: =====
+
+  * **being justified freely by his grace through the redemption that is in Christ Jesus **- This could be translated with active verbs: "God has justified them by means of his grace because Christ Jesus has redeemed them" (See: [[en:ta:translate:active]])
+
+===== Links: =====
+
+  * **[[:en:bible:notes:rom:questions:comprehension:03|Romans Chapter 03 Comprehension Questions]]**
+**[[:en:bible:notes:rom:03:21|<<]] | [[:en:bible:notes:rom:03:25|>>]]**
+
+~~DISCUSSION~~{{tag>publish}}
+
+~~NOCACHE~~

@@ -1,0 +1,62 @@
+====== Romans 08:35-36 ======
+
+
+===== TFT: =====
+
+<usfm>
+\v 35 Absolutely no one and nothing can cause Christ to stop loving us!\f + \ft Or: Can anyone or anything cause Christ to stop loving us? \f* \f + \ft rhetorical question \f* That could not \f + \ft rhetorical question \f* happen\add because someone\add* afflicted us \f + \ft doublet \f*, or \add because someone did things to\add* harm us, or \add because we did\add* not have anything to eat, or \add because we did\add* not have enough clothes, or \add because we lived in a\add* dangerous situation, or \add because someone killed us with\add* a sword \f + \ft metonymy \f* \f + \ft Or: murdered us \f*.
+\v 36 \add Such things may happen to us, just like\add* it is written \f + \ft Or:\add as David\add* wrote \f* \add that David said to God\add*, "Because we are your\add \f + \ft singular \f*\add* people, \add other people repeatedly attempt to\add* kill us. They consider that we are \add only people to be killed\add*, \add like a butcher considers\add* that sheep are \add only\add* animals to be slaughtered \f + \ft metaphor \f*."
+</usfm>
+
+
+===== UDB: =====
+
+<usfm>
+\v 35 Absolutely no one and nothing can cause Christ to stop loving us! That could not happen, even if someone afflicts us, or even someone harms us, or even if we have nothing to eat, or even if we do not have enough clothes, or even if we live in a dangerous situation, or even if someone will kill us.
+\v 36 Such things may happen to us, just as it is written that David said to God, “Because we are your people, others repeatedly attempt to kill us. They consider that we are only people to be killed, like a butcher considers that sheep are only animals to be slaughtered."
+</usfm>
+
+
+===== ULB: =====
+
+<usfm>
+\v 35 Who will separate us from the love of Christ? Tribulation, or distress, or persecution, or hunger, or nakedness, or danger, or sword?
+\v 36 Just as it is written,
+\q "For your benefit we are killed all day long.
+\q We were considered as sheep for the slaughter."
+\m
+</usfm>
+
+
+===== Important Terms: =====
+
+  * [[en:obe:kt:love|love]]
+  * [[en:obe:kt:christ|Christ]]
+  * [[:en:obe:other:tribulation|Tribulation]]
+  * [[:en:obe:other:persecute|persecution]]
+  * [[:en:obe:other:sword|sword]]
+  * [[en:obe:other:written|as it is written]]
+  * [[:en:obe:other:sheep|sheep]]
+ 
+
+===== Translation Notes: =====
+
+  * **Tribulation, or distress, or persecution, or hunger, or nakedness, or danger, or sword?**  -  Alternate translation: "It is not possible even if someone causes us trouble, hurts us, takes away our clothes and food, or even kills us." (See: [[:en:ta:translate:metonymy|Metonymy]])
+  * **Tribulation, or distress** - These words both mean the same thing. (See [[:en:ta:translate:doublet|Doublet]])
+  * **For your benefit**  - Here "your" is singular and refers to God. Alternate translation: "For you" (See: [[:en:ta:translate:formsofyou]])
+  * **we are killed all day long**  - Here "we" refers to the one who wrote this part of Scripture and includes all those who remain loyal to God. The phrase "all day long" is an exaggeration to emphasize how much danger they are in. Paul uses this part of Scripture to show that all who belong to God should expect difficult times. This can be translated with an active verb: "our enemies continually seek to kill us." (See: [[:en:ta:translate:inclusive|Inclusive]] and [[:en:ta:translate:hyperbole|Hyperbole]] and [[:en:ta:translate:active|Active or Passive]])
+  * **We were considered as sheep for the slaughter**  - This compares those whom people kill because they are loyal to God to livestock. Alternate translation with an active verb: "Our lives had no more value to them than the sheep they kill." (See: [[:en:ta:translate:simile|Simile]])
+
+===== Links: =====
+
+  * **[[en/bible/notes:rom/questions/comprehension/08|Romans Chapter 08 Comprehension Questions]]**
+ 
+
+**[[en/bible/notes/rom/08/33|<<]] | [[en/bible/notes/rom/08/37|>>]]**
+
+~~DISCUSSION~~
+
+
+{{tag>publish}}
+
+~~NOCACHE~~

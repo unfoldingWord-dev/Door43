@@ -1,0 +1,5 @@
+====== Test Activity by User ======
+
+{{chunkprogress>report=activity_by_user&namespace=en:bible:notes:rom&start_date=7/01&end_date=7/04&users=cnewton theologyjohn&debug=true}}
+
+vim: filetype=dokuwiki

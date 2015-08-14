@@ -1,0 +1,66 @@
+====== Romans 03:7-8 ======
+
+
+===== TFT: =====
+
+<usfm>
+\v 7 But \add someone might object and say to me\add*, "The fact that God truly \add keeps his promises\add* becomes very clear\f + \ft Or: evident \f* because of my not doing \add what God has commanded\add*. But the result is that people praise God! So God should no longer say that I should be punished \f + \ft Or:that \add he\add* should punish me \f* on account of my having sinned!\f + \ft Or: why should God still say that I should be punished \f + \ft Or:that \add he\add* should punish me \f* on account of my having sinned? \f* \f + \ft rhetorical question \f*
+\v 8 \add If what you, Paul, say is true\add*, then we might as well\f + \ft Or: it is all right for us to \f* do evil things in order that good things \add like that\add* will result! For example, \add then people will praise God!\add*" Some people speak evil about me by their \add falsely\add* saying that I say \add such things. God\add* will fairly, Or: justly punish \add people who say such things about me!\add*
+
+
+\p
+</usfm>
+
+
+===== UDB: =====
+
+<usfm>
+\v 7 But someone might answer me, "The fact that God truly keeps his promises becomes very clear because I did not do what God commanded. But the result is that people praise God because he has mercy! So God should no longer say that I should be punished on account of my having sinned, since people are praising him!
+\v 8 If what you, Paul, say is true, then we might as well do evil things in order that good things like that will result! Then people will praise God!" Some people speak evil about me because they accuse me of speaking like this. God will punish people who say such things about me, and they will deserve for him to punish them!
+
+
+
+
+\p
+</usfm>
+
+
+===== ULB: =====
+
+<usfm>
+\v 7 But if the truth of God through my lie abounded to his praise, why am I still judged as a sinner?
+\v 8 And why not say—as we are falsely reported to say, and as some affirm that we say—"Let us do evil, that good may come?" The judgment on them is just.
+</usfm>
+
+
+===== Important Terms: =====
+
+  * [[:en:obe:kt:true|truth]]
+  * [[:en:obe:kt:god|God]]
+  * [[:en:obe:other:praise|praise]]
+  * [[en:obe:kt:judge|judged]]
+  * [[:en:obe:kt:sin|sinner]]
+  * [[:en:obe:kt:evil|evil]]
+  * [[en:obe:kt:good|good]]
+  * [[en:obe:kt:judge|judgment]]
+  * [[en:obe:kt:justice|just]]
+
+===== Translation Notes: =====
+
+ Paul continues his imaginary argument with a Jewish person, answering the questions such a person might have.
+
+  * **But if the truth of God through my lie abounded to his praise, why am I still judged as a sinner?** - Here Paul imagines someone continuing to reject the Christian gospel; that adversary argues that God should not declare that he is a sinner on judgment day if, for example, he tells lies. (See: [[en:ta:translate:Rhetoricalquestion]], [[en:ta:translate:synecdoche]])
+  * **And why not say…?**  - Here Paul raises a question of his own, to show how ridiculous is the argument of his imaginary adversary. Alternate translation: "I might as well be saying that we should do evil things in order that good things may happen as a result!" (See: [[en:ta:translate:Hyperbole]])
+  * **as we are falsely reported to say** - Alternate translation: "Some liars tell others that this is what we are saying."
+  * **The judgment on them is just** - It will be only fair when God condemns these enemies of Paul, for telling lies about what Paul has been teaching.
+
+
+===== Links: =====
+
+* **[[:en:bible:notes:rom:questions:comprehension:03|Romans Chapter 03 Comprehension Questions]]**
+
+**[[:en:bible:notes:rom:03:05|<<]] | [[:en:bible:notes:rom:03:09|>>]]**
+
+~~DISCUSSION~~{{tag>publish}}
+
+~~NOCACHE~~

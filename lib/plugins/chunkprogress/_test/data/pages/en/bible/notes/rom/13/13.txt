@@ -1,0 +1,62 @@
+====== Romans 13:13-14 ======
+
+
+===== TFT: =====
+
+<usfm>
+\v 13 We must behave properly, as though the time \add when Christ will return\add* \f + \ft metonymy \f* \add were already here\add*. We must not participate in drunken carousing \f + \ft hendiadys \f*. We must not commit any kind of sexual immorality \f + \ft metonymy, doublet \f*. We must not quarrel. We must not be jealous \add of other people\add*.
+\v 14 On the contrary, you\f + \ft Or: we \f* should \add be like\add* the Lord Jesus Christ \add so that others will see what he is like\add*, just as\add people\add* put on \add special clothes so that others will see what group they belong to\add* \f + \ft metaphor \f*. You\f + \ft Or: We \f* should stop thinking about \add doing the things that your\f + \ft Or: our \f*\add* self-directed nature desires.
+</usfm>
+
+
+===== UDB: =====
+
+<usfm>
+\v 13 We must behave properly, as though the time when Christ will return were already here. We must not get drunk and do evil things with others. We must not commit any kind of sexual immorality or wild sensual behavior. We must not quarrel. We must not be jealous of other people.
+\v 14 On the contrary, we should be like the Lord Jesus Christ so that others will see what he is like. You should stop wanting to do the things that your old evil nature wants to do.
+</usfm>
+
+
+===== ULB: =====
+
+<usfm>
+\v 13 Let us walk appropriately, as in the day, not in wild celebrations or drunkenness, not in sexual immorality or in uncontrolled lust, not in strife or jealousy.
+\v 14 But put on the Lord Jesus Christ, and make no provision for the flesh, for its lusts.
+</usfm>
+
+
+===== Important Terms: =====
+
+  * [[:en:obe:kt:walk|walk]]
+  * [[:en:obe:kt:fornication|sexual immorality]]
+  * [[:en:obe:other:strife|strife]]
+  * [[:en:obe:kt:jealous|jealousy]]
+  * [[:en:obe:kt:lordgod|Lord]]
+  * [[:en:obe:kt:jesus|Jesus Christ]]
+  * [[:en:obe:kt:flesh|flesh]]
+  * [[:en:obe:other:lust|lust]]
+
+===== Translation Notes: =====
+
+  * **Let us**  - Paul includes his readers and other believers with himself. (See: [[:en:ta:translate:inclusive|Inclusive]])
+  * **as in the day**  - “in a visible way” or "knowing that everyone can see us" (See: [[:en:ta:translate:metaphor|Metaphor]])
+  * **strife**  - “plotting against and arguing with other people”
+  * **jealousy**  - "negative feelings against another person's success or advantage over others.
+  * **put on the Lord Jesus Christ**  - This means to accept the moral nature of Christ as if he were our outer clothing that people can see. (See: [[:en:ta:translate:metaphor|Metaphor]])​
+  * **put on**  - If your language has a plural form for commands, use it here.
+  * **make no provision for the flesh**  - “don’t allow your old evil heart any opportunity at all for doing wicked things”
+
+===== Links: =====
+
+  * **[[en/bible/notes:rom/questions/comprehension/13|Romans Chapter 13 Comprehension Questions]]**
+
+ 
+
+**[[en/bible/notes/rom/13/11|<<]] | [[en/bible/notes/rom/14/01|>>]]**
+
+~~DISCUSSION~~
+
+
+{{tag>publish}}
+
+~~NOCACHE~~

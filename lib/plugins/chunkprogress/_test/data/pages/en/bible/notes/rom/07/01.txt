@@ -1,0 +1,40 @@
+====== Romans 07:1 ======
+
+===== TFT: =====
+
+<usfm>
+\v 1 My fellow believers, you know about laws. So you certainly know \f + \ft Or: I want you to remember \f* that people have to obey laws \f + \ft personification \f* \add only\add* while \add they are\add* alive.\f + \ft Or: do you not know that people have to obey laws ( personification ) \add only\add* while \add they are\add* alive? \f* \f + \ft rhetorical question \f*
+</usfm>
+
+===== UDB: =====
+
+<usfm>
+\v 1 My fellow believers, you know about laws. So you certainly know that people have to obey laws only while they are alive.
+</usfm>
+
+===== ULB: =====
+
+<usfm>
+\c 7
+\p
+\v 1 Or do you not know, brothers (for I speak to people who know about law), that the law controls a person for as long as he lives?
+</usfm>
+
+===== Important Terms: =====
+
+  * [[:en:obe:kt:brother|brothers]]
+  * [[:en:obe:other:law|law]]
+
+===== Translation Notes: =====
+
+  * **the law controls a person for as long as he lives** - Paul gives an example of this in [[:en:bible:notes:rom:07:02|7:2-3]].
+
+
+===== Links: =====
+
+  * **[[:en:bible:notes:rom:questions:comprehension:07|Romans Chapter 07 Comprehension Questions]]**
+**[[:en:bible:notes:rom:06:22|<<]] | [[:en:bible:notes:rom:07:02|>>]]**
+
+~~DISCUSSION~~{{tag>publish}}
+
+~~NOCACHE~~

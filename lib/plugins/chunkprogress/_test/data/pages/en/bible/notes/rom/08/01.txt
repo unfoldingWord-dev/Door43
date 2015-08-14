@@ -1,0 +1,46 @@
+====== Romans 08:1-2 ======
+
+===== TFT: =====
+
+<usfm>
+\v 1 Because \add God has erased the record of our sins because we trust in what Christ has done for us\add*, now \add God will\add* not condemn and punish those\f + \ft Or: us \f* who have a relationship with \f + \ft Or: are united to \f* Christ Jesus.
+\v 2 \add God's\add* Spirit causes us to live \add in a new way\add* \f + \ft personification \f* as a result of what Christ Jesus \add did for us\add*. And he has set up a way by which he frees \add each of\add* us from continually being forced to sin \f + \ft Or: to obey our self-directed natures \f* and from being separated from God.
+</usfm>
+
+===== UDB: =====
+
+<usfm>
+\v 1 So God will not condemn and punish those who are joined to Christ Jesus.
+\v 2 God's Spirit causes us to live in a new way because we are joined to Christ Jesus. In this way, I no longer have to sin when I think about sinning, and I will no more be separated from God.
+</usfm>
+
+===== ULB: =====
+
+<usfm>
+\c 8
+\p
+\v 1 There is therefore now no condemnation for those who are  in Christ Jesus.
+\v 2 For the principle of the Spirit of life in Christ Jesus has made me free from the principle of sin and death.
+</usfm>
+
+===== Important Terms: =====
+
+  * [[:en:obe:kt:condemn|condemnation]]
+  * [[en:obe:kt:christ|Christ]]
+  * [[:en:obe:kt:holyspirit|Spirit]]
+  * [[:en:obe:kt:sin|sin]]
+  * [[:en:obe:kt:death|death]]
+
+===== Translation Notes: =====
+
+  * **therefore** - "for that reason" or "because what I have just told you is true." 
+  * **principle...principle** - The word "principle" here refers to the way things work by nature. This has nothing to do with rules laid down by people.
+
+===== Links: =====
+
+  * **[[:en:bible:notes:rom:questions:comprehension:08|Romans Chapter 08 Comprehension Questions]]**
+**[[:en:bible:notes:rom:07:24|<<]] | [[:en:bible:notes:rom:08:03|>>]]**
+
+~~DISCUSSION~~{{tag>publish}}
+
+~~NOCACHE~~

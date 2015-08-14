@@ -1,0 +1,43 @@
+====== Romans 07:17-18 ======
+
+===== TFT: =====
+
+<usfm>
+\v 17 So, it is not that I do \add evil things because I wish to do them\add*. Instead, \add I do sinful things because the desire to\add* sin \add causes me to do them\add*. The \add desire to\add* sin in within\f + \ft Or: permeates \f* me \f + \ft personification \f*.
+\v 18 I know that my self-directed nature will not \add let me\add* \f + \ft personification \f* \add do\add* anything that is good. I know this because I want \add to do what is good\add*, but I do not do what is good.
+</usfm>
+
+===== UDB: =====
+
+<usfm>
+\v 17 So, it is not because I wish to sin that I sin. Instead, I sin because the desire to sin causes me to sin.
+\v 18 I know that by myself, I can do nothing good. I know this because I want to do what is good, but I do not do what is good.
+</usfm>
+
+===== ULB: =====
+
+<usfm>
+\v 17 But now it is no longer I who do it, but the sin that lives in me.
+\v 18 For I know that in me, that is in my flesh, lives no good thing. For the desire for good is present with me, but I cannot do it.
+</usfm>
+
+===== Important Terms: =====
+
+  * [[:en:obe:kt:sin|sin]]
+  * [[:en:obe:kt:life|live]]
+  * [[:en:obe:kt:flesh|flesh]]
+  * [[:en:obe:kt:good|good]]
+
+===== Translation Notes: =====
+
+  * **the sin that lives in me** - Paul describes sin as a living being that has the power to influence him. (See: [[:en:ta:translate:personification]])
+  * **my flesh** - "my human nature"
+
+===== Links: =====
+
+  * **[[:en:bible:notes:rom:questions:comprehension:07|Romans Chapter 07 Comprehension Questions]]**
+**[[:en:bible:notes:rom:07:15|<<]] | [[:en:bible:notes:rom:07:19|>>]]**
+
+~~DISCUSSION~~{{tag>publish}}
+
+~~NOCACHE~~
