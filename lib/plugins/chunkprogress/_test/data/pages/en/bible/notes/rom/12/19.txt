@@ -1,0 +1,61 @@
+====== Romans 12:19-21 ======
+
+===== TFT: =====
+
+<usfm>
+\v 19 \add My fellow believers\add* whom I love, do not do evil in return when people do evil to you! Instead, allow \add God\add* to punish them \f + \ft metonymy \f*, because it is \f + \ft Or:someone has \f* written \add in the Scriptures that\add* the Lord\add said\add*, "'It is my responsibility to take revenge; I am the one who will punish \add people who do evil to you\add* \f + \ft doublet \f*,' says the Lord."
+\v 20 Instead of \add doing evil to those who have done evil to you\add*, \add do as the Scriptures teach\add*: "If your\add \f + \ft singular \f*\add* enemies are hungry, feed them! If they are thirsty, give them something to drink. By doing that, you\add \f + \ft singular \f*\add* will cause them to feel ashamed \add and perhaps they will change their attitude toward you\add* \f + \ft idiom \f*."
+\v 21 Do not let evil \add deeds that others have done to you\add* overcome you\add \f + \ft singular \f* by making you do evil to them!\add* \f + \ft personification \f* Instead, overcome their evil \add deeds\add* by \add doing\add* good \add deeds to them\add*!
+</usfm>
+
+===== UDB: =====
+
+<usfm>
+\v 19 My fellow believers whom I love, do not do evil in return when people do evil to you! Instead, allow God to punish them. The scriptures say, ""I will pay back those who do evil. It is my right to pay them back,' says the Lord."
+\v 20 Instead of doing evil to those who have done evil to you, do as the scriptures teach: “If your enemies are hungry, feed them! If they are thirsty, give them something to drink. By doing that, you will cause them to feel ashamed and perhaps they will change their attitude toward you.”
+\v 21 Do not let evil deeds that others have done to you overcome you Instead, do for them better than  what they have done to you.!
+</usfm>
+
+===== ULB: =====
+
+<usfm>
+\v 19 Do not avenge yourselves, beloved, but give way to the wrath of God. For it is written, " 'Vengeance belongs to me; I will repay,' says the Lord."
+\q
+\v 20 "But if your enemy is hungry, feed him. 
+\q If he is thirsty, give him a drink. 
+\q For if you do this, you will heap coals of fire on his head."
+\m
+\v 21 Do not be overcome by evil, but overcome evil with good.
+</usfm>
+
+===== Important Terms: =====
+
+  * [[en:obe:kt:avenge|avenge, vengeance]]
+  * [[en:obe:kt:beloved|beloved]]
+  * [[:en:obe:kt:wrath|wrath]]
+  * [[:en:obe:other:written|written]]
+  * [[en:obe:kt:lordgod|the Lord]]
+  * [[en:obe:other:adversary|enemy]]
+  * [[en:obe:other:fire]]
+  * [[en:obe:other:overcome]]
+  * [[:en:obe:kt:evil|evil]]
+  * [[en:obe:kt:good|good]]
+
+===== Translation Notes: =====
+
+Paul continues to tell the believers how to deal with those who do evil to them. This section began in [[:en:bible:notes:rom:12:17|12:17]].
+
+  * **Vengeance belongs to me; I will repay"** - These phrases mean basically the same thing and are used for emphasis. Alternate translation: "I will certainly avenge you." (See: [[en:ta:translate:doublet]])
+  * **your enemy...feed him...give him a drink...if you do this, you will heap....Do not be overcome by evil, but overcome evil** - All forms of "you" and "your" are addressed as to one person. (See: [[en:ta:translate:formsofyou|]])
+  * **But if your enemy is hungry...his head** - In 12:20 Paul quotes another part of Scripture. Alternate translation: "But it is also written, 'If your enemy is hungry...his head.'"
+  * **feed him **- "give him some food"
+  * **heap coals of fire on his head**  - Paul compares the punishment that the enemies will receive to hot coals being poured on their heads. Possible meanings are 1) "make the person who harmed you feel badly about how he has mistreated you" or 2) "give God a reason to judge your enemy more harshly." (See: [[en:ta:translate:metaphor]])
+  * **Do not be overcome by evil, but overcome evil with good** - Paul describes "evil" as though it is a living being. This can be translated with an active verb: "Do not let those who are evil defeat you, but defeat those who are evil by doing what is good." (See: [[en:ta:translate:personification]] and [[en:ta:translate:active]])
+===== Links: =====
+
+  * **[[:en:bible:notes:rom:questions:comprehension:12|Romans Chapter 12 Comprehension Questions]]**
+**[[:en:bible:notes:rom:12:17|<<]] | [[:en:bible:notes:rom:13:01|>>]]**
+
+~~DISCUSSION~~{{tag>publish}}
+
+~~NOCACHE~~

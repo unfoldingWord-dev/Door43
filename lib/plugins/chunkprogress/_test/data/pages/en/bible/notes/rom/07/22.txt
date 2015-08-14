@@ -1,0 +1,47 @@
+====== Romans 07:22-23 ======
+
+===== TFT: =====
+
+<usfm>
+\v 22 With my new inner nature I like the laws of God very much.
+\v 23 Nevertheless, I sense that there is a different force that is in my body\f + \ft Or: me \f* \f + \ft personification, synecdoche \f*. It is opposed to what with my mind \add I desire to do\add* \f + \ft metaphor \f*, and it puts me inescapably under the control of \f + \ft metaphor \f* the sinful \add desires\add* that I have \f + \ft synecdoche \f*.
+</usfm>
+
+===== UDB: =====
+
+<usfm>
+\v 22 In my new nature, I am very happy about the Law of God.
+\v 23 Nevertheless, I sense that there is a different power that is in my body. It is opposed to what with my mind I desire to do, and it makes me do what my old sinful nature wants me to do.
+</usfm>
+
+===== ULB: =====
+
+<usfm>
+\v 22 For I rejoice in the Law of God with the inner man.
+\v 23 But I see a different principle in my body parts, warring against that new principle in my mind, and taking me captive by the principle of sin which is in my body parts.
+</usfm>
+
+===== Important Terms: =====
+
+  * [[:en:obe:other:rejoice|rejoice]]
+  * [[:en:obe:kt:lawofmoses|Law of God]]
+  * [[:en:obe:other:law|principle]]
+  * [[:en:obe:kt:sin|sin]]
+  * [[:en:obe:kt:body|body parts]]
+
+===== Translation Notes: =====
+
+  * **the inner man**  - the part of a person that remains after the body dies (See: [[en:ta:translate:metaphor|]])
+  * **a different principle in my body parts, warring against that new principle in my mind, and taking me captive** - "I am able only to do what my old nature tells me to do, not to live the new way the Spirit shows me"
+  * **a different principle in my body parts** - the old nature, the way people are when they are born
+  * **that new principle**  - the new spiritually alive nature
+  * **the principle of sin which is in my body parts** - "my sinful nature," the sinful nature I was born with
+===== Links: =====
+
+  * **[[:en:bible:notes:rom:questions:comprehension:07|Romans Chapter 07 Comprehension Questions]]**
+
+**[[:en:bible:notes:rom:07:19|<<]] | [[:en:bible:notes:rom:07:24|>>]]**
+
+~~DISCUSSION~~{{tag>publish}}
+
+~~NOCACHE~~

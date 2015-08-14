@@ -1,0 +1,46 @@
+====== Romans 12:3 ======
+
+
+===== TFT: =====
+
+<usfm>
+\v 3 Because God has kindly appointed me \add to be his apostle\add*, which I did not deserve, I say this to every one of you: Do not let what you think about yourselves exceed what is right for you to think! Instead, think \add about yourselves\add* in a sensible way that \add corresponds to the abilities\add* that God has given you \add because\add* you trust \add in Christ\add*.
+</usfm>
+
+
+===== UDB: =====
+
+<usfm>
+\v 3 Because God has kindly appointed me to be his apostle, which I did not deserve, I say this to every one of you: Do not think you are better than you really are. Instead, think about yourselves in a sensible way, a way that is the same as the way in which God has allowed you to trust in him.
+</usfm>
+
+
+===== ULB: =====
+
+<usfm>
+\p
+\v 3 For I say, because of the grace that was given to me, that everyone who is among you should not think more highly of oneself than he ought to think; but to think so as to think wisely, just as God has given out to each one a measure of faith.
+</usfm>
+
+
+===== Important Terms: =====
+
+  * [[:en:obe:kt:grace|grace]]
+  * [[:en:obe:kt:wise|wisely]]
+  * [[:en:obe:kt:faith|faith]]
+
+===== Translation Notes: =====
+
+  * **because of the grace that was given to me** - Here "grace" refers to God choosing Paul to be an apostle and leader of the church. Alternate translation: "because God freely chose me to be an apostle."
+  * **that everyone who is among you should not think more highly of oneself than he ought to think** - "that no one should think they are better than other people"
+  * **but to think so as to think wisely** - This could be translated as a new sentence:"But you should be wise in how you think about yourselves"
+  * **just as God has given out to each one a measure of faith** - "since God has given you the amount of faith you need to think correctly"
+
+===== Links: =====
+
+  * **[[:en:bible:notes:rom:questions:comprehension:12|Romans Chapter 12 Comprehension Questions]]**
+**[[:en:bible:notes:rom:12:01|<<]] | [[:en:bible:notes:rom:12:04|>>]]**
+
+~~DISCUSSION~~{{tag>publish}}
+
+~~NOCACHE~~
