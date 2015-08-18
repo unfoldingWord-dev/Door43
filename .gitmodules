@@ -103,3 +103,6 @@
 [submodule "lib/plugins/vshare"]
 	path = lib/plugins/vshare
 	url = https://github.com/splitbrain/dokuwiki-plugin-vshare
+[submodule "lib/plugins/gallery"]
+	path = lib/plugins/gallery
+	url = https://github.com/splitbrain/dokuwiki-plugin-gallery
