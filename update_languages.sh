@@ -32,6 +32,9 @@ for dir in $(find . -maxdepth 2 -type d -name ".git" | cut -c 3-); do
     # We have to go to the .git parent directory to call the pull command
     pushd "$dir/.." > /dev/null;
 
+    # we don't want any changes in a development language branch
+    git reset --hard
+
     # finally pull
     git pull origin master;
 
