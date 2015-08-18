@@ -94,3 +94,6 @@
 [submodule "lib/plugins/captcha"]
 	path = lib/plugins/captcha
 	url = https://github.com/splitbrain/dokuwiki-plugin-captcha
+[submodule "lib/plugins/upgrade"]
+	path = lib/plugins/upgrade
+	url = https://github.com/splitbrain/dokuwiki-plugin-upgrade/
