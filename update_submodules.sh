@@ -20,6 +20,6 @@ $DEBUG && set -x
 
 pushd $DOOR43_DIR > /dev/null
 
-git submodule update
+git submodule update --init
 git pull --recurse-submodules
 
