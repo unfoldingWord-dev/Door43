@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit
-    bootstrap="bootstrap.php"
-    convertNoticesToExceptions="false"
-    colors="true"
-    stderr="true"
-    >
+        bootstrap="bootstrap.php"
+        convertNoticesToExceptions="false"
+        colors="true"
+        stderr="true"
+        >
 
     <testsuites>
         <testsuite name="DokuWiki Tests">
@@ -17,6 +17,12 @@
             <directory suffix=".test.php">../lib/tpl/*/_test</directory>
         </testsuite>
     </testsuites>
+
+    <groups>
+        <exclude>
+            <group>flaky</group>
+        </exclude>
+    </groups>
 
     <filter>
         <whitelist addUncoveredFilesFromWhitelist="false">
