@@ -97,3 +97,6 @@
 [submodule "lib/plugins/upgrade"]
 	path = lib/plugins/upgrade
 	url = https://github.com/splitbrain/dokuwiki-plugin-upgrade/
+[submodule "lib/plugins/wrap"]
+	path = lib/plugins/wrap
+	url = https://github.com/selfthinker/dokuwiki_plugin_wrap
