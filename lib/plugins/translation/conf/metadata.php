@@ -8,8 +8,7 @@
 $meta['translations']  = array('string','_pattern' => '/^(|[a-zA-Z\- ,]+)$/');
 $meta['translationns'] = array('string','_pattern' => '/^(|[\w:\-]+)$/');
 $meta['skiptrans']     = array('string');
-//$meta['dropdown']      = array('onoff');
-$meta['dropdown']      = array('multichoice','_choices' => array(0,1,2));
+$meta['dropdown']      = array('onoff');
 $meta['display']       = array('multicheckbox',
                                '_choices' => array('langcode','name','flag','title','twolines'));
 $meta['translateui']   = array('onoff');
