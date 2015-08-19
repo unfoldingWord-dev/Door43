@@ -51,8 +51,9 @@
 
 .dokuwiki div.plugin_translation select,
 .dokuwiki div.plugin_translation input {
-    border: none;
-    background-color: #ccc;
+    background-color: #fff;
+    padding: 4px 3px;
+    vertical-align: middle;
 }
 
 .dokuwiki div.plugin_translation option.flag {

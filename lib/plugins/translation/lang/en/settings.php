@@ -17,3 +17,8 @@ $lang['checkage']      = 'Warn about possibly outdated translations.';
 $lang['display']       = 'Select what you\'d like to have shown in the language selector. Note that using country flags for language selection is not recommended by usability experts.';
 
 $lang['copytrans']     = 'Copy original language text into the editor when starting a new translation?';
+
+/* dropdown options */
+$lang['dropdown_o_0'] = 'list (ul)';
+$lang['dropdown_o_1'] = 'dropdown list';
+$lang['dropdown_o_2'] = 'auto-complete';
