@@ -60,7 +60,7 @@
 	url = https://github.com/Fweeb/dokuwiki_plugin_html5video
 [submodule "lib/plugins/include"]
 	path = lib/plugins/include
-	url = https://github.com/dokufreaks/plugin-include
+	url = https://github.com/dokufreaks/plugin-include/
 [submodule "lib/plugins/markdownextra"]
 	path = lib/plugins/markdownextra
 	url = https://github.com/naokij/dokuwiki-plugin-markdownextra
