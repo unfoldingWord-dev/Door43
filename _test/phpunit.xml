@@ -30,10 +30,9 @@
             <exclude>
                 <directory suffix=".php">../_cs/</directory>
                 <directory suffix=".php">../_test/</directory>
-                <directory suffix=".php">../lib/plugins/*/_test/</directory>
-                <directory suffix=".php">../lib/tpl/*/_test/</directory>
+                <!--<directory suffix=".php">../lib/plugins/*/_test/</directory>-->
+                <!--<directory suffix=".php">../lib/tpl/*/_test/</directory>-->
             </exclude>
         </whitelist>
     </filter>
-
 </phpunit>
