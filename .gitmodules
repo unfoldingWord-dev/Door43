@@ -60,7 +60,7 @@
 	url = https://github.com/Fweeb/dokuwiki_plugin_html5video
 [submodule "lib/plugins/include"]
 	path = lib/plugins/include
-	url = https://github.com/dokufreaks/plugin-include
+	url = https://github.com/dokufreaks/plugin-include/
 [submodule "lib/plugins/markdownextra"]
 	path = lib/plugins/markdownextra
 	url = https://github.com/naokij/dokuwiki-plugin-markdownextra
@@ -91,3 +91,18 @@
 [submodule "lib/plugins/tag"]
 	path = lib/plugins/tag
 	url = https://github.com/dokufreaks/plugin-tag
+[submodule "lib/plugins/captcha"]
+	path = lib/plugins/captcha
+	url = https://github.com/splitbrain/dokuwiki-plugin-captcha
+[submodule "lib/plugins/upgrade"]
+	path = lib/plugins/upgrade
+	url = https://github.com/splitbrain/dokuwiki-plugin-upgrade/
+[submodule "lib/plugins/wrap"]
+	path = lib/plugins/wrap
+	url = https://github.com/selfthinker/dokuwiki_plugin_wrap
+[submodule "lib/plugins/vshare"]
+	path = lib/plugins/vshare
+	url = https://github.com/splitbrain/dokuwiki-plugin-vshare
+[submodule "lib/plugins/gallery"]
+	path = lib/plugins/gallery
+	url = https://github.com/splitbrain/dokuwiki-plugin-gallery
