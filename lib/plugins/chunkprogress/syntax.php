@@ -43,7 +43,7 @@ class syntax_plugin_chunkprogress extends DokuWiki_Syntax_Plugin
 
     /**
      * Gets the info block for this plugin
-     * @return the info block for this plugin
+     * @return array the info block for this plugin
      */
     public function getInfo()
     {
@@ -52,7 +52,7 @@ class syntax_plugin_chunkprogress extends DokuWiki_Syntax_Plugin
 
     /**
      * Gets the type for this plugin
-     * @return "substition"
+     * @return string
      */
     public function getType()
     {
@@ -61,7 +61,7 @@ class syntax_plugin_chunkprogress extends DokuWiki_Syntax_Plugin
 
     /**
      * Gets the paragraph type of this plugin
-     * @return "block"
+     * @return string
      */
     public function getPType()
     {
@@ -70,7 +70,7 @@ class syntax_plugin_chunkprogress extends DokuWiki_Syntax_Plugin
 
     /**
      * Gets the sort order for this plugin
-     * @return the sort order (1 for now, 999 doesn't work)
+     * @return int the sort order (1 for now, 999 doesn't work)
      */
     public function getSort()
     {
@@ -80,7 +80,7 @@ class syntax_plugin_chunkprogress extends DokuWiki_Syntax_Plugin
     /**
      * Connects the plugin to the text that triggers it
      * @param string $mode (TODO: not sure what this is for)
-     * @return None
+     * @return null
      */
     public function connectTo($mode)
     {
@@ -95,10 +95,10 @@ class syntax_plugin_chunkprogress extends DokuWiki_Syntax_Plugin
      * @param string $match   the text matched by the pattern
      * @param string $state   The type of pattern
      * @param int    $pos     character position of matched text
-     * @param obj    $handler ref to the Doku_Handler object
-     * @return the parameters for render()
+     * @param Doku_Handler    $handler ref to the Doku_Handler object
+     * @return array the parameters for render()
      */
-    public function handle($match, $state, $pos, &$handler)
+    public function handle($match, $state, $pos, Doku_Handler $handler)
     {
         global $CHUNKPROGRESS_REPORT_TYPES;
 
@@ -151,12 +151,12 @@ class syntax_plugin_chunkprogress extends DokuWiki_Syntax_Plugin
 
     /**
      * Renders the data to the page
-     * @param string $mode     Name of the format mode
-     * @param obj    $renderer ref to the Doku_Renderer
-     * @param obj    $params   Parameter object returned by handle()
-     * @return Nothing?
+     * @param string        $mode     Name of the format mode
+     * @param Doku_Renderer $renderer ref to the Doku_Renderer
+     * @param array         $params   Parameter object returned by handle()
+     * @return bool|void
      */
-    public function render($mode, &$renderer, $params)
+    public function render($mode, Doku_Renderer $renderer, $params)
     {
         $render_start_timestamp = microtime(true);
 
