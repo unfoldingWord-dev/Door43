@@ -1,9 +1,10 @@
 <?php
 /**
- * Translation Plugin: Simple multilanguage plugin
+ * Name: helper.php
+ * Description: Methods used by more than one door43 plugin.
  *
- * @license    GPL 2 (http://www.gnu.org/licenses/gpl.html)
- * @author     Andreas Gohr <andi@splitbrain.org>
+ * Author: Phil Hopper
+ * Date:   2015-05-20
  */
 
 // must be run within Dokuwiki

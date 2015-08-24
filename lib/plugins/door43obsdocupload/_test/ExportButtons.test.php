@@ -21,7 +21,7 @@ class ExportButtons_plugin_test extends DokuWikiTest {
     public function setUp() {
         self::$outputBuffer = '';
         $this->pluginsEnabled[] = 'include';
-        $this->pluginsEnabled[] = 'translation';
+        $this->pluginsEnabled[] = 'door43translation';
         $this->pluginsEnabled[] = 'door43shared';
         $this->pluginsEnabled[] = 'door43obsdocupload';
         parent::setUp();

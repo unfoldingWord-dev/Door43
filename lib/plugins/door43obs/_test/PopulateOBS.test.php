@@ -22,7 +22,7 @@ class PopulateOBS_plugin_test extends DokuWikiTest {
 
     public function setUp() {
         $this->pluginsEnabled[] = 'include';
-        $this->pluginsEnabled[] = 'translation';
+        $this->pluginsEnabled[] = 'door43translation';
         $this->pluginsEnabled[] = 'door43shared';
         $this->pluginsEnabled[] = 'door43obs';
 

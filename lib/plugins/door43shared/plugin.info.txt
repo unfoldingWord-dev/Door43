@@ -3,5 +3,5 @@ author Phil Hopper
 email  https://unfoldingword.org/contact/
 date   2015-05-20
 name   door43shared plugin
-desc   Upload and parse documents containing OBS translations
+desc   Methods shared between door43 plugins
 url    https://github.com/Door43/dokuwiki-plugin-shared
