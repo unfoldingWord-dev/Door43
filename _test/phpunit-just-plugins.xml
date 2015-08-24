@@ -11,7 +11,8 @@
             <!--<directory suffix=".test.php">tests/</directory>-->
         <!--</testsuite>-->
         <testsuite name="Plugin Tests">
-            <directory suffix=".test.php">../lib/plugins/*/_test</directory>
+            <directory suffix=".test.php">../lib/plugins</directory>
+            <exclude>../lib/plugins/tag</exclude>
         </testsuite>
         <!--<testsuite name="Template Tests">-->
             <!--<directory suffix=".test.php">../lib/tpl/*/_test</directory>-->
