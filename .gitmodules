@@ -106,3 +106,6 @@
 [submodule "lib/plugins/gallery"]
 	path = lib/plugins/gallery
 	url = https://github.com/splitbrain/dokuwiki-plugin-gallery
+[submodule "lib/plugins/translation"]
+	path = lib/plugins/translation
+	url = https://github.com/splitbrain/dokuwiki-plugin-translation

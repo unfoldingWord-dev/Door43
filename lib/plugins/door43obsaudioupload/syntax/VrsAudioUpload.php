@@ -28,8 +28,8 @@ class syntax_plugin_door43obsaudioupload_VrsAudioUpload extends Door43_Syntax_Pl
 
         $html = '<label for="obsaudioupload-selectLanguageCode">@selectLanguage@</label>&nbsp;';
 
-        /* @var $translation helper_plugin_translation */
-        $translation = plugin_load('helper','translation');
+        /* @var $translation helper_plugin_door43translation */
+        $translation = plugin_load('helper','door43translation');
         $html .= $translation->renderAutoCompleteTextBox('obsaudioupload-selectLanguageCode', 'obsaudioupload-selectLanguageCode', 'width: 250px;');
 
         // Set the label text.
