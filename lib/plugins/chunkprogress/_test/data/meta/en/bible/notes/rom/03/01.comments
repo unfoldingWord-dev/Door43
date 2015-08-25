@@ -1,0 +1,9 @@
+a:5:{s:5:"title";N;s:6:"status";i:1;s:8:"comments";a:2:{s:32:"321e829021de53fa1318c2753a1bc7f0";a:8:{s:4:"user";a:5:{s:2:"id";s:4:"gary";s:4:"name";s:12:"Gary Shogren";s:4:"mail";s:19:"gsshogren@gmail.com";s:7:"address";s:0:"";s:3:"url";s:0:"";}s:4:"date";a:1:{s:7:"created";i:1435255567;}s:4:"show";b:1;s:3:"raw";s:58:"Typo in the ULB v. 2 - should be "entrusted" not "entrust"";s:5:"xhtml";s:77:"
+<p>
+Typo in the ULB v. 2 - should be “entrusted” not “entrust”
+</p>
+";s:6:"parent";N;s:7:"replies";a:1:{i:0;s:32:"89f142b286e1b9d698155994aac1ec7e";}s:3:"cid";s:32:"321e829021de53fa1318c2753a1bc7f0";}s:32:"89f142b286e1b9d698155994aac1ec7e";a:8:{s:4:"user";a:5:{s:2:"id";s:8:"lrsallee";s:4:"name";s:12:"Larry Sallee";s:4:"mail";s:35:"larry_sallee@wycliffeassociates.org";s:7:"address";s:0:"";s:3:"url";s:0:"";}s:4:"date";a:1:{s:7:"created";i:1435692305;}s:4:"show";b:1;s:3:"raw";s:9:"corrected";s:5:"xhtml";s:20:"
+<p>
+corrected
+</p>
+";s:6:"parent";s:32:"321e829021de53fa1318c2753a1bc7f0";s:7:"replies";a:0:{}s:3:"cid";s:32:"89f142b286e1b9d698155994aac1ec7e";}}s:6:"number";i:2;s:11:"subscribers";N;}

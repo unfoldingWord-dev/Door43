@@ -1,0 +1,64 @@
+====== Romans 08:20-22 ======
+
+
+===== TFT: =====
+
+<usfm>
+\v 20 \add God\add* caused the things that he created to be unable to achieve \add what he had purposed. That was\add* not because they wanted to \add be unable to do that\add*. On the contrary, \add God\add* made them that way because he wanted them to keep confidently expecting
+\v 21 that the things that \add he\add* created will be freed \f + \ft Or:that \add he\add* will free the things that \add he\add* created \f* from their sure decay \f + \ft metaphor \f*. \add He\add* will free them in order that \add he can give them\add* the same glory that belongs to his children.
+\v 22 We know that until now \add it is as though\add* all \add things\add* that God created have been groaning together, \add and they long for that glory, just like a mother having the pains before bearing a child\add* groans \add and longs for her baby's birth\add* \f + \ft metaphor \f*.
+</usfm>
+
+
+===== UDB: =====
+
+<usfm>
+\v 20 God caused the things that he created to be unable to achieve what he had intended. That was not because they wanted to fail. On the contrary, God made them that way because he wanted them to keep confidently expecting
+\v 21 that the things that he created will one day no longer die, decay, and fall apart. He will free them from that, in order that he can do the same wonderful things for them that he will do for his children.
+\v 22 We know that until now it is as though all things that God created have been groaning together, and they want  him to do those same wonderful things for them. But now it is just like a woman who is having the pains that come before she gives birth to a child.
+</usfm>
+
+
+===== ULB: =====
+
+<usfm>
+\v 20 For the creation was subjected to futility, not of its own will, but of him who subjected it, in the confidence 
+\v 21 that the creation itself will be delivered from slavery to decay into the liberty of the glory of the children of God.
+\v 22 For we know that the whole creation groans and labors in pain together even now.
+</usfm>
+
+
+===== Important Terms: =====
+
+  * [[:en:obe:other:creation|creation]]
+  * [[:en:obe:kt:willofgod|will]]
+  * [[:en:obe:kt:confidence|confidence]]
+  * [[:en:obe:kt:deliverer|delivered]]
+  * [[:en:obe:other:servant|slavery]]
+  * [[:en:obe:kt:free|liberty]]
+  * [[:en:obe:kt:glory|glory]]
+  * [[:en:obe:kt:children|children of God]]
+  * [[:en:obe:other:laborpains|labors in pain]]
+
+===== Translation Notes: =====
+
+    * **For the creation was subjected to futility** - Alternate translation with an active verb: "For God caused what he had created to be unable to achieve the purpose for which he had made it." (See: [[en:ta:translate:active]])
+    * **not of its own will, but of him who subjected it** - Here "creation" is described as a person who can desire. Alternate translation: "not because this is what the created things wanted, but because it is what God wanted." (See: [[en:ta:translate:personification]])
+    * **in the confidence that the creation itself will be delivered**  - Alternate translation with a new sentence and with an active verb: "Yet the things created are fully certain that God will save them" (see UDB).
+    * **from slavery to decay** - Paul compares all things in creation to slaves and "decay" to their owner. Alternate translation: "from rotting and dying." (See: [[en:ta:translate:metaphor]])
+    * **into the liberty of the glory of the children of God** - "and he will free them when he gives honor to his children"
+    * **For we know that the whole creation groans and labors in pain together even now** - The creation is compared to a woman groaning while giving birth to a baby. "For we know that everything that God created wants to be free and groans for it like a woman giving birth." 
+  
+===== Links: =====
+
+  * **[[en/bible/notes:rom/questions/comprehension/08|Romans Chapter 08 Comprehension Questions]]**
+
+
+**[[en/bible/notes/rom/08/18|<<]] | [[en/bible/notes/rom/08/23|>>]]**
+
+~~DISCUSSION~~
+
+
+{{tag>publish mgr}}
+
+~~NOCACHE~~

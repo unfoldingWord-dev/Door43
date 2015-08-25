@@ -1,0 +1,61 @@
+====== Romans 03:3-4 ======
+
+===== TFT: =====
+
+<usfm>
+\v 3 Many \add Jews did not obey God as they promised that they would. So someone might ask\add*, "Does their not being faithful mean that God will not \add bless us Jews\add* as he promised \add that he would\add*?"
+\v 4 \add I would reply\add*, "No, it certainly does not mean that! God always does \add what he has promised\add*, even though \add people do not\add*. All those who accuse God \add of not keeping his promises to us Jews\add* are very mistaken." \add What King David wrote about God's justly saying that he would punish him for his sins is also true of those who accuse God of not keeping his promises. What he said to God was\add*, "So everyone must acknowledge that what you\add \f + \ft singular \f*\add* have said \add about them\add* \f + \ft Or: \add their sin\add* \f* is true, and you will always win the case when you are accused \f + \ft Or:when \add people\add* accuse you \f*."
+\p
+</usfm>
+
+===== UDB: =====
+
+<usfm>
+\v 3 Many Jews did not obey God as they promised that they would. So someone might ask, "Does their not being faithful mean that God will not bless us Jews as he promised that he would?"
+\v 4 I would reply, "No, it certainly does not mean that! God always does what he has promised, even though people do not. All those who accuse God of not keeping his promises to us Jews are very mistaken." King David wrote about this:
+"So everyone must acknowledge that what you have said about them is true, and that you will always win the case when anyone accuses you of doing wrong."
+
+
+\p
+</usfm>
+
+===== ULB: =====
+
+<usfm>
+\v 3 For what if some Jews were without faith? Will their unbelief make the faithfulness of God invalid?
+\v 4 By no means. Instead, let God be found true even though every man is a liar. As it has been written,
+\q "That you might be shown to be righteous in your words,
+\q and might prevail when you come into judgment."
+\m
+</usfm>
+
+===== Important Terms: =====
+
+  * [[:en:obe:other:jew|Jews]]
+  * [[:en:obe:kt:faith|faith]]
+  * [[:en:obe:kt:unbeliever|unbelief]]
+  * [[:en:obe:kt:faithful|faithfulness]]
+  * [[:en:obe:kt:true|true]]
+  * [[:en:obe:other:written|written]]
+  * [[:en:obe:kt:righteous|righteous]]
+  * [[:en:obe:kt:word|word]]
+  * [[:en:obe:kt:judge|judgment]]
+
+===== Translation Notes: =====
+
+Paul continues his imaginary argument with a Jewish person, answering the questions such a person might have.
+
+  * **For what if some Jews were without faith? Will their unbelief make the faithfulness of God invalid?**  - Paul uses these rhetorical questions to make people think. Some Jews were unfaithful to God, so some would conclude that God would not fulfill his promise. (See: [[:en:ta:translate:rhetoricalquestion|Rhetorical Question]])
+  * **By no means** - "That is not possible!” or "Certainly not!" This expression strongly denies that this could happen. You may want have a similar expression in your language that you could use here.
+  * **Instead**  - "We should say this instead:"
+  * **As it has been written**  - "The Jewish Scriptures themselves agree with what I am saying"
+
+
+===== Links: =====
+
+  * **[[:en:bible:notes:rom:questions:comprehension:03|Romans Chapter 03 Comprehension Questions]]**
+**[[:en:bible:notes:rom:03:01|<<]] | [[:en:bible:notes:rom:03:05|>>]]**
+
+~~DISCUSSION~~{{tag>publish}}
+
+~~NOCACHE~~

@@ -1,0 +1,61 @@
+====== Romans 03:9-10 ======
+
+
+===== TFT: =====
+
+<usfm>
+\v 9 \add If someone would ask\add*, "\add Shall we conclude that God\add* will treat us \add Jews\add* more favorably \add and will treat\add* the non-Jews less\add favorably\add* \f + \ft rhetorical question \f*?" \add I would reply that we can\add* certainly not \add conclude that!\add* I have already shown you that all people, the Jews and also the non-Jews, have sinned and \add so they deserve to be punished\add* \f + \ft Or:\add that God will punish them\add* \f* \f + \ft personification \f*.
+\v 10 \add The following words\add* that are written \f + \ft Or:prophets have written \f* \add in the Scriptures support this\add*,
+\p No person is righteous. There is not even one righteous person!
+</usfm>
+
+
+===== UDB: =====
+
+<usfm>
+\v 9 If someone should ask, "Shall we conclude that God will treat us Jews more favorably and will treat the non-Jews less favorably?” I would reply that we can certainly not conclude that! I have already shown you that all people, the Jews and also the non-Jews, have sinned and so they deserve for God to punish them.
+\v 10 The following words that are written in the scriptures support this,
+
+
+\p No person is righteous. There is not even one righteous person!
+</usfm>
+
+
+===== ULB: =====
+
+<usfm>
+\p
+\v 9 What then? Do we excuse ourselves? Not at all. For we already accused both Jews and Greeks, all of them, of being under sin,
+\v 10 as it is written,
+\q "There is none righteous, not one.
+</usfm>
+
+
+===== Important Terms: =====
+
+  * [[:en:obe:other:jew|Jews]]
+  * [[:en:obe:other:greek|Greeks]]
+  * [[en:obe:kt:sin|sin]]
+  * [[en:obe:other:written]]
+  * [[en:obe:kt:righteous|righteous]]
+===== Translation Notes: =====
+
+ Paul continues his imaginary argument with a Jewish person, answering the questions such a person might have.
+
+    * **What then? Do we excuse ourselves?** - Possible meanings are: 1) "We Christians are not trying to hide the wicked things that we are supposedly doing!" or 2) "We Jews should not try to imagine we are going to escape God's judgment, just because we are Jewish!" (UDB) (See: [[en:ta:translate:Rhetoricalquestion]])
+    * **Not at all** - These words are stronger than a simple "no," but not as strong as "absolutely not!"
+  
+===== Links: =====
+
+  * **[[en/bible/notes:rom/questions/comprehension/03|Romans Chapter 03 Comprehension Questions]]**
+
+ 
+
+**[[en/bible/notes/rom/03/07|<<]] | [[en/bible/notes/rom/03/11|>>]]**
+
+~~DISCUSSION~~
+
+
+{{tag>publish}}
+
+~~NOCACHE~~

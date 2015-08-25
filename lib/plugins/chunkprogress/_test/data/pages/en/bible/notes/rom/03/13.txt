@@ -1,0 +1,66 @@
+====== Romans 03:13-14 ======
+
+
+===== TFT: =====
+
+<usfm>
+\v 13 What people say \f + \ft metonymy \f* \add is foul\f + \ft Or: bad \f*, like the smell that comes from\add* a grave that has been \f + \ft Or:that \add people\add* have \f* opened \f + \ft metaphor \f*. \add By what people say\add* \f + \ft metonymy \f*, they deceive people.
+\q \add By what they say\add* \f + \ft metonymy \f* \add they injure people, just like\add* the poison of snakes \add injures people\add* \f + \ft metaphor \f*.
+\q
+\v 14 They are continually cursing\f + \ft Or: asking God to do harmful things to \f* others and saying cruel\f + \ft Or: harsh, Or: hateful \f* things \f + \ft metonymy \f*.
+\q
+</usfm>
+
+
+===== UDB: =====
+
+<usfm>
+\v 13 What people say is foul, like the smell that comes from a grave that has been opened. By what people say, they deceive people.
+\q By what they say they injure people, just like the poison of snakes injures people.
+\q
+\v 14 They are continually cursing others and saying cruel things.
+\q
+</usfm>
+
+
+===== ULB: =====
+
+<usfm>
+\q
+\v 13 Their throat has been opened like a grave.
+\q Their tongues have deceived.
+\q The poison of snakes is under their lips.
+\q
+\v 14 Their mouths are full of cursing and bitterness.
+</usfm>
+
+
+===== Important Terms: =====
+
+  * [[:en:obe:other:tomb|grave]]
+  * [[en:obe:other:tongue|tongues]]
+  * [[en:obe:kt:curse|cursing]]
+  * [[:en:obe:kt:deceive|deceived]]
+
+===== Translation Notes: =====
+
+
+    * **Their...Their** - the "Jews and Greeks" of [[:en:bible:notes:rom:03:09|3:9]]
+    * **Their throat has been opened like a grave** - Paul is using a metaphor meaning that everything people say is unrighteous and disgusting (See: [[en:ta:translate:Synecdoche]], [[en:ta:translate:Metaphor]])
+    * **Their tongues have deceived** - "People speak lies" (See: [[en:ta:translate:Synecdoche]])
+    * **Their mouths are full of cursing and bitterness**  - "Much of what people say is harmful and meant to hurt other people" (See: [[en:ta:translate:hyperbole]], [[en:ta:translate:Synecdoche]])
+  
+===== Links: =====
+
+  * **[[en/bible/notes:rom/questions/comprehension/03|Romans Chapter 03 Comprehension Questions]]**
+
+ 
+
+**[[en/bible/notes/rom/03/11|<<]] | [[en/bible/notes/rom/03/15|>>]]**
+
+~~DISCUSSION~~
+
+
+{{tag>publish tomb}}
+
+~~NOCACHE~~

@@ -1,0 +1,46 @@
+====== Romans 07:2-3 ======
+
+===== TFT: =====
+
+<usfm>
+\v 2 For example, a woman is required by the law \f + \ft Or:the law requires a woman \f* \add to obey and be faithful to her husband\add* as long as he is alive. But if her husband dies, she is freed\add from having to\add* \f + \ft Or:\add no longer has to\add* \f* \add obey\add* the law about \add remaining married to\add* her husband.
+\v 3 Therefore, a woman will be called \f + \ft Or:people will call a woman \f* an adulteress if she lives with another man while her husband is alive. But if her husband dies, she no longer \add has to obey\add* that law. Then she will not be an adulteress if she marries another man.
+</usfm>
+
+===== UDB: =====
+
+<usfm>
+\v 2 For example, a woman must be faithful to her husband as long as he is alive. But if her husband dies, she is does not have to act any longer as if she were married. The law releases her from the marriage.
+\v 3 So if she goes to another man while her husband is alive, she will be an adulteress. But if her husband dies, she no longer has to obey that law. Then if she marries another man, she will not be an adulteress.
+</usfm>
+
+===== ULB: =====
+
+<usfm>
+\v 2 For the married woman is bound by law to the husband while he lives, but if her husband dies, she is released from the law of marriage.
+
+\v 3 So then if, while the husband lives, she lives with another man, she will be called an adulteress. But if the husband dies, she is free from the law, so that she is not an adulteress if she lives with another man.
+</usfm>
+
+===== Important Terms: =====
+
+  * [[en:obe:kt:lawofmoses|law]]
+  * [[en:obe:kt:life|lives]]
+  * [[en:obe:kt:death|dies]]
+  * [[en:obe:kt:free|free]]
+  * [[:en:obe:kt:adultery|adulteress]]
+
+===== Translation Notes: =====
+
+Paul gives an example of the principle he stated in [[:en:bible:notes:rom:07:01|7:1]].
+
+  * **she will be called an adulteress** - The one who does the calling is not clear, so be as general as possible: "they will call her an adulteress." Alternate translations: "people will call her an adulteress" or "God will consider her an adulteress." (See: [[:en:ta:translate:active|]])
+
+===== Links: =====
+
+  * **[[:en:bible:notes:rom:questions:comprehension:07|Romans Chapter 07 Comprehension Questions]]**
+**[[:en:bible:notes:rom:07:01|<<]] | [[:en:bible:notes:rom:07:04|>>]]**
+
+~~DISCUSSION~~{{tag>publish}}
+
+~~NOCACHE~~

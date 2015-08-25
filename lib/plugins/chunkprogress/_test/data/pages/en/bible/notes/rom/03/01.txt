@@ -1,0 +1,48 @@
+====== Romans 03:1-2 ======
+
+===== TFT: =====
+
+<usfm>
+\v 1 \add Someone may object to this, saying\add*, "\add If being circumcised does not cause God to accept us Jews\add*, there is no advantage in being a Jew \add over being a non-Jew\add*.\f + \ft Or: is there any advantage in being a Jew \add over being a non-Jew\add*? \f* \f + \ft rhetorical question \f* Being circumcised does not benefit \add us Jews at all\add*!"
+\v 2 \add I would reply that being Jews\add* benefits\add us\add* in many ways \f + \ft hyperbole \f*. First of all, it benefits us because it was to \add our ancestors\add* that God's words, \add words that contain his promises\add*, were given \f + \ft Or:that \add God\add* gave his words, \add words that contain his promises\add* \f*.
+</usfm>
+
+===== UDB: =====
+
+<usfm>
+\v 1 Someone may object to this, saying, "If being circumcised does not cause God to accept us Jews, there is no advantage in being a Jew over being a non-Jew. Being circumcised does not benefit us Jews at all!"
+\v 2 I would reply that being Jews benefits us in many ways. First of all, it benefits us because it was to our ancestors that God spoke his words, words that show us who he is.
+</usfm>
+
+===== ULB: =====
+
+<usfm>
+\c 3
+\p
+\v 1 Then what advantage has the Jew? And what is the benefit of circumcision?
+\v 2 It is great in every way. First of all, they were entrusted with revelation from God.
+</usfm>
+
+===== Important Terms: =====
+
+  * [[:en:obe:other:jew|Jew]]
+  * [[:en:obe:kt:circumcise|circumcision]]
+  * [[:en:obe:kt:reveal|revelation]]
+  * [[:en:obe:kt:god|God]]
+
+===== Translation Notes: =====
+
+Paul again takes up his imaginary argument with a Jewish person, answering the questions such a person might have. 
+
+  * **Then what advantage has the Jew? And what is the benefit of circumcision?** - Alternate translation: "Then Jewish people have no benefit from God's covenant, even though God promised they would!" (See: [[:en:ta:translate:rhetoricalquestion|Rhetorical Question]])
+  * **It is great**  - "There is much advantage."
+  * **First**  -Alternate translations: "First in order of time", or "Most certainly" (see UDB) or "Most importantly."
+
+===== Links: =====
+
+  * **[[:en:bible:notes:rom:questions:comprehension:03|Romans Chapter 03 Comprehension Questions]]**
+**[[:en:bible:notes:rom:02:28|<<]] | [[:en:bible:notes:rom:03:03|>>]]**
+
+~~DISCUSSION~~{{tag>publish}}
+
+~~NOCACHE~~
