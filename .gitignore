@@ -9,7 +9,6 @@ conf/local.php.bak
 .idea
 nbproject/
 vendor/
-composer.*
 
 obs-diffs/
 

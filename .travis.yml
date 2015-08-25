@@ -3,4 +3,8 @@ language: php
 php:
   - 5.4
 
-script: cd _test && phpunit --verbose --stderr
+before_script:
+  - composer install
+
+script:
+  - cd _test && phpunit --verbose --stderr
