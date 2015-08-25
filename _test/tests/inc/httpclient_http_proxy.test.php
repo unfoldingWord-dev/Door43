@@ -9,9 +9,6 @@ class httpclient_http_proxy_test extends DokuWikiTest {
      * @group internet
      */
     function test_simpleget(){
-
-        $this->markTestSkipped('Skipping because the certificate on proxy.andrwe.org in not valid.');
-
         $http = new HTTPMockClient();
         // proxy provided by  Andrwe Lord Weber <dokuwiki@andrwe.org>
         $http->proxy_host = 'proxy.andrwe.org';
