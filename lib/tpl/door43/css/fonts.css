@@ -1,15 +1,14 @@
 @font-face {
   font-family: 'Noto Sans';
-  src: local("Noto Sans"), local("Noto Sans");
+  src: local("Noto Sans"), local("NotoSans");
   src: url("fonts/noto/notosans-regular.woff2") format("woff2"), url("fonts/noto/notosans-regular.woff") format("woff");
 }
 @font-face {
   font-family: 'Noto Sans';
   font-weight: bold;
-  src: local("Noto Sans Ethiopic"), local("NotoSansEthiopic");
+  src: local("Noto Sans"), local("NotoSans");
   src: url("fonts/noto/notosans-bold.woff2") format("woff2"), url("fonts/noto/notosans-bold.woff") format("woff");
 }
-
 
 @font-face {
   font-family: 'Noto Sans Ethiopic';
@@ -30,5 +29,5 @@
 :lang(ti),
 :lang(tir),
 :lang(tig) {
-  font-family: 'Noto Sans Ethiopic', sans-serif;
+  font-family: 'Noto Sans Ethiopic', inherit, sans-serif;
 }
