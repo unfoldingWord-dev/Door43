@@ -1,0 +1,49 @@
+====== Romans 08:9-10 ======
+
+===== TFT: =====
+
+<usfm>
+\v 9 But we do not have to let our self-directed nature \add control us\add*. Instead, we can \add let\add* God's Spirit \add control us\add*, because he lives within us. If people do not have \add living in them\add* the Spirit \add who comes from\add* Christ, they do not belong to Christ.
+\v 10 But since Christ \add is living in you\f + \ft Or: us \f* by his Spirit, although\add* your\f + \ft Or: our \f* bodies \add are certain to\add* die because you\f + \ft Or: we \f* sin, your\f + \ft Or: our \f* spirits are alive because God has erased the record of your\f + \ft Or: our \f* sins.
+</usfm>
+
+===== UDB: =====
+
+<usfm>
+\v 9 But we do not have to let our old evil nature control us. Instead, we can let God's Spirit control us, because he lives within us. If the Spirit who comes from Christ does not live in people, they do not belong to Christ.
+\v 10 But since Christ is living in you by his Spirit, God views your bodies as dead, so you no longer have to sin. And he views your spirits as alive, because he has put you right with himself.
+</usfm>
+
+===== ULB: =====
+
+<usfm>
+\v 9 However, you are not in the flesh but in the Spirit, if it is true that God's Spirit lives in you. But if someone does not have the Spirit of Christ, he does not belong to him.
+\v 10 If Christ is in you, on the one hand the body is dead in respect to sin, but on the other hand, the spirit is alive in respect to righteousness.
+</usfm>
+
+===== Important Terms: =====
+
+  * [[:en:obe:kt:holyspirit|flesh]]
+  * [[:en:obe:kt:holyspirit|Spirit]]
+  * [[:en:obe:kt:christ|Christ]]
+  * [[:en:obe:kt:spirit|spirit]]
+  * [[:en:obe:kt:righteous|righteousness]]
+
+===== Translation Notes: =====
+
+  * **in the flesh but in the Spirit** - See how these phrases were translated in [[en:bible:notes:rom:08:03|8:5]].
+  * **Spirit...God's Spirit...Spirit of Christ** - These all refer to the Holy Spirit.
+  * **if it is true that** - This phrase does not mean Paul doubts that some of them have God's Spirit. Paul wants them to realize that they all have God's Spirit. Alternate translation: "since" or "because."
+  * **If Christ is in you** - How Christ lives in a person could be made explicit: "If Christ lives in you through the Holy Spirit." (See: [[en:ta:translate:implicitexplicit]])
+  * **on the one hand the body is dead in respect to sin, but on the other hand** - The phrases "on the one hand" and "but on the other hand" introduce two different ways of thinking about something. Alternate translation: "the body is dead in respect to sin, but." (See: [[en:ta:translate:idiom]])
+  * **the body is dead in respect to sin** - Possible meanings are 1) a person is spiritually dead to the power of sin or 2) the physical body will still die because of sin.
+  * **the spirit is alive in respect to righteousness** - Possible meanings are 1) a person is spiritually alive God has given him power to do what is right or 2) God will bring the person back to life after he dies because God is righteous and gives believers eternal life.
+  
+===== Links: =====
+
+  * **[[:en:bible:notes:rom:questions:comprehension:08|Romans Chapter 08 Comprehension Questions]]**
+**[[:en:bible:notes:rom:08:06|<<]] | [[:en:bible:notes:rom:08:11|>>]]**
+
+~~DISCUSSION~~{{tag>publish}}
+
+~~NOCACHE~~

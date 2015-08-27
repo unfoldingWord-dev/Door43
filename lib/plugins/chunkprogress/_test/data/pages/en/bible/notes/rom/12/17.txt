@@ -1,0 +1,55 @@
+====== Romans 12:17-18 ======
+
+===== TFT: =====
+
+<usfm>
+\v 17 Do not do evil \add deeds\add* to anyone \add who has done\add* evil to you. Act in a way that all people will recognize as good!
+\v 18 Live peacefully with other people whenever it is possible, to the extent that you \add can control the situation\add*.
+
+
+\p
+</usfm>
+
+===== UDB: =====
+
+<usfm>
+\v 17 Do not do evil deeds to anyone who has done evil to you. Act in a way that all people will know is good!
+\v 18 Live peacefully with other people whenever it is possible, to the extent that you can control the situation.
+
+
+
+
+\p
+</usfm>
+
+===== ULB: =====
+
+<usfm>
+\v 17 Repay no one evil for evil. Do good things in the sight of all people.
+\v 18 If possible, as much as it lies with you, be at peace with all people.
+</usfm>
+
+===== Important Terms: =====
+
+  * [[:en:obe:kt:evil|evil]]
+  * [[:en:obe:kt:good|good]]
+  * [[:en:obe:other:peoplegroup|people]]
+  * [[:en:obe:other:peace|peace]]
+
+===== Translation Notes: =====
+
+Paul tells the believers how to deal with those who do evil to them in 12:17-[[:en:bible:notes:rom:12:19|12:21]].
+
+  * **Repay no one evil for evil** - "Do not do evil things to someone who has done evil things to you."
+  * **Do good things in the sight of all people** - "Do things that everyone considers to be good."
+  * **as much as it lies with you, be at peace with all people** - "do whatever you can to live in peace with everyone."
+  * **as much as it lies with you** - "as for what you can control and are responsible for"
+
+===== Links: =====
+
+  * **[[:en:bible:notes:rom:questions:comprehension:12|Romans Chapter 12 Comprehension Questions]]**
+**[[:en:bible:notes:rom:12:14|<<]] | [[:en:bible:notes:rom:12:19|>>]]**
+
+~~DISCUSSION~~{{tag>publish}}
+
+~~NOCACHE~~

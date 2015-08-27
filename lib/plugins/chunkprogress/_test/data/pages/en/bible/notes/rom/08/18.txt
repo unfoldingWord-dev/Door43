@@ -1,0 +1,60 @@
+====== Romans 08:18-19 ======
+
+
+===== TFT: =====
+
+<usfm>
+\v 18 I consider that what we suffer during the present time is not worth \add paying attention to, because\add* the future splendor\f + \ft Or: glory \f* that will be revealed \f + \ft Or:that \add God\add* will reveal \f* to us \add is so great\add*.
+\v 19 The \add things that God has\add* created are very eagerly waiting for \add the time\add* \f + \ft personification, doublet \f* when God will reveal who his \add true\add* children are.
+</usfm>
+
+
+===== UDB: =====
+
+<usfm>
+\v 18 I think that what we suffer during the present time is not worth paying attention to, because the future splendor that God will reveal to us will be so great.
+\v 19 The things that God has created are very eagerly waiting for the time when he will reveal who his true children are.
+</usfm>
+
+
+===== ULB: =====
+
+<usfm>
+\p
+\v 18 For I consider that the sufferings of this present time are not worthy to be compared with the glory that will be revealed to us.
+\v 19 For the eager expectation of the creation waits for the revealing of the sons of God.
+</usfm>
+
+
+===== Important Terms: =====
+
+  * [[:en:obe:kt:suffer|sufferings]]
+  * [[:en:obe:kt:worthy|worthy]]
+  * [[:en:obe:kt:glory|glory]]
+  * [[:en:obe:kt:reveal|revealed, revealing]]
+  * [[:en:obe:other:creation|creation]] 
+  * [[:en:obe:kt:sonsofgod|sons of God]] 
+
+===== Translation Notes: =====
+
+    * **For** - This emphasizes "I consider." It does not mean "because."
+    * **I consider that...are not worthy to be compared with**  - "I do not think that...are worth comparing with." (See: [[en:ta:translate:active]])
+    * **will be revealed**  - Alternate translation with an active verb: "God will reveal" or "God will make known."
+    * **the eager expectation of the creation waits for**  - Everything that God created is described as a person eagerly waiting for something. (See: [[en:ta:translate:personification]])
+    * **for the revealing of the sons of God** - "for the time at which God will reveal his children"
+
+  
+===== Links: =====
+
+  * **[[en/bible/notes:rom/questions/comprehension/08|Romans Chapter 08 Comprehension Questions]]**
+
+ 
+
+**[[en/bible/notes/rom/08/16|<<]] | [[en/bible/notes/rom/08/20|>>]]**
+
+~~DISCUSSION~~
+
+
+{{tag>publish mgr}}
+
+~~NOCACHE~~

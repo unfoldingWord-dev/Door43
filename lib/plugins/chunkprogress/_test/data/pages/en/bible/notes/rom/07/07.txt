@@ -1,0 +1,48 @@
+====== Romans 07:7-8 ======
+
+===== TFT: =====
+
+<usfm>
+\v 7 \add Someone might object\add*, saying, "The laws \add that God gave Moses\add* must be evil \add if our sinful desires\add* are increased because of our knowing those laws. \f + \ft metonymy \f*\f + \ft Or: Are not the laws \add that God gave Moses\add* evil \add if they stir up our sinful desires\add*? \f*" \f + \ft metonymy, rhetorical question \f* \add I would reply\add* that they certainly are not \add evil, even though our sinful desires are increased\add*. What I would reply is that I, \add for example\add*, realized that \add what I was doing\add* was sinful only because\add of what is written\add* \f + \ft Or:\add Moses wrote\add* \f* \add in\add* those laws. For example, I realized that coveting \add is sinful\add* only because he wrote in those laws \f + \ft personification \f*, "You must not covet."
+\v 8 And because of what that commandment \add stated\add*, my sinful \add desire to have things that belong to others\add* \f + \ft personification \f* caused me to covet in many ways. \add Our desire to\add* sin is not stimulated \f + \ft metaphor \f* when there is no law \add that prohibits our doing sinful things\add*.
+</usfm>
+
+===== UDB: =====
+
+<usfm>
+\v 7 Someone might answer me, "Is it really true that people want to sin more if they know God's laws? Then those laws themselves must be evil." I would tell those people, "No, of course not! The Law is not evil! But it is true that I did not really know what sin was until I learned about it in the Law. For example, I did not realize that it is evil to desire what is not yours until I learned that the Law says, "You must not desire what is not yours."
+\v 8 And because of what that commandment stated, my sinful desire to have things that belong to others caused me to covet in many ways. But where there is no law, there is no sin.
+</usfm>
+
+===== ULB: =====
+
+<usfm>
+\p
+\v 7 What will we say then? Is the Law itself sin? May it never be. However, I would not have known sin, if not through the Law. For I would not have not known covetousness unless the Law said, "You must not covet."
+\v 8 But sin, taking the opportunity through the commandment, brought about every lust in me. For without the Law, sin is dead.
+</usfm>
+
+===== Important Terms: =====
+
+  * [[:en:obe:kt:lawofmoses|Law]]
+  * [[:en:obe:kt:sin|sin]]
+  * [[:en:obe:other:lust|covet]]
+  * [[:en:obe:other:commandment|commandment]]
+
+===== Translation Notes: =====
+
+  * **What will we say then?**  - Paul is introducing a new topic. (See: [[:en:ta:translate:rhetoricalquestion|Rhetorical Question]])
+  * **May it never be**  - "Of course that is not true!" This expression give the strongest possible negative answer to the preceding rhetorical question. You may want have a similar expression in your language that you could use here. See how you translated this in [[:en:bible:notes:rom:09:14|9:14]].
+  * **I would not have known sin…. …sin, taking the opportunity…brought about every lust**  - Paul is comparing sin to a person who can act. (See: [[:en:ta:translate:personification|Personification]])
+  * **sin, taking the opportunity through the commandment, brought about every lust in me**  - When God's law tell us not to do something, it is because we have been told not to do it that we want to do it more. "sin reminded me of the commandment not to desire wrong things, and so I desired those wrong things even more than before" or "because I wanted to sin, when I heard the commandment not to desire wrong things, I desired...."
+  * **sin** - "my desire to sin"
+  * **lust**  - This word includes both the desire to have what belongs to other people (see UDB) and wrong sexual desire.
+  * **without the Law, sin is dead**  - "if there were no Law, there would be no breaking of the Law, so there would be no sin"
+===== Links: =====
+
+  * **[[:en:bible:notes:rom:questions:comprehension:07|Romans Chapter 07 Comprehension Questions]]**
+**[[:en:bible:notes:rom:07:06|<<]] | [[:en:bible:notes:rom:07:09|>>]]**
+
+~~DISCUSSION~~{{tag>publish}}
+
+~~NOCACHE~~

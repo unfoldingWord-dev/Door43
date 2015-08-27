@@ -1,0 +1,50 @@
+====== Romans 10:1-3 ======
+
+===== TFT: =====
+
+<usfm>
+\v 1 My fellow believers, what I deeply desire and what I pray to God earnestly for is that he will save  \add my own people\add*, \add the Jews\add*.
+\v 2 I declare truthfully about them that although they zealously seek\f + \ft Or: very much want to know \f* God, they do not understand  \add how to seek, Or: know him correctly\add*.
+\v 3 They did not submit themselves to\f + \ft Or: accept \f* the way that God erases the record of people's sins. They did not  \add want to\add* recognize  \add that way\add* because they wanted him to do it their own way.
+</usfm>
+
+===== UDB: =====
+
+<usfm>
+\v 1 My fellow believers, what I greatly desire and what I pray to God earnestly for is that he will save my own people, the Jews.
+\v 2 I declare truthfully about them that although they greatly go after God, they do not understand how to go after him in the right way.
+\v 3 They do not know how God puts people right with himself. They want to put themselves right with God, so they do not accept what God wishes to do for them.
+</usfm>
+
+===== ULB: =====
+
+<usfm>
+\c 10
+\p
+\v 1 Brothers, my heart’s desire and my request to God is for them, for their salvation.
+\v 2 For I testify about them that they have a zeal for God, but not according to knowledge.
+\v 3 For they do not know of God’s righteousness, and they seek to establish their own righteousness; they did not subject themselves to the righteousness of God.
+</usfm>
+
+===== Important Terms: =====
+
+  * [[:en:obe:kt:brother|Brothers]]
+  * [[:en:obe:other:heart|heart's]]
+  * [[:en:obe:kt:god|God]]
+  * [[:en:obe:kt:salvation|salvation]]
+  * [[:en:obe:kt:testimony|testify]]
+  * [[:en:obe:kt:zealous|zeal]]
+  * [[:en:obe:kt:righteous|righteousness]]
+
+===== Translation Notes: =====
+
+  * **my heart’s desire**  - "my greatest desire"
+  * **is for them, for their salvation**  - "is that he will save the Jews"
+===== Links: =====
+
+  * **[[:en:bible:notes:rom:questions:comprehension:10|Romans Chapter 10 Comprehension Questions]]**
+**[[:en:bible:notes:rom:09:32|<<]] | [[:en:bible:notes:rom:10:04|>>]]**
+
+~~DISCUSSION~~{{tag>publish}}
+
+~~NOCACHE~~

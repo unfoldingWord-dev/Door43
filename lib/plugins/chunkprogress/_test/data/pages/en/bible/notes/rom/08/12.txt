@@ -1,0 +1,59 @@
+====== Romans 08:12-13 ======
+
+===== TFT: =====
+
+<usfm>
+\v 12 Therefore, my fellow believers, we must \add live as the Spirit directs us\add*. What we do not have to do is to live as our self-directed nature \add guides us\add*.
+\v 13 If you live the way your self-directed nature \add directs\add*, you will surely not live \add eternally\add* \f + \ft Or: will surely be eternally separated from God \f*. But if by \add the power of God's\add* Spirit you quit doing the \add sinful\add* things that your bodies \add desire\add* \f + \ft metaphor \f*, you will live eternally.
+
+
+\p
+</usfm>
+
+===== UDB: =====
+
+<usfm>
+\v 12 Therefore, my fellow believers, we must live as the Spirit directs us. What we do not have to do is live as our old evil nature wants us to.
+\v 13 If you do what your old evil nature wants, you will surely not live forever with God. But if you allow the Spirit to stop you doing those things, then you will live forever.
+
+
+
+
+
+\p
+</usfm>
+
+===== ULB: =====
+
+<usfm>
+\p
+\v 12 So then, brothers, we are debtors, but not to the flesh to live according to the flesh.
+\v 13 For if you live according to the flesh, you are about to die, but if by the Spirit you put to death the body's actions, you will live.
+</usfm>
+
+===== Important Terms: =====
+
+  * [[en:obe:kt:brother|brother]]
+  * [[en:obe:kt:flesh|flesh]]
+  * [[en:obe:kt:life|live]]
+  * [[:en:obe:kt:death|die]]
+  * [[en:obe:kt:holyspirit|Spirit]]
+
+===== Translation Notes: =====
+
+  * **So then** - "Because what I have just told you is true"
+  * **brothers** - "fellow believers"
+  * **we are debtors** – Paul is comparing obedience to paying back a debt. Alternate translation: "we need to obey." (See: [[en:ta:translate:metaphor|]])
+  * **but not to the flesh to live according to the flesh** - "but we do not need to obey our sinful desires"
+  * **For if you live according to the flesh** - "Because if you live only to please your sinful desires"
+  * **you are about to die** - "you will certainly be separated from God"
+  * **but if by the Spirit you put to death the body's actions** - Alternate translation, as a new sentence: "But if by the power of the Holy Spirit you stop obeying your sinful desires."
+
+===== Links: =====
+
+  * **[[:en:bible:notes:rom:questions:comprehension:08|Romans Chapter 08 Comprehension Questions]]**
+**[[:en:bible:notes:rom:08:11|<<]] | [[:en:bible:notes:rom:08:14|>>]]**
+
+~~DISCUSSION~~{{tag>publish}}
+
+~~NOCACHE~~

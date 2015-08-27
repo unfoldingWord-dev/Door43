@@ -1,0 +1,62 @@
+====== Romans 08:23-25 ======
+
+
+===== TFT: =====
+
+<usfm>
+\v 23 Not only \add do those things groan\add*, but we ourselves also groan inwardly. We who have \add God's\add* Spirit, who is like a partial gift \f + \ft metaphor \f* we have received as we wait for \add the future glory, groan inwardly\add*. We groan while we wait eagerly for the time when we will receive our \add full\add* rights as God's adopted children. That \add will include\add* his freeing our bodies \add from the things that hinder us on earth. He will do this by giving us new bodies\add*.
+\v 24 Ever since we were saved \f + \ft Or:since \add God\add* saved us \f*, we have continued to confidently expect \add that future glory\add*. If we had what we waited for, we would not \add need to\add* wait for it any longer, because those who have something, certainly do not continue to wait for it!\f + \ft Or: will they continue to wait for it? \f* \f + \ft rhetorical question \f*
+\v 25 But because we keep waiting expectantly to receive what we do not yet have, we wait for it eagerly and patiently\f + \ft Or: perseveringly \f*.
+
+
+\p
+</usfm>
+
+
+===== UDB: =====
+
+<usfm>
+\v 23 Not only do those things groan, but we ourselves also groan inwardly. We who have God's Spirit, who is like a partial gift we have received as we wait for everything that God will give us, we groan inwardly. We groan while we wait eagerly for the time when we will receive our full rights as God's adopted children. That will include his freeing our bodies from the things that hinder us on earth. He will do this by giving us new bodies.
+\v 24 Ever since God saved us, we have continued to confidently expect those wonderful things in the future. If we had now the things for which we have been waiting, we would not need to wait for them any longer. After all, if you have something that you have wanted to get, you certainly do not need to wait for it any longer.
+\v 25 But because we keep waiting expectantly to receive what we do not yet have, we wait for it eagerly and patiently.
+
+
+
+
+\p
+</usfm>
+
+
+===== ULB: =====
+
+<usfm>
+\v 23 But not only that, but even we ourselves, who have the first fruits of the Spirit—even we ourselves groan within ourselves, waiting for our adoption, the redemption of our body.
+\v 24 For in confidence we were saved. But confidence that is seen is not confidence, for who is confident of what he now sees?
+\v 25 But if we are confident about what we do not yet see, then we wait with patience for it.
+</usfm>
+
+
+===== Important Terms: =====
+
+  * [[:en:obe:kt:firstfruit|first fruits]]
+  * [[:en:obe:kt:holyspirit|Spirit]]
+  * [[:en:obe:kt:adoption|adoption]]
+  * [[:en:obe:kt:redeem|redemption]] 
+  * [[en:obe:kt:confidence]]
+
+
+===== Translation Notes: =====
+
+  * ** who have the first fruits of the Spirit** - Paul compares believers receiving the Holy Spirit to the first fruits and vegetables of the season to grow. This emphasizes that the Holy Spirit is only the beginning of what God will give to believers. (See: [[en:ta:translate:metaphor]])
+  * **waiting for our adoption, the redemption of our body** - It can be made explicit what God will redeem us from: "waiting for when we are fully members of God's family and he saves our bodies from decay and death." (See: [[en:ta:translate:implicitexplicit]])
+  * **For in confidence we were saved** - This can be translated with an active verb: "For we are confident that God saved us." (See: [[en:ta:translate:active]])
+  * **But confidence that is seen is not confidence, for who is confident of what he now sees?** - Paul uses a question to help his audience understand what "confidence" is. Alternate translation: "But if we are confidently waiting that means we do not yet have what we want. No one can confidently wait if he already has what he wants." (See: [[en:ta:translate:rhetoricalquestion]]).
+
+===== Links: =====
+
+  * **[[:en:bible:notes:rom:questions:comprehension:08|Romans Chapter 08 Comprehension Questions]]**
+**[[:en:bible:notes:rom:08:20|<<]] | [[:en:bible:notes:rom:08:26|>>]]**
+
+~~DISCUSSION~~{{tag>publish mgr confidence}}
+
+~~NOCACHE~~

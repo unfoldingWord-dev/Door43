@@ -1,0 +1,84 @@
+====== Romans 03:15-18 ======
+
+
+===== TFT: =====
+
+<usfm>
+\v 15 They go quickly\f + \ft Or: are eager \f* to murder people \f + \ft metonymy \f*.
+\q
+\v 16 Wherever they go they ruin everything and make \add people\add* miserable \f + \ft metonymy \f*.
+\q
+\v 17 They have not\f + \ft Or: never \f* known how \add to live\add* peacefully \add with other people\add*.
+\q
+\v 18 They absolutely refuse to fear\f + \ft Or: reverence \f* God \f + \ft synecdoche \f*!
+
+
+\p
+</usfm>
+
+
+===== UDB: =====
+
+<usfm>
+\v 15 They go quickly to murder people.
+\q
+\v 16 Wherever they go they ruin everything and make people miserable.
+\q
+\v 17 They have not known how to live peacefully with other people.
+\q
+\v 18 They absolutely refuse to honor God!
+
+
+
+
+\p
+</usfm>
+
+
+===== ULB: =====
+
+<usfm>
+\q
+\v 15 Their feet are swift to pour out blood.
+\q
+\v 16 Destruction and suffering are in their paths.
+\q
+\v 17 They have not known a way of peace.
+\q
+\v 18 There is no fear of God before their eyes."
+</usfm>
+
+
+===== Important Terms: =====
+
+  * [[:en:obe:kt:blood|blood]]
+  * [[:en:obe:other:destruction|destruction]]
+  * [[:en:obe:kt:suffer|suffering]]
+  * [[:en:obe:other:peace|peace]]
+  * [[:en:obe:kt:fear|fear]]
+  * [[:en:obe:kt:god|God]]
+ 
+
+===== Translation Notes: =====
+
+
+    * **Their...their...They...their** - the "Jews and Greeks" of [[:en:bible:notes:rom:03:09|3:9]]
+    * **Their feet are swift to pour out blood** - "They are in a hurry to harm and kill people" (See: [[en:ta:translate:Synecdoche]])
+    * **Destruction and suffering are in their paths** - "Everyone lives in such a way that they intentionally try to destroy others and cause them to suffer" (See: [[en:ta:translate:Metonymy]])
+    * **a way of peace** - A "way" is a "road" or "path." Alternate translation: "how to live at peace with others" (See: [[en:ta:translate:Metaphor]])
+    * **There is no fear of God before their eyes** - "Everyone refuses to give God the respect he deserves" (See: [[en:ta:translate:Synecdoche]])
+  
+===== Links: =====
+
+  * **[[en/bible/notes:rom/questions/comprehension/03|Romans Chapter 03 Comprehension Questions]]**
+
+ 
+
+**[[en/bible/notes/rom/03/13|<<]] | [[en/bible/notes/rom/03/19|>>]]**
+
+~~DISCUSSION~~
+
+
+{{tag>publish}}
+
+~~NOCACHE~~

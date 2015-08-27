@@ -1,0 +1,63 @@
+====== Romans 12:6-8 ======
+
+
+===== TFT: =====
+
+<usfm>
+\v 6 \add Instead\add*, since each one of us can do various things that differ according to the abilities that \add God has\add* given to us, \add we should do them diligently and cheerfully!\add* Those whom \add God has enabled\add* to speak messages from him \add should speak\add* what corresponds to what they believe \add God told them\add*.
+\v 7 \add Those whom God has enabled\add* to serve \add others\add* should do that. \add Those whom God has enabled\add* to teach \add his truth\add* should do that.
+\v 8 Those \add whom God has enabled to\add* encourage\f + \ft Or: exhort \f* \add his people\add* should do that. Those who share \add their goods\f + \ft Or: money \f* with others\add* should do it sincerely\f + \ft Or: generously \f*. Those who govern \add the congregation\f + \ft Or: others\add* \f* should do it wholeheartedly. Those who help the needy should do it cheerfully.
+
+
+\p
+</usfm>
+
+
+===== UDB: =====
+
+<usfm>
+\v 6 Instead, since each one of us can do different things because God makes us different from each other, we should do them eagerly and cheerfully! Those of us to whom God gives messages for others should speak in a way that is like how we trust God.
+\v 7 Those whom God has enabled to serve others should do that. Those whom God has enabled to teach his truth should do that.
+\v 8 Those whom God has enabled to encourage others should do it wholeheartedly. Those whom God has enabled to give things to others, should do so without holding back. Those whom God has enabled to manage others should do it, and do it with care. Those whom God has enabled to help the needy should do it cheerfully.
+
+
+
+
+\p
+</usfm>
+
+
+===== ULB: =====
+
+<usfm>
+\v 6 We have different gifts according to the grace that was given to us. If one's gift is prophecy, let it be done according to the proportion of his faith.
+\v 7 If one's gift is service, let him serve. If one has the gift of teaching, let him teach.
+\v 8 If one's gift is encouragement, let him encourage; if one's gift is giving, let him do it generously; if one's gift is leading, let it be done with care; if one's gift is in showing mercy, let it be done with  cheerfulness.
+</usfm>
+
+
+===== Important Terms: =====
+
+  * [[en:obe:kt:gift]]
+  * [[:en:obe:kt:grace|grace]]
+  * [[:en:obe:kt:prophet|prophecy]]
+  * [[:en:obe:kt:faith|faith]]
+  * [[:en:obe:other:serve|serve]]
+  * [[en:obe:kt:teacher|teach]]
+  * [[:en:obe:kt:mercy|mercy]]
+
+===== Translation Notes: =====
+
+  * **We have different gifts according to the grace that was given to us** - "God has freely given each us the ability to do different things for him"
+  * **let it be done according to the proportion of his faith** - Possible meanings are 1) "let him speak prophecies that do not go beyond the amount of faith God has given us" or 2) "let him speak prophecies that agree with the teachings of our faith."
+  * **if one's gift is giving**  - The meaning can be made explicit: "if one has the gift of giving money or other goods to people in need." (See: [[en:ta:translate:implicitexplicit]])
+
+
+===== Links: =====
+
+  * **[[:en:bible:notes:rom:questions:comprehension:12|Romans Chapter 12 Comprehension Questions]]**
+**[[:en:bible:notes:rom:12:04|<<]] | [[:en:bible:notes:rom:12:09|>>]]**
+
+~~DISCUSSION~~{{tag>publish}}
+
+~~NOCACHE~~
