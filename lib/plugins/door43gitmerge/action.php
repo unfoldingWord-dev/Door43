@@ -529,6 +529,38 @@ class action_plugin_door43gitmerge extends DokuWiki_Action_Plugin {
         if ($this->show_merge_interface) {
 
             $this->_load_existing_frames();
+
+            if (!empty($this->updated_frames)) {
+                foreach($this->updated_frames as $frame=>$devices) {
+                    foreach($devices as $device) {
+                        if (empty($this->devices[$device])) {
+                            $this->devices[$device] = $this->_user($device);
+                        }
+                    }
+                }
+                @asort($this->devices);
+                @reset($this->devices);
+
+                if (AUTH_ADMIN) {
+                    echo '<form id="door43gitmerge-power-controls">';
+                    echo '<div class="chapter-version-selection">';
+                    echo $this->getLang('show').': ';
+                    echo '<select class="door43gitmerge-diff-switcher-all">';
+                    echo '<option value="all" selected="selected">'.$this->getLang('all').'</option>';
+                    foreach ($this->devices as $device=>$user) {
+                        echo '<option value="'.$device.'">'.$user['name'].'</option>';
+                    }
+                    unset($device, $user);
+                    echo '</select>';
+                    echo '</div>';
+                    echo '<div class="door43gitmerge-actions actions-all">';
+                    echo '<input type="button" id="door43gitmerge-dismiss-all-from-device" value="'.$this->getLang('dismiss_all').'"> ';
+                    echo '<input type="button" id="door43gitmerge-apply-all-from-device" value="'.$this->getLang('apply_all').'">';
+                    echo '</div>';
+                    echo '</form>';
+                }
+            }
+
             echo p_render('xhtml', p_get_instructions('====== ' . $this->title . ' ======'), $info);
 
             //loop through frames with available merge options
@@ -540,81 +572,121 @@ class action_plugin_door43gitmerge extends DokuWiki_Action_Plugin {
                 foreach ($this->updated_frames as $frame => $data_array) {
                     $this->render_merge_interface_frame($frame, $data_array);
                 }
-                ?>
-                <script type="text/javascript">/*<![CDATA[*/
-                    jQuery(document).on('change input', '.door43gitmerge-diff-switcher', function () {
-                        var elem = jQuery(this)
-                            , lastDevice = elem.attr('data-last-value')
-                            , device = elem.val()
-                            , frame = elem.attr('data-frame')
-                            , diffs = jQuery('#frame-' + frame + ' .table');
-                        if (lastDevice == device) return;
-                        lastDevice = device;
-                        if (device == 'all') diffs.addClass('show');
-                        else diffs.removeClass('show').filter('[data-device="' + device + '"]').addClass('show');
-                    });
-                    jQuery(document).on('click', '.door43gitmerge-actions input[type="submit"]', function (e) {
-                        e.preventDefault();
-                        var elem = jQuery(this)
-                            , page = elem.attr('data-page')
-                            , frame = elem.attr('data-frame')
-                            , device = elem.attr('data-device')
-                            , action = elem.attr('data-action')
-                            , frameElem = jQuery('#frame-' + frame)
-                            , contentElem = frameElem.find('.frame-content')
-                            , inputElems = frameElem.find('input[type="submit"], input[type="button"], input[type="reset"], textarea, select')
-                            , contentElem = frameElem.find('.door43gitmerge-content')
-                            , selectElem = frameElem.find('.door43gitmerge-diff-switcher');
-                        frameElem.addClass('disabled');
-                        inputElems.attr('disabled', 'disabled');
-                        jQuery.post(
-                            DOKU_BASE + 'lib/exe/ajax.php',
-                            {
-                                call: 'door43gitmerge',
-                                action: action,
-                                page: page,
-                                frame: frame,
-                                device: device,
-                                content: contentElem.val()
-                            },
-                            function (data) {
-                                if (data.status) {
-                                    inputElems.removeAttr('disabled');
-                                    frameElem.removeClass('disabled').find('.table[data-device="' + device + '"]').remove();
-                                    if (data.action == 'apply' || data.action == 'apply-edited') contentElem.html(data.content);
-                                    selectElem.children('option[value="' + device + '"]').remove();
-                                    selectElem.trigger('change');
-                                    if (!frameElem.find('.table').length) setTimeout(function () {
-                                        frameElem.remove();
-                                        if (!jQuery('.frame').length) {
-                                            jQuery('.page.group .level1').html('All available merges have been managed. <a href="?">Return to Page</a>');
-                                            window.scrollTo(0, 0);
-                                        }
-                                    }, 100);
-                                }
-                            },
-                            'json'
-                        );
-                    });
-                    jQuery(document).on('click', '.door43gitmerge-edit', function (e) {
-                        e.preventDefault();
-                        var elem = jQuery(this)
-                            , frame = elem.attr('data-frame')
-                            , device = elem.attr('data-device')
-                            , formElem = jQuery('.table[data-frame="' + frame + '"][data-device="' + device + '"] form');
-                        formElem.addClass('mode-edit');
-                    });
-                    jQuery(document).on('click', '.door43gitmerge-cancel', function (e) {
-                        e.preventDefault();
-                        var elem = jQuery(this)
-                            , frame = elem.attr('data-frame')
-                            , device = elem.attr('data-device')
-                            , formElem = jQuery('.table[data-frame="' + frame + '"][data-device="' + device + '"] form');
-                        formElem[0].reset();
-                        formElem.removeClass('mode-edit');
-                    });
-                    /*!]]>*/</script>
-                <?php
+?>
+<script type="text/javascript">/*<![CDATA[*/
+jQuery(document).on('change input', '.door43gitmerge-diff-switcher-all', function(){
+  var elem = jQuery(this)
+    , device = elem.val()
+    , selects = jQuery('.door43gitmerge-diff-switcher')
+    , powerControlButtonContainer = jQuery('#door43gitmerge-power-controls .actions-all');
+  if (device=='all') {
+    selects.each(function(i){
+      jQuery(this).children().removeAttr('selected').first().attr('selected', 'selected');
+    });
+    powerControlButtonContainer.addClass('no-available-options');
+  }
+  else {
+    selects.children().removeAttr('selected').filter('[value="'+device+'"]').attr('selected', 'selected');
+    powerControlButtonContainer.removeClass('no-available-options');
+  }
+  jQuery(selects).trigger('change');
+});
+jQuery(document).on('change input', '.door43gitmerge-diff-switcher', function(){
+  var elem = jQuery(this)
+    , frameContainer = elem.parents('.frame')
+    , lastDevice = elem.attr('data-last-value')
+    , device = elem.val()
+    , selectedItem = elem.children().filter('[selected]').attr('value')
+    , frame = elem.attr('data-frame')
+    , diffs = jQuery('#frame-'+frame+' .table');
+  if (typeof selectedItem==='undefined') {
+    frameContainer.addClass('no-available-options');
+    return;
+  }
+  frameContainer.removeClass('no-available-options');
+  if (lastDevice==device) return;
+  lastDevice = device;
+  if (device=='all') diffs.addClass('show');
+  else diffs.removeClass('show').filter('[data-device="'+device+'"]').addClass('show');
+});
+jQuery(document).on('click', '.door43gitmerge-actions input[type="submit"]', function(e){
+  e.preventDefault();
+  var elem = jQuery(this)
+    , page = elem.attr('data-page')
+    , frame = elem.attr('data-frame')
+    , device = elem.attr('data-device')
+    , action = elem.attr('data-action')
+    , frameElem = jQuery('#frame-'+frame)
+    , contentElem = frameElem.find('.frame-content')
+    , inputElems = frameElem.find('input[type="submit"], input[type="button"], input[type="reset"], textarea, select')
+    , contentElem = frameElem.find('.door43gitmerge-content')
+    , selectElem = frameElem.find('.door43gitmerge-diff-switcher');
+  frameElem.addClass('disabled');
+  inputElems.attr('disabled', 'disabled');
+  jQuery.post(
+    DOKU_BASE + 'lib/exe/ajax.php',
+    {
+      call: 'door43gitmerge',
+      action: action,
+      page: page,
+      frame: frame,
+      device: device,
+      content: contentElem.val()
+    },
+    function(data) {
+      if (data.status) {
+        inputElems.removeAttr('disabled');
+        frameElem.removeClass('disabled').find('.table[data-device="'+device+'"]').remove();
+        if (data.action=='apply' || data.action=='apply-edited') contentElem.html(data.content);
+        selectElem.children('option[value="'+device+'"]').remove();
+        selectElem.trigger('change');
+        if (!frameElem.find('.table').length) setTimeout(function(){
+          frameElem.remove();
+          if (!jQuery('.frame').length) {
+            jQuery('.page.group .level1').html('All available merges have been managed. <a href="?">Return to Page</a>');
+            window.scrollTo(0,0);
+          }
+        }, 100);
+      }
+    },
+    'json'
+  );
+});
+jQuery(document).on('click', '.door43gitmerge-edit', function(e){
+  e.preventDefault();
+  var elem = jQuery(this)
+    , frame = elem.attr('data-frame')
+    , device = elem.attr('data-device')
+    , formElem = jQuery('.table[data-frame="'+frame+'"][data-device="'+device+'"] form');
+  formElem.addClass('mode-edit');
+});
+jQuery(document).on('click', '.door43gitmerge-cancel', function(e){
+  e.preventDefault();
+  var elem = jQuery(this)
+    , frame = elem.attr('data-frame')
+    , device = elem.attr('data-device')
+    , formElem = jQuery('.table[data-frame="'+frame+'"][data-device="'+device+'"] form');
+  formElem[0].reset();
+  formElem.removeClass('mode-edit');
+});
+jQuery(document).on('click', '#door43gitmerge-dismiss-all-from-device', function(e){
+  e.preventDefault();
+  var availableFrames = jQuery('.frame:not(.no-available-options)')
+    , availableFramesDismissButtons = availableFrames.find('.table.show .door43gitmerge-dismiss');
+  availableFramesDismissButtons.trigger('click');
+});
+jQuery(document).on('click', '#door43gitmerge-apply-all-from-device', function(e){
+  e.preventDefault();
+  var availableFrames = jQuery('.frame:not(.no-available-options)')
+    , availableFramesApplyButtons = availableFrames.find('.table.show .door43gitmerge-apply');
+  availableFramesApplyButtons.trigger('click');
+});
+jQuery(document).on('ready', function(){
+  var elem = jQuery('.door43gitmerge-diff-switcher-all');
+  elem.trigger('change');
+});
+/*!]]>*/</script>
+<?php
             } else {
                 echo 'All available merges have been managed. <a href="?">Return to Page</a>';
             }
@@ -671,25 +743,22 @@ class action_plugin_door43gitmerge extends DokuWiki_Action_Plugin {
         echo '<div class="frame-version-selection">';
         echo $this->getLang('version_to_compare') . ': ';
         echo '<select class="door43gitmerge-diff-switcher" data-frame="' . $frame . '">';
-        foreach ($data_array as $device) {
+        foreach ($user_array as $device=>$user) {
             if (!isset($first_device)) {
                 $first_device = $device;
             }
-            if (empty($this->devices[$device])) {
-                $this->devices[$device] = $this->_user($device);
-            }
-            echo '<option value="' . $device . '">' . $this->devices[$device]['name'] . '</option>';
+            echo '<option value="'.$device.'">'.$user['name'].'</option>';
         }
         echo '<option value="all">' . $this->getLang('show_all') . '</option>';
-        unset($device, $new_content);
+        unset($device, $user);
         echo '</select>';
         echo '</div>';
         echo '<div class="frame-diffs">';
-        foreach ($data_array as $device) {
+        foreach ($user_array as $device => $user) {
             $new_content = $this->_content($device, $frame);
-            $this->html_diff($frame, $device, $current_content, $new_content, $device == $first_device);
+            $this->html_diff($frame, $device, $current_content, $new_content, $device==$first_device);
         }
-        unset($device, $new_content, $first_device);
+        unset($device, $user, $new_content, $first_device);
         echo '</div>';
         echo '</div>';
     }

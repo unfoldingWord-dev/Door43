@@ -44,59 +44,6 @@
     background-position: right -45px;
 }
 
-/* merge interface */
-/** /
-.frame:not(.needs-merge) {
-  display: none;
-}
-.needs-merge .versions::before {
-  content: 'Click on the best translation for this frame:';
-  display: inline-block;
-  font-weight: bold;
-  margin-bottom: 1em;
-}
-.needs-merge .versions {
-  margin-bottom: 2em;
-}
-.needs-merge .versions label::before {
-  text-align: right;
-  position: absolute;
-  top: -8px;
-  font-size: 10px;
-  line-height: 14px;
-  padding: 0 .5em;
-  background: #ccc;
-}
-.needs-merge .ver-current::before {
-  content: 'Current Version';
-}
-.needs-merge .ver-new::before {
-  content: attr(data-user-name) '\'s Version';
-}
-.versions input {
-  position: absolute;
-  left: -9999px;
-}
-.needs-merge .versions label {
-  display: block;
-  position: relative;
-  border: solid 2px #ccc;
-  background: #fff;
-  margin-bottom: 1em;
-  padding: .5em;
-}
-.needs-merge .versions label p:last-child {
-  margin-bottom: 0;
-}
-.needs-merge .versions input:checked+label {
-  border-color: #9f9;
-  background: #cfc;
-}
-.needs-merge .versions input:checked+label::before {
-  background: #9f9;
-}
-/**/
-
 .frame-diffs>.table:not(.show) {
   position: absolute;
   height: 0;
@@ -123,10 +70,16 @@
 }
 .frame {
   position: relative;
+  z-index: 1;
   margin: 10px 0;
   padding-top: 1em;
 }
-.frame+.frame:after {
+.frame::after {
+  content: '';
+  display: block;
+  clear: right;
+}
+.frame:not(.no-available-options)+.frame:after {
   content: '';
   position: absolute;
   top: 0;
@@ -143,6 +96,10 @@
   bottom: -5px;
   background: rgba(0,0,0,.25);
 }
+.no-available-options {
+  position: absolute;
+  top: -9999px;
+}
 .frame-content-container {
   position: relative;
 }
@@ -155,8 +112,20 @@
   right: 0;
   border-bottom: solid 1px #ccc;
 }
+#door43gitmerge-power-controls {
+  float: right;
+  position: relative;
+  z-index: 2;
+  padding: .5em 0 1em;
+}
 .frame-version-selection {
   padding: 1.5em 0 1em;
+}
+.chapter-version-selection,
+.frame-version-selection {
   text-align: center;
   font-weight: bold;
+}
+#door43gitmerge-power-controls .actions-all {
+  position: relative;
 }
