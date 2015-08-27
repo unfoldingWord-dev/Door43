@@ -24,6 +24,7 @@
 
 * { font-family: 'Noto Sans', sans-serif; }
 
+/* Replaced with below
 :lang(am),
 :lang(gez),
 :lang(ti),
@@ -31,3 +32,29 @@
 :lang(tig) {
   font-family: 'Noto Sans Ethiopic', inherit, sans-serif;
 }
+*/
+
+
+/* use Abyssinica SIL - Regular in .woff format */
+@font-face {
+  font-family: AbyssinicaSILW;
+  src: url("fonts/sil/AbyssinicaSIL-R.woff");
+}
+
+:lang(am),
+:lang(gez),
+:lang(ti),
+:lang(tir),
+:lang(tig) {
+  font-family: AbyssinicaSILW, inherit, sans-serif;
+}
+
+/* remove bold styling from heading for Ethopic languages, per SIL example of this font's usage*/
+:lang(am) h1,
+:lang(gez) h1,
+:lang(ti) h1,
+:lang(tir) h1,
+:lang(tig) h1 {
+   font-weight: normal;
+}
+

@@ -1,0 +1,7 @@
+base door43search
+author aaron.tse@gmail.com
+email aaron.tse@gmail.com
+date 2015-07-29
+name door43search plugin
+desc List pages an namespaces recursively
+url 
