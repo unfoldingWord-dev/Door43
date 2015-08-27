@@ -29,5 +29,5 @@
 :lang(ti),
 :lang(tir),
 :lang(tig) {
-  font-family: 'Noto Sans Ethiopic', inherit, sans-serif;
+  font-family: 'Noto Sans Ethiopic', 'Noto Sans', sans-serif;
 }
