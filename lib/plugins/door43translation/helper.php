@@ -17,14 +17,14 @@ if (!defined('DS')) define('DS', DIRECTORY_SEPARATOR);
  */
 class helper_plugin_door43translation extends helper_plugin_translation {
 
-    var $LN = array(); // hold native names
-
     /**
      * Class constructor
      */
     function __construct() {
-
         parent::helper_plugin_translation();
+
+        // load language names
+        $this->LN = confToHash(dirname(__FILE__) . '/lang/langnames.txt');
     }
 
     /**

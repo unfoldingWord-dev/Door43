@@ -19,9 +19,11 @@ module.exports = function (config) {
             'lib/scripts/jquery/jquery-ui.js',
             'lib/scripts/jquery/jquery.cookie.js',
             'lib/scripts/jquery/jquery-migrate.js',
-            '_test/jasmine-jquery.js',
             'lib/scripts/tree.js',
             'lib/scripts/*.js',
+
+            // file needed for jasmine fixtures
+            '_test/jasmine-jquery.js',
 
             // served fixtures
             { pattern: 'lib/plugins/**/_test/fixtures/**/*.html', included: false, served: true },
@@ -29,6 +31,10 @@ module.exports = function (config) {
             // served script files
             { pattern: 'lib/plugins/**/*.js', included: false, served: true },
 
+            // files to include
+            'lib/plugins/door43translation/script.js',
+
+            // tests to run
             'lib/plugins/**/_test/*.test.js'
         ],
         // test results reporter to use
@@ -63,6 +69,6 @@ module.exports = function (config) {
 
         // Continuous Integration mode
         // if true, it capture browsers, run tests and exit
-        singleRun: true
+        singleRun: false
     });
 };

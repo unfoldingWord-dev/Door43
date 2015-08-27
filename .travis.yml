@@ -16,4 +16,4 @@ before_script:
 script:
   - cd _test
   - phpunit --verbose --stderr
-  - ../node_modules/karma/bin/karma start --browsers PhantomJS
+  - ../node_modules/karma/bin/karma start --single-run --browsers PhantomJS
