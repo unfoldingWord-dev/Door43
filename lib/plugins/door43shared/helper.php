@@ -79,6 +79,10 @@ class helper_plugin_door43shared extends DokuWiki_Plugin {
      * @param string $dir
      */
     public function delete_directory_and_files($dir) {
+
+        // don't try to delete it if it doesn't exist
+        if (!file_exists($dir)) return;
+
         foreach(scandir($dir) as $file) {
             if ('.' === $file || '..' === $file) continue;
             if (is_dir("$dir/$file")) $this->delete_directory_and_files("$dir/$file");

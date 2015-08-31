@@ -19,6 +19,9 @@ if (empty($door43shared)) {
 $door43shared->loadActionBase();
 $door43shared->loadAjaxHelper();
 
+/**
+ * Class action_plugin_door43obsdocupload_ExportButtons
+ */
 class action_plugin_door43obsdocupload_ExportButtons extends Door43_Action_Plugin {
 
     private $tempDir;
@@ -59,6 +62,9 @@ class action_plugin_door43obsdocupload_ExportButtons extends Door43_Action_Plugi
         Door43_Ajax_Helper::register_handler($controller, 'download_obs_template_docx', array($this, 'download_obs_template_docx'));
     }
 
+    /**
+     * @return int
+     */
     private function showToolstripButton() {
 
         if ($this->showButton == -1) {
@@ -110,9 +116,13 @@ class action_plugin_door43obsdocupload_ExportButtons extends Door43_Action_Plugi
 
         if ($this->showToolstripButton() !== 1) return;
 
+        // export button
         $btn = '<li id="getObsTemplateBtn"><a href="#" class=" tx-export" rel="nofollow" ><span>' . $this->getLang('getTemplate') . '</span></a></li>';
-
         $event->data['items']['export_obs_template'] = $btn;
+
+        //// import button
+        //$btn = '<li id="importObsDocxBtn"><a href="#" class=" tx-import" rel="nofollow" ><span>' . $this->getLang('importDocx') . '</span></a></li>';
+        //$event->data['items']['import_obs_docx'] = $btn;
     }
 
     public function get_obs_doc_export_dlg() {
@@ -132,6 +142,10 @@ class action_plugin_door43obsdocupload_ExportButtons extends Door43_Action_Plugi
         echo $html;
     }
 
+    /**
+     * @param string $url
+     * @return string
+     */
     private function get_image_file_from_url($url) {
 
         // URL for hyperlinks: https://api.unfoldingword.org/obs/jpg/1/en/360px/obs-en-01-01.jpg
@@ -257,6 +271,9 @@ class action_plugin_door43obsdocupload_ExportButtons extends Door43_Action_Plugi
         }
     }
 
+    /**
+     * @return string
+     */
     private function get_temp_dir() {
 
         if (empty($this->tempDir)) {
