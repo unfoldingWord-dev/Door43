@@ -23,7 +23,10 @@ $door43shared->loadPluginBase();
  */
 class syntax_plugin_door43obs_CreateNow extends Door43_Syntax_Plugin {
 
+    /**
+     * Class constructor
+     */
     function __construct() {
-        parent::__construct('obscreatenow', 'button_obs_create.html');
+        parent::__construct('obscreatenow', 'obs_options.html');
     }
 }
