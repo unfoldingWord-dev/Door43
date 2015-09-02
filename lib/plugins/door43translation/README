@@ -1,0 +1,9 @@
+# To activate this plugin:
+
+Add the following code in your template's main.php in the directory lib/tpl/<yourTemplate>/ (or put it in a lib/tpl/default/pageheader.html file for the old default template)
+
+
+    <?php
+    $translation = plugin_load('helper','door43translation');
+    if ($translation) echo $translation->showTranslations();
+    ?>

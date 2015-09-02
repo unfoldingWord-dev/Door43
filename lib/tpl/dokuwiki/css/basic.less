@@ -101,7 +101,9 @@ address {
     padding: 0;
 }
 
-div {
+div,
+video,
+audio {
     margin: 0;
     padding: 0;
 }
@@ -226,7 +228,6 @@ video,
 audio {
     max-width: 100%;
 }
-#IE7 img,
 #IE8 img,
 button img {
     max-width: none;
@@ -412,11 +413,6 @@ button,
     padding: .1em .5em;
     cursor: pointer;
 }
-#IE7 input.button,
-#IE7 button {
-    line-height: 1.4;
-    overflow: visible;
-}
 
 input[type=submit]:hover,
 input[type=submit]:active,
@@ -453,6 +449,7 @@ input[disabled],
 button[disabled],
 select[disabled],
 textarea[disabled],
+option[disabled],
 input[readonly],
 button[readonly],
 select[readonly],

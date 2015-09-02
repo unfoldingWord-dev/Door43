@@ -18,6 +18,9 @@
  * @author Egil Hansen <egil@rosetta.no>
  * @author Thomas Juberg <Thomas.Juberg@Gmail.com>
  * @author Boris <boris@newton-media.no>
+ * @author Christopher Schive <chschive@frisurf.no>
+ * @author Patrick <spill.p@hotmail.com>
+ * @author Danny Buckhof <daniel.raknes@hotmail.no>
  */
 $lang['menu']                  = 'Tilbakestillingsbehandler';
 $lang['filter']                = 'Søk etter søppelmeldinger';

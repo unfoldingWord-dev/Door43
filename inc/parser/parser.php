@@ -61,24 +61,27 @@ class Doku_Parser {
 
     var $connected = false;
 
-    function addBaseMode(& $BaseMode) {
-        $this->modes['base'] =& $BaseMode;
+    /**
+     * @param Doku_Parser_Mode_base $BaseMode
+     */
+    function addBaseMode($BaseMode) {
+        $this->modes['base'] = $BaseMode;
         if ( !$this->Lexer ) {
             $this->Lexer = new Doku_Lexer($this->Handler,'base', true);
         }
-        $this->modes['base']->Lexer =& $this->Lexer;
+        $this->modes['base']->Lexer = $this->Lexer;
     }
 
     /**
      * PHP preserves order of associative elements
      * Mode sequence is important
      */
-    function addMode($name, & $Mode) {
+    function addMode($name, Doku_Parser_Mode_Interface $Mode) {
         if ( !isset($this->modes['base']) ) {
             $this->addBaseMode(new Doku_Parser_Mode_base());
         }
-        $Mode->Lexer = & $this->Lexer;
-        $this->modes[$name] =& $Mode;
+        $Mode->Lexer = $this->Lexer;
+        $this->modes[$name] = $Mode;
     }
 
     function connectModes() {
@@ -125,49 +128,105 @@ class Doku_Parser {
 }
 
 //-------------------------------------------------------------------
+
 /**
- * This class and all the subclasses below are
- * used to reduce the effort required to register
- * modes with the Lexer. For performance these
- * could all be eliminated later perhaps, or
- * the Parser could be serialized to a file once
- * all modes are registered
+ * Class Doku_Parser_Mode_Interface
+ *
+ * Defines a mode (syntax component) in the Parser
+ */
+interface Doku_Parser_Mode_Interface {
+    /**
+     * returns a number used to determine in which order modes are added
+     */
+    public function getSort();
+
+    /**
+     * Called before any calls to connectTo
+     * @return void
+     */
+    function preConnect();
+
+    /**
+     * Connects the mode
+     *
+     * @param string $mode
+     * @return void
+     */
+    function connectTo($mode);
+
+    /**
+     * Called after all calls to connectTo
+     * @return void
+     */
+    function postConnect();
+
+    /**
+     * Check if given mode is accepted inside this mode
+     *
+     * @param string $mode
+     * @return bool
+     */
+    function accepts($mode);
+}
+
+/**
+ * This class and all the subclasses below are used to reduce the effort required to register
+ * modes with the Lexer.
  *
  * @author Harry Fuecks <hfuecks@gmail.com>
  */
-class Doku_Parser_Mode {
-
+class Doku_Parser_Mode implements Doku_Parser_Mode_Interface {
     /**
      * @var Doku_Lexer $Lexer
      */
     var $Lexer;
-
     var $allowedModes = array();
 
-    // returns a number used to determine in which order modes are added
     function getSort() {
         trigger_error('getSort() not implemented in '.get_class($this), E_USER_WARNING);
     }
 
-    // Called before any calls to connectTo
     function preConnect() {}
-
-    // Connects the mode
     function connectTo($mode) {}
-
-    // Called after all calls to connectTo
     function postConnect() {}
-
     function accepts($mode) {
         return in_array($mode, (array) $this->allowedModes );
     }
+}
 
+/**
+ * Basically the same as Doku_Parser_Mode but extends from DokuWiki_Plugin
+ *
+ * Adds additional functions to syntax plugins
+ */
+class Doku_Parser_Mode_Plugin extends DokuWiki_Plugin implements Doku_Parser_Mode_Interface {
+    /**
+     * @var Doku_Lexer $Lexer
+     */
+    var $Lexer;
+    var $allowedModes = array();
+
+    /**
+     * Sort for applying this mode
+     *
+     * @return int
+     */
+    function getSort() {
+        trigger_error('getSort() not implemented in '.get_class($this), E_USER_WARNING);
+    }
+
+    function preConnect() {}
+    function connectTo($mode) {}
+    function postConnect() {}
+    function accepts($mode) {
+        return in_array($mode, (array) $this->allowedModes );
+    }
 }
 
 //-------------------------------------------------------------------
 class Doku_Parser_Mode_base extends Doku_Parser_Mode {
 
-    function Doku_Parser_Mode_base() {
+    function __construct() {
         global $PARSER_MODES;
 
         $this->allowedModes = array_merge (
@@ -189,7 +248,7 @@ class Doku_Parser_Mode_base extends Doku_Parser_Mode {
 //-------------------------------------------------------------------
 class Doku_Parser_Mode_footnote extends Doku_Parser_Mode {
 
-    function Doku_Parser_Mode_footnote() {
+    function __construct() {
         global $PARSER_MODES;
 
         $this->allowedModes = array_merge (
@@ -354,7 +413,10 @@ class Doku_Parser_Mode_formatting extends Doku_Parser_Mode {
             ),
         );
 
-    function Doku_Parser_Mode_formatting($type) {
+    /**
+     * @param string $type
+     */
+    function __construct($type) {
         global $PARSER_MODES;
 
         if ( !array_key_exists($type, $this->formatting) ) {
@@ -408,7 +470,7 @@ class Doku_Parser_Mode_formatting extends Doku_Parser_Mode {
 //-------------------------------------------------------------------
 class Doku_Parser_Mode_listblock extends Doku_Parser_Mode {
 
-    function Doku_Parser_Mode_listblock() {
+    function __construct() {
         global $PARSER_MODES;
 
         $this->allowedModes = array_merge (
@@ -442,7 +504,7 @@ class Doku_Parser_Mode_listblock extends Doku_Parser_Mode {
 //-------------------------------------------------------------------
 class Doku_Parser_Mode_table extends Doku_Parser_Mode {
 
-    function Doku_Parser_Mode_table() {
+    function __construct() {
         global $PARSER_MODES;
 
         $this->allowedModes = array_merge (
@@ -586,7 +648,7 @@ class Doku_Parser_Mode_file extends Doku_Parser_Mode {
 //-------------------------------------------------------------------
 class Doku_Parser_Mode_quote extends Doku_Parser_Mode {
 
-    function Doku_Parser_Mode_quote() {
+    function __construct() {
         global $PARSER_MODES;
 
         $this->allowedModes = array_merge (
@@ -620,7 +682,7 @@ class Doku_Parser_Mode_acronym extends Doku_Parser_Mode {
     var $acronyms = array();
     var $pattern = '';
 
-    function Doku_Parser_Mode_acronym($acronyms) {
+    function __construct($acronyms) {
         usort($acronyms,array($this,'_compare'));
         $this->acronyms = $acronyms;
     }
@@ -667,7 +729,7 @@ class Doku_Parser_Mode_smiley extends Doku_Parser_Mode {
     var $smileys = array();
     var $pattern = '';
 
-    function Doku_Parser_Mode_smiley($smileys) {
+    function __construct($smileys) {
         $this->smileys = $smileys;
     }
 
@@ -700,7 +762,7 @@ class Doku_Parser_Mode_wordblock extends Doku_Parser_Mode {
     var $badwords = array();
     var $pattern = '';
 
-    function Doku_Parser_Mode_wordblock($badwords) {
+    function __construct($badwords) {
         $this->badwords = $badwords;
     }
 
@@ -735,7 +797,7 @@ class Doku_Parser_Mode_entity extends Doku_Parser_Mode {
     var $entities = array();
     var $pattern = '';
 
-    function Doku_Parser_Mode_entity($entities) {
+    function __construct($entities) {
         $this->entities = $entities;
     }
 

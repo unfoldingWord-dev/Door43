@@ -27,7 +27,7 @@ class namespace_plugin_chunkprogress_test extends DokuWikiTest
      * Set up before class
      * @return nothing
      */
-    public static function setUpBeforeClass() 
+    public static function setUpBeforeClass()
     {
         parent::setUpBeforeClass();
 
@@ -39,7 +39,7 @@ class namespace_plugin_chunkprogress_test extends DokuWikiTest
      * Set up before test
      * @return nothing
      */
-    public function setUp() 
+    public function setUp()
     {
         // Enable our plugin
         $this->pluginsEnabled[] = 'chunkprogress';
@@ -55,8 +55,8 @@ class namespace_plugin_chunkprogress_test extends DokuWikiTest
     }
 
     /**
-     * Regression test: run activity by namespace report, verify correct values 
-     * appear 
+     * Regression test: run activity by namespace report, verify correct values
+     * appear
      *
      * @return nothing
      */
@@ -75,15 +75,19 @@ class namespace_plugin_chunkprogress_test extends DokuWikiTest
             "/TOTAL<[^>]*><[^>]*>6<[^>]*><[^>]*>35<[^>]*><[^>]*>30/", $content
         );
 
+        // need to do this because strtotime uses the timezone on the server
+        $start_timestamp = strtotime('2015-07-01');
+        $end_timestamp = strtotime('2015-07-04');
+
         // Verify timestamps were understood correctly
         $this->assertRegExp(
-            "/start_timestamp<[^>]*><[^>]*>1435723200/", $content
+            "/start_timestamp<[^>]*><[^>]*>{$start_timestamp}/", $content
         );
         $this->assertRegExp(
-            "/end_timestamp<[^>]*><[^>]*>1435982400/", $content
+            "/end_timestamp<[^>]*><[^>]*>{$end_timestamp}/", $content
         );
 
-        // Verify page counts 
+        // Verify page counts
         $this->assertRegExp(
             "/debug_num_pages_in_ns<[^>]*><[^>]*>70/", $content
         );

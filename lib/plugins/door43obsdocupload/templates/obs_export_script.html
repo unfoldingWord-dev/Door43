@@ -99,12 +99,21 @@
 
     function exportSourceTemplate() {
 
-        var lang = document.getElementById('selectObsDocxSource');
-        if (!lang.value) return;
+        var langCode;
+        var draft = document.getElementById('useDraft').checked ? 1 : 0;
+
+        if (draft) {
+            langCode = NS;
+        }
+        else {
+            var lang = document.getElementById('selectObsDocxSource');
+            if (!lang.value) return;
+            langCode = lang.value;
+        }
 
         var images = document.getElementById('includeObsDocxImages').checked ? 1 : 0;
 
-        var url = DOKU_BASE + 'lib/exe/ajax.php?call=download_obs_template_docx&lang=' + lang.value + '&img=' + images;
+        var url = DOKU_BASE + 'lib/exe/ajax.php?call=download_obs_template_docx&lang=' + langCode + '&img=' + images + '&draft=' + draft;
 
         window.open(url, '_blank');
 
@@ -114,6 +123,14 @@
     function updateSourceLanguageList() {
         jQuery('#selectObsDocxSource').find('option[value!=""]').remove();
         populateAvailableOBSLanguages(document.getElementById('includeSub3').checked);
+    }
+
+    function enableDisableObsExportControls() {
+
+        var draft = document.getElementById('useDraft').checked;
+
+        document.getElementById('selectObsDocxSource').disabled = draft;
+        document.getElementById('includeSub3').disabled = draft;
     }
 </script>
 <div id="door43ObsExportDiv" title="@exportTitle@" style="display: none">

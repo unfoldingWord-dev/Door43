@@ -1,5 +1,0 @@
-#unix  -- do not change or move
-order allow,deny
-allow from all
-
-Options -Indexes

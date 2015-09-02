@@ -23,7 +23,7 @@ $CHUNKPROGRESS_STATUS_TAGS = array(
  *
  * @param array $params The parameters given by the user
  *
- * @return An updated $params array with data filled in
+ * @return array An updated $params array with data filled in
  */
 function validateEndDate($params)
 {
@@ -47,7 +47,7 @@ function validateEndDate($params)
  *
  * @param array $params The parameters given by the user
  *
- * @return An updated $params array with data filled in
+ * @return array An updated $params array with data filled in
  */
 function validateStartDate($params)
 {
@@ -70,7 +70,7 @@ function validateStartDate($params)
  *
  * @param array $params The parameters given by the user
  *
- * @return An updated $params array with data filled in
+ * @return array An updated $params array with data filled in
  */
 function validateNamespace($params)
 {
@@ -90,7 +90,7 @@ function validateNamespace($params)
  * @param string $match           The text matched by the plugin pattern
  * @param array  $expected_params The parameters the plugin is expecting
  *
- * @return an array of found parameters.
+ * @return array An array of found parameters.
  */
 function getParams($match, $expected_params)
 {
@@ -128,7 +128,7 @@ function getParams($match, $expected_params)
         }
     } catch (Exception $exception) {
         $params["message"]
-            = "EXCEPTION: Please tell a developer about this: " . $e->getMessage();
+            = "EXCEPTION: Please tell a developer about this: " . $exception->getMessage();
     }
 
     // Explode users
@@ -147,7 +147,7 @@ function getParams($match, $expected_params)
  * @param string $page_id     The page ID
  * @param string $revision_id The revision ID, or "" if current revision
  *
- * @return the (numeric) date the page was modified
+ * @return mixed The (numeric) date the page was modified
  */
 function getPageTimestamp($page_id, $revision_id)
 {
@@ -167,7 +167,7 @@ function getPageTimestamp($page_id, $revision_id)
  * @param string $page_id     The page ID
  * @param string $revision_id The revision ID, or "" if current revision
  *
- * @return the name of the user responsible for the revision, or "" if the user
+ * @return string The name of the user responsible for the revision, or "" if the user
  * could not be determined
  */
 function getPageUser($page_id, $revision_id)
@@ -199,7 +199,7 @@ function getPageUser($page_id, $revision_id)
  * @param string $page_id     The page ID
  * @param string $revision_id The revision ID, or "" if current revision
  *
- * @return An array containing the tags found (the array may be empty but will
+ * @return array An array containing the tags found (the array may be empty but will
  * not be null)
  */
 function getTags($page_id, $revision_id)
@@ -224,7 +224,7 @@ function getTags($page_id, $revision_id)
  *
  * @param array $tags Array of tags
  *
- * @return An array containing the status tags found (the array may be empty
+ * @return array An array containing the status tags found (the array may be empty
  * but will not be null)
  */
 function getStatusFromTags($tags)
@@ -240,7 +240,7 @@ function getStatusFromTags($tags)
  * @param string $page_id     The page ID
  * @param string $revision_id The revision ID, or "" if current revision
  *
- * @return An array containing the status tags found (the array may be empty
+ * @return array An array containing the status tags found (the array may be empty
  * but will not be null)
  */
 function getStatusTags($page_id, $revision_id)
@@ -261,7 +261,7 @@ function getStatusTags($page_id, $revision_id)
  *
  * @param array $namespace The namespace to search
  *
- * @return An array containing the details of each page in the namespace
+ * @return array An array containing the details of each page in the namespace
  */
 function getAllPagesInNamespace($namespace)
 {
@@ -270,7 +270,7 @@ function getAllPagesInNamespace($namespace)
     $data = array();
     $opts = array("depth" => 0);
     $dir = str_replace(":", DIRECTORY_SEPARATOR, $namespace);
-    search($data, $conf["datadir"], search_allpages, $opts, $dir);
+    search($data, $conf["datadir"], 'search_allpages', $opts, $dir);
     return $data;
 }
 
@@ -278,11 +278,9 @@ function getAllPagesInNamespace($namespace)
 /**
  * Debug function to echo out an array
  *
- * @param array $array  the array to print
- * @param array $title  optional title to print above the array
- * @param array $indent optional number of spaces to indent
- *
- * @return Nothing
+ * @param array  $array  the array to print
+ * @param string $title  optional title to print above the array
+ * @param int    $indent optional number of spaces to indent
  */
 function debugEchoArray($array, $title="(array)", $indent=0)
 {

@@ -18,8 +18,7 @@ require_once "utils.php";
  * Convenience function to get just the status tags from a page revision.
  *
  * @param array $params The parameters given by the user
- *
- * @return An updated $params array with data filled in
+ * @return array An updated $params array with data filled in
  */
 function handleActivityByNamespaceReport($params)
 {
@@ -184,15 +183,13 @@ function handleActivityByNamespaceReport($params)
     return $params;
 }
 
-
 /**
  * Renders activity report to the page
- * @param string $mode     Name of the format mode
- * @param obj    $renderer ref to the Doku_Renderer
- * @param obj    $params   Parameter object returned by handle()
- * @return Nothing?
+ * @param string        $mode     Name of the format mode
+ * @param Doku_Renderer $renderer ref to the Doku_Renderer
+ * @param array         $params   Parameter object returned by handle()
  */
-function renderActivityByNamespaceReport($mode, &$renderer, $params)
+function renderActivityByNamespaceReport($mode, Doku_Renderer $renderer, $params)
 {
     global $CHUNKPROGRESS_STATUS_TAGS;
 
