@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "26213d0ba9f74189812c310136217de7",
+    "hash": "b3f2e61a8bca2648bd3b39abdc245616",
     "packages": [
         {
             "name": "easybook/geshi",
