@@ -36,6 +36,7 @@
 :lang(tir),
 :lang(tig) {
   font-family: AbyssinicaSILW, 'Noto Sans Ethiopic', 'Noto Sans', sans-serif;
+  word-spacing: .02em;
 }
 
 /* remove bold styling from heading for Ethopic languages, per SIL example of this font's usage*/
