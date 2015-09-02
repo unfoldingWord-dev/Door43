@@ -98,7 +98,7 @@ class syntax_plugin_chunkprogress extends DokuWiki_Syntax_Plugin
      * @param obj    $handler ref to the Doku_Handler object
      * @return the parameters for render()
      */
-    public function handle($match, $state, $pos, Doku_Handler $handler)
+    public function handle($match, $state, $pos, &$handler)
     {
         global $CHUNKPROGRESS_REPORT_TYPES;
 
@@ -156,7 +156,7 @@ class syntax_plugin_chunkprogress extends DokuWiki_Syntax_Plugin
      * @param obj    $params   Parameter object returned by handle()
      * @return Nothing?
      */
-    public function render($mode, Doku_Renderer $renderer, $params)
+    public function render($mode, &$renderer, $params)
     {
         $render_start_timestamp = microtime(true);
 
