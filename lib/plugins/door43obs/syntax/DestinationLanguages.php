@@ -32,8 +32,8 @@ class syntax_plugin_door43obs_DestinationLanguages extends Door43_Syntax_Plugin 
 
         $html = '<label for="selectObsDestination">@destinationLabel@</label>&nbsp;';
 
-        /* @var $translation helper_plugin_translation */
-        $translation = plugin_load('helper','translation');
+        /* @var $translation helper_plugin_door43translation */
+        $translation = plugin_load('helper','door43translation');
         $html .= $translation->renderAutoCompleteTextBox('selectObsDestination', 'selectObsDestination', 'width: 250px;');
 
         // Set the label text.

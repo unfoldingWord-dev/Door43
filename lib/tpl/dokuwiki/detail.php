@@ -27,7 +27,7 @@ header('X-UA-Compatible: IE=edge,chrome=1');
 </head>
 
 <body>
-    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <!--[if lte IE 8 ]><div id="IE8"><![endif]-->
     <div id="dokuwiki__site"><div id="dokuwiki__top" class="site <?php echo tpl_classes(); ?>">
 
         <?php include('tpl_header.php') ?>
@@ -36,6 +36,7 @@ header('X-UA-Compatible: IE=edge,chrome=1');
 
             <!-- ********** CONTENT ********** -->
             <div id="dokuwiki__content"><div class="pad group">
+                <?php html_msgarea() ?>
 
                 <?php if(!$ERROR): ?>
                     <div class="pageId"><span><?php echo hsc(tpl_img_getTag('IPTC.Headline',$IMG)); ?></span></div>
@@ -49,43 +50,27 @@ header('X-UA-Compatible: IE=edge,chrome=1');
                     if($ERROR):
                         echo '<h1>'.$ERROR.'</h1>';
                     else: ?>
-
+                        <?php if($REV) echo p_locale_xhtml('showrev');?>
                         <h1><?php echo nl2br(hsc(tpl_img_getTag('simple.title'))); ?></h1>
 
                         <?php tpl_img(900,700); /* parameters: maximum width, maximum height (and more) */ ?>
 
                         <div class="img_detail">
+                            <?php tpl_img_meta(); ?>
                             <dl>
-                                <?php
-                                    // @todo: logic should be transferred to backend
-                                    $config_files = getConfigFiles('mediameta');
-                                    foreach ($config_files as $config_file) {
-                                        if(@file_exists($config_file)) {
-                                            include($config_file);
-                                        }
-                                    }
-
-                                    foreach($fields as $key => $tag){
-                                        $t = array();
-                                        if (!empty($tag[0])) {
-                                            $t = array($tag[0]);
-                                        }
-                                        if(is_array($tag[3])) {
-                                            $t = array_merge($t,$tag[3]);
-                                        }
-                                        $value = tpl_img_getTag($t);
-                                        if ($value) {
-                                            echo '<dt>'.$lang[$tag[1]].':</dt><dd>';
-                                            if ($tag[2] == 'date') {
-                                                echo dformat($value);
-                                            } else {
-                                                echo hsc($value);
-                                            }
-                                            echo '</dd>';
-                                        }
-                                    }
-                                ?>
+                            <?php
+                            echo '<dt>'.$lang['reference'].':</dt>';
+                            $media_usage = ft_mediause($IMG,true);
+                            if(count($media_usage) > 0){
+                                foreach($media_usage as $path){
+                                    echo '<dd>'.html_wikilink($path).'</dd>';
+                                }
+                            }else{
+                                echo '<dd>'.$lang['nothingfound'].'</dd>';
+                            }
+                            ?>
                             </dl>
+                            <p><?php echo $lang['media_acl_warning']; ?></p>
                         </div>
                         <?php //Comment in for Debug// dbg(tpl_img_getTag('Simple.Raw'));?>
                     <?php endif; ?>
@@ -109,23 +94,17 @@ header('X-UA-Compatible: IE=edge,chrome=1');
                     <div class="tools">
                         <ul>
                             <?php
-                                $data = array();
-                                $data['view'] = 'detail';
-
-                                // View in media manager; @todo: transfer logic to backend
-                                $imgNS = getNS($IMG);
-                                $authNS = auth_quickaclcheck("$imgNS:*");
-                                if (($authNS >= AUTH_UPLOAD) && function_exists('media_managerURL')) {
-                                    $mmURL = media_managerURL(array('ns' => $imgNS, 'image' => $IMG));
-                                    $data['items']['mediaManager'] = '<li><a href="'.$mmURL.'" class="mediaManager"><span>'.$lang['img_manager'].'</span></a></li>';
-                                }
-
-                                // Back to [ID]; @todo: transfer logic to backend
-                                $data['items']['img_backto'] = '<li><a href="'.wl($ID).'" class="back"><span>'.$lang['img_backto'].' '.$ID.'</span></a></li>';
+                                $data = array(
+                                    'view' => 'detail',
+                                    'items' => array(
+                                        'mediaManager' => tpl_action('mediaManager', true, 'li', true, '<span>', '</span>'),
+                                        'img_backto' =>   tpl_action('img_backto',   true, 'li', true, '<span>', '</span>'),
+                                    )
+                                );
 
                                 // the page tools can be amended through a custom plugin hook
                                 $evt = new Doku_Event('TEMPLATE_PAGETOOLS_DISPLAY', $data);
-                                if($evt->advise_before()){
+                                if($evt->advise_before()) {
                                     foreach($evt->data['items'] as $k => $html) echo $html;
                                 }
                                 $evt->advise_after();
@@ -141,6 +120,6 @@ header('X-UA-Compatible: IE=edge,chrome=1');
         <?php include('tpl_footer.php') ?>
     </div></div><!-- /site -->
 
-    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+    <!--[if lte IE 8 ]></div><![endif]-->
 </body>
 </html>

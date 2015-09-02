@@ -34,8 +34,6 @@ class parserutils_get_renderer_test extends DokuWikiTest {
 
     // test fallback succeeds
     function test_p_get_renderer_fallback() {
-        $this->markTestSkipped('Skipped because it is failing');
-
         global $conf;
 
         $old_conf = $conf;

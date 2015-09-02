@@ -18,8 +18,7 @@ require_once "utils.php";
  * Convenience function to get just the status tags from a page revision.
  *
  * @param array $params The parameters given by the user
- *
- * @return An updated $params array with data filled in
+ * @return array An updated $params array with data filled in
  */
 function handleActivityByUserReport($params)
 {
@@ -45,7 +44,7 @@ function handleActivityByUserReport($params)
     $num_revisions = 0;
     $num_revisions_within_dates = 0;
     $num_revisions_with_matching_users = 0;
-    $page_count = 0;
+
     $last_revision_by_user_by_page = array();
     $page_current_revisions = array();
     foreach ($pages as $page) {
@@ -79,7 +78,6 @@ function handleActivityByUserReport($params)
         $num_revisions += count($revision_ids);
 
         // Consider each revision
-        $prev_status_tags = array();
         foreach ($revision_ids as $revision_id) {
             if ($revision_id < $start_timestamp
                 or $revision_id > $params["end_timestamp"]
@@ -175,13 +173,12 @@ function handleActivityByUserReport($params)
 
 
 /**
- * Renders activity report to the page
- * @param string $mode     Name of the format mode
- * @param obj    $renderer ref to the Doku_Renderer
- * @param obj    $params   Parameter object returned by handle()
- * @return Nothing?
+ * @param string        $mode     Name of the format mode
+ * @param Doku_Renderer $renderer ref to the Doku_Renderer
+ * @param array         $params   Parameter object returned by handle()
  */
-function renderActivityByUserReport($mode, &$renderer, $params)
+function renderActivityByUserReport(/** @noinspection PhpUnusedParameterInspection */
+    $mode, Doku_Renderer $renderer, $params)
 {
     global $CHUNKPROGRESS_STATUS_TAGS;
 

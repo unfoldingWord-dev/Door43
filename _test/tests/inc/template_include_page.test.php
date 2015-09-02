@@ -23,8 +23,6 @@ class template_pagetitle_test extends DokuWikiTest {
     }
 
     function test_adminTitle() {
-        $this->markTestSkipped('Skipped because it is failing');
-
         global $ID,$ACT;
 
         $ID = 'foo:bar';
@@ -34,8 +32,6 @@ class template_pagetitle_test extends DokuWikiTest {
     }
 
     function test_adminPluginTitle() {
-        $this->markTestSkipped('Skipped because it is failing');
-
         global $ID,$ACT,$INPUT,$conf;
 
         if (!plugin_load('admin','revert')) {
@@ -52,8 +48,6 @@ class template_pagetitle_test extends DokuWikiTest {
     }
 
     function test_nonPageFunctionTitle() {
-        $this->markTestSkipped('Skipped because it is failing');
-
         global $ID,$ACT;
 
         $ID = 'foo:bar';
@@ -63,8 +57,6 @@ class template_pagetitle_test extends DokuWikiTest {
     }
 
     function test_pageFunctionTitle() {
-        $this->markTestSkipped('Skipped because it is failing');
-
         global $ID,$ACT;
 
         $ID = 'foo:bar';

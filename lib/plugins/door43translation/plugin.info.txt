@@ -1,0 +1,7 @@
+base   door43translation
+author Phil Hopper
+email  https://unfoldingword.org/contact/
+date   2015-08-24
+name   door43translation plugin
+desc   An extension of the translation plugin
+url    https://github.com/Door43/dokuwiki-plugin-shared

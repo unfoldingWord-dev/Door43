@@ -7,8 +7,9 @@ conf/plugins.local.php.bak
 conf/local.php.bak
 
 .idea
+nbproject/
 vendor/
-composer.*
+composer.lock
 
 obs-diffs/
 

@@ -95,7 +95,6 @@ ACL;
     // these two bytes are present in valid multi-byte UTF-8 characters.
     // this test will use one, 'ठ' (DEVANAGARI LETTER TTHA, e0 a4 a0).  There are many others. 
     function test_FS2867() {
-        $this->markTestSkipped('Fails every time.');
         global $USERINFO;
 
         $old_locale = setlocale(LC_ALL, '0');
