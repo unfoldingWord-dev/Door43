@@ -24,7 +24,7 @@
 	url = https://github.com/In-the-World/door43nsexport
 [submodule "lib/plugins/pageredirect"]
 	path = lib/plugins/pageredirect
-	url = https://github.com/glensc/dokuwiki-plugin-pageredirect
+	url = https://github.com/phillip-hopper/dokuwiki-plugin-pageredirect
 [submodule "lib/plugins/blockquote"]
 	path = lib/plugins/blockquote
 	url = https://github.com/dokufreaks/plugin-blockquote
