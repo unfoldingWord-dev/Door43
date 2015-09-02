@@ -81,16 +81,12 @@ class user_plugin_chunkprogress_test extends DokuWikiTest
             "/TOTAL<[^>]*><[^>]*><[^>]*><[^>]*><[^>]*><[^>]*>32/", $content
         );
 
-        // need to do this because strtotime uses the timezone on the server
-        $start_timestamp = strtotime('2015-07-01');
-        $end_timestamp = strtotime('2015-07-04');
-
         // Verify timestamps were understood correctly
         $this->assertRegExp(
-            "/start_timestamp<[^>]*><[^>]*>{$start_timestamp}/", $content
+            "/start_timestamp<[^>]*><[^>]*>1435723200/", $content
         );
         $this->assertRegExp(
-            "/end_timestamp<[^>]*><[^>]*>{$end_timestamp}/", $content
+            "/end_timestamp<[^>]*><[^>]*>1435982400/", $content
         );
 
         // Verify page counts 
