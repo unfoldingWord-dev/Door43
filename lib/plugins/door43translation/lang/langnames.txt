@@ -1744,6 +1744,8 @@ emw	Emplawas
 emx	Erromintxela
 emy	Epigraphic Mayan
 en	English
+en-x-demo1	English demo1
+en-x-demo2	English demo2
 ena	Apali
 enb	Markweeta
 enc	En
