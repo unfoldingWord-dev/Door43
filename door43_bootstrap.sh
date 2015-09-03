@@ -24,10 +24,10 @@ $DEBUG || trap 'popd > /dev/null' EXIT SIGHUP SIGTERM
 pushd $DOOR43_DIR > /dev/null
 
 echo 'Putting config files in place...'
-cp conf/local.php.dev conf/local.php
-cp conf/plugins.local.php.dev conf/plugins.local.php
-cp conf/acl.auth.php.dev conf/acl.auth.php
-cp conf/users.auth.php.dev conf/users.auth.php
+cp -n conf/local.php.dev conf/local.php
+cp -n conf/plugins.local.php.dev conf/plugins.local.php
+cp -n conf/acl.auth.php.dev conf/acl.auth.php
+cp -n conf/users.auth.php.dev conf/users.auth.php
 
 echo 'Making git configurations...'
 git config core.fileMode false
