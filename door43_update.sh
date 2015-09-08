@@ -23,13 +23,15 @@ $DEBUG && set -x
 pushd $DOOR43_DIR > /dev/null
 
 echo "Updating Door43..."
-git pull origin
+git pull 
 
 echo "Updating Submdoules..."
-$DOOR43_DIR/update_submodules.sh
+./update_submodules.sh
 
-echo "Updating Language Repos..."
-$DOOR43_DIR/update_languages.sh
+echo "Updating composer installed libraries..."
+php composer.phar update
+
+echo "If you want to update language content, please run $DOOR43_DIR/update_languages.sh"
 
 popd > /dev/null
 
