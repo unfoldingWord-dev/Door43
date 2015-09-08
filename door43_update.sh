@@ -22,9 +22,6 @@ $DEBUG && set -x
 
 pushd $DOOR43_DIR > /dev/null
 
-echo "Updating Door43..."
-git pull 
-
 echo "Updating Submdoules..."
 ./update_submodules.sh
 
