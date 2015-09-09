@@ -29,12 +29,7 @@ div.dokuwiki form.slackinvite_plugin label input {
     margin-left: 5px;
 }
 
-div.dokuwiki form.slackinvite_plugin input.button {
-    float: left;
-    display: block;
-    margin: 5px;
-}
-
+div.dokuwiki form.slackinvite_plugin button, 
 div.dokuwiki form.slackinvite_plugin input.button {
     float: left;
     display: block;
