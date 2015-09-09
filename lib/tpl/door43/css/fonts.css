@@ -1,15 +1,14 @@
 @font-face {
   font-family: 'Noto Sans';
-  src: local("Noto Sans"), local("Noto Sans");
+  src: local("Noto Sans"), local("NotoSans");
   src: url("fonts/noto/notosans-regular.woff2") format("woff2"), url("fonts/noto/notosans-regular.woff") format("woff");
 }
 @font-face {
   font-family: 'Noto Sans';
   font-weight: bold;
-  src: local("Noto Sans Ethiopic"), local("NotoSansEthiopic");
+  src: local("Noto Sans"), local("NotoSans");
   src: url("fonts/noto/notosans-bold.woff2") format("woff2"), url("fonts/noto/notosans-bold.woff") format("woff");
 }
-
 
 @font-face {
   font-family: 'Noto Sans Ethiopic';
@@ -22,13 +21,30 @@
   src: local("Noto Sans Ethiopic"), local("NotoSansEthiopic");
   src: url("fonts/noto/notosansethiopic-bold.woff2") format("woff2"), url("fonts/noto/notosansethiopic-bold.woff") format("woff");
 }
+@font-face {
+  font-family: AbyssinicaSILW;
+  src: url("fonts/sil/AbyssinicaSIL-R.woff");
+  src: url("fonts/sil/AbyssinicaSIL-R.ttf") format("ttf"), url("fonts/sil/AbyssinicaSIL-R.woff") format("woff");
+}
 
 * { font-family: 'Noto Sans', sans-serif; }
 
+/* use Abyssinica SIL - Regular in .woff format */
 :lang(am),
 :lang(gez),
 :lang(ti),
 :lang(tir),
 :lang(tig) {
-  font-family: 'Noto Sans Ethiopic', sans-serif;
+  font-family: AbyssinicaSILW, 'Noto Sans Ethiopic', 'Noto Sans', sans-serif;
+  word-spacing: .02em;
 }
+
+/* remove bold styling from heading for Ethopic languages, per SIL example of this font's usage*/
+:lang(am) h1,
+:lang(gez) h1,
+:lang(ti) h1,
+:lang(tir) h1,
+:lang(tig) h1 {
+   font-weight: normal;
+}
+

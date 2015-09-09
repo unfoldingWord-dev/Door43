@@ -53,7 +53,7 @@ class TestRequest {
         $post = $_POST;
         $request = $_REQUEST;
         $input = $INPUT;
-        
+
         // prepare the right URI
         $this->setUri($uri);
 

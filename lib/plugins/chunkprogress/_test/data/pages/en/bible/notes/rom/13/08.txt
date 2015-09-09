@@ -1,0 +1,63 @@
+====== Romans 13:8-10 ======
+
+===== TFT: =====
+
+<usfm>
+\v 8 Pay all of your debts \add when you are supposed to pay them\add*. The only thing \add that is like\add* a debt that \add you\add* should never stop paying is to love one another. Whoever loves others has fulfilled all that \add God requires in\add* his laws.
+\v 9 \add There are many things that God\add* commanded \add in his laws, such as\add* do not commit adultery, do not murder \add anyone\add*, do not steal, and do not desire anything that belongs to someone else. But the command by which they are all summed up \f + \ft Or:that includes them all \f* is this: Each of you must love the people with whom you come in contact, just like you\add \f + \ft singular \f*\add* love yourself.
+\v 10 If you love people with whom you come in contact \f + \ft personification \f*, you will not do any evil to them \f + \ft litotes \f*. So, whoever loves \add others\add* fulfills all that \add God's\add* laws \add require\add*.
+
+
+\p
+</usfm>
+
+===== UDB: =====
+
+<usfm>
+\v 8 Pay all of your debts when you are supposed to pay them. The only thing that is like a debt that you should never stop paying is to love one another. Whoever loves others has fulfilled all that God requires in his Law.
+\v 9 There are many things that God has commanded in his Law, such as do not commit adultery, do not murder anyone, do not steal, and do not desire anything that belongs to someone else. But we can sum up the meaning of all the Law in this sentence: "Love your neighbor as you love yourself."
+\v 10 If you love everyone around you, you will harm no one. So whoever loves others fulfills all that God's Law requires.
+
+
+
+
+\p
+</usfm>
+
+===== ULB: =====
+
+<usfm>
+\p
+\v 8 Owe no one anything, except to love one another. For he who loves his neighbor has fulfilled the Law.
+\v 9 For, "You will not commit adultery. You will  not kill. You will not steal. You will not covet"—and if there is any other commandment also, it is summed up in this sentence: "You will love your neighbor as yourself."
+\v 10 Love does not harm one's neighbor. Therefore, love is the fulfilment of the Law.
+</usfm>
+
+===== Important Terms: =====
+
+  * [[:en:obe:kt:love|love]]
+  * [[:en:obe:other:neighbor|neighbor]]
+  * [[:en:obe:kt:fulfill|fulfill]]
+  * [[:en:obe:kt:lawofmoses|Law]]
+  * [[:en:obe:kt:adultery|adultery]]
+  * [[:en:obe:other:envy|covet]]
+  * [[:en:obe:other:command|command]]
+
+===== Translation Notes: =====
+
+  * **Owe no one anything** - "Pay all you owe to the government and everybody else." Paul is writing to the believers. (See: [[en:ta:translate:formsofyou|]])
+  * **except** - New sentence: “Loving other Christians is the one debt that you may continue to owe.” (See: [[:en:ta:translate:ellipsis]])
+  * **For, "You will not…"** - Paul will now show how love fulfills the Law of God.
+  * **You will** - All occurrences of "you" in 13:9 are singular, but the speaker was addressing a group of people as if they were one person, so you may need to use plural forms here. (See: [[en:ta:translate:formsofyou|]])
+  * **covet** - to desire to have or possess something which a person does not have and is kept from having or possessing
+  * **Love does not harm** - This phrase portrays love as a person who is being kind to other people. (See: [[:en:ta:translate:personification]]) Alternate translation: "People who love their neighbors do not harm them." (See: [[:en:ta:translate:metonymy]])
+  * **Therefore** - "Because love does not harm one's neighbor"
+
+===== Links: =====
+
+  * **[[:en:bible:notes:rom:questions:comprehension:13|Romans Chapter 13 Comprehension Questions]]**
+**[[:en:bible:notes:rom:13:06|<<]] | [[:en:bible:notes:rom:13:11|>>]]**
+
+~~DISCUSSION~~{{tag>publish}}
+
+~~NOCACHE~~

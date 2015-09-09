@@ -43,7 +43,7 @@ $showSidebar = $hasSidebar && ($ACT=='show');
                         <?php tpl_flush() ?>
 
 <?php
-$translation = &plugin_load('helper','translation');
+$translation = &plugin_load('helper','door43translation');
 if ($translation) echo $translation->showTranslations();
 ?>
 

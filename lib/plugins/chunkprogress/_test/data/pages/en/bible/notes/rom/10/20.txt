@@ -1,0 +1,68 @@
+====== Romans 10:20-21 ======
+
+
+===== TFT: =====
+
+<usfm>
+\v 20 Remember also  \add what God\add* said\add very\add* boldly to Isaiah:
+\q The non-Jews who did not try to know\f + \ft Or: seek \f* me will surely find me \f + \ft doublet \f*! 
+\p
+I will surely reveal what I am like to those who did not ask for me!
+\p
+\v 21 But concerning  \add the people of\add* Israel, \add Isaiah\add* tells  \add us that God said\add*:
+\q I have for a long time held out my arms to the people who disobeyed and rebelled against me, \add in order\add* to invite them to return to me.
+</usfm>
+
+
+===== UDB: =====
+
+<usfm>
+\v 20 Remember also that God said very boldly to Isaiah, "The non-Jews who did not try to know me will surely find me! I will surely reveal what I am like to those who did not ask for me!"
+\p
+\v 21 But God also speaks about the Israelites. He says,
+"For a long time I have held out my arms to the people who disobeyed and rebelled against me, in order to invite them to return to me."
+</usfm>
+
+
+===== ULB: =====
+
+<usfm>
+\v 20 And Isaiah is very bold and says,
+\q "I was found by those who did not seek me.
+\q I appeared to those who did not ask for me."
+\m
+\v 21 But to Israel he says, "All the day long I reached out my hands to a disobedient and resistant people."
+</usfm>
+
+
+===== Important Terms: =====
+
+  * [[en:obe:other:isaiah|Isaiah]]
+  * [[:en:obe:other:bold|bold]]
+  * [[:en:obe:other:disobey|disobedient]]
+  * [[en:obe:other:hand|hands]]
+  * [[:en:obe:other:peoplegroup|people]] 
+
+===== Translation Notes: =====
+
+    * **And Isaiah is very bold and says** - This means Isaiah wrote what God had said.
+    * **I was found by those who did not seek me** - The words "I" and "me" refer to God. This can be translated with an active verb: "Even though the Gentile people were not looking for me they found me." Also, prophets often speak of things in the future as if they have already happened. This emphasizes that the prophecy will certainly come true. Alternate translation: "Even though the Gentile people may not look for me, they will find me." (See: [[en:ta:translate:active]])
+    * **I appeared** - "I made myself known." Alternate translation: "I will make myself known."
+    * **he says** - God, speaking through Isaiah, says
+    * **All the day long**  - This phrase is used to emphasize God's continual effort. Alternate translation: "Continually"
+    * **I reached out my hands to a disobedient and resistant people**  - Alternate translation: "I tried to welcome you and to help you, but you refused my help and continued to disobey." The words "I" and "my" refer to God.
+  
+===== Links: =====
+
+  * **[[en/bible/notes:rom/questions/comprehension/10|Romans Chapter 10 Comprehension Questions]]**
+
+ 
+
+**[[en/bible/notes/rom/10/19|<<]] | [[en/bible/notes/rom/11/01|>>]]**
+
+~~DISCUSSION~~
+
+
+{{tag>publish}}
+
+~~NOCACHE~~

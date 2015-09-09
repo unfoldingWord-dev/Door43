@@ -7,8 +7,8 @@ conf/plugins.local.php.bak
 conf/local.php.bak
 
 .idea
+nbproject/
 vendor/
-composer.*
 
 obs-diffs/
 
@@ -17,3 +17,5 @@ lib/plugins/ckgedit/fckeditor/userfiles/flash
 lib/plugins/ckgedit/fckeditor/userfiles/image
 lib/plugins/ckgedit/fckeditor/userfiles/media
 lib/plugins/slackinvite/slackinvite.private.php
+
+composer.lock

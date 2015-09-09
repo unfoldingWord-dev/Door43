@@ -1,8 +1,0 @@
-base    swiftmail
-author  Andreas Gohr
-email   andi@splitbrain.org
-date    2012-10-19
-name    SwiftMailer Plugin
-desc    Use SwiftMailer for sending mails from DokuWiki (uses SwiftMailer 3.3.3-php5)
-url     http://www.dokuwiki.org/plugin:swiftmail
-

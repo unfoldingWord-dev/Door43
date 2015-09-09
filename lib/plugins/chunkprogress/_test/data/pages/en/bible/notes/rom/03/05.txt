@@ -1,0 +1,59 @@
+====== Romans 03:5-6 ======
+
+
+===== TFT: =====
+
+<usfm>
+\v 5 So if we \add Jews'\add* being wicked \f + \ft personification \f* shows that it is right that God \add does not bless us\add*, what shall we say\f + \ft Or: conclude \f*? Shall we conclude that it is not right for God to be angry \add and punish us Jews\add* \f + \ft metonymy \f*? I \add should not be saying these things\add*, \add but\add* I am speaking as ordinary humans \add speak\add*.
+\v 6 We should certainly not \add conclude that God should not judge us\add*, because if God \add did not judge us Jews\add*, it would not possibly be right for him to judge \add anyone in\add* the world \f + \ft metonymy \f*!\f + \ft Or: how could he judge \add anyone in\add* the world? \f* \f + \ft metonymy, rhetorical question \f*
+</usfm>
+
+
+===== UDB: =====
+
+<usfm>
+\v 5 So if God did not bless us Jews because we were wicked, can we say that he acted unfairly? That he was wrong to punish us out of anger? (I should not be asking these questions at all about God, but I am speaking as ordinary humans speak.)
+\v 6 We should certainly not conclude that God should not judge us, because if God did not judge us Jews, it could not possibly be right for him to judge anyone in the world!
+</usfm>
+
+
+===== ULB: =====
+
+<usfm>
+\v 5 But if our unrighteousness shows the righteousness of God, what can we say? God is not unrighteous, he who inflicts wrath, is he?—I speak according to human logic.
+\v 6 May it never be. For then how would God judge the world?
+</usfm>
+
+
+===== Important Terms: =====
+
+  * [[:en:obe:kt:unjust|unrighteousness]]
+  * [[en:obe:kt:righteous|righteousness]]
+  * [[:en:obe:kt:wrath|wrath]]
+  * [[:en:obe:kt:god|God]]
+  * [[en:obe:kt:judge|judge]]
+  * [[en:obe:kt:world|world]]
+
+===== Translation Notes: =====
+
+Paul continues his imaginary argument with a Jewish person, answering the questions such a person might have.
+
+  * **But if our unrighteousness shows the righteousness of God, what can we say?**  - Paul is putting these words in the mouth of the imaginary Jewish person he is talking to. Alternate translation: "Because our unrighteousness shows that God is righteous, I have a question:"
+  * **God is not unrighteous, he who inflicts wrath, is he?**  - If you use this alternate translation, be sure that the reader knows that the answer is no: "Is God, who inflicts wrath on people, unrighteous?" (See: [[:en:ta:translate:rhetoricalquestion|Rhetorical Question]])
+  * **I speak according to human logic**  - "I am saying this as an unrighteous person might say it."
+  * **how would God judge the world?**  - Paul uses this rhetorical question to show that the arguments against the Christian gospel are ridiculous, since all Jews believe that God can and will judge all people. "And we all know that God will in fact judge the world!" (See: [[:en:ta:translate:rhetoricalquestion|Rhetorical Question]])
+
+===== Links: =====
+
+  * **[[en/bible/notes:rom/questions/comprehension/03|Romans Chapter 03 Comprehension Questions]]**
+
+ 
+
+**[[en/bible/notes/rom/03/03|<<]] | [[en/bible/notes/rom/03/07|>>]]**
+
+~~DISCUSSION~~
+
+
+{{tag>publish wrath}}
+
+~~NOCACHE~~

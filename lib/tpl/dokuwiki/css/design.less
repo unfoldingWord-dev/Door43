@@ -48,6 +48,12 @@
         margin-bottom: 0;
         font-size: 0.875em;
     }
+
+    /* make all links in header (including breadcrumb and interwiki) same colour as the rest */
+    a {
+        color: @ini_link;
+        background-color: inherit;
+    }
 }
 
 [dir=rtl] #dokuwiki__header h1 img {
@@ -100,7 +106,8 @@
     margin-left: 0;
 }
 
-#dokuwiki__usertools a.action {
+#dokuwiki__usertools a.action,
+#dokuwiki__usertools a.iw_user {
     padding-left: 20px;
     background: transparent url(images/usertools.png) no-repeat 0 0;
 }
@@ -108,10 +115,6 @@
 [dir=rtl] #dokuwiki__usertools a.action {
     padding-left: 0;
     padding-right: 20px;
-}
-
-[dir=rtl] #IE7 #dokuwiki__usertools a.action {
-    display: inline-block;
 }
 
 #dokuwiki__header .mobileTools {
@@ -137,6 +140,7 @@
         background-position: left 0;
     }
 
+    a.iw_user,
     a.action.profile {
         background-position: left -32px;
     }
@@ -186,52 +190,47 @@
     text-align: right;
 
     form.search {
-        display: block;
         font-size: 0.875em;
-        position: relative;
-
-        input.edit {
-            width: 18em;
-            padding: .35em 22px .35em .1em;
-        }
-
-        input.button {
-            background: transparent url(images/search.png) no-repeat 0 0;
-            border-width: 0;
-            width: 19px;
-            height: 14px;
-            text-indent: -99999px;
-            margin-left: -20px;
-            box-shadow: none;
-            padding: 0;
-        }
-    }
-
-    ul {
-        margin-top: 0.5em;
     }
 }
 
 [dir=rtl] #dokuwiki__sitetools {
     text-align: left;
+}
 
-    form.search {
-        input.edit {
-            padding: .35em .1em .35em 22px;
-        }
+form.search {
+    display: block;
+    position: relative;
+    margin-bottom: 0.5em;
 
-        input.button {
-            background-position: 5px 0;
-            margin-left: 0;
-            margin-right: -20px;
-            position: relative;
-        }
+    input {
+        width: 18em;
+        padding: .35em 22px .35em .1em;
+    }
+
+    button {
+        background: transparent url(images/search.png) no-repeat 0 0;
+        border-width: 0;
+        width: 19px;
+        height: 14px;
+        text-indent: -99999px;
+        margin-left: -20px;
+        box-shadow: none;
+        padding: 0;
     }
 }
 
-#IE7 #dokuwiki__sitetools form.search {
-    min-height: 1px;
-    z-index: 21;
+[dir=rtl] form.search {
+    input {
+        padding: .35em .1em .35em 22px;
+    }
+
+    button {
+        background-position: 5px 0;
+        margin-left: 0;
+        margin-right: -20px;
+        position: relative;
+    }
 }
 
 /*____________ breadcrumbs ____________*/
@@ -260,17 +259,11 @@
         border-bottom: 1px solid @ini_border;
     }
 
-    a {
-        color: @ini_link;
-        background-color: inherit;
-    }
-
     .bcsep {
         font-size: 0.75em;
     }
 }
 
-#IE7 .dokuwiki div.breadcrumbs div,
 #IE8 .dokuwiki div.breadcrumbs div {
     border-bottom: 1px solid @ini_border;
 }
@@ -278,13 +271,10 @@
 /* sidebar
 ********************************************************************/
 
-#dokuwiki__aside {
-
-    > .pad {
-        font-size: 0.875em;
-        overflow: hidden;
-        word-wrap: break-word;
-    }
+.dokuwiki .aside {
+    font-size: 0.875em;
+    overflow: hidden;
+    word-wrap: break-word;
 
     /* make sidebar more condensed */
 
@@ -340,8 +330,8 @@
     }
 }
 
-[dir=rtl] #dokuwiki__aside ul,
-[dir=rtl] #dokuwiki__aside ol {
+[dir=rtl] .dokuwiki .aside ul,
+[dir=rtl] .dokuwiki .aside ol {
     padding-right: .5em;
 }
 
@@ -349,11 +339,12 @@
 ********************************************************************/
 
 .dokuwiki .pageId {
-    position: absolute;
-    top: -2.3em;
-    right: -1em;
+    float: right;
+    margin-right: -1em;
+    margin-bottom: -1px;
+    margin-top: -1.5em;
     overflow: hidden;
-    padding: 1em 1em 0;
+    padding: 0.5em 1em 0;
 
     span {
         font-size: 0.875em;
@@ -370,6 +361,7 @@
 }
 
 .dokuwiki div.page {
+    clear: both;
     background: @ini_background;
     color: inherit;
     border: 1px solid @ini_background_alt;
@@ -396,8 +388,9 @@
 }
 
 [dir=rtl] .dokuwiki .pageId {
-    right: auto;
-    left: -1em;
+    float: left;
+    margin-left: -1em;
+    margin-right: 0;
 }
 
 /* footer

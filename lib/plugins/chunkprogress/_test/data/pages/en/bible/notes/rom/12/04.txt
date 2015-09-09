@@ -1,0 +1,43 @@
+====== Romans 12:4-5 ======
+
+===== TFT: =====
+
+<usfm>
+\v 4 Although a person has one body, it consists of many parts. All of the parts are needed for\add the body\add*, but they do not all function the same way.
+\v 5 Similarly we, \add although we are\add* many, are \add united into\add* one group because of our relationship with Christ, and we belong to one another. \add So no one should act as though he\add* needed by God more\add than the others!\add*
+</usfm>
+
+===== UDB: =====
+
+<usfm>
+\v 4 Although a person has one body, it consists of many parts. All of the parts are necessary for the body, but they do not all function the same way.
+\v 5 Similarly, we, although we are many, are united into one group because we are joined to Christ, and we belong to one another. So no one should act as though he is more important than the others!
+</usfm>
+
+===== ULB: =====
+
+<usfm>
+\v 4 For just as we have many members in one body, but all the members do not have the same function,
+\v 5 so we who are many are one body in Christ, and individually members of each other.
+</usfm>
+
+===== Important Terms: =====
+
+  * [[:en:obe:other:member|members]]
+  * [[:en:obe:kt:body|body]]
+  * [[:en:obe:kt:christ|Christ]]
+
+===== Translation Notes: =====
+
+  * **For**  - Paul is explaining why Christians should not think they are better than other people.
+  * **just as we have many members in one body**  - Paul compares all the believers in Christ to the different parts of the body. This emphasizes that although believers may serve Christ in different ways, each person belongs to Christ and serves in an important way. (See: [[:en:ta:translate:metaphor|Metaphor]])
+  * **members**  - such things as eyes, stomachs, and hands
+  * **individually members of each other**  - "each believer is a member of every other believer's body." (See: [[:en:ta:translate:metaphor|Metaphor]]) Alternate translation: "and each believer is joined together with all other believers."
+===== Links: =====
+
+  * **[[:en:bible:notes:rom:questions:comprehension:12|Romans Chapter 12 Comprehension Questions]]**
+**[[:en:bible:notes:rom:12:03|<<]] | [[:en:bible:notes:rom:12:06|>>]]**
+
+~~DISCUSSION~~{{tag>publish}}
+
+~~NOCACHE~~

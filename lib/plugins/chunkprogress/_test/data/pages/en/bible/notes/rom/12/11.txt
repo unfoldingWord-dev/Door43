@@ -1,0 +1,54 @@
+====== Romans 12:11-13 ======
+
+===== TFT: =====
+
+<usfm>
+\v 11 Do not be lazy. \add Instead\add*, be eager \add to serve God! Be enthusiastic as\add* you serve the Lord!
+\v 12 Rejoice because you are confidently awaiting \add what God will do for you!\add* When you suffer, be patient! Keep praying and never give up!
+\v 13 If any of God's people lacks anything, share with them \add what you have!\add* Readily take care of \add travelers who need a place to stay\add*!
+</usfm>
+
+===== UDB: =====
+
+<usfm>
+\v 11 Do not be lazy. Instead, be eager to serve God! Be enthusiastic as you serve the Lord!
+\v 12 Rejoice because you are confidently awaiting what God will do for you! When you suffer, be patient! Keep praying and never give up!
+\v 13 If any of God's people lacks anything, share with them what you have! Always be ready to take care of believers who are traveling and need a place to stay!
+</usfm>
+
+===== ULB: =====
+
+<usfm>
+\v 11 Concerning diligence, do not be hesitant; concerning the spirit, be eager; concerning the Lord, serve him.
+\v 12 Concerning confidence, rejoice; concerning troubles, be patient; concerning prayer, be constant.
+\v 13 Share in the needs of the saints, and give yourselves to hospitality.
+</usfm>
+
+===== Important Terms: =====
+
+  * [[:en:obe:kt:holyspirit|spirit]]
+  * [[:en:obe:kt:lordgod|the Lord]]
+  * [[:en:obe:other:serve|serve]]
+  * [[:en:obe:kt:confidence|confidence]]
+  * [[:en:obe:other:rejoice|rejoice]]
+  * [[:en:obe:other:pray|prayer]]
+  * [[:en:obe:kt:saint|saint]]
+
+===== Translation Notes: =====
+
+Paul continues to tell the believers what kind of people they should be. This list began in [[:en:bible:notes:rom:12:09|12:9]].
+
+  * **Concerning diligence, do not be hesitant; concerning the spirit, be eager; concerning the Lord, serve him.**  - "Do not be lazy in your duty, but be eager to follow the Spirit and to serve the Lord"
+  * **Concerning confidence, rejoice**  - "Be happy because our confidence is in God."
+  * **concerning troubles, be patient**  - This can be translated as a new sentence: "Be patient when difficult times come."
+  * **concerning prayer, be constant**  - This can be translated as a new sentence: "And remember to constantly pray."
+  * **Share in the needs of the saints**  - This is the last item in the list that began in [[:en:bible:notes:rom:12:09|12:9]]. "Concerning the needs of the saints, share with them" or "As for…" or "When fellow Christians are in trouble, help them with what they need."
+  * **give yourselves to hospitality**  - "always welcome them into your home when they need somewhere to stay"
+===== Links: =====
+
+  * **[[:en:bible:notes:rom:questions:comprehension:12|Romans Chapter 12 Comprehension Questions]]**
+**[[:en:bible:notes:rom:12:09|<<]] | [[:en:bible:notes:rom:12:14|>>]]**
+
+~~DISCUSSION~~{{tag>publish}}
+
+~~NOCACHE~~

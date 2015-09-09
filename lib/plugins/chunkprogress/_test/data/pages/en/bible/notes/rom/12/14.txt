@@ -1,0 +1,51 @@
+====== Romans 12:14-16 ======
+
+===== TFT: =====
+
+<usfm>
+\v 14 \add Ask God to\add* be kind to those who persecute you\f + \ft Or: cause you to suffer \f* \add because you believe in Jesus! Ask him to\add* be kind to them; do not \add ask him to\add* cause bad things to happen to them.
+\v 15 If someone is joyful, you should rejoice also! If someone is sad, you should also be sad!
+\v 16 Desire for others what you desire for yourselves \f + \ft Or: Live harmoniously with each other \f*! Do not do things because you want to be \add famous!\add* Instead, be content to do \add tasks that others consider that only\add* unimportant people do \f + \ft Or: \add to associate with unimportant\add* people \f*. Do not consider yourselves wise.
+</usfm>
+
+===== UDB: =====
+
+<usfm>
+\v 14 Ask God to be kind to those who persecute you because you believe in Jesus! Ask him to be kind to them; do not ask him to cause bad things to happen to them.
+\v 15 If someone is joyful, you should rejoice also! If someone is sad, you should also be sad!
+\v 16 Desire for others what you desire for yourselves. Do not be proud in how you think; instead, be friends with people who seem unimportant. Do not consider yourselves wise.
+</usfm>
+
+===== ULB: =====
+
+<usfm>
+\v 14 Bless those who persecute you; bless and do not curse.
+\v 15 Rejoice with those who rejoice; weep with those who weep.
+\v 16 Be of the same mind toward one another. Do not think in proud ways, but accept lowly people. Do not be wise in your own thoughts.
+</usfm>
+
+===== Important Terms: =====
+
+  * [[:en:obe:kt:bless|bless]]
+  * [[:en:obe:other:persecute|persecute]]
+  * [[:en:obe:kt:curse|curse]]
+  * [[:en:obe:other:rejoice|rejoice]]
+  * [[:en:obe:other:proud|proud]]
+  * [[:en:obe:other:mind|mind]]
+  * [[:en:obe:other:lowly|lowly]]
+  * [[:en:obe:kt:wise|wise]]
+
+===== Translation Notes: =====
+
+  * **Be of the same mind toward one another **  - Alternate translations: "Agree with one another" or "Live in unity with each other." (See: [[en:ta:translate:idiom]])
+  * **Do not think in proud ways**  - "Do not think that you are more important than others"
+  * **accept lowly people**  - "welcome people who do not seem important"
+  * **Do not be wise in your own thoughts**  -  "Do not think of yourselves as having more wisdom than everyone else"
+===== Links: =====
+
+  * **[[:en:bible:notes:rom:questions:comprehension:12|Romans Chapter 12 Comprehension Questions]]**
+**[[:en:bible:notes:rom:12:11|<<]] | [[:en:bible:notes:rom:12:17|>>]]**
+
+~~DISCUSSION~~{{tag>publish}}
+
+~~NOCACHE~~

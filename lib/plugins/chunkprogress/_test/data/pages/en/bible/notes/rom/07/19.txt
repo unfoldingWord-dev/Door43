@@ -1,0 +1,47 @@
+====== Romans 07:19-21 ======
+
+===== TFT: =====
+
+<usfm>
+\v 19 I do not do the good things that I want to do. Instead, it is evil things that I do not want to do that I do.
+\v 20 Because I do \add evil things\add* that I do not want to do, it is not that I do \add evil things because I want to\add*. Instead, \add I do them because\add* my self-directed nature, which permeates me \f + \ft personification \f*, \add causes me to do them\add*.
+\v 21 I find, then, that what always happens is that when I want to do what is good, there is an evil \add desire\add* present within me that \f + \ft personification \f* \add prevents me from doing good\add*.
+</usfm>
+
+===== UDB: =====
+
+<usfm>
+\v 19 I do not do the good things that I want to do. Instead, it is evil things that I do not want to do that I do.
+\v 20 When I do evil things that I do not want to do, it is not that really I that do those things. Instead, something else is making me sin: it is the fact that I am imperfect that makes me sin.
+\v 21 I find, then, that what always happens is that when I want to do what is good, there is an evil desire present within me that prevents me from doing good.
+</usfm>
+
+===== ULB: =====
+
+<usfm>
+\v 19 For the good that I want I do not do, but the evil that I do not want, that I do.
+\v 20 Now if I do what I do not want to do, then it is no longer I who am acting, but rather sin that lives in me.
+\v 21 I find, then, the principle in me that I want to do what is good, but that evil is actually present in me.
+</usfm>
+
+===== Important Terms: =====
+
+  * [[:en:obe:kt:good|good]]
+  * [[:en:obe:kt:evil|evil]]
+  * [[:en:obe:kt:sin|sin]]
+  * [[:en:obe:kt:life|lives]]
+  * [[:en:obe:other:law|principle]]
+
+===== Translation Notes: =====
+
+  * **good** - "good deeds" or "good actions"
+  * **evil** - "evil deeds" or "evil actions"
+
+===== Links: =====
+
+  * **[[:en:bible:notes:rom:questions:comprehension:07|Romans Chapter 07 Comprehension Questions]]**
+**[[:en:bible:notes:rom:07:17|<<]] | [[:en:bible:notes:rom:07:22|>>]]**
+
+~~DISCUSSION~~{{tag>publish}}
+
+~~NOCACHE~~
