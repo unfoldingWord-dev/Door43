@@ -97,4 +97,18 @@ class helper_plugin_door43shared extends DokuWiki_Plugin {
         }
         return self::$cache;
     }
+
+    public function processTemplateFile($fileName) {
+
+        ob_start();
+
+        // Load the template using 'include' so the template can contain PHP code.
+        // This was changed to support the auto-complete language selector in templates.
+        /** @noinspection PhpIncludeInspection */
+        include $fileName;
+
+        $text = ob_get_clean();
+
+        return $text;
+    }
 }
