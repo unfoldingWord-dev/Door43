@@ -147,8 +147,14 @@ class Door43_Syntax_Plugin extends DokuWiki_Syntax_Plugin {
     protected function getTextToRender(/** @noinspection PhpUnusedParameterInspection */
         $match) {
 
-        // Load the template for the button
-        $text = file_get_contents($this->root . '/templates/' . $this->templateFileName);
+        ob_start();
+
+        // Load the template using 'include' so the template can contain PHP code.
+        // This was changed to support the auto-complete language selector in templates.
+        /** @noinspection PhpIncludeInspection */
+        include $this->root . '/templates/' . $this->templateFileName;
+
+        $text = ob_get_clean();
 
         $text = $this->translateHtml($text);
 

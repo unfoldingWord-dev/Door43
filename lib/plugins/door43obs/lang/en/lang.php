@@ -12,9 +12,6 @@
 // $lang['menu'] = 'Your menu entry';
 
 // custom language strings for the plugin
-$lang['sourceLabel'] = 'Source Language';
-$lang['destinationLabel'] = 'Target Language';
-$lang['selectOne'] = 'Select One';
 $lang['createButtonText'] = 'Create OBS Now';
 $lang['obsSourceDirNotFound'] = 'Warning! The source directory "%1$s" for language code "%2$s" was not found.';
 $lang['obsDestinationDirExists'] = 'Open Bible Stories is already setup! See <a href="%1$s">%1$s</a>.';
