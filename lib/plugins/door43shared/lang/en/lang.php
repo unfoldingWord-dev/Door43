@@ -13,6 +13,9 @@
 // custom language strings for the plugin
 $lang['saveButton'] = 'Save';
 $lang['cancelButton'] = 'Cancel';
+$lang['selectOne'] = 'Select One';
+$lang['sourceLabel'] = 'Source Language';
+$lang['destinationLabel'] = 'Target Language';
 
 // localized strings for JavaScript
 // js example: var text = LANG.plugins['door43register']['translate'];

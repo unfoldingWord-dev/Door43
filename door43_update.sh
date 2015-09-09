@@ -28,6 +28,10 @@ echo "Updating Submdoules..."
 echo "Updating composer installed libraries..."
 php composer.phar update
 
+# To clear the cache all we need to do is touch the local.php config file
+echo "Clearing cache..."
+touch conf/local.php 
+
 echo "If you want to update language content, please run $DOOR43_DIR/update_languages.sh"
 
 popd > /dev/null
