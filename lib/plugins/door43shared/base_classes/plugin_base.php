@@ -24,7 +24,7 @@ class Door43_Syntax_Plugin extends DokuWiki_Syntax_Plugin {
     protected $templateFileName;
 
     /**
-     * @param string $tagName Case-insensitive tag name
+     * @param string $tagName Lower-case tag name
      * @param string $templateFileName Usually a HTML file
      */
     function __construct($tagName, $templateFileName) {
@@ -133,7 +133,7 @@ class Door43_Syntax_Plugin extends DokuWiki_Syntax_Plugin {
     protected function needToRender($match) {
 
         // We don't need to do anything if the match was the "Entry" or "Exit" tag.
-        if (preg_match('/(' . $this->entryMatch . '|' . str_replace('/', '\/', $this->exitMatch) . ')/', strtolower($match)))
+        if (preg_match('/(' . $this->entryMatch . '|' . str_replace('/', '\/', $this->exitMatch) . ')/i', $match))
             return false;
 
         // We do want to handle the "special" tag and any "un-matched" text
