@@ -41,7 +41,7 @@ if ($translation) echo $translation->renderAutoCompleteTextBox('selectDocxNamesp
         </div>
         <div id="publishDiv" style="display: none;">
             <button onclick="publishUploadedOBS();">@publishButton@</button>
-            <p id="obsDocxUploadMessage" class="success failure">&nbsp;</p>
+            <p id="obsDocxPublishMessage" class="success failure">&nbsp;</p>
         </div>
     </div>
 </div>

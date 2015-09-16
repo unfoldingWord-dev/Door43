@@ -24,6 +24,16 @@ $door43shared->loadAjaxHelper();
  */
 class action_plugin_door43obsdocupload_UploadDocHandler extends Door43_Action_Plugin {
 
+    /**
+     * @var $door43shared helper_plugin_door43shared
+     */
+    private $shared_helper;
+
+    function __construct() {
+        parent::__construct();
+
+        $this->shared_helper = plugin_load('helper', 'door43shared');
+    }
 
     /**
      * Registers a callback function for a given event
@@ -33,6 +43,7 @@ class action_plugin_door43obsdocupload_UploadDocHandler extends Door43_Action_Pl
      */
     public function register(Doku_Event_Handler $controller) {
         Door43_Ajax_Helper::register_handler($controller, 'upload_obs_docx', array($this, 'upload_obs_docx'));
+        Door43_Ajax_Helper::register_handler($controller, 'publish_obs_docx', array($this, 'publish_obs_docx'));
     }
 
     /**
@@ -42,13 +53,6 @@ class action_plugin_door43obsdocupload_UploadDocHandler extends Door43_Action_Pl
 
         global $INPUT;
         global $conf;
-        /* @var $door43shared helper_plugin_door43shared */
-        global $door43shared;
-
-        // $door43shared is a global instance, and can be used by any of the door43 plugins
-        if (empty($door43shared)) {
-            $door43shared = plugin_load('helper', 'door43shared');
-        }
 
         $result = 'Failed';
         $msg = '';
@@ -67,7 +71,7 @@ class action_plugin_door43obsdocupload_UploadDocHandler extends Door43_Action_Pl
             if (!is_dir($obsDir)) {
 
                 // obs must be initialized for this language
-                self::return_this($result, sprintf($this->getLang('obsNotInitialized'), $langCode));
+                self::return_this($result, sprintf($this->getLang('obsNotInitialized'), $langCode, DOKU_BASE . 'obs-setup'));
             }
 
             $file = $_FILES['file'];
@@ -132,7 +136,7 @@ class action_plugin_door43obsdocupload_UploadDocHandler extends Door43_Action_Pl
                 self::process_docx_file($docx_file, $langCode, $result, $msg);
 
                 // clean-up temp files
-                $door43shared->delete_directory_and_files($temp_dir);
+                $this->shared_helper->delete_directory_and_files($temp_dir);
             }
             else {
                 $msg = $this->getLang('fileNotUploaded');
@@ -161,13 +165,6 @@ class action_plugin_door43obsdocupload_UploadDocHandler extends Door43_Action_Pl
     private function process_docx_file($fileName, $langCode, &$result, &$msg) {
 
         global $conf;
-        /* @var $door43shared helper_plugin_door43shared */
-        global $door43shared;
-
-        // $door43shared is a global instance, and can be used by any of the door43 plugins
-        if (empty($door43shared)) {
-            $door43shared = plugin_load('helper', 'door43shared');
-        }
 
         // get our working temp directory
         $cwd = dirname($fileName);
@@ -212,7 +209,7 @@ class action_plugin_door43obsdocupload_UploadDocHandler extends Door43_Action_Pl
 
         // create an empty preview import directory
         $obsPreviewDir = $conf['datadir'] . DS . $langCode . DS . 'obs-preview';
-        $door43shared->delete_directory_and_files($obsPreviewDir);
+        $this->shared_helper->delete_directory_and_files($obsPreviewDir);
         if (!is_dir($obsPreviewDir)) {
             mkdir($obsPreviewDir, 0755, true);
         }
@@ -275,7 +272,77 @@ class action_plugin_door43obsdocupload_UploadDocHandler extends Door43_Action_Pl
         file_put_contents($obsPreviewDir . '.txt', $index_contents);
 
         // we have successfully completed our mission
-        $msg = sprintf($this->getLang('docxImportSucceeded'), "/{$langCode}/obs-preview");
+        $msg = sprintf($this->getLang('docxImportSucceeded'), DOKU_BASE . "{$langCode}/obs-preview");
         $result = 'OK';
+    }
+
+    /**
+     * After the user has verified the uploaded DOCX file was properly processed, publish it
+     */
+    public function publish_obs_docx() {
+
+        global $INPUT;
+        global $conf;
+
+        $result = 'Failed';
+
+        try {
+
+            $lang = $INPUT->str('lang');
+            $langCode = '[Missing]';
+
+            if (preg_match('/^.*\((.+)\)$/', $lang, $matches) === 1) {
+                $langCode = $matches[1];
+            }
+
+            // the target namespace and obs directory
+            $obsDir = $conf['datadir'] . DS . $langCode . DS . 'obs';
+
+            // the preview obs directory
+            $obsPreviewDir = $conf['datadir'] . DS . $langCode . DS . 'obs-preview';
+
+            // both must exist
+            if (!is_dir($obsDir)) {
+
+                // obs must be initialized for this language
+                self::return_this($result, sprintf($this->getLang('obsNotInitialized'), $langCode, DOKU_BASE . 'obs-setup'));
+            }
+
+            if (!is_dir($obsPreviewDir)) {
+
+                // the obs preview directory needs to have been created
+                self::return_this($result, $this->getLang('previewNotFound'));
+            }
+
+            // copy 01.txt - 50.txt from preview to the obs directory
+            for ($i = 1; $i < 51; $i++) {
+
+                $storyFile = str_pad($i, 2, '0', STR_PAD_LEFT) . '.txt';
+                $srcFile = $obsPreviewDir . DS . $storyFile;
+                $dstFile = $obsDir . DS . $storyFile;
+
+                // make sure the source file exists
+                if (!is_file($srcFile)) {
+                    self::return_this($result, sprintf($this->getLang('sourceFileNotFound'), $srcFile));
+                }
+
+                if (!copy($srcFile, $dstFile)) {
+                    self::return_this($result, sprintf($this->getLang('notAbleToCopy'), $storyFile));
+                }
+            }
+
+            // delete the preview directory
+            $this->shared_helper->delete_directory_and_files($obsPreviewDir);
+
+            // success message
+            $result = 'OK';
+            $msg = $this->getLang('publishSucceeded');
+        }
+        catch(Exception $e) {
+            $msg = $e->getMessage();
+        }
+
+        // return the results
+        self::return_this($result, $msg);
     }
 }

@@ -25,6 +25,7 @@ $lang['docxImportSucceeded'] = 'Import of OBS from DOCX completed successfully. 
 $lang['loginRequired'] = 'You must be logged in before you can upload a file.';
 $lang['uploadProgress'] = 'Upload progress';
 $lang['uploadProcessing'] = 'Processing the uploaded file';
+$lang['publishSucceeded'] = 'OBS has been published successfully.';
 
 // error messages
 $lang['docxFileCreateError'] = 'Error creating the docx file';
@@ -33,7 +34,10 @@ $lang['fileTypeNotSupported'] = 'Only .docx and .zip files are supported.';
 $lang['zipNoDocxFiles'] = 'No .docx files were found in the zip file.';
 $lang['zipMultipleDocxFiles'] = 'More than one .docx file was found in the zip file.';
 $lang['pandocError'] = 'An error occurred converting the file to Dokuwiki format:';
-$lang['obsNotInitialized'] = 'Open Bible Stories has not been initialized for %1$s. <a href="/obs-setup">Click here to go to the initialization page.</a>';
+$lang['obsNotInitialized'] = 'Open Bible Stories has not been initialized for %1$s. <a href="%2$s">Click here to go to the initialization page.</a>';
+$lang['previewNotFound'] = 'The preview directory was not found.';
+$lang['notAbleToCopy'] = 'Door43 was not able to copy %1$s.';
+$lang['sourceFileNotFound'] = 'Source file not found: %1$s';
 
 // localized strings for JavaScript
 // js example: var text = LANG.plugins['door43register']['translate'];
