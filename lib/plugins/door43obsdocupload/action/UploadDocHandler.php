@@ -249,7 +249,7 @@ class action_plugin_door43obsdocupload_UploadDocHandler extends Door43_Action_Pl
                 }
 
                 // is this an image line?
-                if ((preg_match('/^(http)(.*)(jpg)$/', $line, $matches) === 1)
+                if ((preg_match('/^(http)(.*)(jpg)(\?.+)*$/', $line, $matches) === 1)
                     || ((preg_match('/^({{)(.*)(}})$/', $line, $matches) === 1))) {
 
                     $line = '{{https://api.unfoldingword.org/obs/jpg/1/en/360px/obs-en-' . $story_num . '-'

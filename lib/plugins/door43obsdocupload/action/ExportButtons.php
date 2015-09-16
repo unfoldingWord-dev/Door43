@@ -307,8 +307,10 @@ class action_plugin_door43obsdocupload_ExportButtons extends Door43_Action_Plugi
         $pagesDir = $conf['datadir'];
         $srcDir = $pagesDir . DS . $langCode . DS . 'obs';
 
-        $files = glob($srcDir . DS . '*.txt');
-        foreach($files as $file) {
+        for ($story_num = 1; $story_num < 51; $story_num++) {
+
+            $file = $srcDir . DS . str_pad($story_num, 2, '0', STR_PAD_LEFT) . '.txt';
+
             $srcText = file_get_contents($file);
             $parts = array_values(array_filter(explode("\n", $srcText)));
 
