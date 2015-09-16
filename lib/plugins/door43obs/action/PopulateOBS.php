@@ -273,6 +273,14 @@ class action_plugin_door43obs_PopulateOBS extends DokuWiki_Action_Plugin {
             chmod($outFile, 0644);
         }
 
+        // create the obs.txt home page
+        $srcFile = dirname($srcDir) . DS . 'obs.txt';
+        if (!is_file($srcFile))
+            $srcFile = dirname($templateDir) . DS . 'obs.txt';
+
+        $outFile = dirname($dstDir) . DS . 'obs.txt';
+        self::copy_template_file($srcFile, $outFile, $dstLangCode);
+
         // copy these files from /templates/obs3/obs
         $files = array('sidebar.txt', 'stories.txt');
         foreach($files as $file) {
@@ -281,11 +289,6 @@ class action_plugin_door43obs_PopulateOBS extends DokuWiki_Action_Plugin {
             $outFile = $dstDir . DS . $file;
             self::copy_template_file($srcFile, $outFile, $dstLangCode);
         }
-
-        // create the obs.txt home page
-        $srcFile = dirname($templateDir) . DS . 'obs.txt';
-        $outFile = dirname($dstDir) . DS . 'obs.txt';
-        self::copy_template_file($srcFile, $outFile, $dstLangCode);
     }
 
     /**
