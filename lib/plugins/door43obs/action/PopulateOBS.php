@@ -402,7 +402,7 @@ class action_plugin_door43obs_PopulateOBS extends DokuWiki_Action_Plugin {
         }
 
         $text = file_get_contents($sidebarFile);
-        $text .= "\n**Resources**\n\n  * [[{$dstLangCode}:obs|Open Bible Stories ({$dstLangCode})]]\n\n**Latest OBS Status**\n{{page>en:uwadmin:{$dstLangCode}:obs:status}}";
+        $text .= "\n**Resources**\n\n  * [[{$dstLangCode}:obs|Open Bible Stories ({$dstLangCode})]]";
         file_put_contents($sidebarFile, $text);
     }
 
