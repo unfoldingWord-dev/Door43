@@ -436,7 +436,7 @@ class action_plugin_door43obs_PopulateOBS extends DokuWiki_Action_Plugin {
     private static function git_push($dir, $msg) {
 
         // skip this section during unit testing
-        if(!defined('DOKU_UNITTEST')) return 'Skipping git_push during testing<br>';
+        if(defined('DOKU_UNITTEST')) return 'Skipping git_push during testing<br>';
 
         // initialize the return value
         $returnVal = '';
