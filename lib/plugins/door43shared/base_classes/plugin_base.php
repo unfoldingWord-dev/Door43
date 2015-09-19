@@ -93,7 +93,7 @@ class Door43_Syntax_Plugin extends DokuWiki_Syntax_Plugin {
     }
 
     /**
-     * Handle matches of the door43obs syntax
+     * Handle matches
      *
      * @param string       $match   The match of the syntax
      * @param int          $state   The state of the handler

@@ -55,7 +55,7 @@ class action_plugin_door43obsdocupload_ExportButtons extends Door43_Action_Plugi
         Door43_Ajax_Helper::register_handler($controller, 'get_obs_doc_export_dlg', array($this, 'get_obs_doc_export_dlg'));
         Door43_Ajax_Helper::register_handler($controller, 'download_obs_template_docx', array($this, 'download_obs_template_docx'));
     }
-    
+
 
     /**
      * This the script for the button in the right-hand tool strip on OBS pages.
