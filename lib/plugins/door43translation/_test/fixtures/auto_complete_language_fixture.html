@@ -2,13 +2,13 @@
 <!-- Test fixture of auto-complete language selector -->
 <head>
     <!--suppress HtmlUnknownTarget -->
-    <script src="/base/lib/plugins/door43translation/private/js/sort_languages.js"></script>
+    <script src="/base/lib/plugins/door43translation/script.js"></script>
 </head>
 <body>
-    <input type="text" id="id" name="" style="" class="" placeholder="This should be replaced">
+    <input type="text" id="id" name="" style="" class="" placeholder="This should be replaced" data-language-selector="1">
     <script type="text/javascript">
         (function() {
-            setupLanguageSelector();
+            setupLanguageSelectors();
         }());
     </script>
 </body>
