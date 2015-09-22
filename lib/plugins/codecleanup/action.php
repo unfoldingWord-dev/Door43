@@ -7,7 +7,7 @@
  */
 
 /**
- * Class action_plugin_changes
+ * Class action_plugin_codecleanup
  */
 class action_plugin_codecleanup extends DokuWiki_Action_Plugin {
 
@@ -41,6 +41,12 @@ class action_plugin_codecleanup extends DokuWiki_Action_Plugin {
 
     }
     
+    /**
+     * 
+     * @param string $haystack
+     * @param string $needle
+     * @return string
+     */
     private function startsWith($haystack, $needle) {
         return (substr($haystack, 0, strlen($needle)) === $needle);
     }
