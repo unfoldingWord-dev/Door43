@@ -10,7 +10,14 @@ The Door43 community uses Slack to communicate. When you [[:en:slack|join our sl
 
 //Door43 is an open project that is managed by [[https://unfoldingword.org/|unfoldingWord]] and many volunteers.//
 
+==== Get Started ====
+
+Before you get started, you may need to [[:obs-setup|set up Open Bible Stories]] in your language. 
+
+To learn how to translate, check, publish, and use our tools, check out [[en:ta|translationAcademy]].
+
+If you have questions, you can post them on the Helpdesk channel in Slack (see above) or email help@door43.org. 
+
 ==== Recent Changes ====
 
 {{changes>ns = -playground&count=40 }}
-
