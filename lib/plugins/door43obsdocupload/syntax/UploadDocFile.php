@@ -24,6 +24,12 @@ $door43shared->loadPluginBase();
 class syntax_plugin_door43obsdocupload_UploadDocFile extends Door43_Syntax_Plugin {
 
     function __construct() {
-        parent::__construct('obsDocUpload', '');
+        parent::__construct('obsdocupload', 'obs_import.php');
+
+        // the user must be logged in to upload a file
+        $userInfo = $GLOBALS['USERINFO'];
+        if (empty($userInfo) || empty($userInfo['name'])) {
+            $this->templateFileName = 'login_required.html';
+        }
     }
 }

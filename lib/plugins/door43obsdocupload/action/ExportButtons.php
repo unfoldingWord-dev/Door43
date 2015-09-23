@@ -19,15 +19,12 @@ if (empty($door43shared)) {
 $door43shared->loadActionBase();
 $door43shared->loadAjaxHelper();
 
+/**
+ * Class action_plugin_door43obsdocupload_ExportButtons
+ */
 class action_plugin_door43obsdocupload_ExportButtons extends Door43_Action_Plugin {
 
     private $tempDir;
-
-    /**
-     * possible values: -1 = not set, 0 = false, 1 = true
-     * @var int
-     */
-    private $showButton = -1;
 
     public function __destruct() {
 
@@ -59,30 +56,6 @@ class action_plugin_door43obsdocupload_ExportButtons extends Door43_Action_Plugi
         Door43_Ajax_Helper::register_handler($controller, 'download_obs_template_docx', array($this, 'download_obs_template_docx'));
     }
 
-    private function showToolstripButton() {
-
-        if ($this->showButton == -1) {
-
-            global $INFO;
-
-            $parts = explode(':', strtolower($INFO['id']));
-
-            // If this is an OBS request, the id will have these parts:
-            // [0] = language code / namespace
-            // [1] = 'obs'
-            // [2] = story number '01' - '50'
-            if (count($parts) < 2)
-                $this->showButton = 0;
-            elseif ($parts[1] !== 'obs')
-                $this->showButton = 0;
-            elseif (isset($parts[2]) && (preg_match('/^[0-9][0-9]$/', $parts[2]) !== 1))
-                $this->showButton = 0;
-            else
-                $this->showButton = 1;
-        }
-
-        return $this->showButton;
-    }
 
     /**
      * This the script for the button in the right-hand tool strip on OBS pages.
@@ -93,8 +66,6 @@ class action_plugin_door43obsdocupload_ExportButtons extends Door43_Action_Plugi
     public function load_pagetools_script(Doku_Event &$event, /** @noinspection PhpUnusedParameterInspection */ $param) {
 
         if ($event->data !== 'show') return;
-
-        if ($this->showToolstripButton() !== 1) return;
 
         $html = file_get_contents(dirname(dirname(__FILE__)) . '/templates/obs_export_script.html');
 
@@ -108,11 +79,13 @@ class action_plugin_door43obsdocupload_ExportButtons extends Door43_Action_Plugi
      */
     public function add_button(Doku_Event $event) {
 
-        if ($this->showToolstripButton() !== 1) return;
-
+        // export button
         $btn = '<li id="getObsTemplateBtn"><a href="#" class=" tx-export" rel="nofollow" ><span>' . $this->getLang('getTemplate') . '</span></a></li>';
-
         $event->data['items']['export_obs_template'] = $btn;
+
+        //// import button
+        //$btn = '<li id="importObsDocxBtn"><a href="#" class=" tx-import" rel="nofollow" ><span>' . $this->getLang('importDocx') . '</span></a></li>';
+        //$event->data['items']['import_obs_docx'] = $btn;
     }
 
     public function get_obs_doc_export_dlg() {
@@ -132,6 +105,10 @@ class action_plugin_door43obsdocupload_ExportButtons extends Door43_Action_Plugi
         echo $html;
     }
 
+    /**
+     * @param string $url
+     * @return string
+     */
     private function get_image_file_from_url($url) {
 
         // URL for hyperlinks: https://api.unfoldingword.org/obs/jpg/1/en/360px/obs-en-01-01.jpg
@@ -257,6 +234,9 @@ class action_plugin_door43obsdocupload_ExportButtons extends Door43_Action_Plugi
         }
     }
 
+    /**
+     * @return string
+     */
     private function get_temp_dir() {
 
         if (empty($this->tempDir)) {
@@ -290,8 +270,10 @@ class action_plugin_door43obsdocupload_ExportButtons extends Door43_Action_Plugi
         $pagesDir = $conf['datadir'];
         $srcDir = $pagesDir . DS . $langCode . DS . 'obs';
 
-        $files = glob($srcDir . DS . '*.txt');
-        foreach($files as $file) {
+        for ($story_num = 1; $story_num < 51; $story_num++) {
+
+            $file = $srcDir . DS . str_pad($story_num, 2, '0', STR_PAD_LEFT) . '.txt';
+
             $srcText = file_get_contents($file);
             $parts = array_values(array_filter(explode("\n", $srcText)));
 

@@ -28,22 +28,6 @@ class ExportButtons_plugin_test extends DokuWikiTest {
     }
 
     /**
-     * Verify the javascript was correctly rendered.
-     */
-    public function test_render_script() {
-
-        $thisPlugin = plugin_load('action', 'door43obsdocupload_ExportButtons');
-        $request = new TestRequest();
-        $response = $request->get(array('id' => 'en:obs'), '/doku.php');
-        $content = $response->getContent();
-
-        // output check
-        $this->assertNotEmpty($content);
-        $this->assertContains('function exportSourceTemplate()', $content);
-        $this->assertContains($thisPlugin->lang['exportTitle'], $content);
-    }
-
-    /**
      * Verify the toolstrip button was correctly rendered.
      */
     public function test_render_toolstrip_button() {
