@@ -32,13 +32,8 @@ class action_plugin_codecleanup extends DokuWiki_Action_Plugin {
      */
     public function cleanupCode(Doku_Event &$event, $param) {
         
-        if($this->startsWith($event->data[1],'en:bible:notes') ||
-           $this->startsWith($event->data[1],'en:obe') ||
-           $this->startsWith($event->data[1],'playground')) {
-            
-            $event->data[0][1] = preg_replace('/<\/?font[^>]*>/', '', $event->data[0][1]);
-        }
-
+        $event->data[0][1] = preg_replace('/<\/?font[^>]*>/', '', $event->data[0][1]);
+        
     }
     
     /**
