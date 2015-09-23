@@ -262,7 +262,7 @@ class action_plugin_door43obs_PopulateOBS extends DokuWiki_Action_Plugin {
         self::create_files_from_json($srcLangCode, $dstDir);
 
         // copy some files from source directory
-        $files = array('back-matter.txt', 'front-matter.txt', 'cover-matter.txt');
+        $files = array('back-matter.txt', 'front-matter.txt', 'cover-matter.txt', 'app_words.txt');
         foreach($files as $file) {
 
             $srcFile = $srcDir . DS . $file;
@@ -273,8 +273,19 @@ class action_plugin_door43obs_PopulateOBS extends DokuWiki_Action_Plugin {
             chmod($outFile, 0644);
         }
 
+        // create the obs.txt home page
+        $srcFile = dirname($srcDir) . DS . 'obs.txt';
+        if (!is_file($srcFile)) {
+            $srcFile = dirname($templateDir) . DS . 'obs.txt';
+            $outFile = dirname($dstDir) . DS . 'obs.txt';
+            self::copy_template_file($srcFile, $outFile, $dstLangCode);
+        }
+        else {
+            self::copy_text_file($srcFile, dirname($dstDir), $srcLangCode, $dstLangCode);
+        }
+
         // copy these files from /templates/obs3/obs
-        $files = array('sidebar.txt', 'stories.txt');
+        $files = array('sidebar.txt');
         foreach($files as $file) {
 
             $srcFile = $templateDir . DS . $file;
@@ -282,10 +293,15 @@ class action_plugin_door43obs_PopulateOBS extends DokuWiki_Action_Plugin {
             self::copy_template_file($srcFile, $outFile, $dstLangCode);
         }
 
-        // create the obs.txt home page
-        $srcFile = dirname($templateDir) . DS . 'obs.txt';
-        $outFile = dirname($dstDir) . DS . 'obs.txt';
-        self::copy_template_file($srcFile, $outFile, $dstLangCode);
+        // create stories.txt
+        $txt = "~~NOCACHE~~\n\n";
+        for ($i = 1; $i < 51; $i++) {
+            $txt .= '  - [[:' . $dstLangCode . ':obs:' . str_pad($i, 2, '0', STR_PAD_LEFT) . "]]\n";
+        }
+        $txt .= "\n  * [[:" . $dstLangCode . ":obs:front-matter|Front Matter]]\n";
+        $txt .= '  * [[:' . $dstLangCode . ":obs:back-matter|Back Matter]]\n";
+        $txt .= '  * [[:' . $dstLangCode . ":obs:app_words|Mobile App Words]]\n";
+        file_put_contents($dstDir . DS . 'stories.txt', $txt);
     }
 
     /**
@@ -402,7 +418,7 @@ class action_plugin_door43obs_PopulateOBS extends DokuWiki_Action_Plugin {
         }
 
         $text = file_get_contents($sidebarFile);
-        $text .= "\n**Resources**\n\n  * [[{$dstLangCode}:obs|Open Bible Stories ({$dstLangCode})]]\n\n**Latest OBS Status**\n{{page>en:uwadmin:{$dstLangCode}:obs:status}}";
+        $text .= "\n**Resources**\n\n  * [[{$dstLangCode}:obs|Open Bible Stories ({$dstLangCode})]]";
         file_put_contents($sidebarFile, $text);
     }
 
@@ -433,7 +449,7 @@ class action_plugin_door43obs_PopulateOBS extends DokuWiki_Action_Plugin {
     private static function git_push($dir, $msg) {
 
         // skip this section during unit testing
-        if(!defined('DOKU_UNITTEST')) return 'Skipping git_push during testing<br>';
+        if(defined('DOKU_UNITTEST')) return 'Skipping git_push during testing<br>';
 
         // initialize the return value
         $returnVal = '';
@@ -507,6 +523,7 @@ class action_plugin_door43obs_PopulateOBS extends DokuWiki_Action_Plugin {
 
         // replace source language code
         $dstText = str_replace("[:{$srcLangCode}:", "[:{$dstLangCode}:", $srcText);
+        $dstText = str_replace(">{$srcLangCode}:", ">{$dstLangCode}:", $dstText);
 
         file_put_contents($dstFile, $dstText);
         chmod($dstFile, 0644);
