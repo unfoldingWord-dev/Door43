@@ -2,7 +2,7 @@ Looking for a language that is not here yet? [[https://door43.org/obs-setup|Setu
 
 **Choose your language:**
 
-  * [[:ab:home|аҧсуа бызшәа, аҧсшәа (ab)]]
+   * [[:ab:home|аҧсуа бызшәа, аҧсшәа (ab)]]
   * [[:abp:home|Abellen Ayta (abp)]]
   * [[:abs:home|Ambonese Malay (abs)]]
   * [[:adi:home|Adi (adi)]]
