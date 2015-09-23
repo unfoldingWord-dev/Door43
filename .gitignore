@@ -11,6 +11,7 @@ nbproject/
 vendor/
 
 obs-diffs/
+exports/*
 
 lib/plugins/ckgedit/fckeditor/userfiles/file
 lib/plugins/ckgedit/fckeditor/userfiles/flash
