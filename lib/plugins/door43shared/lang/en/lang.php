@@ -7,12 +7,12 @@
  * Date:   2015-05-24
  */
 
-// menu entry for admin plugins
-// $lang['menu'] = 'Your menu entry';
-
-// custom language strings for the plugin
+// These strings that may be the same in more than one plugin.
+// You can override these by setting a different value in your plugin lang.php file.
 $lang['saveButton'] = 'Save';
 $lang['cancelButton'] = 'Cancel';
+$lang['importButton'] = 'Import';
+$lang['publishButton'] = 'Publish';
 $lang['selectOne'] = 'Select One';
 $lang['sourceLabel'] = 'Source Language';
 $lang['destinationLabel'] = 'Target Language';
