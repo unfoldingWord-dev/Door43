@@ -1,4 +1,5 @@
 [![Travis](https://travis-ci.org/unfoldingWord-dev/Door43.svg)](https://travis-ci.org/unfoldingWord-dev/Door43)
+[![Stories in Progress](https://badge.waffle.io/unfoldingWord-dev/Door43.svg?label=in%20progress&title=In%20Progress)](http://waffle.io/unfoldingWord-dev/Door43)
 
 ### Door43 DokuWiki Code
 
