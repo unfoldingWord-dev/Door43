@@ -770,7 +770,7 @@ jQuery(document).on('ready', function(){
     public function handle_add_merge_button(&$event, $param) {
         global $ID, $REV, $INFO;
 
-        if (!$this->on) {
+        if (!$this->on || isset($_GET['do'])) {
             return;
         }
 
