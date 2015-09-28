@@ -716,6 +716,9 @@ jQuery(document).on('ready', function(){
         if (!count($data_array)) {
             return;
         }
+        foreach ($data_array as $device) $user_array[$device] = $this->devices[$device];
+        @asort($user_array);
+        @reset($user_array);
 
         echo '<div id="frame-' . $frame . '" class="frame">';
         if ($frame == 'title' || $frame == 'reference') {
