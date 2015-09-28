@@ -51,7 +51,7 @@
   src: url('fonts/noto/notosansdevanagari-bold.woff2') format('woff2'), url('fonts/noto/notosansdevanagari-bold.woff') format('woff');
 }
 
-* { font-family: 'Noto Sans', sans-serif; }
+* { font-family: 'NotoSans', sans-serif; }
 
 /* use Abyssinica SIL - Regular in .woff format */
 :lang(am),
