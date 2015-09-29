@@ -746,20 +746,24 @@ jQuery(document).on('ready', function(){
         echo '<div class="frame-version-selection">';
         echo $this->getLang('version_to_compare') . ': ';
         echo '<select class="door43gitmerge-diff-switcher" data-frame="' . $frame . '">';
-        foreach ($user_array as $device=>$user) {
-            if (!isset($first_device)) {
-                $first_device = $device;
+        if (is_array($user_array) && count($user_array)) {
+            foreach ($user_array as $device=>$user) {
+                if (!isset($first_device)) {
+                    $first_device = $device;
+                }
+                echo '<option value="'.$device.'">'.$user['name'].'</option>';
             }
-            echo '<option value="'.$device.'">'.$user['name'].'</option>';
         }
         echo '<option value="all">' . $this->getLang('show_all') . '</option>';
         unset($device, $user);
         echo '</select>';
         echo '</div>';
         echo '<div class="frame-diffs">';
-        foreach ($user_array as $device => $user) {
-            $new_content = $this->_content($device, $frame);
-            $this->html_diff($frame, $device, $current_content, $new_content, $device==$first_device);
+        if (is_array($user_array) && count($user_array)) {
+            foreach ($user_array as $device => $user) {
+                $new_content = $this->_content($device, $frame);
+                $this->html_diff($frame, $device, $current_content, $new_content, $device==$first_device);
+            }
         }
         unset($device, $user, $new_content, $first_device);
         echo '</div>';
@@ -767,9 +771,15 @@ jQuery(document).on('ready', function(){
     }
 
     public function handle_add_merge_button(&$event, $param) {
-        global $ID, $REV, $INFO;
+        global $ID, $INPUT, $REV, $INFO;
 
-        if (!$this->on) {
+        $do = $event->data;
+        if (is_array($do)) {
+            list($do) = array_keys($do);
+        }
+
+        if (!$this->on || ($this->on && strpos($do, 'door43gitmerge') === false && strpos($INPUT->get->str('do'), 'door43gitmerge') === false && $INPUT->get->str('do') !== '')) {
+            $this->on = 0;
             return;
         }
 
