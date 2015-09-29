@@ -14,26 +14,21 @@
         #obs-plugin-create-now-container label { margin-left: 6px; }
         #obs-plugin-create-now-container .success { color: #050; }
         #obs-plugin-create-now-container .failure { color: #900; }
-        #obs-plugin-create-now-container #gray-cover { position:fixed; top:0; left:0; overflow:hidden; display:none;
-            width:100%; height:100%;background-color:#000000; z-index:150; opacity:0.5; cursor: wait;
-        }
     </style>
-    <!-- The "gray-cover" div is used to disable the page so the user doesn't click the button again while the server is processing the request-->
-    <div id="gray-cover"></div>
     <div id="obs-stories-div" data-operation="create_obs_now">
         <input type="checkbox" id="obs-stories" checked="checked"><label for="obs-stories">@checkboxOBS@</label>
         <p id="obsCreateNowMessage" class="success">&nbsp;</p>
     </div>
     <div id="obs-notes-div" data-operation="create_obs_notes">
-        <input type="checkbox" id="obs-notes" checked="checked"><label for="obs-notes">@checkboxOBSNotes@</label>
+        <input type="checkbox" id="obs-notes"><label for="obs-notes">@checkboxOBSNotes@</label>
         <p id="obsCreateNotesMessage" class="success">&nbsp;</p>
     </div>
     <div id="obs-words-div" data-operation="create_obs_words">
-        <input type="checkbox" id="obs-words" checked="checked"><label for="obs-words">@checkboxOBSWords@</label>
+        <input type="checkbox" id="obs-words"><label for="obs-words">@checkboxOBSWords@</label>
         <p id="obsCreateWordsMessage" class="success">&nbsp;</p>
     </div>
     <div id="obs-questions-div" data-operation="create_obs_questions" style="margin-bottom: 12px;">
-        <input type="checkbox" id="obs-questions" checked="checked"><label for="obs-questions">@checkboxOBSQuestions@</label>
+        <input type="checkbox" id="obs-questions"><label for="obs-questions">@checkboxOBSQuestions@</label>
         <p id="obsCreateQuestionsMessage" class="success">&nbsp;</p>
     </div>
     <div>

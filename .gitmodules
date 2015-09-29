@@ -90,7 +90,7 @@
 	url = https://github.com/splitbrain/dokuwiki-plugin-swiftmail
 [submodule "lib/plugins/tag"]
 	path = lib/plugins/tag
-	url = https://github.com/dokufreaks/plugin-tag
+	url = https://github.com/superdav42/plugin-tag
 [submodule "lib/plugins/captcha"]
 	path = lib/plugins/captcha
 	url = https://github.com/splitbrain/dokuwiki-plugin-captcha

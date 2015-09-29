@@ -1,0 +1,7 @@
+base   codecleanup
+author David Stone
+email  david@nnucomputerwhiz.com
+date   2015-09-21
+name   Code Cleanup Plugin
+desc   Remove font tags and other junk that can occur on copy and paste
+url    http://www.distantshores.org

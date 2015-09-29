@@ -24,7 +24,7 @@ class Door43_Syntax_Plugin extends DokuWiki_Syntax_Plugin {
     protected $templateFileName;
 
     /**
-     * @param string $tagName Case-insensitive tag name
+     * @param string $tagName Lower-case tag name
      * @param string $templateFileName Usually a HTML file
      */
     function __construct($tagName, $templateFileName) {
@@ -93,7 +93,7 @@ class Door43_Syntax_Plugin extends DokuWiki_Syntax_Plugin {
     }
 
     /**
-     * Handle matches of the door43obs syntax
+     * Handle matches
      *
      * @param string       $match   The match of the syntax
      * @param int          $state   The state of the handler
@@ -133,7 +133,7 @@ class Door43_Syntax_Plugin extends DokuWiki_Syntax_Plugin {
     protected function needToRender($match) {
 
         // We don't need to do anything if the match was the "Entry" or "Exit" tag.
-        if (preg_match('/(' . $this->entryMatch . '|' . str_replace('/', '\/', $this->exitMatch) . ')/', strtolower($match)))
+        if (preg_match('/(' . $this->entryMatch . '|' . str_replace('/', '\/', $this->exitMatch) . ')/i', $match))
             return false;
 
         // We do want to handle the "special" tag and any "un-matched" text
@@ -144,15 +144,10 @@ class Door43_Syntax_Plugin extends DokuWiki_Syntax_Plugin {
      * @param string $match
      * @return mixed|string
      */
-    protected function getTextToRender(/** @noinspection PhpUnusedParameterInspection */
-        $match) {
+    protected function getTextToRender(/** @noinspection PhpUnusedParameterInspection */ $match) {
 
-        // Load the template for the button
-        $text = file_get_contents($this->root . '/templates/' . $this->templateFileName);
-
-        $text = $this->translateHtml($text);
-
-        return $text;
+        $html = $this->getHelper()->processTemplateFile($this->root . '/templates/' . $this->templateFileName);
+        return $this->translateHtml($html);
     }
 
     /**
@@ -162,6 +157,15 @@ class Door43_Syntax_Plugin extends DokuWiki_Syntax_Plugin {
      */
     protected function translateHtml($html) {
 
+        if (!$this->localised) $this->setupLocale();
+        return $this->getHelper()->translateHtml($html, $this->lang);
+    }
+
+    /**
+     * @return helper_plugin_door43shared
+     */
+    protected function getHelper() {
+
         /* @var $door43shared helper_plugin_door43shared */
         global $door43shared;
 
@@ -170,7 +174,6 @@ class Door43_Syntax_Plugin extends DokuWiki_Syntax_Plugin {
             $door43shared = plugin_load('helper', 'door43shared');
         }
 
-        if (!$this->localised) $this->setupLocale();
-        return $door43shared->translateHtml($html, $this->lang);
+        return $door43shared;
     }
 }

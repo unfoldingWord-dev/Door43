@@ -5,8 +5,3 @@ The Door43 community uses Slack to communicate. When you [[:en:slack|join our sl
 You may also use this form:
 
 {{contact>subj=Door43 Contact}}
-
-----
-
-https://pad.door43.org/p/ta-tS_problem
-{{tag>epady}}

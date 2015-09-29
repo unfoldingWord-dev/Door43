@@ -79,6 +79,10 @@ class helper_plugin_door43shared extends DokuWiki_Plugin {
      * @param string $dir
      */
     public function delete_directory_and_files($dir) {
+
+        // don't try to delete it if it doesn't exist
+        if (!file_exists($dir)) return;
+
         foreach(scandir($dir) as $file) {
             if ('.' === $file || '..' === $file) continue;
             if (is_dir("$dir/$file")) $this->delete_directory_and_files("$dir/$file");
@@ -96,5 +100,19 @@ class helper_plugin_door43shared extends DokuWiki_Plugin {
             self::$cache = door43Cache::getInstance();
         }
         return self::$cache;
+    }
+
+    public function processTemplateFile($fileName) {
+
+        ob_start();
+
+        // Load the template using 'include' so the template can contain PHP code.
+        // This was changed to support the auto-complete language selector in templates.
+        /** @noinspection PhpIncludeInspection */
+        include $fileName;
+
+        $text = ob_get_clean();
+
+        return $text;
     }
 }

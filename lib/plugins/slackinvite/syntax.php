@@ -119,7 +119,7 @@ class syntax_plugin_slackinvite extends DokuWiki_Syntax_Plugin {
         $form->addElement(form_makeTextField('first_name', '', $this->getlang('first_name'), 'first__name'));
         $form->addElement(form_makeTextField('last_name', '', $this->getlang('last_name'), 'last__name'));
         $form->addElement(form_makeTextField('email', '', $this->getlang('email'), 'email'));
-        $form->addElement(form_makeButton('submit', '', $lang['btn_signup']));
+        $form->addElement(form_makeButton('submit', 'Sign Up', $lang['btn_signup']));
         $form->endFieldset();
 
         $html .= '<div class="dokuwiki"><p>' . NL;
@@ -143,5 +143,3 @@ class syntax_plugin_slackinvite extends DokuWiki_Syntax_Plugin {
         
     }
 }
-
-//Setup VIM: ex: et ts=4 enc=utf-8 :
