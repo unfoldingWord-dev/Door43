@@ -17,14 +17,14 @@ if (!defined('DS')) define('DS', DIRECTORY_SEPARATOR);
  */
 class helper_plugin_door43translation extends helper_plugin_translation {
 
-    var $LN = array(); // hold native names
-
     /**
      * Class constructor
      */
     function __construct() {
-
         parent::helper_plugin_translation();
+
+        // load language names
+        $this->LN = confToHash(dirname(__FILE__) . '/lang/langnames.txt');
     }
 
     /**
@@ -94,9 +94,16 @@ class helper_plugin_door43translation extends helper_plugin_translation {
     public function renderAutoCompleteTextBox($id, $name = '', $style = '', $class = '', $callbackScript = '') {
 
         $html = file_get_contents(dirname(__FILE__) . DS . 'private' . DS . 'html' . DS . 'auto_complete_language.html');
+        $js = file_get_contents(dirname(__FILE__) . DS . 'private' . DS . 'js' . DS . 'sort_languages.js');
 
         // remove the initial doc comments
         $html = preg_replace('/^\<!--(\n|.)*?--\>(\n)?/U', '', $html, 1);
+
+        // insert the sorting script
+        $html = str_replace('/* insert sort_languages.js here - do not remove this comment */', $js, $html);
+
+        // insert the callback script
+        $html = str_replace('/* additional callback script - do not remove this comment */', $callbackScript, $html);
 
         // set id, name, style and class
         $html = str_replace('id=""', 'id="' . $id . '"', $html);
@@ -107,9 +114,6 @@ class helper_plugin_door43translation extends helper_plugin_translation {
             $html = str_replace('style=""', 'style="' . $style . '"', $html);
         if (!empty($class))
             $html = str_replace('class=""', 'class="' . $class . '"', $html);
-
-        // insert the callback script
-        $html = str_replace('/* additional callback script - do not remove this comment */', $callbackScript, $html);
 
         return $html;
     }

@@ -1,0 +1,48 @@
+<!--
+* Name: obs_options.html
+* Description: The html and javascript that implements the UI for the CreateNow plugin.
+*
+* This comment block will be removed by the plugin before rendering.
+*
+* Author: Phil Hopper
+* Date:   2015-08-31
+-->
+<div id="obs-plugin-create-now-container">
+    <style>
+        #obs-plugin-create-now-container div { margin-bottom: 6px; }
+        #obs-plugin-create-now-container p { display: none; margin: 6px 0 18px 24px; }
+        #obs-plugin-create-now-container label { margin-left: 6px; }
+        #obs-plugin-create-now-container .success { color: #050; }
+        #obs-plugin-create-now-container .failure { color: #900; }
+    </style>
+    <div id="obs-stories-div" data-operation="create_obs_now">
+        <input type="checkbox" id="obs-stories" checked="checked"><label for="obs-stories">@checkboxOBS@</label>
+        <p id="obsCreateNowMessage" class="success">&nbsp;</p>
+    </div>
+    <div id="obs-notes-div" data-operation="create_obs_notes">
+        <input type="checkbox" id="obs-notes"><label for="obs-notes">@checkboxOBSNotes@</label>
+        <p id="obsCreateNotesMessage" class="success">&nbsp;</p>
+    </div>
+    <div id="obs-words-div" data-operation="create_obs_words">
+        <input type="checkbox" id="obs-words"><label for="obs-words">@checkboxOBSWords@</label>
+        <p id="obsCreateWordsMessage" class="success">&nbsp;</p>
+    </div>
+    <div id="obs-questions-div" data-operation="create_obs_questions" style="margin-bottom: 12px;">
+        <input type="checkbox" id="obs-questions"><label for="obs-questions">@checkboxOBSQuestions@</label>
+        <p id="obsCreateQuestionsMessage" class="success">&nbsp;</p>
+    </div>
+    <div>
+        <button id="obsCreateNowButton">@createButtonText@</button>
+        <p id="obsCreateValidateMessage" class="failure">&nbsp;</p>
+    </div>
+    <script type="text/javascript">
+
+        // load the obs-plugin.js script file
+        if (typeof obs_plugin_script_loaded !== 'function') {
+            jQuery.getScript('@DOKU_BASE@lib/plugins/door43obs/obs-plugin.js', function() { initialize_obs_button(); });
+        }
+        else {
+            initialize_obs_button();
+        }
+    </script>
+</div>

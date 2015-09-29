@@ -34,6 +34,15 @@ class Door43_Action_Plugin extends DokuWiki_Action_Plugin {
      */
     protected function translateHtml($html) {
 
+        if (!$this->localised) $this->setupLocale();
+        return $this->getHelper()->translateHtml($html, $this->lang);
+    }
+
+    /**
+     * @return helper_plugin_door43shared
+     */
+    protected function getHelper() {
+
         /* @var $door43shared helper_plugin_door43shared */
         global $door43shared;
 
@@ -42,7 +51,6 @@ class Door43_Action_Plugin extends DokuWiki_Action_Plugin {
             $door43shared = plugin_load('helper', 'door43shared');
         }
 
-        if (!$this->localised) $this->setupLocale();
-        return $door43shared->translateHtml($html, $this->lang);
+        return $door43shared;
     }
 }

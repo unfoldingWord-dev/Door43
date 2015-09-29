@@ -1,0 +1,10 @@
+code cleanup Plugin for DokuWiki
+
+Removes font tags from pages that shouldn't use them
+
+If you install this plugin manually, make sure it is installed in
+lib/plugins/codecleanup/ - if the folder is called different it
+will not work!
+
+Please refer to http://www.dokuwiki.org/plugins for additional info
+on how to install plugins in DokuWiki.

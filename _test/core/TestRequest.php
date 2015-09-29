@@ -40,7 +40,7 @@ class TestRequest {
     /**
      * Executes the request
      *
-     * @param string $uri  end URL to simulate, needs to start with /doku.php currently
+     * @param string $url  end URL to simulate, needs to start with /doku.php currently
      * @return TestResponse the resulting output of the request
      */
     public function execute($uri='/doku.php') {

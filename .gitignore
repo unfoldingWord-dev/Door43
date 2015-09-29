@@ -11,9 +11,12 @@ nbproject/
 vendor/
 
 obs-diffs/
+exports/*
 
 lib/plugins/ckgedit/fckeditor/userfiles/file
 lib/plugins/ckgedit/fckeditor/userfiles/flash
 lib/plugins/ckgedit/fckeditor/userfiles/image
 lib/plugins/ckgedit/fckeditor/userfiles/media
 lib/plugins/slackinvite/slackinvite.private.php
+
+composer.lock

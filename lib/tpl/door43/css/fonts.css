@@ -1,33 +1,79 @@
 @font-face {
-  font-family: 'Noto Sans';
+  font-family: 'NotoSans';
   src: local("Noto Sans"), local("NotoSans");
   src: url("fonts/noto/notosans-regular.woff2") format("woff2"), url("fonts/noto/notosans-regular.woff") format("woff");
 }
 @font-face {
-  font-family: 'Noto Sans';
+  font-family: 'NotoSans';
   font-weight: bold;
   src: local("Noto Sans"), local("NotoSans");
   src: url("fonts/noto/notosans-bold.woff2") format("woff2"), url("fonts/noto/notosans-bold.woff") format("woff");
 }
 
 @font-face {
-  font-family: 'Noto Sans Ethiopic';
+  font-family: 'NotoSansEthiopic';
   src: local("Noto Sans Ethiopic"), local("NotoSansEthiopic");
   src: url("fonts/noto/notosansethiopic-regular.woff2") format("woff2"), url("fonts/noto/notosansethiopic-regular.woff") format("woff");
 }
 @font-face {
-  font-family: 'Noto Sans Ethiopic';
+  font-family: 'NotoSansEthiopic';
   font-weight: bold;
   src: local("Noto Sans Ethiopic"), local("NotoSansEthiopic");
   src: url("fonts/noto/notosansethiopic-bold.woff2") format("woff2"), url("fonts/noto/notosansethiopic-bold.woff") format("woff");
 }
+@font-face {
+  font-family: AbyssinicaSILW;
+  src: url("fonts/sil/AbyssinicaSIL-R.woff");
+  src: url("fonts/sil/AbyssinicaSIL-R.ttf") format("ttf"), url("fonts/sil/AbyssinicaSIL-R.woff") format("woff");
+}
 
-* { font-family: 'Noto Sans', sans-serif; }
+@font-face {
+  font-family: 'NotoNaskhArabic';
+  src: local('Noto Naskh Arabic'), local('NotoNaskhArabic');
+  src: url('fonts/noto/notonaskharabic-regular.woff2') format('woff2'), url('fonts/noto/notokufiarabic-regular.woff') format('woff');
+}
+@font-face {
+  font-family: 'NotoNaskhArabic';
+  font-weight: bold;
+  src: local('Noto Naskh Arabic'), local('NotoNaskhArabic');
+  src: url('fonts/noto/notonaskharabic-bold.woff2') format('woff2'), url('fonts/noto/notonaskharabic-bold.woff') format('woff');
+}
 
+@font-face {
+  font-family: 'NotoSansDevanagari';
+  src: local('Noto Sans Devanagari'), local('NotoSansDevanagari');
+  src: url('fonts/noto/notosansdevanagari-regular.woff2') format('woff2'), url('fonts/noto/notosansdevanagari-regular.woff') format('woff');
+}
+@font-face {
+  font-family: 'NotoSansDevanagari';
+  font-weight: bold;
+  src: local('Noto Sans Devanagari'), local('NotoSansDevanagari');
+  src: url('fonts/noto/notosansdevanagari-bold.woff2') format('woff2'), url('fonts/noto/notosansdevanagari-bold.woff') format('woff');
+}
+
+* { font-family: 'NotoSans', sans-serif; }
+
+/* use Abyssinica SIL - Regular in .woff format */
 :lang(am),
 :lang(gez),
 :lang(ti),
 :lang(tir),
 :lang(tig) {
-  font-family: 'Noto Sans Ethiopic', inherit, sans-serif;
+  font-family: NotoSans, AbyssinicaSILW, NotoSansEthiopic, sans-serif;
+  word-spacing: .02em;
 }
+
+/* remove bold styling from heading for Ethiopic languages, per SIL example of this font's usage */
+:lang(am) h1,
+:lang(gez) h1,
+:lang(ti) h1,
+:lang(tir) h1,
+:lang(tig) h1 {
+   font-weight: normal;
+}
+
+/* Arabic script */
+:lang(fa) { font-family: NotoSans, NotoNaskhArabic, sans-serif; }
+
+/* Devanagari script */
+:lang(sgj) { font-family: NotoSans, NotoSansDevanagari, sans-serif; }
