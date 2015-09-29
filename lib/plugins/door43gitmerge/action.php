@@ -716,6 +716,9 @@ jQuery(document).on('ready', function(){
         if (!count($data_array)) {
             return;
         }
+        foreach ($data_array as $device) $user_array[$device] = $this->devices[$device];
+        @asort($user_array);
+        @reset($user_array);
 
         echo '<div id="frame-' . $frame . '" class="frame">';
         if ($frame == 'title' || $frame == 'reference') {
@@ -743,7 +746,7 @@ jQuery(document).on('ready', function(){
         echo '<div class="frame-version-selection">';
         echo $this->getLang('version_to_compare') . ': ';
         echo '<select class="door43gitmerge-diff-switcher" data-frame="' . $frame . '">';
-        if(isset($user_array) && is_array($user_array)){
+        if (is_array($user_array) && count($user_array)) {
             foreach ($user_array as $device=>$user) {
                 if (!isset($first_device)) {
                     $first_device = $device;
@@ -756,7 +759,7 @@ jQuery(document).on('ready', function(){
         echo '</select>';
         echo '</div>';
         echo '<div class="frame-diffs">';
-        if(isset($user_array) && is_array($user_array)){
+        if (is_array($user_array) && count($user_array)) {
             foreach ($user_array as $device => $user) {
                 $new_content = $this->_content($device, $frame);
                 $this->html_diff($frame, $device, $current_content, $new_content, $device==$first_device);
@@ -768,9 +771,15 @@ jQuery(document).on('ready', function(){
     }
 
     public function handle_add_merge_button(&$event, $param) {
-        global $ID, $REV, $INFO;
+        global $ID, $INPUT, $REV, $INFO;
 
-        if (!$this->on || isset($_GET['do'])) {
+        $do = $event->data;
+        if (is_array($do)) {
+            list($do) = array_keys($do);
+        }
+
+        if (!$this->on || ($this->on && strpos($do, 'door43gitmerge') === false && strpos($INPUT->get->str('do'), 'door43gitmerge') === false && $INPUT->get->str('do') !== '')) {
+            $this->on = 0;
             return;
         }
 

@@ -94,26 +94,27 @@ class helper_plugin_door43translation extends helper_plugin_translation {
     public function renderAutoCompleteTextBox($id, $name = '', $style = '', $class = '', $callbackScript = '') {
 
         $html = file_get_contents(dirname(__FILE__) . DS . 'private' . DS . 'html' . DS . 'auto_complete_language.html');
-        $js = file_get_contents(dirname(__FILE__) . DS . 'private' . DS . 'js' . DS . 'sort_languages.js');
 
         // remove the initial doc comments
         $html = preg_replace('/^\<!--(\n|.)*?--\>(\n)?/U', '', $html, 1);
 
-        // insert the sorting script
-        $html = str_replace('/* insert sort_languages.js here - do not remove this comment */', $js, $html);
-
-        // insert the callback script
-        $html = str_replace('/* additional callback script - do not remove this comment */', $callbackScript, $html);
-
         // set id, name, style and class
         $html = str_replace('id=""', 'id="' . $id . '"', $html);
-        $html = str_replace('#id', '#' . $id, $html);
         if (!empty($name))
             $html = str_replace('name=""', 'name="' . $name . '"', $html);
         if (!empty($style))
             $html = str_replace('style=""', 'style="' . $style . '"', $html);
         if (!empty($class))
             $html = str_replace('class=""', 'class="' . $class . '"', $html);
+
+        // insert the callback script
+        if (!empty($callbackScript)) {
+            $html .= "<script type=\"text/javascript\">\n";
+            $html .= "jQuery().ready(function() {\n";
+            $html .= $callbackScript;
+            $html .= "});\n";
+            $html .= "</script>\n";
+        }
 
         return $html;
     }
