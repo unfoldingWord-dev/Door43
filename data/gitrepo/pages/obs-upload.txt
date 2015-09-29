@@ -2,9 +2,9 @@
 
 You can upload a single DOCX file or a single zipped DOCX file (.docx or .zip). Currently only Word documents in the DOCX format can be processed.
 
-OBS must already be initialized for the language you select.
-
 The size of the file being uploaded must be less than 1 gigabyte (1024 megabytes).
+
+OBS must already be initialized for the language you select.  [[obs-setup|Check here]].
 
 If you need help getting started, please [[:contact|contact us]].
 
