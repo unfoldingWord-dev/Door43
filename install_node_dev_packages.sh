@@ -13,3 +13,4 @@ npm install -g karma-firefox-launcher
 npm install -g karma-jasmine
 npm install -g phantomjs
 npm install -g karma-phantomjs-launcher
+npm install -g karma-jasmine-matchers

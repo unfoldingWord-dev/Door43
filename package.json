@@ -12,7 +12,8 @@
     "karma-firefox-launcher": "*",
     "karma-jasmine": "*",
     "phantomjs": "*",
-    "karma-phantomjs-launcher": "*"
+    "karma-phantomjs-launcher": "*",
+    "karma-jasmine-matchers": "*"
   },
   "engine": "node >= 1.0.0"
 }
