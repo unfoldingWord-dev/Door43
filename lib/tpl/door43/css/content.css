@@ -360,3 +360,12 @@
     margin-left: 0;
     margin-right: 9.5em;
 }
+
+/*____________ changes to stories page ____________*/
+div[class*=":obs:stories"] ol {
+    list-style: none;
+}
+
+div[class*=":obs:stories"] ol li {
+    margin-left: 0;
+}
