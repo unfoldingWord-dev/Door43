@@ -20,14 +20,6 @@ $DEBUG && set -x
 
 if [ -z $1 ];
 then
-        # default installed languages
-        LANGUAGES="ALL"
-else
-        LANGUAGES=($@)
-fi
-
-if [ -z $1 ];
-then
   # Let the person running the script know what's going on.
   echo "Pulling in latest changes for all language repositories..."
 
