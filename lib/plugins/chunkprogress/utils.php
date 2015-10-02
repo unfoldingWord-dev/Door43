@@ -25,8 +25,7 @@ $CHUNKPROGRESS_STATUS_TAGS = array(
  *
  * @return array An updated $params array with data filled in
  */
-function validateEndDate($params)
-{
+function validateEndDate($params) {
     // Validate end_date
     if ($params["end_date"] == "") {
         $params["end_date"] = date("Y-m-d");
@@ -49,8 +48,7 @@ function validateEndDate($params)
  *
  * @return array An updated $params array with data filled in
  */
-function validateStartDate($params)
-{
+function validateStartDate($params) {
     if ($params["start_date"] == "") {
         $params["start_date"] = "1970-01-01";
     }
@@ -72,8 +70,7 @@ function validateStartDate($params)
  *
  * @return array An updated $params array with data filled in
  */
-function validateNamespace($params)
-{
+function validateNamespace($params) {
     if ($params["namespace"] == "") {
         $params["message"]
             = "ERROR: Please specify the namespace, e.g. namespace=en:bible:notes";
@@ -92,8 +89,7 @@ function validateNamespace($params)
  *
  * @return array An array of found parameters.
  */
-function getParams($match, $expected_params)
-{
+function getParams($match, $expected_params) {
     // Make a copy of $expected_params
     $params = $expected_params;
 
@@ -149,8 +145,7 @@ function getParams($match, $expected_params)
  *
  * @return mixed The (numeric) date the page was modified
  */
-function getPageTimestamp($page_id, $revision_id)
-{
+function getPageTimestamp($page_id, $revision_id) {
     if ($revision_id == "") {
         // No revision id, return modification date of current page
         return p_get_metadata($page_id)["date"]["modified"];
@@ -170,8 +165,7 @@ function getPageTimestamp($page_id, $revision_id)
  * @return string The name of the user responsible for the revision, or "" if the user
  * could not be determined
  */
-function getPageUser($page_id, $revision_id)
-{
+function getPageUser($page_id, $revision_id) {
     if ($revision_id == "") {
         // Try to pull the user from the last_change metadata
         $metadata = p_get_metadata($page_id);
@@ -202,18 +196,24 @@ function getPageUser($page_id, $revision_id)
  * @return array An array containing the tags found (the array may be empty but will
  * not be null)
  */
-function getTags($page_id, $revision_id)
-{
+function getTags($page_id, $revision_id) {
     $tags = array();
     $filename = wikiFN($page_id, $revision_id);
-    $lines = gzfile($filename);
-    foreach ($lines as $line) {
-        $matches = array();
-        preg_match_all("/{{tag>([^}]*)}}/", strtolower($line), $matches);
-        // $matches[1] contains all instances of the the space-separated tags
-        foreach ($matches[1] as $match) {
-            $tags = array_merge($tags, explode(" ", $match));
+    if (file_exists($filename)) {
+        $lines = gzfile($filename);
+        foreach ($lines as $line) {
+            $matches = array();
+            preg_match_all("/{{tag>([^}]*)}}/", strtolower($line), $matches);
+            // $matches[1] contains all instances of the the space-separated tags
+            foreach ($matches[1] as $match) {
+                $tags = array_merge($tags, explode(" ", $match));
+            }
         }
+    } else {
+        error_log(
+            "chunkprogress:Utils.php#getTags():" .
+            " Warning: file does not exist ($filename)"
+        );
     }
     return $tags;
 }
@@ -227,8 +227,7 @@ function getTags($page_id, $revision_id)
  * @return array An array containing the status tags found (the array may be empty
  * but will not be null)
  */
-function getStatusFromTags($tags)
-{
+function getStatusFromTags($tags) {
     global $CHUNKPROGRESS_STATUS_TAGS;
     return array_intersect($CHUNKPROGRESS_STATUS_TAGS, $tags);
 }
@@ -243,15 +242,198 @@ function getStatusFromTags($tags)
  * @return array An array containing the status tags found (the array may be empty
  * but will not be null)
  */
-function getStatusTags($page_id, $revision_id)
-{
+function getStatusTags($page_id, $revision_id) {
     return getStatusFromTags(getTags($page_id, $revision_id));
+}
+
+/**
+ * Returns all statuses for all revisions of a given page
+ *
+ * {
+ *   "111111": ["check"],
+ *   "222222": ["check"],
+ *   "333333": ["review"],
+ *   "444444": ["review", "discuss"],
+ *   "555555": ["publish"]
+ * }
+ *
+ * @param string $page_id The page to read revisions from
+ *
+ * @return an array containing the page status revisions
+ */
+function getStatusesForPage($page_id) {
+    $statuses_by_revision = array();
+
+    // Get all revisions for this page.
+    $revision_ids = getRevisions(
+        $page_id,
+        0,
+        10000
+    );
+
+    // Reverse the array so that it goes least-recent to most-recent
+    $revision_ids = array_reverse($revision_ids);
+
+    // Push the current revision onto the stack.
+    array_push($revision_ids, "");
+
+    // Extract status from each revision
+    foreach ($revision_ids as $revision_id) {
+        $status_tags = getStatusTags($page_id, $revision_id);
+        $statuses_by_revision[$revision_id] = $status_tags;
+    }
+
+    return $statuses_by_revision;
+}
+
+/**
+ * Returns all statuses for all revisions of a given page
+ *
+ * {
+ *   "first_to_check": 11111,
+ *   "first_to_review": 22222,
+ *   "first_to_publish": 33333
+ * }
+ *
+ * If the page has no statuses, the entry will be set to null.  For
+ * example, if the page had no review revisions, then:
+ *
+ * {
+ *   "first_to_check": 11111,
+ *   "first_to_review": null,
+ *   "first_to_publish": 33333
+ * }
+ *
+ * @param string $page_id The page to read revisions from
+ *
+ * @return array An associative array containing the breakpoints
+ */
+function getStatusBreakpointsForPage($page_id) {
+    // Get statuses for each revision of the page
+    $statuses_by_revision = getStatusesForPage($page_id);
+
+    // Search revision statuses for breakpoints
+    $previous_status = null;
+    $first_to_check = "(none)";
+    $first_to_review = "(none)";
+    $first_to_publish = "(none)";
+    foreach (array_keys($statuses_by_revision) as $revision_id) {
+
+        // Get status tags.  We only care about the leftmost status
+        $status_tags = $statuses_by_revision[$revision_id];
+        $status = array_shift(array_values($status_tags));
+
+        // error_log(
+        //     "Page: " . $ID .
+        //     " Revision: " . $revision_id .
+        //     " Status: " . $status
+        // );
+
+        // Look for the first breakpoint for each status.
+        if ($previous_status != "(none)") {
+            if ($first_to_check == "(none)"
+                and $previous_status != "check"
+                and $status == "check"
+            ) {
+                $first_to_check = $revision_id;
+            }
+            if ($first_to_review == "(none)"
+                and $previous_status != "review"
+                and $status == "review"
+            ) {
+                $first_to_review = $revision_id;
+            }
+            if ($first_to_publish == "(none)"
+                and $previous_status != "publish"
+                and $status == "publish"
+            ) {
+                $first_to_publish = $revision_id;
+            }
+        }
+
+        $previous_status = $status;
+    }
+
+    // error_log(
+    //     "Page: " . $page_id .
+    //     " First to check: " . $first_to_check
+    // );
+    // error_log(
+    //     "Page: " . $page_id .
+    //     " First to review: " . $first_to_review
+    // );
+    // error_log(
+    //     "Page: " . $page_id .
+    //     " First to publish: " . $first_to_publish
+    // );
+
+    return array(
+        'first_to_check' => $first_to_check,
+        'first_to_review' => $first_to_review,
+        'first_to_publish' => $first_to_publish
+    );
+}
+
+/**
+ * Returns Dokuwiki text with links to breakpoint statuses for page
+ *
+ * @param string $page_id The page to read revisions from
+ *
+ * @return string A Dokuwiki-formatted string with links to the diffs
+ */
+function generateDiffLinks($page_id) {
+    $link_text = "";
+
+    $breakpoints = getStatusBreakpointsForPage($page_id);
+    $first_to_check = $breakpoints["first_to_check"];
+    $first_to_review = $breakpoints["first_to_review"];
+    $first_to_publish = $breakpoints["first_to_publish"];
+
+    // Check -> Review
+    if ($first_to_check != "(none)" and $first_to_review != "(none)") {
+        if ($link_text != "") {
+            $link_text = $link_text . " | ";
+        }
+        $link_text = $link_text .
+            " [[$page_id?do=diff&rev2%5B0%5D="
+            . $first_to_check
+            . "&rev2%5B1%5D="
+            . $first_to_review
+            . "&difftype=sidebyside|check-review]]";
+    }
+
+    // Review -> Publish
+    if ($first_to_review != "(none)" and $first_to_publish != "(none)") {
+        if ($link_text != "") {
+            $link_text = $link_text . " | ";
+        }
+        $link_text = $link_text .
+            " [[$page_id?do=diff&rev2%5B0%5D="
+            . $first_to_review
+            . "&rev2%5B1%5D="
+            . $first_to_publish
+            . "&difftype=sidebyside|review-publish]]";
+    }
+
+    // Publish -> Current
+    if ($first_to_publish != "(none)" && $first_to_publish != "") {
+        if ($link_text != "") {
+            $link_text = $link_text . " | ";
+        }
+        $link_text = $link_text .
+            " [[$page_id?do=diff&rev2%5B0%5D="
+            . $first_to_publish
+            . "&rev2%5B1%5D="
+            . "&difftype=sidebyside|publish-current]]";
+    }
+
+    return $link_text;
 }
 
 
 /**
  * Convenience function to get all the current pages in the given namespace.
- * 
+ *
  * Each returned page entry has the following structure:
  *
  * id: en:bible:notes:1ch:01:01
@@ -263,8 +445,7 @@ function getStatusTags($page_id, $revision_id)
  *
  * @return array An array containing the details of each page in the namespace
  */
-function getAllPagesInNamespace($namespace)
-{
+function getAllPagesInNamespace($namespace) {
     // Find all pages under namespace
     global $conf;
     $data = array();
@@ -282,8 +463,7 @@ function getAllPagesInNamespace($namespace)
  * @param string $title  optional title to print above the array
  * @param int    $indent optional number of spaces to indent
  */
-function debugEchoArray($array, $title="(array)", $indent=0)
-{
+function debugEchoArray($array, $title="(array)", $indent=0) {
     $indent_str = str_repeat("&nbsp;", $indent);
     echo $indent_str . $title . "<br/>";
     echo $indent_str . "-------------------" . "<br/>";
