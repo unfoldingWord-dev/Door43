@@ -1,0 +1,32 @@
+#!/bin/sh
+#
+# This hook should be placed in a bare tS translation repository and will deploy the 
+# repository to the correct location on the file system and notify the gitmerge plugin
+# that updates are available.
+#
+# Change ROOTTREE to whatever directory you would like the repositories cloned to.
+#
+ 
+ROOTTREE=/var/lib/deployed_repositories
+
+# get repository name
+WORKTREE=$ROOTTREE/$GL_REPO
+DEPLOY_DIR=$WORKTREE
+
+# clone repository
+echo Deploying repository to $DEPLOY_DIR.
+mkdir -p $DEPLOY_DIR
+GIT_WORK_TREE=$DEPLOY_DIR git checkout master -f
+
+echo Fixing permissions
+chmod 755 $ROOTTREE
+find $ROOTTREE -type d -exec chmod 755 {} \;
+find $ROOTTREE -type f -exec chmod 644 {} \;
+
+# we have to read stdin in order to avoid
+# sideband demutiplexer error
+# more details here: http://bit.ly/PzbRwo
+while read oldrev newrev refname
+do
+:
+done

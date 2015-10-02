@@ -70,12 +70,11 @@ function load_autoload($name){
         'IXR_Client'            => DOKU_INC.'inc/IXR_Library.php',
         'IXR_IntrospectionServer' => DOKU_INC.'inc/IXR_Library.php',
         'Doku_Plugin_Controller'=> DOKU_INC.'inc/plugincontroller.class.php',
-        'GeSHi'                 => DOKU_INC.'inc/geshi.php',
         'Tar'                   => DOKU_INC.'inc/Tar.class.php',
-        'TarLib'                => DOKU_INC.'inc/TarLib.class.php',
         'ZipLib'                => DOKU_INC.'inc/ZipLib.class.php',
         'DokuWikiFeedCreator'   => DOKU_INC.'inc/feedcreator.class.php',
         'Doku_Parser_Mode'      => DOKU_INC.'inc/parser/parser.php',
+        'Doku_Parser_Mode_Plugin' => DOKU_INC.'inc/parser/parser.php',
         'SafeFN'                => DOKU_INC.'inc/SafeFN.class.php',
         'Sitemapper'            => DOKU_INC.'inc/Sitemapper.php',
         'PassHash'              => DOKU_INC.'inc/PassHash.class.php',
@@ -95,11 +94,27 @@ function load_autoload($name){
         'DokuWiki_Remote_Plugin' => DOKU_PLUGIN.'remote.php',
         'DokuWiki_Auth_Plugin'   => DOKU_PLUGIN.'auth.php',
 
+        'Doku_Renderer'          => DOKU_INC.'inc/parser/renderer.php',
+        'Doku_Renderer_xhtml'    => DOKU_INC.'inc/parser/xhtml.php',
+        'Doku_Renderer_code'     => DOKU_INC.'inc/parser/code.php',
+        'Doku_Renderer_xhtmlsummary' => DOKU_INC.'inc/parser/xhtmlsummary.php',
+        'Doku_Renderer_metadata' => DOKU_INC.'inc/parser/metadata.php',
+
+        'DokuCLI'                => DOKU_INC.'inc/cli.php',
+        'DokuCLI_Options'        => DOKU_INC.'inc/cli.php',
+        'DokuCLI_Colors'         => DOKU_INC.'inc/cli.php',
+
     );
 
     if(isset($classes[$name])){
         require_once($classes[$name]);
         return;
+    }
+
+    // our own namespace
+    $name = str_replace('\\', '/', $name);
+    if(substr($name, 0, 9) == 'dokuwiki/') {
+        require_once(substr($name, 9) . '.php');
     }
 
     // Plugin loading
@@ -108,7 +123,7 @@ function load_autoload($name){
         // try to load the wanted plugin file
         $c = ((count($m) === 4) ? "/{$m[3]}" : '');
         $plg = DOKU_PLUGIN . "{$m[2]}/{$m[1]}$c.php";
-        if(@file_exists($plg)){
+        if(file_exists($plg)){
             include_once DOKU_PLUGIN . "{$m[2]}/{$m[1]}$c.php";
         }
         return;

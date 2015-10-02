@@ -1,0 +1,15 @@
+====== Open Bible Stories Setup ======
+
+To configure Open Bible Stories for your language, please select a source language below, and then begin typing the name of your language in the destination search box, select the correct entry from the list.
+
+If you need help getting started, please [[:contact|contact us]].
+
+[obssourcelang/]
+
+[obsdestinationlang/]
+
+If the target language does not appear in the search, go to [[http://td.unfoldingword.org/uw/languages|unfoldingWord translationDatabase]]. Type in the name of the target language in the search field on that page. Enter the code, from the far left column, in the Target Language field above.
+
+[obscreatenow/]
+
+~~NOCACHE~~

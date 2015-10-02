@@ -1,0 +1,7 @@
+====== Contact ======
+
+The Door43 community uses Slack to communicate. When you [[:en:slack|join our slack channels]] you can learn about the benefits and challenges of this application and share your ideas with the developers as well as other translators. Slack works well in a Browser or you may download a native client for it as well.
+
+You may also use this form:
+
+{{contact>subj=Door43 Contact}}

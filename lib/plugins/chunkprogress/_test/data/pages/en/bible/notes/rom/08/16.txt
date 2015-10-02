@@ -1,0 +1,56 @@
+====== Romans 08:16-17 ======
+
+===== TFT: =====
+
+<usfm>
+\v 16 The Spirit himself confirms what our spirits \add say\add*, that we are God's children.
+\v 17 Because we are \add God's\add* children, we also will some day receive\f + \ft Or: inherit \f* \add eternal blessings\f + \ft Or: privileges \f*\add*. We will receive\f + \ft Or: inherit \f* them from God, and we will \add also\add* receive\f + \ft Or: inherit \f* \add them\add* just like Christ has \add inherited them\add*. But we must suffer \add for doing good\add* as Christ did, in order to receive splendor as he did.
+
+
+\p
+</usfm>
+
+===== UDB: =====
+
+<usfm>
+\v 16 The Spirit himself confirms what our spirits say, that we are God's children.
+\v 17 Because we are God's children, we also will one day receive what God has promised us. And we will also receive what God has promised us and Christ together. But we must suffer for doing good as Christ did, in order that God may honor us.
+
+
+
+
+
+\p
+</usfm>
+
+===== ULB: =====
+
+<usfm>
+\v 16 The Spirit himself bears witness with our spirit that we are children of God.
+\v 17 If children, then also heirs, heirs of God on the one hand, and joint heirs on the other hand with Christ, if indeed we suffer with him, that we may also be glorified with him.
+</usfm>
+
+===== Important Terms: =====
+
+  * [[:en:obe:kt:holyspirit|Spirit]]
+  * [[:en:obe:kt:witness|witness]]
+  * [[en:obe:kt:spirit|spirit]]
+  * [[en:obe:kt:children|children of God]]
+  * [[en:obe:other:heir|heirs]]
+  * [[:en:obe:kt:suffer|suffer]]
+  * [[:en:obe:kt:glorify|glorified]]
+
+===== Translation Notes: =====
+
+  * **If children, then also heirs** - The verbs are left out of these phrases but they are understood. Alternate translation: "If we are children of God, then we are also heirs." (See: [[en:ta:translate:ellipsis]])
+  * **heirs of God on the one hand, and joint heirs on the other hand with Christ** - The phrases "on the one hand" and "on the other hand" introduce two different ways of thinking about something. Alternate translation: "heirs of God and also fellow heirs with Christ." (See: [[en:ta:translate:idiom]])
+  * **that we may also be glorified with him** - This can be translated as with an active verb: "that God may glorify us along with him." (See: [[en:ta:translate:active]])
+
+===== Links: =====
+
+  * **[[:en:bible:notes:rom:questions:comprehension:08|Romans Chapter 08 Comprehension Questions]]**
+**[[:en:bible:notes:rom:08:14|<<]] | [[:en:bible:notes:rom:08:18|>>]]**
+
+~~DISCUSSION~~{{tag>publish glorify mgr}}
+
+~~NOCACHE~~

@@ -1,0 +1,26 @@
+<!--
+* Name: obs_export_buttons.html
+* Description: The html and javascript that implements the UI for the export plugin.
+*
+* This comment block will be removed by the plugin before rendering.
+*
+* Author: Phil Hopper
+* Date:   2015-05-23
+-->
+<script type="text/javascript">
+    jQuery().ready(function() {
+        setupExportClick();
+    });
+</script>
+<div id="door43ObsExportDiv" title="@exportTitle@" style="display: none">
+    <div id="door43ObsExportOptions" style="display: block; width: 100%"></div>
+    <div style="display: inline-block; position: absolute; right: 16px; bottom: 10px;">
+        <button onclick="exportSourceTemplate();">@saveButton@</button> <button onclick="closeExportDialog();">@cancelButton@</button>
+    </div>
+</div>
+<div id="door43ObsImportDiv" title="@importTitle@" style="display: none">
+    <div id="door43ObsImportOptions" style="display: block; width: 100%"></div>
+    <div style="display: inline-block; position: absolute; right: 16px; bottom: 10px;">
+        <button onclick="importSourceDocx();">@importButton@</button> <button onclick="closeImportDialog();">@cancelButton@</button>
+    </div>
+</div>

@@ -1,0 +1,53 @@
+====== Romans 12:9-10 ======
+
+
+===== TFT: =====
+
+<usfm>
+\v 9 \add The way you must love people is to\add* love them sincerely! Hate what is evil! Continue to eagerly do what \add God considers to be\add* good!
+\v 10 Love one another as members of the same family do; and in regard to honoring one another, you should be the first ones\f + \ft Or: eager \f* to do it!
+</usfm>
+
+
+===== UDB: =====
+
+<usfm>
+\v 9 The way you must love people is to love them sincerely! Hate what is evil! Continue to eagerly do what God considers to be good!
+\v 10 Love one another as members of the same family do; and in regard to honoring one another, you should be the first ones to do it!
+</usfm>
+
+
+===== ULB: =====
+
+<usfm>
+\p
+\v 9 Let love be without hypocrisy. Abhor what is evil; hold on to that which is good.
+\v 10 Concerning love of the brothers, be affectionate to one another; concerning honor, respect one another.
+</usfm>
+
+
+===== Important Terms: =====
+
+  * [[:en:obe:kt:love|love]]
+  * [[:en:obe:kt:hypocrite|hypocrisy]]
+  * [[:en:obe:kt:evil|evil]]
+  * [[en:obe:kt:good|good]]
+  * [[en:obe:kt:brother|brothers]]
+  * [[en:obe:other:honor|honor]]
+
+===== Translation Notes: =====
+
+  * **Let love be without hypocrisy** - Alternate translation: "Let love be sincere" or "Let love be true." (See: [[en:ta:translate:litotes]])
+  * **Concerning love of the brothers, be affectionate**  - Paul begins a list of 9 items, each of the form "Concerning..., be...," to tell the believers that kind of people they should be. You may need to translate some of the items as "Concerning..., do...." The list goes to [[:en:bible:notes:rom:12:11|12:13]]. 
+  * **Concerning love of the brothers** - "As for how you love your fellow believers"
+  * **be affectionate** - Alternate translation: "be loyal," as family members.
+  * **concerning honor, respect one another** - "honor and respect one another" or, using a new sentence, "As for how you honor your fellow believers, respect them"
+
+===== Links: =====
+
+  * **[[:en:bible:notes:rom:questions:comprehension:12|Romans Chapter 12 Comprehension Questions]]**
+**[[:en:bible:notes:rom:12:06|<<]] | [[:en:bible:notes:rom:12:11|>>]]**
+
+~~DISCUSSION~~{{tag>publish}}
+
+~~NOCACHE~~

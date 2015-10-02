@@ -1,0 +1,23 @@
+
+
+----
+
+==== Welcome to Door43! ====
+
+Door43 is an open-access translation platform for [[:en:legal:license|open-licensed]] discipleship resources in any language. Contributors from all over the world work together on this website to create, translate, and distribute legally unrestricted discipleship resources.
+
+The Door43 community uses Slack to communicate. When you [[:en:slack|join our slack channels]] you can learn about the benefits and challenges of this application and share your ideas with the developers as well as other translators. Slack works well in a Browser or you may download a native client for it as well.
+
+//Door43 is an open project that is managed by [[https://unfoldingword.org/|unfoldingWord]] and many volunteers.//
+
+==== Get Started ====
+
+Before you get started, you may need to [[:obs-setup|set up Open Bible Stories]] in your language. 
+
+To learn how to translate, check, publish, and use our tools, check out [[en:ta|translationAcademy]].
+
+If you have questions, you can post them on the Helpdesk channel in Slack (see above) or email help@door43.org. 
+
+==== Recent Changes ====
+
+{{changes>ns = -playground&count=40 }}

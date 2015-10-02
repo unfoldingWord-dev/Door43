@@ -1,0 +1,5 @@
+====== Test Activity by Namespace ======
+
+{{chunkprogress>report=activity_by_namespace&namespace=en:bible:notes:rom&start_date=2015-07-01&end_date=2015-07-04&debug=true}}
+
+vim: filetype=dokuwiki

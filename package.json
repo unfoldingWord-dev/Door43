@@ -1,0 +1,19 @@
+{
+  "name": "Door43_Testing",
+  "description": [
+    "This is for running unit tests on travis-ci.org.",
+    "Developers should install these dependencies using `install_node_dev_packages.sh`"
+  ],
+  "author": "Phil Hopper <phillip_hopper@wycliffeassociates.org>",
+  "dependencies": {
+    "karma": "*",
+    "karma-chrome-launcher": "*",
+    "karma-cli": "*",
+    "karma-firefox-launcher": "*",
+    "karma-jasmine": "*",
+    "phantomjs": "*",
+    "karma-phantomjs-launcher": "*",
+    "karma-jasmine-matchers": "*"
+  },
+  "engine": "node >= 1.0.0"
+}

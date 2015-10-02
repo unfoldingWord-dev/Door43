@@ -1,0 +1,7 @@
+base   door43gitmerge
+author unfoldingWord.org
+email  https://unfoldingword.org/contact/
+date   2015-03-24
+name   Door43 translationStudio Git merge tool
+desc   Tool to merge translations uploaded by translationStudio.
+url    https://github.com/unfoldingWord-dev/Door43

@@ -1,0 +1,80 @@
+====== Romans 08:28-30 ======
+
+
+===== TFT: =====
+
+<usfm>
+\v 28 And we know that to those\f + \ft Or: us \f* who love God, he works out all things that happen \add to them\f + \ft Or: us \f*\add* in a way that produces good \add spiritual\add* benefits \add for us\add*. He does this for those\f + \ft Or: us \f* whom he has chosen, because that was \f + \ft Or: was according to \f* what he planned to do.
+\v 29 God knew previously \add that we would believe\add* in him \f + \ft Or: \add would be saved\add* \f*. We are those who God also decided previously would have a character like his Son's character. The result of that is that \add Christ is like\add* a firstborn\f + \ft Or: highest \f*-ranking \add son\add*, and \add those\f + \ft Or: we \f* who are God's children\add* \f + \ft metaphor \f* are \add like\add* \f + \ft metaphor \f* many \add younger\add* brothers \add of Jesus\add*.
+\v 30 And us who God decided previously \add that we would be like his Son\add* he also summoned. And for us whom he summoned, he also erased the record of our sins. And for us whose record of sins he has erased, he also will surely give future splendor.
+
+
+\p
+</usfm>
+
+
+===== UDB: =====
+
+<usfm>
+\v 28 And we know that for those who love God, he works out all things that happen to them in a way that does us good. He does this for those whom he has chosen, because that was what he planned to do.
+\v 29 God knew previously that we would believe in him.  We are those who God also decided previously would have a character like his Son's character. The result is that Christ is God's firstborn Son, and those who are God's children are the many younger brothers of Jesus.
+\v 30 And us who God decided previously that we would be like his Son he also summoned. And us whom he summoned, he also put right with himself. And to us whom he has put right with himself, he also will surely honor us.
+
+
+
+
+\p
+</usfm>
+
+
+===== ULB: =====
+
+<usfm>
+\v 28 We know that for those who love God, he works all things together for good, for those who are called according to his purpose.
+\v 29 Because those whom he foreknew, he also predestined to be conformed to the image of his Son, that he might be the firstborn among many brothers.
+\v 30 Those whom he predestined, these he also called. Those whom he called, these he also justified. Those whom he justified, these he also glorified.
+</usfm>
+
+
+===== Important Terms: =====
+
+  * [[:en:obe:kt:love|love]]
+  * [[en:obe:kt:god|God]]
+  * [[en:obe:kt:works|works]]
+  * [[en:obe:kt:good|good]]
+  * [[en:obe:kt:call|called]]
+  * [[en:obe:other:destiny|predestined]]
+  * [[en:obe:kt:imageofgod|image]]
+  * [[:en:obe:kt:sonofgod|Son]]
+  * [[en:obe:kt:firstborn|firstborn]]
+  * [[en:obe:kt:brother|brothers]]
+  * [[:en:obe:kt:justify|justified]]
+  * [[:en:obe:kt:glorify|glorified]]
+ 
+
+===== Translation Notes: =====
+
+    * **for those who are called** - Alternate translation with an active verb: "for those whom God chose." (See: [[en:ta:translate:active]])
+    * **those whom he foreknew** - "those whom he knew before he even created them"
+    * **he also predestined** - "he also made it their destiny" or "he also planned in advance"
+    * **to be conformed to the image of his Son** - This can be translated with an active verb: "that he would he would change them to be like his Son." 
+    * **that he might be the firstborn** - "so that his Son would be the firstborn"
+    * **among many brothers** - The full meaning can be made explicit: "among many brothers and sisters who belong to the family of God" ([[en:ta:translate:implicitexplicit]])
+    * **Those whom he predestined** - "Those whom God made plans for in advance"
+    * **these he also glorified** - The word "glorified" is in the past tense to emphasize that this will certainly happen. Alternate translation: "these he will also glorify."
+
+  
+===== Links: =====
+
+  * **[[en/bible/notes:rom/questions/comprehension/08|Romans Chapter 08 Comprehension Questions]]**
+
+ 
+
+**[[en/bible/notes/rom/08/26|<<]] | [[en/bible/notes/rom/08/31|>>]]**
+
+~~DISCUSSION~~
+
+
+{{tag>publish mgr}}
+
+~~NOCACHE~~

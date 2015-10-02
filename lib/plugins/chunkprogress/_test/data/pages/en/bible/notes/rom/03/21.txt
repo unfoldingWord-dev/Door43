@@ -1,0 +1,51 @@
+====== Romans 03:21-22 ======
+
+===== TFT: =====
+
+<usfm>
+\v 21 But God's erasing the record of our sins\f + \ft Or: declaring us no longer guilty \f* does not depend on \add our obeying\add* the laws \add that he gave Moses\add*. It has now been \f + \ft Or:\add God\add* has now \f* revealed \add to us\add* how he erases the record of our sins \add by a different way\add*. It was written about \add by Moses\add* \f + \ft Or:\add Moses\add* wrote about it \f* in the laws \f + \ft personification \f* \add God gave\add* him, and it was also written about by the prophets \f + \ft Or:the prophets also wrote about it \f*.
+\v 22 God erases the record of our sins because we trust in \add what\add* Jesus Christ \add has done for us\add*. God does this for every person who trusts \add in Christ\add*, because \add he considers\add* that there is no difference \add between Jews and non-Jews\add*.
+</usfm>
+
+===== UDB: =====
+
+<usfm>
+\v 21 When God forgives our sins, it does not depend on our obeying the laws that he gave Moses. It has now been revealed to us that he forgives our sins by a different way. It was written about by Moses in the laws God gave him, and it was also written about by the prophets .
+\v 22 God erases the record of our sins because we trust in what Jesus Christ has done for us. God does this for every person who trusts in Christ, because he considers that there is no difference between Jews and non-Jews.
+</usfm>
+
+===== ULB: =====
+
+<usfm>
+\p
+\v 21 But now without the Law a righteousness of God has been made known, witnessed by the Law and the Prophets,
+\v 22 that is, the righteousness of God through faith in Jesus Christ for all those who believe. For there is no distinction:
+</usfm>
+
+===== Important Terms: =====
+
+  * [[en:obe:kt:lawofmoses|the Law]]
+  * [[:en:obe:kt:righteous|righteousness]]
+  * [[en:obe:kt:witness|witnessed]]
+  * [[:en:obe:kt:prophet|Prophets]]
+  * [[:en:obe:kt:faith|faith]]
+  * [[:en:obe:kt:believe|believe]]
+
+===== Translation Notes: =====
+
+  * **But**  - Paul has completed his introduction and is now beginning to make his main point.
+  * **now**  - The word "now" refers to the time since Jesus came to the earth.
+  * **without the Law a righteousness of God has been made known**  - This can be translated with an active verb: "God has made known a way to be righteous without obeying the Law." (See: [[:en:ta:translate:active|Active or Passive]])
+  * **without the Law** - This refers to "righteousness," not to "has been made known."
+  * **witnessed by the Law and the Prophets**  - The words "the Law and the Prophets" refer to the parts of scripture that Moses and the prophets wrote and stand for the Jewish scriptures, which are described here as people who testify in court. Alternate translation with active verbs: "and what Moses and the prophets wrote confirms this." (See: [[:en:ta:translate:metonymy|Metonymy]] and [[:en:ta:translate:personification|Personification]])
+  * **that is, the righteousness of God through faith in Jesus Christ**  - This could be translated as a new sentence: "I am referring to a righteousness that God gives us when we believe in Jesus Christ."
+  * **For there is no distinction**  - "For God views Jews the same way he views Gentiles" (See: [[:en:ta:translate:implicitexplicit|Explicit and Implicit Information]])
+
+===== Links: =====
+
+  * **[[:en:bible:notes:rom:questions:comprehension:03|Romans Chapter 03 Comprehension Questions]]**
+**[[:en:bible:notes:rom:03:19|<<]] | [[:en:bible:notes:rom:03:23|>>]]**
+
+~~DISCUSSION~~{{tag>publish}}
+
+~~NOCACHE~~

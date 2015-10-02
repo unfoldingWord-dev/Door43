@@ -1,0 +1,51 @@
+====== Romans 10:19 ======
+
+===== TFT: =====
+
+<usfm>
+\v 19 But  \add someone might ask\add*, "\add Is it true that the people of\add* \f + \ft metonymy \f* Israel understood  \add the message about Christ\add*?" \add I would reply that certainly they understood it, but they rejected it! Remember that\add* Moses was the first  \add one who warned the people of Israel about disobeying God. He told them that God said\add*,
+\q
+\add You consider that\add* the non-Jewish groups are not nations at all \f + \ft chiasmus \f*. But some of them  \add will believe in me, and I will bless them\add*. Then you will envy them. I will cause you to be angry with those people whom  \add you Jews think\add* do not understand  \add my ways\add* \f + \ft irony \f*.
+\q
+</usfm>
+
+===== UDB: =====
+
+<usfm>
+\v 19 Furthermore, it is true that the Israelites really did hear this message. They understood it, too, but they refused to believe it. Remember that Moses was the first one to warn the people like this. He told them that God said,
+
+"You think that the non-Jewish nations are not real nations at all. But some of them will believe in me, and I will bless them. Then you will envy them and be angry at them, people who you do not think understand me.
+</usfm>
+
+===== ULB: =====
+
+<usfm>
+\v 19 Moreover, I say, "Did Israel not know?" First Moses says,
+\q "I will provoke you to jealousy by what is not a nation.
+\q By means of a nation without understanding, I will stir you up to anger."
+\m
+</usfm>
+
+===== Important Terms: =====
+
+  * [[:en:obe:other:israel|Israel]]
+  * [[:en:obe:other:moses|Moses]]
+  * [[:en:obe:kt:jealous|jealousy]]
+  * [[:en:obe:other:nation|nation]]
+  * [[:en:obe:other:angry|anger]]
+
+===== Translation Notes: =====
+
+  * **Moreover, I say, "Did Israel not know?"**  - Paul uses a question for emphasis. The word "Israel" refers to the people who lived in the nation of Israel. Alternate translation: "Again I tell you the people of Israel did know the message." (See: [[:en:ta:translate:rhetoricalquestion|Rhetorical Question]] and [[:en:ta:translate:metonymy|Metonymy]])
+  * **First Moses says, "I will provoke you...I will stir you up...**  - This means that Moses wrote down what God said. "I" refers to God, and "you" refers to the Israelites. Alternate translation: "First Moses says that God will provoke you...God will stir you up...." (See: [[:en:ta:translate:formsofyou|Forms of 'You']], [[en:ta:translate:quotation|]])
+  * **by what is not a nation**  - "by those you do not consider to be a real nation" (see UDB) or "by people who do not belong to any nation"
+  * **By means of a nation without understanding**  - "By a nation with people that do not know me or my commands"
+  * **I will stir you up to anger**  - "I will make you angry."
+===== Links: =====
+
+  * **[[:en:bible:notes:rom:questions:comprehension:10|Romans Chapter 10 Comprehension Questions]]**
+**[[:en:bible:notes:rom:10:18|<<]] | [[:en:bible:notes:rom:10:20|>>]]**
+
+~~DISCUSSION~~{{tag>publish}}
+
+~~NOCACHE~~

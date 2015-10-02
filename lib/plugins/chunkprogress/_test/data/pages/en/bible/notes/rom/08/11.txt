@@ -1,0 +1,51 @@
+====== Romans 08:11 ======
+
+===== TFT: =====
+
+<usfm>
+\v 11 \add God\add* caused Jesus to live again after he died. And because his Spirit lives in you\f + \ft Or: us \f*, \add God\add* will also make your\f + \ft Or: our \f* bodies, which \add now\add* are sure to die, live \add again after you\f + \ft Or: we \f* die\add*. God, who caused Christ to live again after he died, will make you\f + \ft Or: us \f* live again by \add causing\add* his Spirit, who lives within you\f + \ft Or: us \f*, \add to do it\add*.
+
+
+\p
+</usfm>
+
+===== UDB: =====
+
+<usfm>
+\v 11 God caused Jesus to live again after he died. And because his Spirit lives in you, God will also make your bodies, which now are sure to die, live again. He caused Christ to live again after he died, and he will make you live again by causing his Spirit to do it.
+
+
+
+
+
+\p
+</usfm>
+
+===== ULB: =====
+
+<usfm>
+\v 11 If the Spirit of him who raised Jesus from the dead lives in you, he who raised Christ from the dead will give life also to your mortal bodies through his Spirit, who lives in you.
+</usfm>
+
+===== Important Terms: =====
+
+  * [[en:obe:kt:holyspirit|Spirit]]
+  * [[:en:obe:kt:raise|raised]]
+  * [[:en:obe:kt:jesus|Jesus]]
+  * [[en:obe:kt:death|dead]]
+  * [[en:obe:kt:Christ|Christ]]
+
+===== Translation Notes: =====
+
+  * **If the Spirit...lives in you** - Paul assumes that the Holy Spirit lives in his readers. Alternate translation: "Since the Spirit...lives in you."
+  * **of him who raised** - "of God, who raised" 
+  * **mortal bodies** - "physical bodies" or "bodies, which will die someday"
+
+===== Links: =====
+
+  * **[[:en:bible:notes:rom:questions:comprehension:08|Romans Chapter 08 Comprehension Questions]]**
+**[[:en:bible:notes:rom:08:09|<<]] | [[:en:bible:notes:rom:08:12|>>]]**
+
+~~DISCUSSION~~{{tag>publish}}
+
+~~NOCACHE~~

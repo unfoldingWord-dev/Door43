@@ -124,19 +124,16 @@ class action_plugin_door43register_RegisterOverride extends DokuWiki_Action_Plug
 
     protected function getButton() {
 
-        $buttonText = file_get_contents(dirname(dirname(__FILE__)) . '/private/html/translate_button.html');
+        $buttonText = file_get_contents(dirname(dirname(__FILE__)) . '/templates/translate_button.html');
 
         // remove suppress comments
         $buttonText = preg_replace('/\<!--(\s)*suppress(.)*--\>(\n)/', '', $buttonText, 1);
 
-        // remove the initial doc comments
-        $buttonText = preg_replace('/^\<!--(.|\n)*--\>(\n)/', '', $buttonText, 1);
-
         // translate
         $buttonText = $this->translateHtml($buttonText);
 
-        /* @var $translation helper_plugin_translation */
-        $translation = plugin_load('helper','translation');
+        /* @var $translation helper_plugin_door43translation */
+        $translation = plugin_load('helper','door43translation');
         $langName = $translation->getLocalName($this->namespace);
         if (empty($langName)) $langName = $this->namespace;
 

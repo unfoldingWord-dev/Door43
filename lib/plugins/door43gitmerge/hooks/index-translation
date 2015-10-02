@@ -1,0 +1,95 @@
+#
+# Change URL to the base DokuWiki url where the plugin is installed.
+#!/bin/sh
+#
+# This hook should be placed in a bare tS translation repository and will
+# notify the gitmerge plugin that updates are available.
+#
+# Change URL to the base DokuWiki url where the plugin is installed.
+#
+
+# set base DokuWiki URL
+URL=http://test.door43.org
+
+# ***DO NOT CHANGE ANYTHING BELOW THIS LINE***
+
+NEVER="never"
+echo Triggering translation indexing.
+
+# get repository name
+PWD=$(pwd)
+DIRS=(${PWD//\// })
+LAST=$((${#DIRS[@]} - 1))
+PROJECT_LANG=${DIRS[LAST]}
+unset DIRS[LAST]
+((LAST--))
+DEVICE=$(echo ${DIRS[LAST]} | sed 's/[^a-zA-Z0-9]//g')
+unset DIRS
+unset LAST
+
+# retrieve project and language id
+function join { local IFS="$1"; shift; echo "$*"; }
+PARTS=(${PROJECT_LANG//-/ })
+GLOBAL_SCOPE=${PARTS[0]}
+PROJECT=${PARTS[1]}
+LANG=$(basename $(join - "${PARTS[@]:2}") .git)
+unset PARTS
+
+# get file list
+PUBLISHED=$(git ls-tree master READY)
+if [ -n "$PUBLISHED" ]
+then
+    # get the current publish marker
+    CURRENT_PUBLISH=$(git log -n1 --format=%H -- READY)
+
+    # get the last publish marker
+    LOG=$(git log -n2 --format=%H -- READY)
+    COMMITS=(${LOG//\n/})
+    LENGTH=${#COMMITS[@]}
+    LAST=$(($LENGTH - 1))
+    LAST_PUBLISH=${COMMITS[LAST]}
+    if [ "$LENGTH" -eq "1" ]
+    then
+        # TRICKY: make sure initial publishes are treated as such
+        echo This is the initial publish
+        LAST_PUBLISH=$NEVER
+    fi
+    unset LENGTH
+    unset LAST
+    unset COMMITS
+    unset LOG
+
+    # get HEAD commit id
+    HEAD=$(git rev-parse HEAD)
+
+    if [ "$HEAD" == "$CURRENT_PUBLISH" ]
+    then
+        # find changes since the last publish
+        echo Finding changes since $LAST_PUBLISH
+        COMMIT=$LAST_PUBLISH
+    else
+        # find changes just on the head
+        COMMIT=$HEAD
+    fi
+    
+    if [ "$COMMIT" == "$NEVER" ]
+    then
+        echo Finding changes since beginning of time
+        FILES=$(git ls-tree --full-tree -r --name-only HEAD | grep '\.txt$' | tr "\\n" "," | sed 's/\//-/g' | sed 's/\.txt//g' | sed 's/,$//'; echo '')
+    else
+        FILES=$(git diff --name-only $COMMIT^ HEAD | grep '\.txt$' | tr "\\n" "," | sed 's/\//-/g' | sed 's/\.txt//g' | sed 's/,$//'; echo '')
+    fi
+
+    echo Files changed: $FILES          
+
+    # set params
+    PARAMS=$(echo call=door43gitmerge\&action=mark-updated\&lang=$LANG\&project=$PROJECT\&device=$DEVICE\&files=$FILES)
+
+    echo Sending data...
+    echo $PARAMS
+    echo To $URL
+
+    curl -H "X-Requested-With: XMLHttpRequest" --request POST --data "$PARAMS" --url $URL/lib/exe/ajax.php -v
+else
+    echo Indexing was not started because translation is not published
+fi

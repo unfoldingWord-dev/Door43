@@ -1,0 +1,44 @@
+====== Romans 07:4-5 ======
+
+===== TFT: =====
+
+<usfm>
+\v 4 Likewise, my fellow believers, \add just like people are free from having to obey any law after they die\add* \f + \ft metaphor \f*, you \add and I\add* have been freed \f + \ft Or:\add God\add* has freed you \add and me\add* \f* from having \add to obey\add* all the Jewish rituals and laws \f + \ft metaphor \f*. \add That is because it is as though\add* we died with Christ \add when he was crucified\add*. Now you \add and I\add* belong to someone else \f + \ft metaphor \f*, \add like a woman who marries again after her husband dies belongs to another man\add*. Specifically, you \add and I\add* belong to \add Christ\add*, who has been raised from the dead \f + \ft Or:whom \add God\add* has caused to live again after he died \f*, in order that we may live righteously \f + \ft idiom \f* to \add honor\add* God.
+\v 5 When our self-directed nature \add controlled\add* us, desires \add that led us to\add* sin were acting in our bodies. \add Those desires were increased because of our knowing God's\add* laws \f + \ft personification \f*. As a result \add we did evil things\add* \f + \ft idiom \f* \add that\add* caused us to be separated from God.
+</usfm>
+
+===== UDB: =====
+
+<usfm>
+\v 4 In the same way, my brothers and sisters, when you died with Christ on his cross, the Law of God could no longer control you. You were free to join Christ, so that you might honor God. You can do this because you are alive again. God has joined you to Christ, and he has raised Christ from the dead.
+\v 5 When we were doing what our evil thoughts told us to do, when we learned God's Law, we wanted to sin more and more. So we did evil things that would lead God to separate us from him forever.
+</usfm>
+
+===== ULB: =====
+
+<usfm>
+\v 4 Therefore, my brothers, you were also made dead to the Law through the body of Christ, so that you could be joined to another, that is, to him who was raised from the dead, in order that we might produce fruit for God.
+
+\v 5 For when we were in the flesh, the sinful passions were activated in our members through the Law to produce fruit to death.
+</usfm>
+
+===== Important Terms: =====
+
+  * [[:en:obe:kt:fruit|fruit]]
+  * [[:en:obe:kt:god|God]]
+  * [[en:obe:kt:flesh|flesh]]
+  * [[:en:obe:kt:sin|sinful]]
+
+===== Translation Notes: =====
+
+  * **Therefore** - This relates back to [[:en:bible:notes:rom:07:01|7:1]]. "Because this is how law works."
+  * **we might produce fruit for God** ​- "we might be able to do things pleasing to God" (See: [[en:ta:translate:metaphor|]])
+
+===== Links: =====
+
+  * **[[:en:bible:notes:rom:questions:comprehension:07|Romans Chapter 07 Comprehension Questions]]**
+**[[:en:bible:notes:rom:07:02|<<]] | [[:en:bible:notes:rom:07:06|>>]]**
+
+~~DISCUSSION~~{{tag>publish}}
+
+~~NOCACHE~~

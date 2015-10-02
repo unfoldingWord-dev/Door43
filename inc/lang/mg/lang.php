@@ -27,7 +27,6 @@ $lang['btn_admin']  = 'Admin';
 $lang['btn_update'] = 'Update';
 $lang['btn_delete'] = 'Fafao';
 $lang['btn_back']   = 'Miverina';
-$lang['btn_backtomedia'] = 'Fitsongana fichier Media';
 $lang['btn_register'] = 'Hisoratra';
 
 $lang['loggedinas'] = 'Anaranao:';
@@ -49,11 +48,11 @@ $lang['regbadpass'] = 'Tsy mitovy ny alahidy roa nomenao, avereno indray.';
 $lang['regpwmail']  = 'Ny alahidy Wiki-nao';
 $lang['reghere']    = 'Mbola tsy manana kaonty ianao? Manaova vaovao';
 
-$lang['txt_upload']   = 'Misafidiana rakitra halefa';
-$lang['txt_filename'] = 'Ampidiro ny anaran\'ny wiki (tsy voatery)';
+$lang['txt_upload']   = 'Misafidiana rakitra halefa:';
+$lang['txt_filename'] = 'Ampidiro ny anaran\'ny wiki (tsy voatery):';
 $lang['txt_overwrt']  = 'Fafana izay rakitra efa misy?';
-$lang['lockedby']     = 'Mbola voahidin\'i';
-$lang['lockexpire']   = 'Afaka ny hidy amin\'ny';
+$lang['lockedby']     = 'Mbola voahidin\'i:';
+$lang['lockexpire']   = 'Afaka ny hidy amin\'ny:';
 $lang['js']['willexpire']   = 'Efa ho lany fotoana afaka iray minitra ny hidy ahafahanao manova ny pejy.\nMba hialana amin\'ny conflit dia ampiasao ny bokotra topi-maso hamerenana ny timer-n\'ny hidy.';
 
 $lang['js']['notsavedyet'] = 'Misy fiovana tsy voarakitra, ho very izany ireo.\nAzo antoka fa hotohizana?';
@@ -61,7 +60,6 @@ $lang['rssfailed']   = 'An error occured while fetching this feed: ';
 $lang['nothingfound']= 'Tsy nahitana n\'inon\'inona.';
 
 $lang['mediaselect'] = 'Safidy rakitra Media';
-$lang['fileupload']  = 'Fandefasana rakitra Media';
 $lang['uploadsucc']  = 'Voalefa soa aman-tsara';
 $lang['uploadfail']  = 'Tsy lasa ilay izy. Mety tsy fananana alalana?';
 $lang['uploadwrong'] = 'Nolavina ny lefa. Voarara io extension-na rakitra io!';
@@ -83,7 +81,7 @@ $lang['current']    = 'current';
 $lang['yours']      = 'Kinova-nao';
 $lang['diff']       = 'Asehoy ny tsy fitoviana amin\'ny kinova amin\'izao';
 $lang['line']       = 'Andalana';
-$lang['breadcrumb'] = 'Taiza ianao';
+$lang['breadcrumb'] = 'Taiza ianao:';
 $lang['lastmod']    = 'Novaina farany:';
 $lang['by']         = '/';
 $lang['deleted']    = 'voafafa';
@@ -116,6 +114,5 @@ $lang['qb_sig']     = 'Manisy sonia';
 
 $lang['js']['del_confirm']= 'Hofafana ilay andalana?';
 
-$lang['admin_register']= 'Ampio mpampiasa vaovao...';
-
+$lang['searchcreatepage']      = "Raha tsy nahita izay notadiavinao ianao, dia afaka mamorona pejy vaovao avy amin'ny teny nanaovanao fikarohana; Ampiasao ny bokotra ''Hanova ny pejy''.";
 //Setup VIM: ex: et ts=2 :

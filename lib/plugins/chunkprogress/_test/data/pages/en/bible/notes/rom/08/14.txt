@@ -1,0 +1,46 @@
+====== Romans 08:14-15 ======
+
+===== TFT: =====
+
+<usfm>
+\v 14 We who are guided by the Spirit of God \f + \ft Or:allow the Spirit of God to guide us \f* are God's children.
+\v 15 \add You have showed that this is true\add*, because you received \add from God\add* a Spirit that is not one that makes you fear \add God\add* again. You are not like slaves who \add fear their masters\add* \f + \ft metaphor \f*. On the contrary, we have received a Spirit by whose \add work in our hearts God\add* has adopted us. The Spirit now enables us to cry out \add to God\add*, "\add You\f + \ft singular \f* are my\add* Father \f + \ft doublet \f*!"
+</usfm>
+
+===== UDB: =====
+
+<usfm>
+\v 14 We who obey the Spirit of God are God's children.
+\v 15 This is because you have received from God a Spirit who does not make you fear God again. You are not like slaves who fear their masters. On the contrary, this Spirit has made us God's children. The Spirit now enables us to cry out to God, “You are my Father!"
+</usfm>
+
+===== ULB: =====
+
+<usfm>
+\v 14 For as many as are led by the Spirit of God, these are sons of God.
+\v 15 For you did not receive the spirit of bondage again to fear, but you received the spirit of adoption, by which we cry, "Abba, Father!"
+</usfm>
+
+===== Important Terms: =====
+
+  * [[:en:obe:kt:holyspirit|Spirit of God]]
+  * [[en:obe:kt:sonsofgod|sons of God]]
+  * [[:en:obe:kt:enslave|bondage]]
+  * [[en:obe:kt:fear|fear]]
+  * [[:en:obe:kt:adoption|adoption]]
+  * [[:en:obe:kt:godthefather|Father]]
+
+===== Translation Notes: =====
+
+  * **For as many as are led by the Spirit of God** - Alternate translation with an active verb: "For all the people whom the Spirit of God leads." (See: [[en:ta:translate:active]])
+  * **For you did not receive the spirit of bondage again to fear** - "For God did not give you a spirit that enslaves you again to the power of sin and the fear of God's judgment"
+  * **by which we cry** - "which causes us to cry out"
+  * **Abba, Father** - "Abba" is "Father" in the Aramaic language. (See: [[:en:ta:translate:translateunknowns|]], [[:en:ta:translate:translatenames|]])
+===== Links: =====
+
+  * **[[:en:bible:notes:rom:questions:comprehension:08|Romans Chapter 08 Comprehension Questions]]**
+**[[:en:bible:notes:rom:08:12|<<]] | [[:en:bible:notes:rom:08:16|>>]]**
+
+~~DISCUSSION~~{{tag>publish mgr}}
+
+~~NOCACHE~~

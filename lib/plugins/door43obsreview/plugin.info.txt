@@ -1,5 +1,5 @@
 base   door43obsreview
-author unfoldingWord.org
+author Phil Hopper
 email  https://unfoldingword.org/contact/
 date   2015-04-06
 name   door43obsreview plugin

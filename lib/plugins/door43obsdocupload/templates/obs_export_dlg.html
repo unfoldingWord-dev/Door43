@@ -8,10 +8,22 @@
 * Date:   2015-06-03
 -->
 <div style="display: block; margin-top: 12px;">
-    <label for="selectObsDocxSource">@sourceLabel@</label>&nbsp;<select id="selectObsDocxSource">
+    <input type="radio" id="useDraft" name="source_or_draft" value="draft" onchange="enableDisableObsExportControls();" checked="checked">
+    <label for="useDraft">@draftLabel@</label>
+</div>
+<div style="display: block; margin-top: 12px;">
+    <input type="radio" id="useSource" name="source_or_draft" value="source" onchange="enableDisableObsExportControls();">
+    <label for="useSource">@sourceLabel@</label>&nbsp;
+    <!--suppress HtmlFormInputWithoutLabel -->
+    <select id="selectObsDocxSource" disabled="disabled">
         <option value="">Select One</option>
     </select>
 </div>
-<div style="display: block; margin-top: 12px;">
-    <label for="includeObsDocxImages">@includeImagesLabel@</label>&nbsp;<input id="includeObsDocxImages" type="checkbox">
+<div style="display: block; margin-top: 8px; margin-left: 40px;">
+    <input id="includeSub3" type="checkbox" disabled="disabled" onchange="updateSourceLanguageList();">&nbsp;
+    <label for="includeSub3">@includeSub3Label@</label>
+</div>
+<div style="display: block; margin-top: 16px;">
+    <input id="includeObsDocxImages" type="checkbox">&nbsp;
+    <label for="includeObsDocxImages">@includeImagesLabel@</label>
 </div>

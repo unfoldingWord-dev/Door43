@@ -1,0 +1,59 @@
+====== Romans 10:6-7 ======
+
+
+===== TFT: =====
+
+<usfm>
+\v 6 But those whose record of sins God has erased as a result of their believing  \add in Christ\add* can say  \add to anyone\add* \f + \ft personification \f* \add as Moses said\add*, "You should not  \add critically\add* say inwardly, 'Someone will have to go up and enter heaven!\f + \ft Or: Who will go up and enter heaven? \f*' \f + \ft rhetorical question \f*" That is to say, someone will have to  \add go up and\add* bring Christ down  \add to bring the message of salvation to us!\add*
+\v 7 "Or  \add you should not say inwardly\add*, 'Someone will have to go down and enter the place where  \add the spirits\add* of dead persons are!\f + \ft Or: Who will go down and enter the place where  \add the spirits\add* of dead persons are? \f*' \f + \ft rhetorical question \f*" That is to say, someone will have to  \add go down and\add* bring Christ up  \add from there to bring the message of salvation to us. You should not say that because Christ has already come down to save us, and has already risen from the dead!\add*
+</usfm>
+
+
+===== UDB: =====
+
+<usfm>
+\v 6 But those whom God puts right with himself because they trust in Christ—to them Moses says, "No one should try to go to heaven," that is, in order to bring Christ down to us.
+\v 7 Moses also says this to them: "No one should try to go down to where the dead are," that is, in order to bring Christ back from the dead for us.
+</usfm>
+
+
+===== ULB: =====
+
+<usfm>
+\v 6 But the righteousness that comes from faith says this, "Do not say in your heart, 'Who will ascend into heaven?' (that is, to bring Christ down),
+\v 7 or, 'Who will descend into the abyss?' (that is, to bring Christ up from the dead.)"
+</usfm>
+
+
+===== Important Terms: =====
+
+  * [[en:obe:kt:righteous|righteousness]]
+  * [[:en:obe:kt:faith|faith]]
+  * [[en:obe:other:heart|heart]]
+  * [[:en:obe:kt:heaven|heaven]]
+  * [[en:obe:kt:christ|Christ]] 
+  * [[en:obe:other:abyss]]
+  * [[:en:obe:kt:death|dead]]
+
+===== Translation Notes: =====
+
+  * **But the righteousness that comes from faith says this**  - Here "righteousness" is described as a person that can speak. Alternate translation: "But Moses writes this about how faith makes a person right before God." (See: [[:en:ta:translate:personification|Personification]])
+  * **Do not say in your heart**  - "Do not say to yourself." Moses was addressing the people as though they were one person. (See: [[:en:ta:translate:formsofyou|Forms of 'You']])
+  * **Who will ascend into heaven?**  - Moses uses a question to teach his audience. His previous instruction of, "Do not say" requires a negative answer to this question. Alternate translation: "No one should try to go up to heaven." (See: [[:en:ta:translate:rhetoricalquestion|Rhetorical Question]])
+  * **that is, to bring Christ down**  - "in order that they might have Christ come down to earth"
+  * **Who will descend into the abyss**  - Moses uses a question to teach his audience. His previous instruction of, "Do not say" requires a negative answer to this question. Alternate translation: "No one should try to go down and enter the place where the spirits of dead persons are." (See: [[:en:ta:translate:rhetoricalquestion|Rhetorical Question]])
+  * **that is, to bring Christ up from the dead**  - "in order that they might bring Christ up from the dead"
+===== Links: =====
+
+  * **[[en/bible/notes:rom/questions/comprehension/10|Romans Chapter 10 Comprehension Questions]]**
+
+ 
+
+**[[en/bible/notes/rom/10/04|<<]] | [[en/bible/notes/rom/10/08|>>]]**
+
+~~DISCUSSION~~
+
+
+{{tag>publish}}
+
+~~NOCACHE~~

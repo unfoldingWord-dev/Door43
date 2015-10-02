@@ -1,12 +1,13 @@
 <?php
+
 /**
- * lithuanian language file
- *
  * @license    GPL 2 (http://www.gnu.org/licenses/gpl.html)
+ * 
  * @author Linas Valiukas <shirshegsm@gmail.com>
  * @author Edmondas Girkantas <eg@zemaitija.net>
  * @author Arūnas Vaitekūnas <aras@fan.lt>
  * @author audrius.klevas@gmail.com
+ * @author Tomas Darius Davainis <tomasdd@gmail.com>
  */
 $lang['encoding']              = 'utf-8';
 $lang['direction']             = 'ltr';
@@ -38,7 +39,6 @@ $lang['btn_update']            = 'Atnaujinti';
 $lang['btn_delete']            = 'Ištrinti';
 $lang['btn_back']              = 'Atgal';
 $lang['btn_backlink']          = 'Atgalinės nuorodos';
-$lang['btn_backtomedia']       = 'Atgal į Mediabylos išsirinkimą';
 $lang['btn_subscribe']         = 'Užsisakyti keitimų prenumeratą';
 $lang['btn_profile']           = 'Atnaujinti profilį';
 $lang['btn_reset']             = 'Atstata';
@@ -46,7 +46,8 @@ $lang['btn_draft']             = 'Redaguoti juodraštį';
 $lang['btn_recover']           = 'Atkurti juodraštį';
 $lang['btn_draftdel']          = 'Šalinti juodraštį';
 $lang['btn_register']          = 'Registruotis';
-$lang['loggedinas']            = 'Prisijungęs kaip';
+$lang['btn_img_backto']        = 'Atgal į %s';
+$lang['loggedinas']            = 'Prisijungęs kaip:';
 $lang['user']                  = 'Vartotojo vardas';
 $lang['pass']                  = 'Slaptažodis';
 $lang['newpass']               = 'Naujas slaptažodis';
@@ -60,6 +61,7 @@ $lang['badlogin']              = 'Nurodėte blogą vartotojo vardą arba slapta�
 $lang['minoredit']             = 'Nedidelis pataisymas';
 $lang['draftdate']             = 'Juodraštis automatiškai išsaugotas';
 $lang['nosecedit']             = 'Puslapis buvo kažkieno pataisytas, teksto dalies informacija tapo pasenusi, todėl pakrautas visas puslapis.';
+$lang['searchcreatepage']      = 'Jeigu neradote to, ko ieškojote, galite sukurti naują puslapį šiuo pavadinimu paspausdami "Redaguoti šį puslapį".';
 $lang['regmissing']            = 'Turite užpildyti visus laukus.';
 $lang['reguexists']            = 'Vartotojas su pasirinktu prisijungimo vardu jau egzistuoja.';
 $lang['regsuccess']            = 'Vartotojas sukurtas, slaptažodis išsiųstas el. paštu.';
@@ -82,17 +84,21 @@ $lang['resendpwdconfirm']      = 'Patvirtinimo nuoroda išsiųsta el. paštu.';
 $lang['resendpwdsuccess']      = 'Jūsų naujas slaptažodis buvo išsiųstas el. paštu.';
 $lang['license']               = 'Jei nenurodyta kitaip, šio wiki turinys ginamas tokia licencija:';
 $lang['licenseok']             = 'Pastaba: Redaguodami šį puslapį jūs sutinkate jog jūsų turinys atitinka licencijavima pagal šią licenciją';
-$lang['txt_upload']            = 'Išsirinkite atsiunčiamą bylą';
-$lang['txt_filename']          = 'Įveskite wikivardą (nebūtina)';
+$lang['txt_upload']            = 'Išsirinkite atsiunčiamą bylą:';
+$lang['txt_filename']          = 'Įveskite wikivardą (nebūtina):';
 $lang['txt_overwrt']           = 'Perrašyti egzistuojančią bylą';
-$lang['lockedby']              = 'Užrakintas vartotojo';
-$lang['lockexpire']            = 'Užraktas bus nuimtas';
-$lang['js']['willexpire']            = 'Šio puslapio redagavimo užrakto galiojimo laikas baigsis po minutės.\nNorėdami išvengti nesklandumų naudokite peržiūros mygtuką ir užraktas atsinaujins.';
+$lang['lockedby']              = 'Užrakintas vartotojo:';
+$lang['lockexpire']            = 'Užraktas bus nuimtas:';
+$lang['js']['willexpire']      = 'Šio puslapio redagavimo užrakto galiojimo laikas baigsis po minutės.\nNorėdami išvengti nesklandumų naudokite peržiūros mygtuką ir užraktas atsinaujins.';
 $lang['js']['notsavedyet']     = 'Pakeitimai nebus išsaugoti.\nTikrai tęsti?';
+$lang['js']['keepopen']        = 'Pažymėjus palikti langą atvertą';
+$lang['js']['hidedetails']     = 'Paslėpti Detales';
+$lang['js']['nosmblinks']      = 'Nurodos į "Windows shares" veikia tik su Microsoft Internet Explorer naršykle.
+Vis dėlto, jūs galite nukopijuoti šią nuorodą.';
+$lang['js']['del_confirm']     = 'Ar tikrai ištrinti pažymėtą(us) įrašą(us)?';
 $lang['rssfailed']             = 'Siunčiant šį feed\'ą įvyko klaida: ';
 $lang['nothingfound']          = 'Paieškos rezultatų nėra.';
 $lang['mediaselect']           = 'Mediabylos išsirinkimas';
-$lang['fileupload']            = 'Mediabylos atsiuntimas';
 $lang['uploadsucc']            = 'Atsiuntimas pavyko';
 $lang['uploadfail']            = 'Atsiuntimas nepavyko. Blogi priėjimo leidimai??';
 $lang['uploadwrong']           = 'Atsiuntimas atmestas. Bylos tipas neleistinas';
@@ -106,10 +112,6 @@ $lang['deletefail']            = 'Byla "%s" negali būti ištrinta - patikrinkit
 $lang['mediainuse']            = 'Byla "%s" nebuvo ištrinta - ji vis dar naudojama.';
 $lang['namespaces']            = 'Pavadinimai';
 $lang['mediafiles']            = 'Prieinamos bylos';
-$lang['js']['keepopen']        = 'Pažymėjus palikti langą atvertą';
-$lang['js']['hidedetails']     = 'Paslėpti Detales';
-$lang['js']['nosmblinks']      = 'Nurodos į "Windows shares" veikia tik su Microsoft Internet Explorer naršykle.
-Vis dėlto, jūs galite nukopijuoti šią nuorodą.';
 $lang['mediausage']            = 'Failo nuorodai užrašyti naudokite tokią sintaksę:';
 $lang['mediaview']             = 'Žiūrėti pirminį failą';
 $lang['mediaroot']             = 'pradžia (root)';
@@ -125,9 +127,9 @@ $lang['yours']                 = 'Jūsų versija';
 $lang['diff']                  = 'rodyti skirtumus tarp šios ir esamos versijos';
 $lang['diff2']                 = 'Parodyti skirtumus tarp pasirinktų versijų';
 $lang['line']                  = 'Linija';
-$lang['breadcrumb']            = 'Kelias';
-$lang['youarehere']            = 'Jūs esate čia';
-$lang['lastmod']               = 'Keista';
+$lang['breadcrumb']            = 'Kelias:';
+$lang['youarehere']            = 'Jūs esate čia:';
+$lang['lastmod']               = 'Keista:';
 $lang['by']                    = 'vartotojo';
 $lang['deleted']               = 'ištrintas';
 $lang['created']               = 'sukurtas';
@@ -158,22 +160,19 @@ $lang['qb_media']              = 'Paveikslėliai ir kitos bylos';
 $lang['qb_sig']                = 'Įterpti parašą';
 $lang['qb_smileys']            = 'Šypsenėlės';
 $lang['qb_chars']              = 'Specialūs simboliai';
-$lang['js']['del_confirm']           = 'Ar tikrai ištrinti pažymėtą(us) įrašą(us)?';
-$lang['admin_register']        = 'Sukurti naują vartotoją';
 $lang['metaedit']              = 'Redaguoti metaduomenis';
 $lang['metasaveerr']           = 'Nepavyko išsaugoti metaduomenų';
 $lang['metasaveok']            = 'Metaduomenys išsaugoti';
-$lang['img_backto']            = 'Atgal į';
-$lang['img_title']             = 'Pavadinimas';
-$lang['img_caption']           = 'Antraštė';
-$lang['img_date']              = 'Data';
-$lang['img_fname']             = 'Bylos pavadinimas';
-$lang['img_fsize']             = 'Dydis';
-$lang['img_artist']            = 'Fotografas';
-$lang['img_copyr']             = 'Autorinės teisės';
-$lang['img_format']            = 'Formatas';
-$lang['img_camera']            = 'Kamera';
-$lang['img_keywords']          = 'Raktiniai žodžiai';
+$lang['img_title']             = 'Pavadinimas:';
+$lang['img_caption']           = 'Antraštė:';
+$lang['img_date']              = 'Data:';
+$lang['img_fname']             = 'Bylos pavadinimas:';
+$lang['img_fsize']             = 'Dydis:';
+$lang['img_artist']            = 'Fotografas:';
+$lang['img_copyr']             = 'Autorinės teisės:';
+$lang['img_format']            = 'Formatas:';
+$lang['img_camera']            = 'Kamera:';
+$lang['img_keywords']          = 'Raktiniai žodžiai:';
 $lang['authtempfail']          = 'Vartotojo tapatumo nustatymas laikinai nepasiekiamas. Jei ši situacija kartojasi, tai praneškite savo administratoriui.';
 $lang['i_chooselang']          = 'Pasirinkite kalbą';
 $lang['i_installer']           = 'DokuWiki Instaliatorius';

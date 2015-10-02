@@ -1,0 +1,64 @@
+====== Romans 08:26-27 ======
+
+
+===== TFT: =====
+
+<usfm>
+\v 26 Similarly, in addition to our continuing to wait for what God will give us, God's Spirit helps us when our spirits feel weak. We do not know what is proper\f + \ft Or: necessary \f* for us to pray. But God's Spirit knows, and he prays for us when we groan \f + \ft Or: he groans \f* in a way that cannot be expressed in words \f + \ft Or: prays with us, groaning in a way that cannot be expressed in words \f*.
+\v 27 God, who examines our inner feelings, understands what his Spirit desires\f + \ft Or: intends \f*. What God understands is that his Spirit prays for us who belong to God exactly as God wants him to pray.
+
+
+\p
+</usfm>
+
+
+===== UDB: =====
+
+<usfm>
+\v 26 Similarly, God's Spirit helps us when we are weak. We do not know what is proper for us to pray. But God's Spirit knows; as he prays for us, he groans in a way that cannot be expressed in words.
+\v 27 God, who examines our inner nature and mind, understands what his Spirit desires. His Spirit prays for us who belong to God exactly as God wants him to pray.
+
+
+
+
+\p
+</usfm>
+
+
+===== ULB: =====
+
+<usfm>
+\p
+\v 26 In the same way, the Spirit also helps in our weakness. For we do not know how we should pray, but the Spirit himself intercedes for us with inexpressible groanings.
+\v 27 He who searches the hearts knows the mind of the Spirit, because he intercedes in behalf of the saints according to the will of God.
+</usfm>
+
+
+===== Important Terms: =====
+
+  * [[:en:obe:kt:holyspirit|Spirit]]
+  * [[:en:obe:other:pray|pray]]
+  * [[:en:obe:kt:intercede|intercedes]]
+  * [[en:obe:other:heart|hearts]]
+  * [[:en:obe:kt:saint|saints]]
+  * [[:en:obe:kt:willofgod|will of God]] 
+
+===== Translation Notes: =====
+
+    * **inexpressible groanings** - "groanings that cannot be expressed in words"
+
+  
+===== Links: =====
+
+  * **[[en/bible/notes:rom/questions/comprehension/08|Romans Chapter 08 Comprehension Questions]]**
+
+ 
+
+**[[en/bible/notes/rom/08/23|<<]] | [[en/bible/notes/rom/08/28|>>]]**
+
+~~DISCUSSION~~
+
+
+{{tag>publish}}
+
+~~NOCACHE~~

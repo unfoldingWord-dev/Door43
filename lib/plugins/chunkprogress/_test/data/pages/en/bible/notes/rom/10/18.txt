@@ -1,0 +1,48 @@
+====== Romans 10:18 ======
+
+===== TFT: =====
+
+<usfm>
+\v 18 But  \add if someone were to\add* ask, "Have not  \add the people of Israel\add* heard  \add the message about God?\add*" \add I would reply that they\add* certainly  \add have heard!\add* It is like\add what is written in the Psalms\add*,
+\q
+\add The people living\add* all over the world \f + \ft personification, metonymy \f* \add have seen the stars\add*, and what they indicate  \add about God's character has reached people living in\add* the most remote places in the world \f + \ft doublet \f*!
+\p
+</usfm>
+
+===== UDB: =====
+
+<usfm>
+\v 18 But if someone said to those people, "Of course the Israelites have heard this message," I would say, "Yes, indeed! It is like what the scriptures say:
+\q
+The people living all over the world have seen the stars, and what they prove about who God is—even the people living in the most remote places in the world have understood this!
+
+
+\p
+</usfm>
+
+===== ULB: =====
+
+<usfm>
+\v 18 But I say, "Did they not hear?" Yes, most certainly.
+\q "Their sound has gone out into all the earth,
+\q And their words to the ends of the world."
+\m
+</usfm>
+
+===== Important Terms: =====
+
+  * [[en:obe:kt:word|words]]
+  * [[:en:obe:kt:world|world]]
+
+===== Translation Notes: =====
+
+  * **But I say, "Did they not hear?" Yes, most certainly.** Paul uses a question for emphasis. Alternate translation: "But, I say the Jews certainly have heard the message about Christ." (See: [[:en:ta:translate:rhetoricalquestion|Rhetorical Question]], [[en:ta:translate:quotation|]])
+  * **Their sound has gone out into all the earth, And their words to the ends of the world**  - Both of these statements mean basically the same thing and are used for emphasis. The word "their" refers to the sun, moon, and stars. Here they are described as human messengers that tell people about God. This refers to how their existence testifies to God's power and glory. It can be made explicit that Paul is quoting Scripture here. Alternate translation: "As it is written in the Scriptures, 'The sun, moon, and the stars are proof of God's power and glory, and everyone in the world sees them and knows the truth about God.'" (See: [[en:ta:translate:parallelism]] and [[en:ta:translate:personification]] and [[en:ta:translate:implicitexplicit]]) 
+===== Links: =====
+
+  * **[[:en:bible:notes:rom:questions:comprehension:10|Romans Chapter 10 Comprehension Questions]]**
+**[[:en:bible:notes:rom:10:16|<<]] | [[:en:bible:notes:rom:10:19|>>]]**
+
+~~DISCUSSION~~{{tag>publish}}
+
+~~NOCACHE~~
