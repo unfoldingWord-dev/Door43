@@ -1,111 +1,148 @@
 [submodule "lib/plugins/enhancedindexer"]
 	path = lib/plugins/enhancedindexer
 	url = https://github.com/unfoldingWord-dev/dokuwiki-enhancedindexer
+	ignore = dirty
 [submodule "lib/plugins/pagequery"]
 	path = lib/plugins/pagequery
 	url = https://github.com/superdav42/pagequery
+	ignore = dirty
 [submodule "lib/plugins/gitcommit"]
 	path = lib/plugins/gitcommit
 	url = https://github.com/unfoldingWord-dev/dw-gitcommit
+	ignore = dirty
 [submodule "lib/plugins/nsmsg"]
 	path = lib/plugins/nsmsg
 	url = https://github.com/unfoldingWord-dev/nsmsg
+	ignore = dirty
 [submodule "lib/plugins/usfmtag"]
 	path = lib/plugins/usfmtag
 	url = https://github.com/unfoldingWord-dev/Dokuwiki-USFMTag
+	ignore = dirty
 [submodule "lib/plugins/setedit"]
 	path = lib/plugins/setedit
 	url = https://github.com/yvonnel098/setedit
+	ignore = dirty
 [submodule "lib/plugins/namespace-export"]
 	path = lib/plugins/namespace-export
 	url = https://github.com/In-the-World/dokuwiki-plugin-namespace-export
+	ignore = dirty
 [submodule "lib/plugins/door43nsexport"]
 	path = lib/plugins/door43nsexport
 	url = https://github.com/In-the-World/door43nsexport
+	ignore = dirty
 [submodule "lib/plugins/pageredirect"]
 	path = lib/plugins/pageredirect
 	url = https://github.com/phillip-hopper/dokuwiki-plugin-pageredirect
+	ignore = dirty
 [submodule "lib/plugins/blockquote"]
 	path = lib/plugins/blockquote
 	url = https://github.com/dokufreaks/plugin-blockquote
+	ignore = dirty
 [submodule "lib/plugins/bookcreator"]
 	path = lib/plugins/bookcreator
 	url = https://github.com/Klap-in/dokuwiki-plugin-bookcreator
+	ignore = dirty
 [submodule "lib/plugins/changes"]
 	path = lib/plugins/changes
 	url = https://github.com/cosmocode/changes
+	ignore = dirty
 [submodule "lib/plugins/ckgedit"]
 	path = lib/plugins/ckgedit
 	url = https://github.com/turnermm/ckgedit
+	ignore = dirty
 [submodule "lib/plugins/definitionlist"]
 	path = lib/plugins/definitionlist
 	url = https://github.com/samwilson/dokuwiki-plugin-definitionlist
+	ignore = dirty
 [submodule "lib/plugins/discussion"]
 	path = lib/plugins/discussion
 	url = https://github.com/dokufreaks/plugin-discussion
+	ignore = dirty
 [submodule "lib/plugins/ditaa"]
 	path = lib/plugins/ditaa
 	url = https://github.com/splitbrain/dokuwiki-plugin-ditaa/
+	ignore = dirty
 [submodule "lib/plugins/dw2pdf"]
 	path = lib/plugins/dw2pdf
 	url = https://github.com/splitbrain/dokuwiki-plugin-dw2pdf
+	ignore = dirty
 [submodule "lib/plugins/googlefonts"]
 	path = lib/plugins/googlefonts
 	url = https://github.com/Azurewren/dokuwiki-plugin-googlefonts
+	ignore = dirty
 [submodule "lib/plugins/graphviz"]
 	path = lib/plugins/graphviz
 	url = https://github.com/superdav42/dokuwiki-plugin-graphviz
+	ignore = dirty
 [submodule "lib/plugins/html5video"]
 	path = lib/plugins/html5video
 	url = https://github.com/Fweeb/dokuwiki_plugin_html5video
+	ignore = dirty
 [submodule "lib/plugins/include"]
 	path = lib/plugins/include
 	url = https://github.com/dokufreaks/plugin-include/
+	ignore = dirty
 [submodule "lib/plugins/markdownextra"]
 	path = lib/plugins/markdownextra
 	url = https://github.com/naokij/dokuwiki-plugin-markdownextra
+	ignore = dirty
 [submodule "lib/plugins/moderncontact"]
 	path = lib/plugins/moderncontact
 	url = https://github.com/marvinrabe/dokuwiki-contact
+	ignore = dirty
 [submodule "lib/plugins/move"]
 	path = lib/plugins/move
 	url = https://github.com/michitux/dokuwiki-plugin-move
+	ignore = dirty
 [submodule "lib/plugins/nspages"]
 	path = lib/plugins/nspages
 	url = https://github.com/gturri/nspages
+	ignore = dirty
 [submodule "lib/plugins/odt"]
 	path = lib/plugins/odt
 	url = https://github.com/LarsGit223/dokuwiki-plugin-odt
+	ignore = dirty
 [submodule "lib/plugins/pagelist"]
 	path = lib/plugins/pagelist
 	url = https://github.com/dokufreaks/plugin-pagelist
+	ignore = dirty
 [submodule "lib/plugins/piwik2"]
 	path = lib/plugins/piwik2
 	url = https://github.com/Bravehartk2/dokuwiki-piwik2
+	ignore = dirty
 [submodule "lib/plugins/searchindex"]
 	path = lib/plugins/searchindex
 	url = https://github.com/splitbrain/dokuwiki-plugin-searchindex
+	ignore = dirty
 [submodule "lib/plugins/swiftmail"]
 	path = lib/plugins/swiftmail
 	url = https://github.com/splitbrain/dokuwiki-plugin-swiftmail
+	ignore = dirty
 [submodule "lib/plugins/tag"]
 	path = lib/plugins/tag
 	url = https://github.com/superdav42/plugin-tag
+	ignore = dirty
 [submodule "lib/plugins/captcha"]
 	path = lib/plugins/captcha
 	url = https://github.com/splitbrain/dokuwiki-plugin-captcha
+	ignore = dirty
 [submodule "lib/plugins/upgrade"]
 	path = lib/plugins/upgrade
 	url = https://github.com/splitbrain/dokuwiki-plugin-upgrade/
+	ignore = dirty
 [submodule "lib/plugins/wrap"]
 	path = lib/plugins/wrap
 	url = https://github.com/selfthinker/dokuwiki_plugin_wrap
+	ignore = dirty
 [submodule "lib/plugins/vshare"]
 	path = lib/plugins/vshare
 	url = https://github.com/splitbrain/dokuwiki-plugin-vshare
+	ignore = dirty
 [submodule "lib/plugins/gallery"]
 	path = lib/plugins/gallery
 	url = https://github.com/splitbrain/dokuwiki-plugin-gallery
+	ignore = dirty
 [submodule "lib/plugins/translation"]
 	path = lib/plugins/translation
 	url = https://github.com/splitbrain/dokuwiki-plugin-translation
+	ignore = dirty
