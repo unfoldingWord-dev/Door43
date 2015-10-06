@@ -28,6 +28,7 @@ $lang['btn_newer']             = '<< more recent';
 $lang['btn_older']             = 'less recent >>';
 $lang['btn_revs']              = 'Old revisions';
 $lang['btn_recent']            = 'Recent changes';
+$lang['btn_help']              = 'Help';
 $lang['btn_upload']            = 'Upload';
 $lang['btn_cancel']            = 'Cancel';
 $lang['btn_index']             = 'Sitemap';
@@ -351,3 +352,4 @@ $lang['media_update']          = 'Upload new version';
 $lang['media_restore']         = 'Restore this version';
 
 //Setup VIM: ex: et ts=2 :
+
