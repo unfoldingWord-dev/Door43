@@ -70,7 +70,10 @@ function act_dispatch(){
 
         //help
         if ($ACT == 'help'){
-          act_redirect('en/obs/help',$preact);
+            $show_changes = $INPUT->str('show_changes');
+            if (!empty($show_changes)) {
+                set_doku_pref('show_changes', $show_changes);
+            }
         }
 
         //recent changes

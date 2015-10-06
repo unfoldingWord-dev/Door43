@@ -2372,5 +2372,12 @@ function html_tab($href, $caption, $selected=false) {
     echo $tab;
 }
 
+/**
+ * Go Help Page
+ * @author Aaron Ts<aaron.tse@gmail.com>
+*/
+function html_help(){
+	header("Location: https://door43.org/en/obs/help");
 
+}
 
