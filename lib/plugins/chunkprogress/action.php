@@ -102,7 +102,7 @@ class action_plugin_chunkprogress extends DokuWiki_Action_Plugin
 
         // Scan all pages in namespace to find previous and next chunks
         // Only search depth 1 since all we care about is siblings
-        $pages_in_ns = getAllPagesInNamespace($namespace, 0);
+        $pages_in_ns = getAllPagesInNamespace($namespace, 1);
         $previous_chunk_id = null;
         $next_chunk_id = null;
         $prior_page = null;

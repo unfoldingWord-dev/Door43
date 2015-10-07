@@ -100,7 +100,7 @@
 	ignore = dirty
 [submodule "lib/plugins/odt"]
 	path = lib/plugins/odt
-	url = https://github.com/richmahn/dokuwiki-plugin-odt
+	url = https://github.com/LarsGit223/dokuwiki-plugin-odt
 	ignore = dirty
 [submodule "lib/plugins/pagelist"]
 	path = lib/plugins/pagelist
