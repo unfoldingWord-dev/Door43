@@ -138,7 +138,7 @@ function tpl_content_core() {
         case 'index':
             html_index($IDX); #FIXME can this be pulled from globals? is it sanitized correctly?
             break;
-        case 'help123':
+        case 'help':
             break;
         case 'backlink':
             html_backlinks();
