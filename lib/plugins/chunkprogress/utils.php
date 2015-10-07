@@ -430,7 +430,6 @@ function generateDiffLinks($page_id) {
     return $link_text;
 }
 
-
 /**
  * Convenience function to get all the current pages in the given namespace.
  *
@@ -445,16 +444,21 @@ function generateDiffLinks($page_id) {
  *
  * @return array An array containing the details of each page in the namespace
  */
-function getAllPagesInNamespace($namespace) {
+function getAllPagesInNamespace($namespace, $depth=0) {
     // Find all pages under namespace
     global $conf;
     $data = array();
-    $opts = array("depth" => 0);
+    $opts = array("depth" => $depth);
     $dir = str_replace(":", DIRECTORY_SEPARATOR, $namespace);
-    search($data, $conf["datadir"], 'search_allpages', $opts, $dir);
+    $datadir = $conf["datadir"] . DIRECTORY_SEPARATOR . $dir;
+    search($data, $datadir, 'search_allpages', $opts);
+    // Replace each id with its full namespace
+    foreach ($data as $key => $value) {
+        $value["id"] = $namespace . ":" . $value["id"];
+        $data[$key] = $value;
+    }
     return $data;
 }
-
 
 /**
  * Debug function to echo out an array
