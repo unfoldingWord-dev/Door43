@@ -10,10 +10,16 @@
 
 if (!defined('DOKU_INC')) die(); /* must be run from within DokuWiki */
 
+global $conf, $ACT, $lang, $ID;
+
 $hasSidebar = page_findnearest($conf['sidebar']);
 $showSidebar = $hasSidebar && ($ACT=='show');
+
+/** @var $translation helper_plugin_door43translation */
+$translation = &plugin_load('helper','door43translation');
+
 ?><!DOCTYPE html>
-<html lang="<?php echo $conf['lang'] ?>" dir="<?php echo $lang['direction'] ?>" class="no-js">
+<html lang="<?php echo $translation->getHtmlLang() ?>" dir="<?php echo $translation->getHtmlLangDir() ?>" class="no-js">
 <head>
     <meta charset="utf-8" />
     <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><![endif]-->
@@ -43,7 +49,6 @@ $showSidebar = $hasSidebar && ($ACT=='show');
                         <?php tpl_flush() ?>
 
 <?php
-$translation = &plugin_load('helper','door43translation');
 if ($translation) echo $translation->showTranslations();
 ?>
 
