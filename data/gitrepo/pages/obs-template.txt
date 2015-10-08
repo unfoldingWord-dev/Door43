@@ -1,0 +1,13 @@
+====== Open Bible Stories Word Template ======
+
+Please be sure that you do not change the formatting of the document.
+
+[[javascript:showObsExportDialog();|Click here to download OBS template]]
+
+<HTML>
+<script type="text/javascript">
+jQuery().ready(function() { showObsExportDialog(); });
+</script>
+</HTML>
+
+~~NOCACHE~~

@@ -58,18 +58,42 @@ class action_plugin_chunkprogress extends DokuWiki_Action_Plugin
     function bypass_cache(&$event, $param) {
         global $INFO;
         global $ID;
-        // error_log("--------------- chunkprogress:action.php:bypass_cache()");
-        // error_log("ID: " . $ID);
-        // error_log("INFO['id']: " . $INFO["id"]);
-        if ($INFO["id"] != null && $INFO["id"] != $ID) {
-            // error_log("Not bypassing cache");
+        global $ACT;
+
+        if ($this->should_process_page() == false) {
             return;
         }
-        // error_log("This is a page with potentiall diff links -- bypassing cache");
+        // error_log("BYPASS");
+
         $event->preventDefault();
         $event->stopPropagation();
         $event->result = false;
         $this->action_event = $event;
+    }
+
+    /**
+     * Checks to see if we should add links to this page.  The rules are 
+     * different based on whether we're in diff mode, etc.  By default we 
+     * do nothing unless we know this is a page we want.
+     *
+     * @return true if the page should be processed, false otherwise
+     */
+    private function should_process_page() {
+        global $INFO;
+        global $ID;
+        global $ACT;
+
+        // error_log("ACT: $ACT");
+        // error_log("ID: $ID");
+        // error_log("INFO['id']: " . $INFO["id"]);
+        if ($ACT == "show" && $INFO["id"] == null) {
+            return true;
+        }
+        if ($ACT == "diff" && $INFO["id"] == $ID) {
+            return true;
+        }
+        // error_log("DO NOT PROCESS PAGE");
+        return false;
     }
 
     /**
@@ -83,22 +107,16 @@ class action_plugin_chunkprogress extends DokuWiki_Action_Plugin
     public function handle_parser_wikitext_preprocess(Doku_Event &$event, $param) {
         global $INFO;
         global $ID;
+        global $ACT;
         global $conf;
 
-        // Don't process sidebar-type pages, only the main page.
-        // In sidebar pages, the $INFO["id"] is set to the main page.
-        // On the main page, the $ID is set but the $INFO["id"] is null.
-        // error_log("--------------- chunkprogress:action.php:handle_parser_wikitext_preprocess()");
-        // error_log("ID: " . $ID);
-        // error_log("INFO['id']: " . $INFO["id"]);
-        if ($INFO["id"] != null && $INFO["id"] != $ID) {
-            // error_log("Diff links won't be processed for this page.");
+        if ($this->should_process_page() == false) {
             return;
         }
+        // error_log("GEN DIFF");
 
         // Get namespace for this page
         $namespace = getNS(cleanID(getID()));
-        // error_log("Namespace: " . $namespace);
 
         // Scan all pages in namespace to find previous and next chunks
         // Only search depth 1 since all we care about is siblings
