@@ -66,19 +66,20 @@ class action_plugin_door43obsreview_ReviewActions extends DokuWiki_Action_Plugin
             $cssClass = 'obs-checking';
         }
 
+        $requestToPublishFormUrl = '<a href="http://td.unfoldingword.org/publishing/publish/request/" target="_blank">'.$this->getLang('requestToPublish').'</a>';
+
         if (empty($status)) {
-            $text = $this->getLang('noCheckingLevelSummary');
+            $text = sprintf($this->getLang('noCheckingLevelSummary'), $requestToPublishFormUrl);
         }
         else {
             $url = '<a href="https://unfoldingword.org/stories/">https://unfoldingword.org/stories</a>';
             $text = sprintf($this->getLang('checkingLevelSummary'), $status['checking_level'], $status['version'], $url);
             $cssClass .= ' obs-checked level-' . $status['checking_level'];
-        }
 
-        // TODO: find an icon to use as the link to click on
-        if (isset($parts[2]))
-            $text .= ' <a href="#" onclick="obsReviewChapter(\'' . $parts[2] . '\'); return false;">'
-                . $this->getLang('review') . '</a>';
+            // TODO: find an icon to use as the link to click on
+            if (isset($parts[2]) && $status['checking_level'] < 3)
+                $text .= ' '.sprintf($this->getLang('checkingLevelUpdate'), $status['checking_level']+1, $requestToPublishFormUrl);
+        }
 
         echo '<div class="' . $cssClass . '"><p style="font-size: 0.875em; color: #666;">' . $text . '</p></div>';
 
