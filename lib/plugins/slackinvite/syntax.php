@@ -72,23 +72,6 @@ class syntax_plugin_slackinvite extends DokuWiki_Syntax_Plugin {
         $renderer->doc .= $this->slackinvite_signinform();
         $renderer->info['cache'] = false;
         return true;
-        
-        /*
-        if($mode == 'xhtml') {
-            //check auth
-            $auth = auth_quickaclcheck($data['uploadns'] . ':*');
-
-            if($auth >= AUTH_READ) {
-                $renderer->doc .= $this->upload_plugin_uploadform($data['uploadns'], $auth, $data['para']);
-                $renderer->info['cache'] = false;
-            }
-            return true;
-        } else if($mode == 'metadata') {
-            $renderer->meta['has_upload_form'] = $data['uploadns'] . ':*';
-            return true;
-        }
-        return false;*/
-      
     }
 
     /**
@@ -97,7 +80,6 @@ class syntax_plugin_slackinvite extends DokuWiki_Syntax_Plugin {
      *
      */
     function slackinvite_signinform() {
-        global $lang;
         global $ID;
         $html = '';
         
@@ -111,15 +93,12 @@ class syntax_plugin_slackinvite extends DokuWiki_Syntax_Plugin {
         // Modification of the default dw HTML upload form
         $form = new Doku_Form($params);
         $form->startFieldset($this->getlang('signup'));
-        //$form->addElement(formSecurityToken());
         $form->addHidden('source', hsc("slackinvite")); //add source of call, used in action to ignore anything not from this form
-        //function form_makeTextField($name, $value='', $label=null, $id='', $class='', $attrs=array()) {
-        //$form->addElement(form_makeTextField('new_ns', hsc($ns), $this->getlang('new_ns') . ':', 'upload__ns')); //new namespace
-        
+
         $form->addElement(form_makeTextField('first_name', '', $this->getlang('first_name'), 'first__name'));
         $form->addElement(form_makeTextField('last_name', '', $this->getlang('last_name'), 'last__name'));
         $form->addElement(form_makeTextField('email', '', $this->getlang('email'), 'email'));
-        $form->addElement(form_makeButton('submit', 'Sign Up', $lang['btn_signup']));
+        $form->addElement(form_makeButton('submit', 'slacksignup', $this->getlang('btn_signup')));
         $form->endFieldset();
 
         $html .= '<div class="dokuwiki"><p>' . NL;
