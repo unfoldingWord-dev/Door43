@@ -54,18 +54,18 @@ class action_plugin_slackinvite extends DokuWiki_Action_Plugin {
         $event->data = null; // clear the data because we want it to show the form after processing
 
         $err=false;
-        
+
         $fn  = trim($INPUT->post->str('first_name'));
         $ln  = trim($INPUT->post->str('last_name')); 
         $this->showDebug('_handle_media_upload: fn= '.$fn." ln".$ln);
         if ((!preg_match("/^[a-zA-Z1-9]*$/",$fn)) ||
             (!preg_match("/^[a-zA-Z1-9]*$/",$ln)))    {
-            msg ($this->getlang('name_err'),-1);
+            msg ($this->getLang('name_err'),-1);
             $err=true;
         }
         $email = trim($INPUT->post->str('email')); 
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            msg($this->getlang('email_err'), -1);
+            msg($this->getLang('email_err'), -1);
             $err=true;
         }
        
@@ -119,7 +119,7 @@ class action_plugin_slackinvite extends DokuWiki_Action_Plugin {
                             $replyRaw = curl_exec($ch);
                             $reply=json_decode($replyRaw,true);
                             if($reply['ok']==false) {
-                                $txt = sprintf($this->getlang('invite_failed'), $user['fname'], $user['lname'], $user['email'], $reply['error']);
+                                $txt = sprintf($this->getLang('invite_failed'), $user['fname'], $user['lname'], $user['email'], $reply['error']);
                                 msg($txt, -1);
                              
                                 
@@ -130,7 +130,7 @@ class action_plugin_slackinvite extends DokuWiki_Action_Plugin {
                             }
                             
                             else {
-                                $txt = sprintf($this->getlang('invite_success'), $user['fname'], $user['email']);
+                                $txt = sprintf($this->getLang('invite_success'), $user['fname'], $user['lname'], $user['email']);
                                 msg($txt, 1);
                                 //$debugstr = date('c').' - '."\"".$user['fname']."\" <".$user['email']."> - ".'Invited successfully'."\n";
                                 $this->showDebug($txt);
