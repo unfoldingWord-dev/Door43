@@ -68,6 +68,11 @@ function act_dispatch(){
             act_sitemap($ACT);
         }
 
+        //help
+        if ($ACT == 'help'){
+          act_redirect('en/obs/help',$preact);
+        }
+
         //recent changes
         if ($ACT == 'recent'){
             $show_changes = $INPUT->str('show_changes');
@@ -265,7 +270,7 @@ function act_validate($act) {
     //is there really a draft?
     if($act == 'draft' && !file_exists($INFO['draft'])) return 'edit';
 
-    if(!in_array($act,array('login','logout','register','save','cancel','edit','draft',
+    if(!in_array($act,array('help','login','logout','register','save','cancel','edit','draft',
                     'preview','search','show','check','index','revisions',
                     'diff','recent','backlink','admin','subscribe','revert',
                     'unsubscribe','profile','profile_delete','resendpwd','recover',
@@ -299,7 +304,7 @@ function act_permcheck($act){
         }else{
             $permneed = AUTH_CREATE;
         }
-    }elseif(in_array($act,array('login','search','recent','profile','profile_delete','index', 'sitemap'))){
+    }elseif(in_array($act,array('help','login','search','recent','profile','profile_delete','index', 'sitemap'))){
         $permneed = AUTH_NONE;
     }elseif($act == 'revert'){
         $permneed = AUTH_ADMIN;
@@ -474,6 +479,7 @@ function act_revert($act){
 function act_redirect($id,$preact){
     global $PRE;
     global $TEXT;
+  
 
     $opts = array(
             'id'       => $id,
