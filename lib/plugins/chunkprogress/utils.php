@@ -321,7 +321,8 @@ function getStatusBreakpointsForPage($page_id) {
 
         // Get status tags.  We only care about the leftmost status
         $status_tags = $statuses_by_revision[$revision_id];
-        $status = array_shift(array_values($status_tags));
+        $status_tag_values = array_values($status_tags);
+        $status = array_shift($status_tag_values);
 
         // error_log(
         //     "Page: " . $ID .
