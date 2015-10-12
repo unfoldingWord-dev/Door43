@@ -54,6 +54,7 @@ class action_plugin_door43obsdocupload_ExportButtons extends Door43_Action_Plugi
         $controller->register_hook('TEMPLATE_PAGETOOLS_DISPLAY', 'BEFORE', $this, 'add_button');
         Door43_Ajax_Helper::register_handler($controller, 'get_obs_doc_export_dlg', array($this, 'get_obs_doc_export_dlg'));
         Door43_Ajax_Helper::register_handler($controller, 'download_obs_template_docx', array($this, 'download_obs_template_docx'));
+        Door43_Ajax_Helper::register_handler($controller, 'download_obs_template_odt', array($this, 'download_obs_template_odt'));
     }
 
 
@@ -121,6 +122,17 @@ class action_plugin_door43obsdocupload_ExportButtons extends Door43_Action_Plugi
     }
 
     public function download_obs_template_docx() {
+        $this->create_obs_template('docx');
+    }
+
+    public function download_obs_template_odt() {
+        $this->create_obs_template('odt');
+    }
+
+    /**
+     * @param string $output_format_ext Possible values: 'docx', 'odt'
+     */
+    private function create_obs_template($output_format_ext) {
 
         global $INPUT;
         $langCode = $INPUT->str('lang');
@@ -161,7 +173,6 @@ class action_plugin_door43obsdocupload_ExportButtons extends Door43_Action_Plugi
             }
             $frontMatter = json_decode($raw, true);
         }
-
 
         // now put it all together
         $markdown = $frontMatter['name'] . "\n";
@@ -211,26 +222,36 @@ class action_plugin_door43obsdocupload_ExportButtons extends Door43_Action_Plugi
         $markdownFile = $tempDir . DIRECTORY_SEPARATOR . 'obs.md';
         file_put_contents($markdownFile, $markdown);
 
-        // convert to docx with pandoc
-        $docxFile = $tempDir . DIRECTORY_SEPARATOR . 'obs.docx';
-        $cmd = "/usr/bin/pandoc \"$markdownFile\" -s -f markdown -t docx  -o \"$docxFile\"";
+        // convert with pandoc
+        $templateFile = $tempDir . DIRECTORY_SEPARATOR . 'obs.' . $output_format_ext;
+        $cmd = "/usr/bin/pandoc \"$markdownFile\" -s -f markdown -t {$output_format_ext} -o \"$templateFile\"";
         exec($cmd, $output, $error);
 
         // send to the browser
-        if (is_file($docxFile)) {
+        if (is_file($templateFile)) {
 
-            $saveAsName = 'obs_' . $langCode . '_v' . preg_replace('/(\s+|\.+)+/', '-', $metaData['version']) . '_' . date('Y-m-d') . '.docx';
+            $saveAsName = 'obs_' . $langCode . '_v' . preg_replace('/(\s+|\.+)+/', '-', $metaData['version']) . '_' . date('Y-m-d') . '.' . $output_format_ext;
 
-            header('Content-Type: application/vnd.openxmlformats-officedocument.wordprocessingml.document; charset=utf-8');
-            header('Content-Length: ' . filesize($docxFile));
+            // content type header
+            switch($output_format_ext) {
+                case 'docx':
+                    header('Content-Type: application/vnd.openxmlformats-officedocument.wordprocessingml.document; charset=utf-8');
+                    break;
+
+                case 'odt':
+                    header('Content-Type: application/vnd.oasis.opendocument.text; charset=utf-8');
+                    break;
+            }
+
+            header('Content-Length: ' . filesize($templateFile));
             header('Content-Disposition: attachment; filename="' . $saveAsName . '"');
 
-            readfile($docxFile);
+            readfile($templateFile);
         }
         else {
             if (!$this->localised) $this->setupLocale();
             header('Content-Type: text/plain');
-            echo $this->getLang('docxFileCreateError');
+            echo sprintf($this->getLang('templateFileCreateError'), $output_format_ext);
         }
     }
 

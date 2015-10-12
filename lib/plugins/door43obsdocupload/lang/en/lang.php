@@ -28,7 +28,7 @@ $lang['uploadProcessing'] = 'Processing the uploaded file';
 $lang['publishSucceeded'] = 'OBS has been published successfully.';
 
 // error messages
-$lang['docxFileCreateError'] = 'Error creating the docx file';
+$lang['templateFileCreateError'] = 'Error creating the %1$s file';
 $lang['fileNotUploaded'] = 'The file was not successfully uploaded';
 $lang['fileTypeNotSupported'] = 'Only .docx and .zip files are supported.';
 $lang['zipNoDocxFiles'] = 'No .docx files were found in the zip file.';
