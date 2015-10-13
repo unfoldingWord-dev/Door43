@@ -26,6 +26,7 @@ $lang['loginRequired'] = 'You must be logged in before you can upload a file.';
 $lang['uploadProgress'] = 'Upload progress';
 $lang['uploadProcessing'] = 'Processing the uploaded file';
 $lang['publishSucceeded'] = 'OBS has been published successfully.';
+$lang['backMatterHeader'] = 'Back Matter';
 
 // error messages
 $lang['templateFileCreateError'] = 'Error creating the %1$s file';

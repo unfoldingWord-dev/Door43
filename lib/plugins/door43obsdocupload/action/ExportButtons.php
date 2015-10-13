@@ -134,7 +134,15 @@ class action_plugin_door43obsdocupload_ExportButtons extends Door43_Action_Plugi
      */
     private function create_obs_template($output_format_ext) {
 
+        /* @var $door43shared helper_plugin_door43shared */
+        global $door43shared;
         global $INPUT;
+
+        // $door43shared is a global instance, and can be used by any of the door43 plugins
+        if (empty($door43shared)) {
+            $door43shared = plugin_load('helper', 'door43shared');
+        }
+
         $langCode = $INPUT->str('lang');
         $includeImages = $INPUT->bool('img');
         $draft = $INPUT->bool('draft');
@@ -151,6 +159,11 @@ class action_plugin_door43obsdocupload_ExportButtons extends Door43_Action_Plugi
             $url = "https://api.unfoldingword.org/obs/txt/1/en/obs-en-front-matter.json";
             $raw = file_get_contents($url);
             $frontMatter = json_decode($raw, true);
+
+            // get the back matter
+            $url = "https://api.unfoldingword.org/obs/txt/1/en/obs-en-back-matter.json";
+            $raw = file_get_contents($url);
+            $backMatter = json_decode($raw, true);
         }
         else {
 
@@ -172,12 +185,21 @@ class action_plugin_door43obsdocupload_ExportButtons extends Door43_Action_Plugi
                 $raw = file_get_contents($url);
             }
             $frontMatter = json_decode($raw, true);
+
+            // get the back matter
+            $url = "https://api.unfoldingword.org/obs/txt/1/{$langCode}/obs-{$langCode}-back-matter.json";
+            $raw = file_get_contents($url);
+            if (($raw === false) && ($langCode != 'en')) {
+                $url = "https://api.unfoldingword.org/obs/txt/1/en/obs-en-back-matter.json";
+                $raw = file_get_contents($url);
+            }
+            $backMatter = json_decode($raw, true);
         }
 
         // now put it all together
         $markdown = $frontMatter['name'] . "\n";
         $markdown .= str_repeat('=', strlen($frontMatter['name'])) . "\n\n";
-        $markdown .= $frontMatter['front-matter'] . "\n\n";
+        $markdown .= $door43shared->dokuwikiToMarkdown($frontMatter['front-matter']) . "\n\n";
         $markdown .= "-----\n\n";
 
         // get the images, download if requested to be included
@@ -209,6 +231,10 @@ class action_plugin_door43obsdocupload_ExportButtons extends Door43_Action_Plugi
             $markdown .= "*{$chapter['ref']}*\n\n";
             $markdown .= "-----\n\n";
         }
+
+        // back matter
+        $markdown .= '# ' . $this->getLang('backMatterHeader') . " #\n\n";
+        $markdown .= $door43shared->dokuwikiToMarkdown($backMatter['back-matter']);
 
         // create the temp markdown file
         $increment = 0;
