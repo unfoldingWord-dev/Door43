@@ -1,7 +1,7 @@
 base   door43obsreview
 author Phil Hopper
-email  https://unfoldingword.org/contact/
+email  phillip_hopper@wycliffeassociates.org
 date   2015-04-06
-name   door43obsreview plugin
+name   Door43 OBS Review Plugin
 desc   Open Bible Stories support
 url    https://github.com/unfoldingWord-dev/dokuwiki-plugin-obs-review
