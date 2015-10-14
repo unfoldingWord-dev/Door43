@@ -300,7 +300,7 @@ function getStatusesForPage($page_id) {
  *
  * {
  *   "first_to_check": 11111,
- *   "first_to_review": null,
+ *   "first_to_review": "(none)",
  *   "first_to_publish": 33333
  * }
  *
@@ -313,7 +313,7 @@ function getStatusBreakpointsForPage($page_id) {
     $statuses_by_revision = getStatusesForPage($page_id);
 
     // Search revision statuses for breakpoints
-    $previous_status = null;
+    $previous_status = "(none)";
     $first_to_check = "(none)";
     $first_to_review = "(none)";
     $first_to_publish = "(none)";
@@ -400,7 +400,7 @@ function generateDiffLinks($page_id) {
             . $first_to_check
             . "&rev2%5B1%5D="
             . $first_to_review
-            . "&difftype=sidebyside|check-review]]";
+            . "&difftype=rendered|check-review]]";
     }
 
     // Check -> Publish
@@ -413,7 +413,7 @@ function generateDiffLinks($page_id) {
             . $first_to_check
             . "&rev2%5B1%5D="
             . $first_to_publish
-            . "&difftype=sidebyside|check-publish]]";
+            . "&difftype=rendered|check-publish]]";
     }
 
     // Review -> Publish
@@ -426,7 +426,7 @@ function generateDiffLinks($page_id) {
             . $first_to_review
             . "&rev2%5B1%5D="
             . $first_to_publish
-            . "&difftype=sidebyside|review-publish]]";
+            . "&difftype=rendered|review-publish]]";
     }
 
     // Publish -> Current
@@ -438,7 +438,22 @@ function generateDiffLinks($page_id) {
             " [[$page_id?do=diff&rev2%5B0%5D="
             . $first_to_publish
             . "&rev2%5B1%5D="
-            . "&difftype=sidebyside|publish-current]]";
+            . "&difftype=rendered|publish-current]]";
+    }
+
+    // All three (check, review, publish)
+    if ($first_to_check != "(none)" and $first_to_review != "(none)" and $first_to_publish != "(none)") {
+        if ($link_text != "") {
+            $link_text = $link_text . " | ";
+        }
+        $link_text = $link_text .
+            " [[$page_id?do=diff&rev2%5B0%5D="
+            . $first_to_check
+            . "&rev2%5B1%5D="
+            . $first_to_review
+            . "&rev2%5B2%5D="
+            . $first_to_publish
+            . "&difftype=rendered|3-way-view]]";
     }
 
     return $link_text;
@@ -495,3 +510,4 @@ function debugEchoArray($array, $title="(array)", $indent=0) {
     echo "<br/>";
 }
 
+/* vim: set foldmethod=indent : */

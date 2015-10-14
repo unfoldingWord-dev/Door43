@@ -72,8 +72,8 @@ class action_plugin_chunkprogress extends DokuWiki_Action_Plugin
     }
 
     /**
-     * Checks to see if we should add links to this page.  The rules are 
-     * different based on whether we're in diff mode, etc.  By default we 
+     * Checks to see if we should add links to this page.  The rules are
+     * different based on whether we're in diff mode, etc.  By default we
      * do nothing unless we know this is a page we want.
      *
      * @return true if the page should be processed, false otherwise
