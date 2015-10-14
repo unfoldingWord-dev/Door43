@@ -32,7 +32,7 @@
 	ignore = dirty
 [submodule "lib/plugins/pageredirect"]
 	path = lib/plugins/pageredirect
-	url = https://github.com/phillip-hopper/dokuwiki-plugin-pageredirect
+	url = https://github.com/glensc/dokuwiki-plugin-pageredirect
 	ignore = dirty
 [submodule "lib/plugins/blockquote"]
 	path = lib/plugins/blockquote
