@@ -115,4 +115,29 @@ class helper_plugin_door43shared extends DokuWiki_Plugin {
 
         return $text;
     }
+
+    /**
+     * Replaces Dokuwiki markup with Markdown
+     *
+     * @param string $dokuwikiText
+     * @return string
+     */
+    public function dokuwikiToMarkdown($dokuwikiText) {
+
+        $h1regex = '/(.*?)(======\s*)(.*?)(\s*======)(.*?)/';
+        $h2regex = '/(.*?)(=====\s*)(.*?)(\s*=====)(.*?)/';
+        $h3regex = '/(.*?)(====\s*)(.*?)(\s*====)(.*?)/';
+        $h4regex = '/(.*?)(===\s*)(.*?)(\s*===)(.*?)/';
+        $h5regex = '/(.*?)(==\s*)(.*?)(\s*==)(.*?)/';
+        $italicRegex = '/(.*?)(?<!:)(\/\/)(.*?)(\/\/)(.*?)/';
+
+        $markdown = preg_replace($h1regex, '${1}# ${3} #${5}', $dokuwikiText);
+        $markdown = preg_replace($h2regex, '${1}## ${3} ##${5}', $markdown);
+        $markdown = preg_replace($h3regex, '${1}### ${3} ###${5}', $markdown);
+        $markdown = preg_replace($h4regex, '${1}#### ${3} ####${5}', $markdown);
+        $markdown = preg_replace($h5regex, '${1}##### ${3} #####${5}', $markdown);
+        $markdown = preg_replace($italicRegex, '${1}_${3}_${5}', $markdown);
+
+        return $markdown;
+    }
 }
