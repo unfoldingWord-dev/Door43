@@ -8,8 +8,13 @@
 // must be run from within DokuWiki
 if (!defined('DOKU_INC')) die();
 
+global $conf, $lang;
+
+/** @var $translation helper_plugin_door43translation */
+$translation = &plugin_load('helper','door43translation');
+
 ?><!DOCTYPE html>
-<html lang="<?php echo $conf['lang']?>" dir="<?php echo $lang['direction'] ?>" class="popup no-js">
+<html lang="<?php echo $translation->getHtmlLang() ?>" dir="<?php echo $translation->getHtmlLangDir() ?>" class="popup no-js">
 <head>
     <meta charset="utf-8" />
     <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><![endif]-->
