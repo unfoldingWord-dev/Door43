@@ -300,7 +300,7 @@ function getStatusesForPage($page_id) {
  *
  * {
  *   "first_to_check": 11111,
- *   "first_to_review": null,
+ *   "first_to_review": "(none)",
  *   "first_to_publish": 33333
  * }
  *
@@ -313,7 +313,7 @@ function getStatusBreakpointsForPage($page_id) {
     $statuses_by_revision = getStatusesForPage($page_id);
 
     // Search revision statuses for breakpoints
-    $previous_status = null;
+    $previous_status = "(none)";
     $first_to_check = "(none)";
     $first_to_review = "(none)";
     $first_to_publish = "(none)";
