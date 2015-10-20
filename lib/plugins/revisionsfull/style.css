@@ -1,0 +1,4 @@
+table.diff_sidebyside .quickselect {
+  max-width: 200px;
+  white-space: nowrap;
+}
