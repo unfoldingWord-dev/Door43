@@ -64,6 +64,7 @@ if (!defined('DOKU_INC')) die();
             </div>
             <ul>
                 <?php
+		    tpl_action('help', 1, 'li');
                     tpl_action('recent', 1, 'li');
                     tpl_action('media', 1, 'li');
                     tpl_action('index', 1, 'li');

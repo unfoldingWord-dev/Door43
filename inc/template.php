@@ -138,6 +138,8 @@ function tpl_content_core() {
         case 'index':
             html_index($IDX); #FIXME can this be pulled from globals? is it sanitized correctly?
             break;
+        case 'help':
+            break;
         case 'backlink':
             html_backlinks();
             break;
@@ -233,6 +235,8 @@ function tpl_toc($return = false) {
     return '';
 }
 
+
+
 /**
  * Handle the admin page contents
  *
@@ -314,6 +318,8 @@ function tpl_metaheaders($alt = true) {
             'title'=> $lang['btn_index']
         );
     }
+
+
 
     if($alt) {
         if(actionOK('rss')) {
@@ -683,6 +689,10 @@ function tpl_get_action($type) {
             break;
         case 'recent':
             $accesskey = 'r';
+            break;
+        case 'help':
+            $accesskey = 'h';
+            //$params    = array('do' => 'help');
             break;
         case 'index':
             $accesskey = 'x';
@@ -1094,6 +1104,7 @@ function tpl_pagetitle($id = null, $ret = false) {
 
         case 'backlink' :
         case 'recent' :
+        case 'help' :
         case 'subscribe' :
             $page_title = $name . ' - ' . $lang['btn_'.$ACT];
             break;
@@ -1632,7 +1643,7 @@ function tpl_actiondropdown($empty = '', $button = '&gt;') {
 
     $action_structure = array(
         'page_tools' => array('edit', 'revert', 'revisions', 'backlink', 'subscribe'),
-        'site_tools' => array('recent', 'media', 'index'),
+        'site_tools' => array('help', 'recent', 'media', 'index'),
         'user_tools' => array('login', 'register', 'profile', 'admin'),
     );
 
