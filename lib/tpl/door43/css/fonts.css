@@ -23,14 +23,14 @@
 }
 @font-face {
   font-family: AbyssinicaSILW;
-  src: url("fonts/sil/AbyssinicaSIL-R.woff");
+  src: local("Abyssinica SIL"), local("AbyssinicaSIL");
   src: url("fonts/sil/AbyssinicaSIL-R.ttf") format("ttf"), url("fonts/sil/AbyssinicaSIL-R.woff") format("woff");
 }
 
 @font-face {
   font-family: 'NotoNaskhArabic';
   src: local('Noto Naskh Arabic'), local('NotoNaskhArabic');
-  src: url('fonts/noto/notonaskharabic-regular.woff2') format('woff2'), url('fonts/noto/notokufiarabic-regular.woff') format('woff');
+  src: url('fonts/noto/notonaskharabic-regular.woff2') format('woff2'), url('fonts/noto/notonaskharabic-regular.woff') format('woff');
 }
 @font-face {
   font-family: 'NotoNaskhArabic';
@@ -49,6 +49,18 @@
   font-weight: bold;
   src: local('Noto Sans Devanagari'), local('NotoSansDevanagari');
   src: url('fonts/noto/notosansdevanagari-bold.woff2') format('woff2'), url('fonts/noto/notosansdevanagari-bold.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'NotoSansMyanmar';
+  src: local('Noto Sans Myanmar'), local('NotoSansMyanmar');
+  src: url('fonts/noto/notosansmyanmar-regular.woff2') format('woff2'), url('fonts/noto/notosansmyanmar-regular.woff') format('woff');
+}
+@font-face {
+  font-family: 'NotoSansMyanmar';
+  font-weight: bold;
+  src: local('Noto Sans Myanmar'), local('NotoSansMyanmar');
+  src: url('fonts/noto/notosansmyanmar-bold.woff2') format('woff2'), url('fonts/noto/notosansmyanmar-bold.woff') format('woff');
 }
 
 * { font-family: 'NotoSans', sans-serif; }
@@ -77,3 +89,6 @@
 
 /* Devanagari script */
 :lang(sgj) { font-family: NotoSans, NotoSansDevanagari, sans-serif; }
+
+/* Burmese script */
+:lang(my) { font-family: NotoSans, NotoSansMyanmar, sans-serif; }
