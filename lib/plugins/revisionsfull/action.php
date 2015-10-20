@@ -60,8 +60,7 @@ class FullTableDiffFormatter extends TableDiffFormatter {
 }
 
 
-if(!function_exists('html_diff_navigation')) {
-    /**
+/**
  * Create html for revision navigation
  *
  * @param PageChangeLog $pagelog changelog object of current page
@@ -70,7 +69,7 @@ if(!function_exists('html_diff_navigation')) {
  * @param int           $r_rev   right revision timestamp
  * @return string[] html of left and right navigation elements
  */
-function html_diff_navigation($pagelog, $type, $l_rev, $r_rev) {
+function revisionsfull_html_diff_navigation($pagelog, $type, $l_rev, $r_rev) {
     global $INFO, $ID;
     // last timestamp is not in changelog, retrieve timestamp from metadata
     // note: when page is removed, the metadata timestamp is zero
@@ -130,8 +129,14 @@ function html_diff_navigation($pagelog, $type, $l_rev, $r_rev) {
     $l_nav = '';
     //move back
     if($l_prev) {
-        $l_nav .= html_diff_navigationlink($type, 'diffbothprevrev', $l_prev, $r_prev);
-        $l_nav .= html_diff_navigationlink($type, 'diffprevrev', $l_prev, $r_rev);
+        $l_nav .= '&lt;&lt;'.revisionsfull_html_diff_navigationlink($type, 'diffbothprevrev', $l_prev, $r_prev);
+        $l_nav .= '&lt;'.revisionsfull_html_diff_navigationlink($type, 'diffprevrev', $l_prev, $r_rev);
+    }
+    //move forward
+    if($l_next && ($l_next < $r_rev || !$r_rev)) {
+        if($l_prev)
+		$l_nav .= '| ';
+        $l_nav .= trim(revisionsfull_html_diff_navigationlink($type, 'diffnextrev', $l_next, $r_rev)).'&gt;';
     }
     //dropdown
     $form = new Doku_Form(array('action' => wl()));
@@ -149,18 +154,22 @@ function html_diff_navigation($pagelog, $type, $l_rev, $r_rev) {
          )
     );
     $form->addElement(form_makeButton('submit', 'diff', 'Go'));
-    $l_nav .= $form->getForm();
-    //move forward
-    if($l_next && ($l_next < $r_rev || !$r_rev)) {
-        $l_nav .= html_diff_navigationlink($type, 'diffnextrev', $l_next, $r_rev);
-    }
+    $l_nav .= '<br/>'.$form->getForm();
     /*
      * Right side:
      */
     $r_nav = '';
     //move back
     if($l_rev < $r_prev) {
-        $r_nav .= html_diff_navigationlink($type, 'diffprevrev', $l_rev, $r_prev);
+        $r_nav .= '&lt;'.revisionsfull_html_diff_navigationlink($type, 'diffprevrev', $l_rev, $r_prev);
+
+	if($r_next)
+		$r_nav .= '| ';
+    }
+    //move forward
+    if($r_next) {
+        $r_nav .= trim(revisionsfull_html_diff_navigationlink($type, 'diffnextrev', $l_rev, $r_next)).'&gt; ';
+        $r_nav .= trim(revisionsfull_html_diff_navigationlink($type, 'diffbothnextrev', $l_next, $r_next)).'&gt;&gt; ';
     }
     //dropdown
     $form = new Doku_Form(array('action' => wl()));
@@ -178,23 +187,12 @@ function html_diff_navigation($pagelog, $type, $l_rev, $r_rev) {
          )
     );
     $form->addElement(form_makeButton('submit', 'diff', 'Go'));
-    $r_nav .= $form->getForm();
-    //move forward
-    if($r_next) {
-        if($pagelog->isCurrentRevision($r_next)) {
-            $r_nav .= html_diff_navigationlink($type, 'difflastrev', $l_rev); //last revision is diff with current page
-        } else {
-            $r_nav .= html_diff_navigationlink($type, 'diffnextrev', $l_rev, $r_next);
-        }
-        $r_nav .= html_diff_navigationlink($type, 'diffbothnextrev', $l_next, $r_next);
-    }
+    $r_nav .= '<br/>'.$form->getForm();
     return array($l_nav, $r_nav);
 }
-}
 
 
-if(!function_exists('html_diff_navigationlink')) {
-    /**
+/**
  * Create html link to a diff defined by two revisions
  *
  * @param string $difftype display type
@@ -203,7 +201,7 @@ if(!function_exists('html_diff_navigationlink')) {
  * @param int $rrev newest revision or null for diff with current revision
  * @return string html of link to a diff
  */
-function html_diff_navigationlink($difftype, $linktype, $lrev, $rrev = null) {
+function revisionsfull_html_diff_navigationlink($difftype, $linktype, $lrev, $rrev = null) {
     global $ID, $lang;
     if(!$rrev) {
         $urlparam = array(
@@ -222,7 +220,6 @@ function html_diff_navigationlink($difftype, $linktype, $lrev, $rrev = null) {
     return  '<a class="' . $linktype . '" href="' . wl($ID, $urlparam) . '" title="' . $lang[$linktype] . '">' .
                 '<span>' . $lang[$linktype] . '</span>' .
             '</a>' . "\n";
-}
 }
 
 /**
@@ -322,7 +319,7 @@ function revisionsfull_html_diff($text = '', $intro = true, $type = null) {
     $l_nav = '';
     $r_nav = '';
     if(!$text) {
-        list($l_nav, $r_nav) = html_diff_navigation($pagelog, $type, $l_rev, $r_rev);
+        list($l_nav, $r_nav) = revisionsfull_html_diff_navigation($pagelog, $type, $l_rev, $r_rev);
     }
     /*
      * Create diff object and the formatter
@@ -367,7 +364,7 @@ function revisionsfull_html_diff($text = '', $intro = true, $type = null) {
         $form->printForm();
         ptln('<p>');
         // link to exactly this view FS#2835
-        echo html_diff_navigationlink($type, 'difflink', $l_rev, $r_rev ? $r_rev : $INFO['currentrev']);
+        echo revisionsfull_html_diff_navigationlink($type, 'difflink', $l_rev, $r_rev ? $r_rev : $INFO['currentrev']);
         ptln('</p>');
         ptln('</div>'); // .diffoptions
     }
