@@ -200,7 +200,7 @@ class action_plugin_door43obsdocupload_UploadDocHandler extends Door43_Action_Pl
         $stories = array_filter(explode('====== ', $text));
 
         // discard the license page
-        while (count($stories) > 50) {
+        if (count($stories) > 50) {
             array_shift($stories);
         }
 
@@ -214,8 +214,9 @@ class action_plugin_door43obsdocupload_UploadDocHandler extends Door43_Action_Pl
             mkdir($obsPreviewDir, 0755, true);
         }
 
-        // process each story into the preview directory
-        for ($story_index = 0; $story_index < count($stories); $story_index++) {
+        // Process each story into the preview directory.
+        // There may be a back-matter section after the 50 stories -- ignore it
+        for ($story_index = 0; $story_index < 50; $story_index++) {
 
             $story_num = str_pad($story_index + 1, 2, '0', STR_PAD_LEFT);
 
@@ -333,6 +334,9 @@ class action_plugin_door43obsdocupload_UploadDocHandler extends Door43_Action_Pl
 
             // delete the preview directory
             $this->shared_helper->delete_directory_and_files($obsPreviewDir);
+
+            // delete the preview page
+            unlink($obsPreviewDir . '.txt');
 
             // success message
             $result = 'OK';
