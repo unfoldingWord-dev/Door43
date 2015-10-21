@@ -1,0 +1,9 @@
+/*____________ changes to stories page ____________*/
+div[class*=":obs:stories"] ol {
+    list-style: none;
+}
+
+div[class*=":obs:stories"] ol li {
+    margin-left: 0;
+}
+

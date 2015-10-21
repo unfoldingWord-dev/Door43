@@ -13,11 +13,12 @@ global $conf, $lang;
 /** @var $translation helper_plugin_door43translation */
 $translation = &plugin_load('helper','door43translation');
 
+header('X-UA-Compatible: IE=edge,chrome=1');
+
 ?><!DOCTYPE html>
 <html lang="<?php echo $translation->getHtmlLang() ?>" dir="<?php echo $translation->getHtmlLangDir() ?>" class="popup no-js">
 <head>
     <meta charset="utf-8" />
-    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><![endif]-->
     <title>
         <?php echo hsc($lang['mediaselect'])?>
         [<?php echo strip_tags($conf['title'])?>]
@@ -30,7 +31,7 @@ $translation = &plugin_load('helper','door43translation');
 </head>
 
 <body>
-    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <!--[if lte IE 8 ]><div id="IE8"><![endif]-->
     <div id="media__manager" class="dokuwiki">
         <?php html_msgarea() ?>
         <div id="mediamgr__aside"><div class="pad">
@@ -46,6 +47,6 @@ $translation = &plugin_load('helper','door43translation');
             <?php tpl_mediaContent() ?>
         </div></div>
     </div>
-    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+    <!--[if lte IE 8 ]></div><![endif]-->
 </body>
 </html>
