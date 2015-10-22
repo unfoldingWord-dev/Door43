@@ -63,6 +63,18 @@
   src: url('fonts/noto/notosansmyanmar-bold.woff2') format('woff2'), url('fonts/noto/notosansmyanmar-bold.woff') format('woff');
 }
 
+@font-face {
+  font-family: 'NotoSansKhmer';
+  src: local('Noto Sans Khmer'), local('NotoSansKhmer');
+  src: url('https://unfoldingword.org/css/fonts/noto/notosanskhmer-regular.woff2') format('woff2'), url('https://unfoldingword.org/css/fonts/noto/notosanskhmer-regular.woff') format('woff');
+}
+@font-face {
+  font-family: 'NotoSansKhmer';
+  font-weight: bold;
+  src: local('Noto Sans Khmer'), local('NotoSansKhmer');
+  src: url('https://unfoldingword.org/css/fonts/noto/notosanskhmer-bold.woff2') format('woff2'), url('https://unfoldingword.org/css/fonts/noto/notosanskhmer-bold.woff') format('woff');
+}
+
 * { font-family: 'NotoSans', sans-serif; }
 
 /* use Abyssinica SIL - Regular in .woff format */
@@ -92,3 +104,6 @@
 
 /* Burmese script */
 :lang(my) { font-family: NotoSans, NotoSansMyanmar, sans-serif; }
+
+/* Khmer script */
+:lang(km) { font-family: NotoSans, NotoSansKhmer, sans-serif; }
