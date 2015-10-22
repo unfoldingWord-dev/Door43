@@ -26,12 +26,12 @@ then
   # going to the parent directory
   pushd "$DOOR43_DIR/data/gitrepo/pages" > /dev/null
 
-  # Find all git repositories and update it to the master latest revision
-  for dir in $(find . -maxdepth 2 -type d -name ".git" | cut -c 3- | sort -u); do
+  # Find all git repositories with obs and update it to the master latest revision
+  for dir in $(find . -maxdepth 2 -type d -name "obs" | cut -c 3- | sort -u); do
       echo "";
       echo "Updateing $(dirname "$dir")";
 
-      # We have to go to the .git parent directory to call the pull command
+      # We have to go to the obs parent directory to call the pull command
       pushd "$dir/.." > /dev/null;
 
       # we don't want any changes in a development language branch
