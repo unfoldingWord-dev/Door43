@@ -109,7 +109,7 @@ Looking for a language that is not here yet? [[https://door43.org/obs-setup|Setu
   * [[:kk:home|қазақ тілі (kk)]]
   * [[:kkl:home|Kosarek Yale (kkl)]]
   * [[:kl:home|kalaallisut, kalaallit oqaasii (kl)]]
-  * [[:km:home|ខ្មែរ, ខេមរភាសា, ភាសាខ្មែរ (km)]]
+  * [[:km:home|Cambodian ខេមរភាសា, ខ្មែរ (Khmer)]]
   * [[:kmb:home|Kimbundu (kmb)]]
   * [[:kn:home|ಕನ್ನಡ (kn)]]
   * [[:ko:home|한국어, 조선어 (ko)]]
