@@ -250,7 +250,7 @@ class action_plugin_door43obs_PopulateOBS extends DokuWiki_Action_Plugin {
         self::create_files_from_json($srcLangCode, $dstDir);
 
         // copy some files from source directory
-        $files = array('back-matter.txt', 'front-matter.txt', 'cover-matter.txt', 'app_words.txt');
+        $files = array('back-matter.txt', 'front-matter.txt', 'cover-matter.txt');
         foreach($files as $file) {
 
             $srcFile = $srcDir . DS . $file;
@@ -288,7 +288,6 @@ class action_plugin_door43obs_PopulateOBS extends DokuWiki_Action_Plugin {
         }
         $txt .= "\n  * [[:" . $dstLangCode . ":obs:front-matter|Front Matter]]\n";
         $txt .= '  * [[:' . $dstLangCode . ":obs:back-matter|Back Matter]]\n";
-        $txt .= '  * [[:' . $dstLangCode . ":obs:app_words|Mobile App Words]]\n";
         file_put_contents($dstDir . DS . 'stories.txt', $txt);
     }
 
@@ -324,17 +323,6 @@ class action_plugin_door43obs_PopulateOBS extends DokuWiki_Action_Plugin {
             file_put_contents($outFile, $text);
             chmod($outFile, 0644);
         }
-
-        // app_words
-        $outFile = $dstDir . DS . 'app_words.txt';
-        $text = "//Translation for the unfoldingWord mobile app interface//\n";
-
-        foreach($srcClass['app_words'] as $key => $value) {
-            $text .= "\n\n{$key}: {$value}\n";
-        }
-
-        file_put_contents($outFile, $text);
-        chmod($outFile, 0644);
     }
 
     /**
