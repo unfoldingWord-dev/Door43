@@ -32,7 +32,7 @@ class action_plugin_door43obs_PopulateOBS extends DokuWiki_Action_Plugin {
     private $dstDir;
     private $dstNamespaceDir;
     private $srcNamespaceDir;
-    
+
     /**
      * Registers a callback function for a given event
      *
@@ -108,7 +108,7 @@ class action_plugin_door43obs_PopulateOBS extends DokuWiki_Action_Plugin {
             }
         }
     }
-    
+
     public function initialize_obs_content() {
 
         $this->prepare_for_initialization('obs');
@@ -158,18 +158,6 @@ class action_plugin_door43obs_PopulateOBS extends DokuWiki_Action_Plugin {
         // create home.txt
         $srcFile = $this->srcDir . DS . 'home.txt';
         $this->copy_text_file($srcFile, $this->dstDir, $this->srcLangCode, $this->dstLangCode);
-
-        // copy scripture notes
-        $this->srcDir = $this->srcNamespaceDir . DS . 'bible' . DS . 'notes';
-        $this->dstDir = $this->dstNamespaceDir . DS . 'bible' . DS . 'notes';
-        $this->copy_obs_text_files($this->srcDir, $this->dstDir, $this->srcLangCode, $this->dstLangCode);
-        if (is_dir($this->srcDir)) {
-            $dirs = glob($this->srcDir . DS . '*', GLOB_ONLYDIR);
-            foreach($dirs as $dir) {
-                if ($dir != $this->srcDir)
-                    $this->copy_obs_text_files($dir, $this->dstDir . DS . basename($dir), $this->srcLangCode, $this->dstLangCode, true);
-            }
-        }
 
         // git add, commit, push
         $msg .= self::git_push($this->dstNamespaceDir, 'Initial import of OBS tN');
