@@ -512,6 +512,8 @@ class action_plugin_door43obs_PopulateOBS extends DokuWiki_Action_Plugin {
         // replace source language code
         $dstText = str_replace("[:{$srcLangCode}:", "[:{$dstLangCode}:", $srcText);
         $dstText = str_replace(">{$srcLangCode}:", ">{$dstLangCode}:", $dstText);
+        $dstText = str_replace(">ns:{$srcLangCode}:", ">ns:{$dstLangCode}:", $dstText);
+        $dstText = str_replace("<nspages {$srcLangCode}:", "<nspages {$dstLangCode}:", $dstText);
 
         file_put_contents($dstFile, $dstText);
         chmod($dstFile, 0644);
