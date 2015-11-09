@@ -1,40 +1,28 @@
 
-#dokuwiki__pagetools ul li a.tx-export {
-    background-position: right -1080px;
-    &:before { margin-top: -1080px; }
-    &:hover, &:active, &:focus { background-position: right -1125px; }
-}
+#dokuwiki__pagetools {
+    ul li a.tx-export {
+        background-position: right 0;
 
-.mode_revisions #dokuwiki__pagetools ul li a.tx-export {
-    background-position: right -1125px;
-    &:before { margin-top: -1125px; }
-}
+        &:before {
+            content: url(pagetools-word-sprite.png);
+            margin-top: 0;
+        }
 
-[dir=rtl] #dokuwiki__pagetools ul li a.tx-export {
-    background-position: left -1080px;
-    &:hover, &:active, &:focus { background-position: left -1125px; }
-}
-
-[dir=rtl] .mode_revisions #dokuwiki__pagetools ul li a.tx-export {
-    background-position: left -1125px;
-}
-
-#dokuwiki__pagetools ul li a.tx-import {
-    background-position: right -990px;
-    &:before { margin-top: -990px; }
-    &:hover, &:active, &:focus { background-position: right -1035px; }
+        &:hover, &:active, &:focus { background-position: right -30px; }
+    }
+    &:hover ul li a.tx-export { background-image: url(pagetools-word-sprite.png); }
 }
 
 .mode_revisions #dokuwiki__pagetools ul li a.tx-import {
-    background-position: right -1035px;
-    &:before { margin-top: -1035px; }
+    background-position: right -30px;
+    &:before { margin-top: -30px; }
 }
 
-[dir=rtl] #dokuwiki__pagetools ul li a.tx-import {
-    background-position: left -990px;
-    &:hover, &:active, &:focus { background-position: left -1035px; }
+[dir=rtl] #dokuwiki__pagetools ul li a.tx-export {
+    background-position: left 0;
+    &:hover, &:active, &:focus { background-position: left -30px; }
 }
 
-[dir=rtl] .mode_revisions #dokuwiki__pagetools ul li a.tx-import {
-    background-position: left -1035px;
+[dir=rtl] .mode_revisions #dokuwiki__pagetools ul li a.tx-export {
+    background-position: left -30px;
 }

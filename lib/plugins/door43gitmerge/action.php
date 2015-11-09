@@ -376,7 +376,11 @@ class action_plugin_door43gitmerge extends DokuWiki_Action_Plugin {
                 if ($type != 'updated' && $type != 'log') {
                     continue;
                 }
-                list($project, $lang, $id) = explode('-', $file);
+                $file_parts = explode('-', $file);
+                $project = array_shift($file_parts);
+                $id = array_pop($file_parts);
+                $lang = implode('-', $file_parts);
+                //list($project, $lang, $id) = explode('-', $file);
                 $files[$project][$lang][$id][$type] = file_get_json($this->cache_path . $json_filename);
                 unset($file, $type, $project, $lang, $id);
             }
@@ -400,7 +404,12 @@ class action_plugin_door43gitmerge extends DokuWiki_Action_Plugin {
                             unset($projects[$project_index]);
                             continue;
                         }
-                        list($project, $lang) = explode('-', substr($project_filename, 3));
+                        unset($file_parts);
+                        $file_parts = explode('-', substr($project_filename, 3));
+                        $project = array_shift($file_parts);
+                        array_pop($file_parts);
+                        $lang = implode('-', $file_parts);
+                        //list($project, $lang) = explode('-', substr($project_filename, 3));
                         $ids_path = $projects_path . $project_filename . '/';
                         $ids = scandir($ids_path);
                         if (!empty($ids)) {
