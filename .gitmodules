@@ -86,10 +86,6 @@
 	path = lib/plugins/markdownextra
 	url = https://github.com/naokij/dokuwiki-plugin-markdownextra
 	ignore = dirty
-[submodule "lib/plugins/moderncontact"]
-	path = lib/plugins/moderncontact
-	url = https://github.com/marvinrabe/dokuwiki-contact
-	ignore = dirty
 [submodule "lib/plugins/move"]
 	path = lib/plugins/move
 	url = https://github.com/michitux/dokuwiki-plugin-move
