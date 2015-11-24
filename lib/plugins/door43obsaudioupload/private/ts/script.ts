@@ -1,6 +1,6 @@
-/// <reference path="d/jquery.d.ts" />
-/// <reference path="d/jqueryui.d.ts" />
-/// <reference path="d/jquery.fineuploader.d.ts" />
+/// <reference path="../../../door43shared/ts.d/jquery.d.ts" />
+/// <reference path="../../../door43shared/ts.d/jqueryui.d.ts" />
+/// <reference path="../../../door43shared/ts.d/jquery.fineuploader.d.ts" />
 /// <reference path="d/interfaces.d.ts" />
 
 /* DOKUWIKI:include_once private/fineuploader/s3.jquery.fine-uploader.js */

@@ -15,3 +15,5 @@ obs-diffs/
 exports/*
 
 composer.lock
+.lastTscCheck
+*.js.map
