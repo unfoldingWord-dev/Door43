@@ -20,9 +20,7 @@
     <h3 id="loading-h3">@loading@</h3>
     <div id="count-results-div" style="display: none;">
         <h3>@wordCounts@</h3>
-        <ul>
-            <li>tA: N/A</li>
-        </ul>
+        <ul></ul>
     </div>
 
 </div>

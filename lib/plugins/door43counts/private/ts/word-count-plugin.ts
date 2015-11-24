@@ -35,8 +35,10 @@ function load_word_counts(): void {
     jQuery.ajax(ajaxSettings).done(function (data: string) {
 
         // stop the reload timer
-        window.clearTimeout(reload_timer);
-        reload_timer = undefined;
+        if (typeof reload_timer !== 'undefined') {
+            window.clearTimeout(reload_timer);
+            reload_timer = undefined;
+        }
 
         jQuery('#loading-h3').hide();
 
@@ -46,6 +48,9 @@ function load_word_counts(): void {
             // an object was returned
             var obj: Object = JSON.parse(data);
             var $ul: JQuery = $div.find('ul');
+
+            // ta counts
+            $ul.append('<li>tA: ' + obj['ta'] + '</li>');
 
             // OBS counts
             var obs: any[] = obj['obs'];

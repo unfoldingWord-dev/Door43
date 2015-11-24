@@ -80,7 +80,16 @@ class action_plugin_door43counts_GetWordCounts extends Door43_Action_Plugin {
             }
         }
 
-        $return_val = json_encode(array('terms' => $this->bible_terms_count, 'obs' => $obs_counts, 'bible' => $bible_counts));
+        // get translation academy
+        $ta_count = $this->get_ta_count('https://api.unfoldingword.org/ta/txt/1/en/ta-en.json');
+
+        $return_val = json_encode(array(
+            'terms' => $this->bible_terms_count,
+            'obs' => $obs_counts,
+            'bible' => $bible_counts,
+            'ta' => $ta_count
+        ));
+
         $cache->saveString($cacheFile, $return_val);
         echo $return_val;
     }
@@ -189,6 +198,11 @@ class action_plugin_door43counts_GetWordCounts extends Door43_Action_Plugin {
         return $return_val;
     }
 
+    /**
+     * Returns word counts for ULB and UDB items
+     * @param string $book_catalog_url
+     * @return array
+     */
     private function get_bible_counts($book_catalog_url) {
 
         $return_val = array('ulb' => array(), 'udb' => array());
@@ -290,6 +304,69 @@ class action_plugin_door43counts_GetWordCounts extends Door43_Action_Plugin {
 
         $return_val['notes'] = $notes_count;
         $return_val['questions'] = $cq_count;
+
+        return $return_val;
+    }
+
+    /**
+     * Returns the word caunt for translation academy
+     * @param string $ta_endpoint_url
+     * @return int
+     */
+    private function get_ta_count($ta_endpoint_url) {
+
+        // get translation academy
+        $ta_count = 0;
+        $raw = file_get_contents($ta_endpoint_url);
+        $ta = json_decode($raw, true);
+
+        foreach($ta['chapters'] as $chapter) {
+            if (!empty($chapter['title'])) {
+                $ta_count += str_word_count($chapter['title']);
+            }
+            $ta_count += $this->process_ta_block($chapter);
+        }
+
+        return $ta_count;
+    }
+
+    /**
+     * Each block in translation academy can have sub-blocks
+     * @param $block
+     * @return int
+     */
+    private function process_ta_block($block) {
+
+        $return_val = 0;
+
+        //loop through frames
+        if (!empty($block['frames'])) {
+            foreach($block['frames'] as $frame) {
+
+                if (!empty($frame['text'])) {
+                    $text = html_entity_decode(strip_tags($frame['text']));
+                    $return_val += str_word_count($text);
+                }
+
+                if (!empty($frame['title'])) {
+                    $return_val += str_word_count($frame['title']);
+                }
+
+                $return_val += $this->process_ta_block($frame);
+            }
+        }
+
+        // loop through sections
+        if (!empty($block['sections'])) {
+            foreach ($block['sections'] as $section) {
+
+                if (!empty($section['title'])) {
+                    $return_val += str_word_count($section['title']);
+                }
+
+                $return_val += $this->process_ta_block($section);
+            }
+        }
 
         return $return_val;
     }
