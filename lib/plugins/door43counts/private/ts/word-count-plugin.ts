@@ -12,7 +12,12 @@ function word_count_plugin_script_loaded(): boolean {
     return true;
 }
 
+var reload_timer;
+
 function load_word_counts(): void {
+
+    // use this timer to reload in case of timeout generating counts
+    reload_timer = setTimeout(function () { document.location.reload(true); }, 3 * 60 * 1000);
 
     // We need to get the data from the plugin because of browser Cross-Origin restrictions.
     var url: string = DOKU_BASE + 'lib/exe/ajax.php';
@@ -28,6 +33,10 @@ function load_word_counts(): void {
     };
 
     jQuery.ajax(ajaxSettings).done(function (data: string) {
+
+        // stop the reload timer
+        window.clearTimeout(reload_timer);
+        reload_timer = undefined;
 
         jQuery('#loading-h3').hide();
 
