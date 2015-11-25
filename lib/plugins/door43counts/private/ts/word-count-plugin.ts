@@ -66,7 +66,9 @@ function load_word_counts(): void {
             var $udb: JQuery = jQuery('<ul></ul>');
             var udb_count = 0;
             var bible: Object[] = obj['bible'];
+            var $notes: JQuery = jQuery('<ul></ul>');
             var note_count = 0;
+            var $cq: JQuery = jQuery('<ul></ul>');
             var cq_count = 0;
 
             for (var i = 1; i < 67; i++) {
@@ -79,15 +81,24 @@ function load_word_counts(): void {
                 $udb.append('<li>' + bible[i][0] + ': ' + bible[i][1]['udb'] + '</li>');
                 udb_count += bible[i][1]['udb'];
 
-                // other counts
+                // note counts
+                $notes.append('<li>' + bible[i][0] + ': ' + bible[i][1]['notes'] + '</li>');
                 note_count += bible[i][1]['notes'];
+
+                // checking question counts
+                $cq.append('<li>' + bible[i][0] + ': ' + bible[i][1]['questions'] + '</li>');
                 cq_count += bible[i][1]['questions'];
             }
 
-            $ul.append('<li>Bible tN: ' + note_count + '</li>');
-            $ul.append('<li>Bible tQ: ' + cq_count + '</li>');
+            var $li: JQuery = jQuery('<li>Bible tN: ' + note_count + '</li>');
+            $li.append($notes);
+            $ul.append($li);
 
-            var $li: JQuery = jQuery('<li>ULB: ' + ulb_count + '</li>');
+            $li = jQuery('<li>Bible tQ: ' + cq_count + '</li>');
+            $li.append($cq);
+            $ul.append($li);
+
+            $li = jQuery('<li>ULB: ' + ulb_count + '</li>');
             $li.append($ulb);
             $ul.append($li);
 
