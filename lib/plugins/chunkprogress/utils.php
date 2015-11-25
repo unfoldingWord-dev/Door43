@@ -383,12 +383,19 @@ function getStatusBreakpointsForPage($page_id) {
  * @return string A Dokuwiki-formatted string with links to the diffs
  */
 function generateDiffLinks($page_id) {
+
+    // error_log("----- generateDiffLinks($page_id)");
+
     $link_text = "";
 
     $breakpoints = getStatusBreakpointsForPage($page_id);
+    // error_log("breakpoints: Array size " . count($breakpoints));
     $first_to_check = $breakpoints["first_to_check"];
     $first_to_review = $breakpoints["first_to_review"];
     $first_to_publish = $breakpoints["first_to_publish"];
+    // error_log("first_to_check: $first_to_check");
+    // error_log("first_to_review: $first_to_review");
+    // error_log("first_to_publish: $first_to_publish");
 
     // Check -> Review
     if ($first_to_check != "(none)" and $first_to_review != "(none)") {
@@ -440,6 +447,8 @@ function generateDiffLinks($page_id) {
             . "&rev2%5B1%5D="
             . "&difftype=sidebyside|publish-current]]";
     }
+
+    // error_log("link_text: $link_text");
 
     return $link_text;
 }
