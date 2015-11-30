@@ -403,6 +403,19 @@ function generateDiffLinks($page_id) {
             . "&difftype=sidebyside|check-review]]";
     }
 
+    // Check -> Publish
+    if ($first_to_check != "(none)" and $first_to_publish != "(none)") {
+        if ($link_text != "") {
+            $link_text = $link_text . " | ";
+        }
+        $link_text = $link_text .
+            " [[$page_id?do=diff&rev2%5B0%5D="
+            . $first_to_check
+            . "&rev2%5B1%5D="
+            . $first_to_publish
+            . "&difftype=sidebyside|check-publish]]";
+    }
+
     // Review -> Publish
     if ($first_to_review != "(none)" and $first_to_publish != "(none)") {
         if ($link_text != "") {

@@ -1,0 +1,7 @@
+base   door43counts
+author Phil Hopper
+email  phillip_hopper@wycliffeassociates.org
+date   2015-11-18
+name   Door43 Word Counts Plugin
+desc   Displays word counts from the tD api
+url    https://github.com/unfoldingWord-dev/Door43

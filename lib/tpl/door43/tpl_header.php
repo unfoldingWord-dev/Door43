@@ -68,7 +68,6 @@ if (!defined('DOKU_INC')) die();
                 <?php
                     tpl_toolsevent('sitetools', array(
                         tpl_action('recent', true, 'li', true),
-                        tpl_action('media', true, 'li', true),
                         tpl_action('index', true, 'li', true)
                     ));
                 ?>

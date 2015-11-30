@@ -128,12 +128,7 @@ class action_plugin_door43obs_PopulateOBS extends DokuWiki_Action_Plugin {
         // update sidebar.txt
         $this->update_sidebar_txt($templateDir, $this->dstNamespaceDir, $this->dstLangCode);
 
-        // make uwadmin status page
-        $adminDir = $this->pagesDir . "/en/uwadmin";
-        $this->copy_status_txt($templateDir, $adminDir, $this->dstLangCode);
-
         // git add, commit, push
-        $msg .= self::git_push($adminDir, 'Added uwadmin obs page for ' . $this->dstLangCode);
         $msg .= self::git_push($this->dstNamespaceDir, 'Initial import of OBS');
 
         self::return_this('OK', $msg . sprintf($this->getLang('obsCreatedSuccess'), $this->dstLangCode, "/$this->dstLangCode/obs"));
@@ -411,25 +406,6 @@ class action_plugin_door43obs_PopulateOBS extends DokuWiki_Action_Plugin {
     }
 
     /**
-     * @param string $templateDir
-     * @param string $adminDir
-     * @param string $dstLangCode
-     */
-    private static function copy_status_txt($templateDir, $adminDir, $dstLangCode) {
-
-        $adminDir .= "/{$dstLangCode}/obs";
-        if (!is_dir($adminDir)) mkdir($adminDir, 0755, true);
-
-        $statusFile = $adminDir . DS . 'status.txt';
-        $srcFile = $templateDir . DS . 'status.txt';
-
-        $text = file_get_contents($srcFile);
-        $text = str_replace('ORIGDATE', date('Y-m-d'), $text);
-
-        file_put_contents($statusFile, $text);
-    }
-
-    /**
      * @param string $dir
      * @param string $msg
      * @return string
@@ -457,7 +433,7 @@ class action_plugin_door43obs_PopulateOBS extends DokuWiki_Action_Plugin {
         $result3 = shell_exec('git push origin master 2>&1');
 
         // show the git output in a development environment
-        if (($_SERVER['SERVER_NAME'] == 'localhost') || ($_SERVER['SERVER_NAME'] == 'test.door43.org'))
+        if ((strpos($_SERVER['SERVER_NAME'], 'localhost') !== false) || ($_SERVER['SERVER_NAME'] == 'test.door43.org'))
             $returnVal = "<br>Git Response: $result1<br><br>Git Response: $result2<br><br>Git Response: $result3<br><br>";
 
         chdir($originalDir);

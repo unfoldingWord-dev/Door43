@@ -1,0 +1,7 @@
+base   door43publishrequest
+author Abi Gundy
+email  abigundy@gmail.com
+date   2015-11-18
+name   Publish request form plugin
+desc   Links to the publish request form from sitetools in the header
+url    https://github.com/Door43/dokuwiki-plugin-door43-publish-request
