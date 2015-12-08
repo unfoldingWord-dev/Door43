@@ -83,9 +83,10 @@ class action_plugin_chunkprogress extends DokuWiki_Action_Plugin
         global $ID;
         global $ACT;
 
+        // error_log("----- should_process_page()");
         // error_log("ACT: $ACT");
         // error_log("ID: $ID");
-        // error_log("INFO['id']: " . $INFO["id"]);
+        // error_log("INFO[id]: " . $INFO["id"]);
         if ($ACT == "show" && $INFO["id"] == null) {
             return true;
         }
@@ -113,7 +114,7 @@ class action_plugin_chunkprogress extends DokuWiki_Action_Plugin
         if ($this->should_process_page() == false) {
             return;
         }
-        // error_log("GEN DIFF");
+        // error_log("GEN LINKS");
 
         // Get namespace for this page
         $namespace = getNS(cleanID(getID()));
@@ -126,7 +127,7 @@ class action_plugin_chunkprogress extends DokuWiki_Action_Plugin
         $prior_page = null;
         foreach ($pages_in_ns as $page_info) {
             $page_id = $page_info["id"];
-            // // error_log("page_id: $page_id");
+            // error_log("page_id: $page_id");
             if ($page_id == $ID) {
                 // This is the requested page, which means that the prior
                 // page is the previous chunk
@@ -147,29 +148,23 @@ class action_plugin_chunkprogress extends DokuWiki_Action_Plugin
         // Show links for previous chunk, if it exists
         if ($previous_chunk_id != null) {
             $diff_links = generateDiffLinks($previous_chunk_id);
-            if ($diff_links != "") {
-                $event->data = $event->data .
-                    "\n  * [[$previous_chunk_id|Prev chunk]]: ";
-                $event->data = $event->data . $diff_links;
-            }
+            $event->data = $event->data .
+                "\n  * [[$previous_chunk_id|Prev chunk]]: ";
+            $event->data = $event->data . $diff_links;
         }
 
         // Show links for this chunk
         $diff_links = generateDiffLinks($ID);
-        if ($diff_links != "") {
-            $event->data = $event->data .
-                "\n  * [[$ID|This chunk]]: ";
-            $event->data = $event->data . $diff_links;
-        }
+        $event->data = $event->data .
+            "\n  * [[$ID|This chunk]]: ";
+        $event->data = $event->data . $diff_links;
 
         // Show links for next chunk, if it exists
         if ($next_chunk_id != null) {
             $diff_links = generateDiffLinks($next_chunk_id);
-            if ($diff_links != "") {
-                $event->data = $event->data .
-                    "\n  * [[$next_chunk_id|Next chunk]]: ";
-                $event->data = $event->data . $diff_links;
-            }
+            $event->data = $event->data .
+                "\n  * [[$next_chunk_id|Next chunk]]: ";
+            $event->data = $event->data . $diff_links;
         }
 
     }
