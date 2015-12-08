@@ -86,13 +86,31 @@ class action_plugin_chunkprogress extends DokuWiki_Action_Plugin
         // error_log("----- should_process_page()");
         // error_log("ACT: $ACT");
         // error_log("ID: $ID");
-        // error_log("INFO[id]: " . $INFO["id"]);
+        // error_log("INFO['id']: " . $INFO["id"]);
+
+        // Whitelist -- reject pages that don't match regex
+        $whitelisted = false;
+        $whitelist_namespaces = array(
+            "/en:bible:notes:.*/",
+            "/en:obe:.*/"
+        );
+        foreach ($whitelist_namespaces as $whitelist_namespace) {
+            if (preg_match($whitelist_namespace, $ID)) {
+                $whitelisted = true;
+            }
+        }
+        if ($whitelisted == false) {
+            error_log("DO NOT PROCESS PAGE: namespace did not match whitelist");
+            return false;
+        }
+
         if ($ACT == "show" && $INFO["id"] == null) {
             return true;
         }
         if ($ACT == "diff" && $INFO["id"] == $ID) {
             return true;
         }
+
         // error_log("DO NOT PROCESS PAGE");
         return false;
     }
