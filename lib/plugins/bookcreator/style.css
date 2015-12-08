@@ -1,0 +1,166 @@
+/*
+<!-- http://free-script.it/ -->
+<!-- Free script - Script gratuiti per il web. Script php, script asp, script javascript, script ajax. -->
+<!-- Script ajax: Drag and drop con scriptaculous e salvataggio posizione -->
+*/
+
+
+#pagelist {
+    margin-bottom: 1em;
+}
+
+#pagelist li {
+    cursor: move;
+}
+
+div.bookcreator__ {
+    border: 1px solid __border__;
+    background-color: __background_alt__;
+    background-image: url(images/book.png);
+
+    margin: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    width: 85% !important;
+    min-height: 40px;
+    overflow-y: scroll;
+    overflow-style: move;
+    text-align: justify;
+    vertical-align: middle;
+    border-collapse: collapse;
+    padding: 5px 5px 5px 90px;
+    background-position: 5px 50%;
+    background-repeat: no-repeat;
+}
+
+div.bookcreator__panel {
+    text-align: justify;
+    vertical-align: middle;
+    margin-right: 20px;
+    float: left;
+    display: block;
+}
+/* specific for dokuwiki template: place the ToC just below toolbar */
+div#dokuwiki__site div.bookcreator__ {
+    margin-bottom: 2em;
+}
+
+/*
+ * Book manager
+ */
+.dokuwiki div.bookcreator__manager {
+
+}
+.dokuwiki div.bookcreator__manager div.bookcreator__pagelist {
+    width:50%;
+    float:left;
+    border: 1px solid __border__;
+    padding: 0.5em;
+}
+.dokuwiki div.bookcreator__manager div.bookcreator__pagelist ul{
+    padding-top:0.5em;
+    padding-bottom:0.5em;
+}
+.dokuwiki div.bookcreator__manager div.bookcreator__pagelist ul.hint{
+    border: 1px solid #eee;
+}
+.dokuwiki div.bookcreator__manager div.bookcreator__pagelist li{
+    margin: 0;
+}
+/* delete and include bottons */
+.dokuwiki div.bookcreator__pagelist ul li a.action{
+    width: 14px;
+    height:14px;
+    display: inline-block;
+    background:transparent url('images/remove.png') center bottom no-repeat;
+    cursor: pointer;
+}
+.dokuwiki div.bookcreator__pagelist ul.include li a.action{
+    background-image: url('images/remove.png');
+    content: attr(data-titlerem);
+}
+.dokuwiki div.bookcreator__pagelist ul.remove li a.action{
+    background-image: url('images/include.png');
+    content: attr(data-titleadd);
+}
+
+.dokuwiki div.bookcreator__manager div.bookcreator__actions {
+    width:40%;
+    float:left;
+    padding: 1em;
+}
+
+.dokuwiki div.bookcreator__manager fieldset {
+    width: 100%;
+    text-align:left;
+    margin-bottom: 1em;
+}
+.dokuwiki div.bookcreator__manager fieldset legend,
+.dokuwiki #bookcreator__selections__list fieldset legend {
+    font-weight: bold;
+}
+
+/*
+ * List of saved selections
+ */
+#bookcreator__selections__list fieldset {
+    text-align:left;
+}
+
+
+/*
+ * Page tools
+ */
+/* export_pdf */
+/*
+#dokuwiki__pagetools ul li a.export_pdf {
+    background-position: right 0;
+}
+#dokuwiki__pagetools ul li a.export_pdf:before {
+    content: url(images/pagetools-pdf-sprite.png);
+    margin-top: 0;
+}
+#dokuwiki__pagetools:hover ul li a.export_pdf,
+#dokuwiki__pagetools ul li a.export_pdf:focus,
+#dokuwiki__pagetools ul li a.export_pdf:active {
+    background-image: url(images/pagetools-pdf-sprite.png);
+}
+#dokuwiki__pagetools ul li a.export_pdf:hover,
+#dokuwiki__pagetools ul li a.export_pdf:active,
+#dokuwiki__pagetools ul li a.export_pdf:focus {
+    background-position: right -45px;
+}
+*/
+
+/* addtobook */
+/* show add icon */
+#dokuwiki__pagetools ul li a.addtobook {
+    background-position: right -90px;
+}
+#dokuwiki__pagetools ul li a.addtobook:before {
+    content: url(images/pagetools-pdf-sprite.png);
+    margin-top: -90px;
+}
+#dokuwiki__pagetools:hover ul li a.addtobook,
+#dokuwiki__pagetools ul li a.addtobook:focus,
+#dokuwiki__pagetools ul li a.addtobook:active {
+    background-image: url(images/pagetools-pdf-sprite.png);
+}
+#dokuwiki__pagetools ul li a.addtobook:hover,
+#dokuwiki__pagetools ul li a.addtobook:active,
+#dokuwiki__pagetools ul li a.addtobook:focus {
+    background-position: right -135px;
+}
+
+/* show remove icon */
+#dokuwiki__pagetools ul li a.addtobook.remove {
+    background-position: right -180px;
+}
+#dokuwiki__pagetools ul li a.addtobook.remove:before {
+    margin-top: -180px;
+}
+#dokuwiki__pagetools ul li a.addtobook.remove:hover,
+#dokuwiki__pagetools ul li a.addtobook.remove:active,
+#dokuwiki__pagetools ul li a.addtobook.remove:focus {
+    background-position: right -225px;
+}
