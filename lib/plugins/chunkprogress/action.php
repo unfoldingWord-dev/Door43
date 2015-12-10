@@ -166,22 +166,19 @@ class action_plugin_chunkprogress extends DokuWiki_Action_Plugin
         // Show links for previous chunk, if it exists
         if ($previous_chunk_id != null) {
             $diff_links = generateDiffLinks($previous_chunk_id);
-            $event->data = $event->data .
-                "\n  * [[$previous_chunk_id|Prev chunk]]: ";
+            $event->data = $event->data . "\n  * [[$previous_chunk_id|Prev chunk]]: ";
             $event->data = $event->data . $diff_links;
         }
 
         // Show links for this chunk
         $diff_links = generateDiffLinks($ID);
-        $event->data = $event->data .
-            "\n  * [[$ID|This chunk]]: ";
+        $event->data = $event->data . "\n  * [[$ID|This chunk]]: ";
         $event->data = $event->data . $diff_links;
 
         // Show links for next chunk, if it exists
         if ($next_chunk_id != null) {
             $diff_links = generateDiffLinks($next_chunk_id);
-            $event->data = $event->data .
-                "\n  * [[$next_chunk_id|Next chunk]]: ";
+            $event->data = $event->data . "\n  * [[$next_chunk_id|Next chunk]]: ";
             $event->data = $event->data . $diff_links;
         }
 
