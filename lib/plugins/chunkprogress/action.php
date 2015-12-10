@@ -72,8 +72,8 @@ class action_plugin_chunkprogress extends DokuWiki_Action_Plugin
     }
 
     /**
-     * Checks to see if we should add links to this page.  The rules are 
-     * different based on whether we're in diff mode, etc.  By default we 
+     * Checks to see if we should add links to this page.  The rules are
+     * different based on whether we're in diff mode, etc.  By default we
      * do nothing unless we know this is a page we want.
      *
      * @return true if the page should be processed, false otherwise
@@ -83,15 +83,34 @@ class action_plugin_chunkprogress extends DokuWiki_Action_Plugin
         global $ID;
         global $ACT;
 
+        // error_log("----- should_process_page()");
         // error_log("ACT: $ACT");
         // error_log("ID: $ID");
         // error_log("INFO['id']: " . $INFO["id"]);
+
+        // Whitelist -- reject pages that don't match regex
+        $whitelisted = false;
+        $whitelist_namespaces = array(
+            "/en:bible:notes:.*/",
+            "/en:obe:.*/"
+        );
+        foreach ($whitelist_namespaces as $whitelist_namespace) {
+            if (preg_match($whitelist_namespace, $ID)) {
+                $whitelisted = true;
+            }
+        }
+        if ($whitelisted == false) {
+            error_log("DO NOT PROCESS PAGE: namespace did not match whitelist");
+            return false;
+        }
+
         if ($ACT == "show" && $INFO["id"] == null) {
             return true;
         }
         if ($ACT == "diff" && $INFO["id"] == $ID) {
             return true;
         }
+
         // error_log("DO NOT PROCESS PAGE");
         return false;
     }
@@ -113,7 +132,7 @@ class action_plugin_chunkprogress extends DokuWiki_Action_Plugin
         if ($this->should_process_page() == false) {
             return;
         }
-        // error_log("GEN DIFF");
+        // error_log("GEN LINKS");
 
         // Get namespace for this page
         $namespace = getNS(cleanID(getID()));
@@ -126,7 +145,7 @@ class action_plugin_chunkprogress extends DokuWiki_Action_Plugin
         $prior_page = null;
         foreach ($pages_in_ns as $page_info) {
             $page_id = $page_info["id"];
-            // // error_log("page_id: $page_id");
+            // error_log("page_id: $page_id");
             if ($page_id == $ID) {
                 // This is the requested page, which means that the prior
                 // page is the previous chunk
@@ -147,29 +166,20 @@ class action_plugin_chunkprogress extends DokuWiki_Action_Plugin
         // Show links for previous chunk, if it exists
         if ($previous_chunk_id != null) {
             $diff_links = generateDiffLinks($previous_chunk_id);
-            if ($diff_links != "") {
-                $event->data = $event->data .
-                    "\n  * [[$previous_chunk_id|Prev chunk]]: ";
-                $event->data = $event->data . $diff_links;
-            }
+            $event->data = $event->data . "\n  * [[$previous_chunk_id|Prev chunk]]: ";
+            $event->data = $event->data . $diff_links;
         }
 
         // Show links for this chunk
         $diff_links = generateDiffLinks($ID);
-        if ($diff_links != "") {
-            $event->data = $event->data .
-                "\n  * [[$ID|This chunk]]: ";
-            $event->data = $event->data . $diff_links;
-        }
+        $event->data = $event->data . "\n  * [[$ID|This chunk]]: ";
+        $event->data = $event->data . $diff_links;
 
         // Show links for next chunk, if it exists
         if ($next_chunk_id != null) {
             $diff_links = generateDiffLinks($next_chunk_id);
-            if ($diff_links != "") {
-                $event->data = $event->data .
-                    "\n  * [[$next_chunk_id|Next chunk]]: ";
-                $event->data = $event->data . $diff_links;
-            }
+            $event->data = $event->data . "\n  * [[$next_chunk_id|Next chunk]]: ";
+            $event->data = $event->data . $diff_links;
         }
 
     }
