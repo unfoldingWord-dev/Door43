@@ -81,7 +81,7 @@ class action_plugin_door43obsreview_ReviewActions extends DokuWiki_Action_Plugin
                 $text .= ' '.sprintf($this->getLang('checkingLevelUpdate'), $status['checking_level']+1, $requestToPublishFormUrl);
         }
 
-        echo '<div class="' . $cssClass . '"><p style="font-size: 0.875em; color: #666; text-overflow: clip; max-height: 30px;">' . $text . '</p></div><br /><br />';
+        echo '<div class="' . $cssClass . '"><p style="font-size: 0.875em; color: #666; max-height: 30px;">' . $text . '</p></div><br /><br />';
 
     }
 
