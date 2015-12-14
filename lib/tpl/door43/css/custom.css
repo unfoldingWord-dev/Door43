@@ -17,8 +17,3 @@ body.ns-admin-reports > div#dokuwiki__site,
 body.nsfull-bible > div#dokuwiki__site {
   max-width: none;
 }
-
-#diff-div-1 {
-    /*overflow : hidden !important;
-    margin-right: 5px;*/
-}
