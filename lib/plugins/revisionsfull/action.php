@@ -59,6 +59,34 @@ class FullTableDiffFormatter extends TableDiffFormatter {
     }
 }
 
+class RenderedDiffFormatter extends TableDiffFormatter {
+
+    function __construct($rev1, $rev2, $rev3) {
+        $this->leading_context_lines = PHP_INT_MAX; // print out max context will be all of it. 
+        $this->trailing_context_lines = PHP_INT_MAX;
+        $this->rev1 = $rev1;
+        $this->rev2 = $rev2;
+        $this->rev3 = $rev3;
+    }
+    
+    function _block_header($xbeg, $xlen, $ybeg, $ylen) {
+        return '<tr><td>&nbsp;</td></tr>';
+    }
+
+    function _block($xbeg, $xlen, $ybeg, $ylen, &$edits) {
+        global $ID;
+        $this->_start_block($this->_block_header($xbeg, $xlen, $ybeg, $ylen));
+        echo "<tr>";
+        echo "<td colspan=".$this->colspan."><div id=\"diff-div-1\" style=\"overflow-y: scroll; height: 50em;\">".p_wiki_xhtml($ID, $rev=$this->rev1)."</div></td>";
+        echo "<td colspan=".$this->colspan."><div id=\"diff-div-2\" style=\"overflow-y: scroll; height: 50em;\">".p_wiki_xhtml($ID, $rev=$this->rev2)."</div></td>";
+        if (is_null($this->rev3) == false) {
+            echo "<td colspan=".$this->colspan."><div id=\"diff-div-3\" style=\"overflow-y: scroll; height: 50em;\">".p_wiki_xhtml($ID, $rev=$this->rev3)."</div></td>";
+        }
+        echo "</tr>";
+        $this->_end_block();
+    }
+}
+
 
 if(!function_exists('html_diff_navigation')) {
     /**
@@ -188,6 +216,7 @@ function html_diff_navigation($pagelog, $type, $l_rev, $r_rev) {
         }
         $r_nav .= html_diff_navigationlink($type, 'diffbothnextrev', $l_next, $r_next);
     }
+
     return array($l_nav, $r_nav);
 }
 }
@@ -237,6 +266,9 @@ function html_diff_navigationlink($difftype, $linktype, $lrev, $rrev = null) {
  * @param  string $type  type of the diff (inline or sidebyside)
  */
 function revisionsfull_html_diff($text = '', $intro = true, $type = null) {
+
+    // error_log("----- revisionsfull_html_diff($text, $intro, $type)");
+
     global $ID;
     global $REV;
     global $lang;
@@ -255,7 +287,7 @@ function revisionsfull_html_diff($text = '', $intro = true, $type = null) {
             }
         }
     }
-    if(!in_array($type, array('inline', 'sidebyside'))) $type = 'full';
+    if(!in_array($type, array('inline', 'sidebyside', 'rendered'))) $type = 'full';
     /*
      * Determine requested revision(s)
      */
@@ -264,8 +296,15 @@ function revisionsfull_html_diff($text = '', $intro = true, $type = null) {
     // array in rev2.
     $rev1 = $REV;
     $rev2 = $INPUT->ref('rev2');
+    $rev3 = null;
     if(is_array($rev2)) {
         $rev1 = (int) $rev2[0];
+        if (array_key_exists(2, $rev2)) {
+            $rev3 = (int) $rev2[2];
+            if ($rev3==0) {
+                $rev3="";
+            }
+        }
         $rev2 = (int) $rev2[1];
         if(!$rev1) {
             $rev1 = $rev2;
@@ -274,6 +313,9 @@ function revisionsfull_html_diff($text = '', $intro = true, $type = null) {
     } else {
         $rev2 = $INPUT->int('rev2');
     }
+    // error_log("rev1: $rev1");
+    // error_log("rev2: $rev2");
+    // error_log("rev3: $rev3");
     /*
      * Determine left and right revision, its texts and the header
      */
@@ -324,6 +366,46 @@ function revisionsfull_html_diff($text = '', $intro = true, $type = null) {
     if(!$text) {
         list($l_nav, $r_nav) = html_diff_navigation($pagelog, $type, $l_rev, $r_rev);
     }
+
+    $t_nav = "";
+    //dropdown
+    $t_revisions = array();
+    list($r_revs, $t_revs) = $pagelog->getRevisionsAround($r_rev, $rev3);
+    foreach($t_revs as $rev) {
+        $info = $pagelog->getRevisionInfo($rev);
+        $t_revisions[$rev] = array(
+            $rev,
+            dformat($info['date']) . ' ' . editorinfo($info['user'], true) . ' ' . $info['sum'],
+            $rev <= $r_rev //disable?
+        );
+    }
+    $form = new Doku_Form(array('action' => wl()));
+    $form->addHidden('id', $ID);
+    $form->addHidden('rev2[0]', $l_rev);
+    $form->addHidden('rev2[1]', $r_rev);
+    $form->addHidden('difftype', $type);
+    $form->addHidden('do', 'diff');
+    $form->addElement(
+         form_makeListboxField(
+             'rev2[2]',
+             $t_revisions,
+             $rev3,
+             '', '', '',
+             array('class' => 'quickselect')
+         )
+    );
+    $form->addElement(form_makeButton('submit', 'diff', 'Go'));
+    $t_nav .= $form->getForm();
+    $t_minor = "";
+    $info = $pagelog->getRevisionInfo($rev3);
+    if ($info['type']===DOKU_CHANGE_TYPE_MINOR_EDIT) {
+        $t_minor = 'class="minor"';
+    }
+    $t_user = '<bdi>'.editorinfo($info['user']).'</bdi>';
+    $t_sum   = ($info['sum']) ? '<span class="sum"><bdi>'.hsc($info['sum']).'</bdi></span>' : '';
+    $t_head_title = $ID.' ['.dformat($rev3).']';
+    $t_head = '<bdi><a class="wikilink1" href="'.wl($ID,"rev=$rev3").'">'. $t_head_title.'</a></bdi><br/>'.$t_user.' '.$t_sum;
+
     /*
      * Create diff object and the formatter
      */
@@ -332,6 +414,8 @@ function revisionsfull_html_diff($text = '', $intro = true, $type = null) {
         $diffformatter = new InlineDiffFormatter();
     } elseif($type == 'sidebyside') {
         $diffformatter = new TableDiffFormatter();
+    } elseif($type == 'rendered') {
+        $diffformatter = new RenderedDiffFormatter($rev1, $rev2, $rev3);
     } else {
         $diffformatter = new FullTableDiffFormatter();
     }
@@ -355,7 +439,8 @@ function revisionsfull_html_diff($text = '', $intro = true, $type = null) {
                  array(
                      'full' => 'Full Side by Side',
                      'sidebyside' => $lang['diff_side'],
-                     'inline' => $lang['diff_inline']
+                     'inline' => $lang['diff_inline'],
+                     'rendered' => 'Rendered'
                  ),
                  $type,
                  $lang['diff_type'],
@@ -379,6 +464,15 @@ function revisionsfull_html_diff($text = '', $intro = true, $type = null) {
     <table class="diff diff_<?php echo $type ?>">
 
         <?php
+        if ($type="rendered" and is_null($rev3) == false) {
+            ?>
+            <tr>
+                <td colspan="99" align="right">
+                <input type="checkbox" id="lock_scrollbars" checked />Lock scrollbars
+                </td>
+            </tr>
+            <?php
+        }
         //navigation and header
         if($type == 'inline') {
             if(!$text) { ?>
@@ -406,8 +500,14 @@ function revisionsfull_html_diff($text = '', $intro = true, $type = null) {
         <?php } else {
             if(!$text) { ?>
                 <tr>
-                    <td colspan="2" class="diffnav"><?php echo $l_nav ?></td>
-                    <td colspan="2" class="diffnav"><?php echo $r_nav ?></td>
+                    <?php if (is_null($rev3) == false) { ?>
+                        <td colspan="2" class="diffnav" style="width: 33%"><?php echo $l_nav ?></td>
+                        <td colspan="2" class="diffnav" style="width: 33%"><?php echo $r_nav ?></td>
+                        <td colspan="2" class="diffnav" style="width: 33%"><?php echo $t_nav ?></td>
+                    <?php } else { ?>
+                        <td colspan="2" class="diffnav" style="width: 50%"><?php echo $l_nav ?></td>
+                        <td colspan="2" class="diffnav" style="width: 50%"><?php echo $r_nav ?></td>
+                    <?php } ?>
                 </tr>
             <?php } ?>
             <tr>
@@ -417,6 +517,11 @@ function revisionsfull_html_diff($text = '', $intro = true, $type = null) {
                 <th colspan="2" <?php echo $r_minor ?>>
                     <?php echo $r_head ?>
                 </th>
+                <?php if (is_null($rev3) == false) { ?>
+                    <th colspan="2" <?php echo $t_minor ?>>
+                        <?php echo $t_head ?>
+                    </th>
+                <?php } ?>
             </tr>
         <?php }
         //diff view
@@ -424,5 +529,27 @@ function revisionsfull_html_diff($text = '', $intro = true, $type = null) {
 
     </table>
     </div>
+
+    <?php if ($type=="rendered" and is_null($rev3) == false) { ?>
+    <script>
+    jQuery(document).ready(function ($) {
+        /** Locks scrollbars such that a scroll event on `source`
+         *  will cause `dest1` and `dest2` to scroll to the same spot. 
+         */
+        function lockScrollbars(source, dest1, dest2) {
+            $(source).scroll(function() {
+                if ($("#lock_scrollbars").is(":checked")) {
+                    var position = $(source).scrollTop();
+                    $(dest1).scrollTop(position);
+                    $(dest2).scrollTop(position);
+                }
+            });
+        }
+        lockScrollbars("div#diff-div-1", "div#diff-div-2", "div#diff-div-3");
+        lockScrollbars("div#diff-div-2", "div#diff-div-1", "div#diff-div-3");
+        lockScrollbars("div#diff-div-3", "div#diff-div-1", "div#diff-div-2");
+    });
+    </script>
+    <?php } ?>
 <?php
 }
