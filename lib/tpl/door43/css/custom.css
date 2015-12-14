@@ -7,3 +7,18 @@ div[class*=":obs:stories"] ol li {
     margin-left: 0;
 }
 
+body.action-revisions > div#dokuwiki__site, 
+body.action-diff > div#dokuwiki__site,
+body.action-edit > div#dokuwiki__site,
+body.action-recent > div#dokuwiki__site,
+body.action-admin > div#dokuwiki__site,
+body.ns-obe > div#dokuwiki__site,
+body.ns-admin-reports > div#dokuwiki__site,
+body.nsfull-bible > div#dokuwiki__site {
+  max-width: none;
+}
+
+#diff-div-1 {
+    /*overflow : hidden !important;
+    margin-right: 5px;*/
+}
