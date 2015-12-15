@@ -1,0 +1,7 @@
+base   door43pagequery
+author Phil Hopper
+email  phillip_hopper@wycliffeassociates.org
+date   2015-12-12
+name   Door43 Page Query plugin
+desc   Extends the nspages plugin to allow querying page content
+url    https://github.com/unfoldingWord-dev/Door43
