@@ -114,25 +114,29 @@ class action_plugin_door43pagequery extends Door43_Action_Plugin
         if (!empty($all_pages)) {
 
             // sort the pages
-            usort($all_pages, function($a, $b) { return strcmp($a['sort'], $b['sort']); });
+            usort($all_pages, function($a, $b) { return strnatcasecmp($a['sort'], $b['sort']); });
+
+            $style = empty($data['fontsize']) ? '' : 'font-size: ' . $data['fontsize'][0] . ';';
 
             foreach ($all_pages as $page) {
 
                 $href = '/' . str_replace(':', '/', $page['id']);
-                $html .= "<a href=\"{$href}\" class=\"wikilink1\" title=\"{$page['id']}\">{$page['title']}</a>";
+
+                $html .= "<a href=\"{$href}\" class=\"wikilink1\" title=\"{$page['id']}\" style=\"{$style}\">{$page['title']}</a>";
 
                 if ($data['lineBreak']) {
                     $html .= '<br>';
                 }
 
-                $html .= "\n";
+                $html .= DOKU_LF;
             }
+
+            $html .= '<div class="count">' . count($all_pages) . '</div>' . DOKU_LF;
         }
 
         $html .= '<br class="catpageeofidx">';
         echo $html;
     }
-
 
 
     private function _shouldPrintPagesAmongNamespaces($data){

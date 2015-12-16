@@ -56,6 +56,8 @@ class syntax_plugin_door43pagequery extends syntax_plugin_nspages {
         optionParser::checkAnchorName($match, $return['anchorName']);
         optionParser::checkActualTitle($match, $return['actualTitleLevel']);
         optionParser::checkRegEx($match, "q=\"([^\"]*)\"", $return['query']);
+        optionParser::checkOption($match, "showcount", $return['showcount'], true);
+        optionParser::checkRegEx($match, "fontsize=\"([^\"]*)\"", $return['fontsize']);
 
         //Now, only the wanted namespaces remains in $match
 
@@ -90,7 +92,9 @@ class syntax_plugin_door43pagequery extends syntax_plugin_nspages {
             'natOrder'      => false, 'sortDate' => false, 'useLegacySyntax' => false,
             'hidenopages'   => false, 'hidenosubns' => false,
             'requested_namespaces'  => array(),
-            'requested_directories' => array()
+            'requested_directories' => array(),
+            'showcount' => false,
+            'fontsize' => array()
         );
     }
 
