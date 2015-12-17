@@ -66,13 +66,13 @@
 @font-face {
   font-family: 'NotoSansKhmer';
   src: local('Noto Sans Khmer'), local('NotoSansKhmer');
-  src: url('https://unfoldingword.org/css/fonts/noto/notosanskhmer-regular.woff2') format('woff2'), url('https://unfoldingword.org/css/fonts/noto/notosanskhmer-regular.woff') format('woff');
+  src: url('fonts/noto/notosanskhmer-regular.woff2') format('woff2'), url('fonts/noto/notosanskhmer-regular.woff') format('woff');
 }
 @font-face {
   font-family: 'NotoSansKhmer';
   font-weight: bold;
   src: local('Noto Sans Khmer'), local('NotoSansKhmer');
-  src: url('https://unfoldingword.org/css/fonts/noto/notosanskhmer-bold.woff2') format('woff2'), url('https://unfoldingword.org/css/fonts/noto/notosanskhmer-bold.woff') format('woff');
+  src: url('fonts/noto/notosanskhmer-bold.woff2') format('woff2'), url('fonts/noto/notosanskhmer-bold.woff') format('woff');
 }
 
 * { font-family: 'NotoSans', sans-serif; }
@@ -97,7 +97,8 @@
 }
 
 /* Arabic script */
-:lang(fa) { font-family: NotoSans, NotoNaskhArabic, sans-serif; }
+:lang(fa),
+:lang(ps) { font-family: NotoSans, NotoNaskhArabic, sans-serif; }
 
 /* Devanagari script */
 :lang(sgj) { font-family: NotoSans, NotoSansDevanagari, sans-serif; }
