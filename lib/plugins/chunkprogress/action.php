@@ -100,7 +100,7 @@ class action_plugin_chunkprogress extends DokuWiki_Action_Plugin
             }
         }
         if ($whitelisted == false) {
-            error_log("DO NOT PROCESS PAGE: namespace did not match whitelist");
+            // error_log("DO NOT PROCESS PAGE: namespace did not match whitelist");
             return false;
         }
 
