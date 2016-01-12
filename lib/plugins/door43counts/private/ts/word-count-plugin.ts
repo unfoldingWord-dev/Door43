@@ -73,6 +73,8 @@ function load_word_counts(): void {
 
             for (var i = 1; i < 67; i++) {
 
+                if (!bible[i]) continue;
+
                 // ULB counts
                 $ulb.append('<li>' + bible[i][0] + ': ' + bible[i][1]['ulb'] + '</li>');
                 ulb_count += bible[i][1]['ulb'];
