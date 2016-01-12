@@ -92,7 +92,8 @@ class action_plugin_chunkprogress extends DokuWiki_Action_Plugin
         $whitelisted = false;
         $whitelist_namespaces = array(
             "/en:bible:notes:.*/",
-            "/en:obe:.*/"
+            "/en:obe:.*/",
+            "/en:ta:workbench:.*/"
         );
         foreach ($whitelist_namespaces as $whitelist_namespace) {
             if (preg_match($whitelist_namespace, $ID)) {
@@ -100,7 +101,7 @@ class action_plugin_chunkprogress extends DokuWiki_Action_Plugin
             }
         }
         if ($whitelisted == false) {
-            error_log("DO NOT PROCESS PAGE: namespace did not match whitelist");
+            // error_log("DO NOT PROCESS PAGE: namespace did not match whitelist");
             return false;
         }
 
