@@ -1,4 +1,4 @@
-Looking for a language that is not here yet? [[https://door43.org/obs-setup|Setup OBS]] for your language (it only takes a moment).
+Looking for a language that is not here yet? Setup OBS]] for your language (it only takes a moment).
 
 **Choose your language:**
 
@@ -222,7 +222,7 @@ Looking for a language that is not here yet? [[https://door43.org/obs-setup|Setu
   * [[:ums:home|Pendau (ums)]]
   * [[:ur:home|اردو (ur)]]
   * [[:ve:home|Tshivenḓa (ve)]]
-  * [[:vi:home|Việtnam (vi)]]
+  * [[:vi:home|Tiếng Việt (vi)]]
   * [[:wa:home|walon (wa)]]
   * [[:wo:home|Wollof (wo)]]
   * [[:xh:home|isiXhosa (xh)]]
