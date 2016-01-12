@@ -71,7 +71,7 @@ function load_word_counts(): void {
             var $cq: JQuery = jQuery('<ul></ul>');
             var cq_count = 0;
 
-            for (var i = 1; i < 67; i++) {
+            for (var i = 1; i < 68; i++) {
 
                 if (!bible[i]) continue;
 
