@@ -26,7 +26,6 @@
   src: local("Abyssinica SIL"), local("AbyssinicaSIL");
   src: url("fonts/sil/AbyssinicaSIL-R.ttf") format("ttf"), url("fonts/sil/AbyssinicaSIL-R.woff") format("woff");
 }
-
 @font-face {
   font-family: 'NotoNaskhArabic';
   src: local('Noto Naskh Arabic'), local('NotoNaskhArabic');
@@ -38,7 +37,6 @@
   src: local('Noto Naskh Arabic'), local('NotoNaskhArabic');
   src: url('fonts/noto/notonaskharabic-bold.woff2') format('woff2'), url('fonts/noto/notonaskharabic-bold.woff') format('woff');
 }
-
 @font-face {
   font-family: 'NotoSansDevanagari';
   src: local('Noto Sans Devanagari'), local('NotoSansDevanagari');
@@ -50,7 +48,17 @@
   src: local('Noto Sans Devanagari'), local('NotoSansDevanagari');
   src: url('fonts/noto/notosansdevanagari-bold.woff2') format('woff2'), url('fonts/noto/notosansdevanagari-bold.woff') format('woff');
 }
-
+@font-face {
+  font-family: 'NotoSansKannada';
+  src: local('Noto Sans Kannada'), local('NotoSansKannada');
+  src: url('fonts/noto/notosanskannada-regular.woff2') format('woff2'), url('fonts/noto/notosanskannada-regular.woff') format('woff');
+}
+@font-face {
+  font-family: 'NotoSansKannada';
+  font-weight: bold;
+  src: local('Noto Sans Kannada'), local('NotoSansKannada');
+  src: url('fonts/noto/notosanskannada-bold.woff2') format('woff2'), url('fonts/noto/notosanskannada-bold.woff') format('woff');
+}
 @font-face {
   font-family: 'NotoSansMyanmar';
   src: local('Noto Sans Myanmar'), local('NotoSansMyanmar');
@@ -62,7 +70,6 @@
   src: local('Noto Sans Myanmar'), local('NotoSansMyanmar');
   src: url('fonts/noto/notosansmyanmar-bold.woff2') format('woff2'), url('fonts/noto/notosansmyanmar-bold.woff') format('woff');
 }
-
 @font-face {
   font-family: 'NotoSansKhmer';
   src: local('Noto Sans Khmer'), local('NotoSansKhmer');
@@ -101,7 +108,12 @@
 :lang(ps) { font-family: NotoSans, NotoNaskhArabic, sans-serif; }
 
 /* Devanagari script */
-:lang(sgj) { font-family: NotoSans, NotoSansDevanagari, sans-serif; }
+:lang(sgj),
+:lang(mr) { 
+  font-family: NotoSans, NotoSansDevanagari, sans-serif; }
+
+:lang(kn) { 
+  font-family: NotoSans, NotoSansKannada, sans-serif; }
 
 /* Burmese script */
 :lang(my) { font-family: NotoSans, NotoSansMyanmar, sans-serif; }
