@@ -9,7 +9,6 @@
   src: local("Noto Sans"), local("NotoSans");
   src: url("fonts/noto/notosans-bold.woff2") format("woff2"), url("fonts/noto/notosans-bold.woff") format("woff");
 }
-
 @font-face {
   font-family: 'NotoSansEthiopic';
   src: local("Noto Sans Ethiopic"), local("NotoSansEthiopic");
@@ -22,7 +21,7 @@
   src: url("fonts/noto/notosansethiopic-bold.woff2") format("woff2"), url("fonts/noto/notosansethiopic-bold.woff") format("woff");
 }
 @font-face {
-  font-family: AbyssinicaSILW;
+  font-family: 'AbyssinicaSILW';
   src: local("Abyssinica SIL"), local("AbyssinicaSIL");
   src: url("fonts/sil/AbyssinicaSIL-R.ttf") format("ttf"), url("fonts/sil/AbyssinicaSIL-R.woff") format("woff");
 }
@@ -47,6 +46,11 @@
   font-weight: bold;
   src: local('Noto Sans Devanagari'), local('NotoSansDevanagari');
   src: url('fonts/noto/notosansdevanagari-bold.woff2') format('woff2'), url('fonts/noto/notosansdevanagari-bold.woff') format('woff');
+}
+@font-face {
+  font-family: 'NotoNastaliqUrduDraft';
+  src: local('Noto Nastaliq Urdu Draft'), local('NotoNastaliqUrduDraft');
+  src: url('fonts/noto/notonastaliqurdudraft.woff2') format('woff2'), url('fonts/noto/notonastaliqurdudraft.woff') format('woff');
 }
 @font-face {
   font-family: 'NotoSansKannada';
@@ -80,6 +84,11 @@
   font-weight: bold;
   src: local('Noto Sans Telugu'), local('NotoSansTelugu');
   src: url('fonts/noto/notosanstelugu-bold.woff2') format('woff2'), url('fonts/noto/notosanstelugu-bold.woff') format('woff');
+}
+@font-face {
+  font-family: 'Jameel Noori Nastaleeq';
+  src: local('Jameel Noori Nastaleeq'), local('JameelNooriNastaleeq');
+  src: url('fonts/jameel/Jameel Noori Nastaleeq.ttf') format('ttf');
 }
 @font-face {
   font-family: 'NotoSansMyanmar';
@@ -147,6 +156,10 @@
 
 :lang(te) { 
   font-family: NotoSans, NotoSansTelugu, sans-serif;
+}
+
+:lang(ur) {
+  font-family: Jameel Noori Nastaleeq, NotoNastaliqUrduDraft, NotoSans, sans-serif;
 }
 
 /* Burmese script */
