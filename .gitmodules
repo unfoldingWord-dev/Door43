@@ -38,10 +38,6 @@
 	path = lib/plugins/blockquote
 	url = https://github.com/dokufreaks/plugin-blockquote
 	ignore = dirty
-[submodule "lib/plugins/bookcreator"]
-	path = lib/plugins/bookcreator
-	url = https://github.com/Klap-in/dokuwiki-plugin-bookcreator
-	ignore = dirty
 [submodule "lib/plugins/changes"]
 	path = lib/plugins/changes
 	url = https://github.com/cosmocode/changes
@@ -142,3 +138,6 @@
 	path = lib/plugins/translation
 	url = https://github.com/splitbrain/dokuwiki-plugin-translation
 	ignore = dirty
+[submodule "lib/plugins/bookcreator"]
+	path = lib/plugins/bookcreator
+	url = https://github.com/Klap-in/dokuwiki-plugin-bookcreator/

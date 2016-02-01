@@ -140,4 +140,27 @@ class helper_plugin_door43shared extends DokuWiki_Plugin {
 
         return $markdown;
     }
+
+    /**
+     * Create a GUID
+     * @param bool $include_braces If TRUE the value will be surrounded with braces, {xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}
+     * @return string
+     */
+    public function getGUID($include_braces=true){
+        if (function_exists('com_create_guid')){
+            return com_create_guid();
+        }else{
+            mt_srand((double)microtime()*10000);//optional for php 4.2.0 and up.
+            $char_id = strtoupper(md5(uniqid(rand(), true)));
+            $hyphen = chr(45); // "-"
+            $uuid = ($include_braces ? chr(123) : '') // "{"
+                .substr($char_id, 0, 8).$hyphen
+                .substr($char_id, 8, 4).$hyphen
+                .substr($char_id,12, 4).$hyphen
+                .substr($char_id,16, 4).$hyphen
+                .substr($char_id,20,12)
+                .($include_braces ? chr(125) : ''); // "}"
+            return $uuid;
+        }
+    }
 }

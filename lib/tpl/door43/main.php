@@ -19,6 +19,18 @@ $translation = &plugin_load('helper','door43translation');
 
 $hasSidebar = page_findnearest($conf['sidebar']);
 $showSidebar = $hasSidebar && ($ACT=='show');
+
+function namespace_to_class($class, $ns) {
+    return $class . " ns-".$ns;
+}
+$nspath = explode(':', $ID);
+$page = array_pop($nspath);
+if(count($nspath) && $nspath[0] == $translation->getHtmlLang())
+  array_shift($nspath);
+$class = array_reduce($nspath, 'namespace_to_class', "page-".$page.(count($nspath)?' nsfull-'.implode('-',$nspath):'').' lang-'.$translation->getHtmlLang());
+if(isset($_REQUEST['do'])){
+  $class .= ' action-'.$_REQUEST['do'];
+}
 ?><!DOCTYPE html>
 <html lang="<?php echo $translation->getHtmlLang() ?>" dir="<?php echo $translation->getHtmlLangDir() ?>" class="no-js">
 <head>
@@ -31,7 +43,7 @@ $showSidebar = $hasSidebar && ($ACT=='show');
     <?php tpl_includeFile('meta.html') ?>
 </head>
 
-<body>
+<body class="<?php echo $class ?>">
     <!--[if lte IE 8 ]><div id="IE8"><![endif]-->
     <div id="dokuwiki__site"><div id="dokuwiki__top" class="site <?php echo tpl_classes(); ?> <?php
         echo ($showSidebar) ? 'showSidebar' : ''; ?> <?php echo ($hasSidebar) ? 'hasSidebar' : ''; ?>">

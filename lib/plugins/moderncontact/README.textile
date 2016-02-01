@@ -1,0 +1,62 @@
+h1. Modern Contact Plugin
+
+p. In the search for a contact form for Dokuwiki I only found that of Bob Baddeley (http://bobbaddeley.com/). It is quite good, although a bit outdated.
+
+h2. Features
+
+p. It is nearly the same form like that by Bob Baddeley, except:
+
+# reCaptcha instead of "Enter HUMAN to verify."
+# Captcha can be disabled.
+# Improved configuration.
+# Improved anti cache work-around.
+# Intelligent email address checkup.
+# No annoying JavaScript-alerts.
+# It jumps back to the form after submitting.
+# Name and email field are filled if user is logged in.
+
+p. If you have some more ideas, feel free to contact me.
+
+h3. Languages
+
+p. Following languages are  available:
+
+* English
+* French (partially)
+* German
+* Polish (by Alex Setlak)
+* Portuguese (partially)
+* Russian (partially)
+* Spanish (by Cristian Wente)
+
+h2. Requirements
+
+p. To use this Plugin you need the following system:
+
+* PHP >= 5.1.2
+* Dokuwiki >= 2009-02-14b
+* reCaptcha keys (optional)
+
+p. You can receive the needed reCaptcha keys on http://www.google.com/recaptcha.
+
+h2. Usage 
+
+p. The integration is the same as in the plugin by Baddeley. Simply use this code:
+
+bc. {{contact>}}
+
+p. This will create a contact form with a "name","email address", "subject" and "comment" field. It will send an email to whatever the default value is. If you enabled the captcha by default, than it will also show the well known reCaptcha input fields.
+
+p. You can also specify several parameters. If you only need one parameter you simply use:
+
+bc. {{contact>subj=Feedback from Site}}
+
+p. or join multiple of them with a | character:
+
+bc. {{contact>to=profile1|subj=Feedback from Site}}
+
+h3. Available parameters
+
+| subj | If the subject is specified in the parameters then it is not a field on the contact form. |
+| to | If you choose another profile then emails will be send to the profile email address. You have to specify other profiles before you can use them. |
+| captcha | If set to true, the captcha will be enabled. Set it on false to disable it. You must activate the captcha by default in order to change its status with this parameter. |
