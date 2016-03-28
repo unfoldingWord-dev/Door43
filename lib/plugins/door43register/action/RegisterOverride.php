@@ -22,6 +22,19 @@ class action_plugin_door43register_RegisterOverride extends DokuWiki_Action_Plug
      */
     public function register(Doku_Event_Handler $controller) {
         $controller->register_hook('TPL_ACT_RENDER', 'BEFORE', $this, 'handle_register_action');
+        $controller->register_hook('ACTION_ACT_PREPROCESS',
+            'BEFORE',
+            $this,
+            'handle_register_preprocess',
+            array());
+    }
+
+
+    public function handle_register_preprocess(Doku_Event &$event){
+       if($event->data !== 'register')
+         return;
+       header("Location: https://git.door43.org/user/sign_up");
+       die();
     }
 
     /**
