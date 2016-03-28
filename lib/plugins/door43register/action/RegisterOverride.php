@@ -22,11 +22,11 @@ class action_plugin_door43register_RegisterOverride extends DokuWiki_Action_Plug
      */
     public function register(Doku_Event_Handler $controller) {
         $controller->register_hook('TPL_ACT_RENDER', 'BEFORE', $this, 'handle_register_action');
-        $controller->register_hook('ACTION_ACT_PREPROCESS',
-            'BEFORE',
-            $this,
-            'handle_register_preprocess',
-            array());
+        #$controller->register_hook('ACTION_ACT_PREPROCESS',
+        #    'BEFORE',
+        #    $this,
+        #    'handle_register_preprocess',
+        #    array());
     }
 
 
