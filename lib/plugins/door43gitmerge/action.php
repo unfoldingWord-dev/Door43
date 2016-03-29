@@ -347,14 +347,32 @@ class action_plugin_door43gitmerge extends DokuWiki_Action_Plugin {
         return p_render('xhtml', p_get_instructions($new_content), $info);
     }
 
-    private function _user($device) {
-        $json =  file_get_json($this->repo_path . $device . '/profile/contact.json');
-        if($json === null) {
-            $json = array(
-                'name'=>$device
-            );
+    private function _user($device, $project_dir) {
+        $filename = null;
+        if( file_exists($this->repo_path . $device . '/'.$project_dir.'/'.'manifest.json'))
+            $filename = $this->repo_path . $device . '/'.$project_dir.'/'.'manifest.json';
+        else if( file_exists($this->repo_path . $device . '/'.$project_dir.'/'.'project.json'))
+            $filename = $this->repo_path . $device . '/'.$project_dir.'/'.'project.json';
+
+        if($filename){
+            $json = file_get_json($filename);
+            if (isset($json['translators']) && is_array($json['translators']) && count($json['translators']) > 0) {
+                $translator = $json['translators'][0];
+                if (is_array($translator)) {
+                    return array('name' => $translator['name']." [$device]");
+                }
+                if (is_string($translator)) {
+                    return array('name' => implode(',', $json['translators'])." [$device]");
+                }
+            }
         }
-        return $json;
+
+        if( file_exists($this->repo_path . $device . '/profile/contact.json'))
+            return file_get_json($this->repo_path . $device . '/profile/contact.json');
+
+        return array(
+            'name'=>"[$device]",
+        );
     }
 
     private function _content($device, $frame) {
@@ -407,7 +425,6 @@ class action_plugin_door43gitmerge extends DokuWiki_Action_Plugin {
                         unset($file_parts);
                         $file_parts = explode('-', substr($project_filename, 3));
                         $project = array_shift($file_parts);
-                        array_pop($file_parts);
                         $lang = implode('-', $file_parts);
                         //list($project, $lang) = explode('-', substr($project_filename, 3));
                         $ids_path = $projects_path . $project_filename . '/';
@@ -543,7 +560,7 @@ class action_plugin_door43gitmerge extends DokuWiki_Action_Plugin {
                 foreach($this->updated_frames as $frame=>$devices) {
                     foreach($devices as $device) {
                         if (empty($this->devices[$device])) {
-                            $this->devices[$device] = $this->_user($device);
+                            $this->devices[$device] = $this->_user($device, $this->project_dir);
                         }
                     }
                 }
