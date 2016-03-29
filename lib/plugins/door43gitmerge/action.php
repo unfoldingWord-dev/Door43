@@ -407,7 +407,6 @@ class action_plugin_door43gitmerge extends DokuWiki_Action_Plugin {
                         unset($file_parts);
                         $file_parts = explode('-', substr($project_filename, 3));
                         $project = array_shift($file_parts);
-                        array_pop($file_parts);
                         $lang = implode('-', $file_parts);
                         //list($project, $lang) = explode('-', substr($project_filename, 3));
                         $ids_path = $projects_path . $project_filename . '/';
