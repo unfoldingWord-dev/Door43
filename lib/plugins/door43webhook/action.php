@@ -66,7 +66,7 @@ class action_plugin_door43webhook extends DokuWiki_Action_Plugin {
                     $command = "/var/www/vhosts/door43.org/tools/uwb/make_book_from_chapters.py -v draft -r $resource -b $book";
                     print $command."\n";
                     print shell_exec($command)."\n";
-                    $command = "/var/www/vhosts/door43.org/tools/uwb/put_chunks_into_notes.py -l en -r $resource -b $book -c $chapter";
+                    $command = "/var/www/vhosts/door43.org/tools/uwb/put_chunks_into_notes.py -b $book -c $chapter";
                     print $command."\n";
                     print shell_exec($command)."\n";
                 }
