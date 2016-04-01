@@ -57,13 +57,16 @@ class action_plugin_door43webhook extends DokuWiki_Action_Plugin {
                 $files = array_merge($files, $commit->modified);
                 $files = array_merge($files, $commit->added);
             }
-            file_put_contents('out2.txt', print_r($files,TRUE));
             foreach($files as $file){
                 $file_parts = explode('/', $file);
                 if(count($file_parts) == 2){
                     $book = $file_parts[0];
+                    $chapter = explode('.',$file_parts[1])[0];
                     print_r(array('repo'=>$repo, 'resource'=>$resource, 'book'=>$book));
-                    $command = "cd /var/www/vhosts/door43.org/tools/uwb && ./make_book_from_chapters.py -v draft -r $resource -b $book";
+                    $command = "/var/www/vhosts/door43.org/tools/uwb/make_book_from_chapters.py -v draft -r $resource -b $book";
+                    print $command."\n";
+                    print shell_exec($command)."\n";
+                    $command = "/var/www/vhosts/door43.org/tools/uwb/put_chunks_into_notes.py -l en -r $resource -b $book -c $chapter";
                     print $command."\n";
                     print shell_exec($command)."\n";
                 }
