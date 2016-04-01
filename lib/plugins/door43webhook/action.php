@@ -60,7 +60,7 @@ class action_plugin_door43webhook extends DokuWiki_Action_Plugin {
             foreach($files as $file){
                 $file_parts = explode('/', $file);
                 if(count($file_parts) == 2){
-                    $book = $file_parts[0];
+                    $book = explode('-', $file_parts[0])[1];
                     $chapter = explode('.',$file_parts[1])[0];
                     print_r(array('repo'=>$repo, 'resource'=>$resource, 'book'=>$book));
                     $command = "/var/www/vhosts/door43.org/tools/uwb/make_book_from_chapters.py -v draft -r $resource -b $book";
