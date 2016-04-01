@@ -1,4 +1,4 @@
-Looking for a language that is not here yet? Setup OBS for your language (it only takes a moment).
+Looking for a language that is not here yet? Click on: [[:obs-setup]] for your language (it only takes a moment).
 
 **Choose your language:**
 
@@ -75,6 +75,7 @@ Looking for a language that is not here yet? Setup OBS for your language (it onl
   * [[:gl:home|galego (gl)]]
   * [[:gu:home|ગુજરાતી (gu)]]
   * [[:gv:home|Gaelg, Gailck (gv)]]
+  * Gbaya-Kara (Central African Republic)
   * [[:ha:home|(Hausa) هَوُسَ (ha)]]
   * [[:hch:home|Huichol (hch)]]
   * [[:he:home|עברית (he)]]
@@ -127,6 +128,7 @@ Looking for a language that is not here yet? Setup OBS for your language (it onl
   * [[:lki:home|Laki (lki)]]
   * [[:ln:home|Lingála (ln)]]
   * [[:lns:home|Lamnso' (lns)]]
+  * Mandja (Central African Republic)
   * [[:lo:home|ພາສາລາວ (lo)]]
   * [[:loe:home|Saluan (loe)]]
   * [[:lt:home|lietuvių kalba (lt)]]
@@ -207,6 +209,7 @@ Looking for a language that is not here yet? Setup OBS for your language (it onl
   * [[:tk:home|Türkmen, Түркмен (tk)]]
   * [[:tl:home|Wikang Tagalog, ᜏᜒᜃᜅ᜔ ᜆᜄᜎᜓᜄ᜔ (tl)]]
   * [[:tll:home|Tetela (tll)]]
+  * Sango (Central African Republic)
   * [[:tn:home|Setswana (tn)]]
   * [[:to:home|faka Tonga (to)]]
   * [[:tpi:home|Tok Pisin (tpi)]]
@@ -234,3 +237,6 @@ Looking for a language that is not here yet? Setup OBS for your language (it onl
   * [[:zh-tw:home|繁體中文 (zh-tw)]]
   * [[:zmz:home|Mbandja (zmz)]]
   * [[:zu:home|isiZulu (zu)]]
+
+
+[[:obs-setup]]
