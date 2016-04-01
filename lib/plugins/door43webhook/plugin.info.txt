@@ -1,0 +1,7 @@
+base   door43webhook
+author unfoldingWord.org
+email  https://unfoldingword.org/contact/
+date   2016-03-31
+name   Door43 translationStudio Git webhook
+desc   Tool to handle the payload from a Github webhook.
+url    https://github.com/unfoldingWord-dev/Door43
