@@ -1,0 +1,7 @@
+base   door43cache
+author unfoldingWord.org
+email  https://unfoldingword.org/contact/
+date   2016-04-05
+name   Door43 cache clearer
+desc   Tool to handle manually clearing data/cache/door43_cache 
+url    https://github.com/unfoldingWord-dev/Door43
