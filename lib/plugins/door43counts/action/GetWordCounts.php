@@ -292,7 +292,7 @@ class action_plugin_door43counts_GetWordCounts extends Door43_Action_Plugin {
                 $usfm = preg_replace('/\\\\[v]\s\d+\s/', '', $usfm);
                 $usfm = preg_replace('/\\\\[c]\s\d+\s/', '', $usfm);
                 $usfm = preg_replace('/\\\\\S+\s/', '', $usfm);
-                $return_val[$resource['slug']] = str_word_count($usfm);
+                $return_val[substr($resource['slug'], 0, 3)] = str_word_count($usfm);
             }
 
             // get note word count, just once
