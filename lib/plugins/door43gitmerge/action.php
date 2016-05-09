@@ -423,13 +423,13 @@ class action_plugin_door43gitmerge extends DokuWiki_Action_Plugin {
                             continue;
                         }
                         unset($file_parts);
-                        if(strpos($file, 'uw-') === 0){
+                        if(strpos($project_filename, 'uw-') === 0){
                             $file_parts = explode('-', substr($project_filename, 3));
                             $project = array_shift($file_parts);
                             $lang = implode('-', $file_parts);
                         }
                         else {
-                            $file_parts = explode('_', $file);
+                            $file_parts = explode('_', $project_filename);
                             $lang = $file_parts[0];
                             $project = $file_parts[1];
                         }
