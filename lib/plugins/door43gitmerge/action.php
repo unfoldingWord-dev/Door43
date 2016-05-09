@@ -143,6 +143,9 @@ class action_plugin_door43gitmerge extends DokuWiki_Action_Plugin {
         list($this->lang, $this->project, $this->id) = explode(':', $ID);
         $this->repo_path = $this->getConf('repo_path') . '/';
         $this->project_dir = 'uw-' . $this->project . '-' . $this->lang . '/';
+        if( ! file_Exists($this->repo_path . $this->project_dir) ){
+            $this->project_dir = $this->lang . '_' . $this->project . '_' . ($this->project=='obs'?'text_obs':'text_reg') . '/';
+        }
         $this->page_path = $this->project_dir . $this->id . '/';
         $this->cache_path = $conf['cachedir'] . '/door43gitmerge/';
         if (!is_dir($this->cache_path)) {
@@ -512,6 +515,9 @@ class action_plugin_door43gitmerge extends DokuWiki_Action_Plugin {
     private function _mark_updated($lang, $project, $device, $files) {
         $this->_init();
         $ready_file = $this->repo_path . $device . '/uw-' . $project . '-' . $lang . '/READY';
+        if( ! file_exists($ready_file) ){
+            $ready_file = $this->repo_path . $device . '/' . $lang . '_' . $project . '_' . ($project=='obs'?'text_obs':'text_reg');
+        }
         // NOTE: the hooks peform this check but we do it again for redundancy
         if (file_exists($ready_file)) {
             // parse file list
@@ -534,7 +540,12 @@ class action_plugin_door43gitmerge extends DokuWiki_Action_Plugin {
                     $merge_log_file = $this->_get_log_filename($project, $lang, $chapter, 'log');
                     if(!empty($frames)) {
                         foreach ($frames as $frame) {
-                            $time = date('Y-m-d H:i:s', filemtime($this->repo_path . $device . '/uw-' . $project . '-' . $lang . '/' . $chapter . '/' . $frame . '.txt'));
+                            if( file_exists($this->repo_path . $device . '/uw-' . $project . '-' . $lang)) {
+                                $time = date('Y-m-d H:i:s', filemtime($this->repo_path . $device . '/uw-' . $project . '-' . $lang . '/' . $chapter . '/' . $frame . '.txt'));
+                            }
+                            else {
+                                $time = date('Y-m-d H:i:s', filemtime($this->repo_path . $device . '/' . $lang . '_' . $project . '_' . ($project=='obs'?'text_obs':'text_reg') . '/' . $chapter . '/' . $frame . '.txt'));
+                            }
                             $this->_update_log($device, $frame, 'updated', $time, $merge_updated_file, $merge_log_file);
                         }
                         unset($frame, $time);
