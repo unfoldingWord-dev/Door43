@@ -418,7 +418,7 @@ class action_plugin_door43gitmerge extends DokuWiki_Action_Plugin {
                 $projects = scandir($projects_path);
                 if (!empty($projects)) {
                     foreach ($projects as $project_index => $project_filename) {
-                        if (substr($project_filename, 0, 3) != 'uw-' || !is_dir($projects_path . $project_filename . '/')) {
+                        if (!is_dir($projects_path . $project_filename . '/') || (substr($project_filename, 0, 3) != 'uw-' && count(explode('_', $project_filename)) < 2)) {
                             unset($projects[$project_index]);
                             continue;
                         }
