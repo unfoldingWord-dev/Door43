@@ -31,14 +31,15 @@ class action_plugin_door43publishrequest extends DokuWiki_Action_Plugin {
      *                           handler was registered]
      * @return void
      */
-
-    public function handle_template_sitetools_display(Doku_Event &$event, $param) {
+    public function handle_template_sitetools_display(/** @noinspection PhpUnusedParameterInspection */
+        Doku_Event &$event,
+        $param) {
         
-        $url = 'http://td.unfoldingword.org/publishing/publish/request/';
+        //$url = 'http://td.unfoldingword.org/publishing/publish/request/';
+        $url = 'https://docs.google.com/a/sil.org/forms/d/1WWbIZkDT0-mwr1LzYdnxZq2S4gzMg7PbxL8MjFReHFE/viewform';
         $out = '<a href="'.$url.'"><li>'.$this->getLang('publishRequest').'</li></a>';
         echo $out;
 
     }
-
 }
 
