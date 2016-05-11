@@ -35,8 +35,7 @@ class action_plugin_door43publishrequest extends DokuWiki_Action_Plugin {
         Doku_Event &$event,
         $param) {
         
-        //$url = 'http://td.unfoldingword.org/publishing/publish/request/';
-        $url = 'https://docs.google.com/a/sil.org/forms/d/1WWbIZkDT0-mwr1LzYdnxZq2S4gzMg7PbxL8MjFReHFE/viewform';
+        $url = 'http://ufw.io/pub';
         $out = '<a href="'.$url.'"><li>'.$this->getLang('publishRequest').'</li></a>';
         echo $out;
 

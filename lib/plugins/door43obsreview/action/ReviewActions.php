@@ -66,7 +66,7 @@ class action_plugin_door43obsreview_ReviewActions extends DokuWiki_Action_Plugin
             $cssClass = 'obs-checking';
         }
 
-        $requestToPublishFormUrl = '<a href="http://td.unfoldingword.org/publishing/publish/request/" target="_blank">'.$this->getLang('requestToPublish').'</a>';
+        $requestToPublishFormUrl = '<a href="http://ufw.io/pub" target="_blank">'.$this->getLang('requestToPublish').'</a>';
 
         if (empty($status)) {
             $text = sprintf($this->getLang('noCheckingLevelSummary'), $requestToPublishFormUrl);
