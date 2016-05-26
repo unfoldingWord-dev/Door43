@@ -88,6 +88,9 @@ class action_plugin_chunkprogress extends DokuWiki_Action_Plugin
         // error_log("ID: $ID");
         // error_log("INFO['id']: " . $INFO["id"]);
 
+        if(strpos($_SERVER['REQUEST_URI'], '_export/xhtmlbody') >= 0)
+            return false;
+
         // Whitelist -- reject pages that don't match regex
         $whitelisted = false;
         $whitelist_namespaces = array(
