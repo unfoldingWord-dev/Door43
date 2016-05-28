@@ -309,7 +309,7 @@ class Doku_Renderer_xhtml extends Doku_Renderer {
      * Start underline formatting
      */
     function underline_open() {
-        $this->doc .= '<em class="u">';
+        $this->doc .= '<em class="u" style="font-style:normal;text-decoration:underline;">';
     }
 
     /**
