@@ -50,7 +50,18 @@ function load_word_counts(): void {
             var $ul: JQuery = $div.find('ul');
 
             // ta counts
-            $ul.append('<li>tA: ' + obj['ta'] + '</li>');
+            var ta_data: Object[] = obj['ta'];
+            var $ta: JQuery = jQuery('<ul></ul>');
+            var ta_count = 0;
+
+            for (var i = 0; i < ta_data.length; i++) {
+
+                $ta.append('<li>' + ta_data[i][0] + ': ' + ta_data[i][1] + '</li>');
+                ta_count += ta_data[i][1];
+            }
+            $li = jQuery('<li>tA: ' + ta_count + '</li>');
+            $li.append($ta);
+            $ul.append($li);
 
             // OBS counts
             var obs: any[] = obj['obs'];
