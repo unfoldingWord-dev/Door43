@@ -83,13 +83,31 @@ class action_plugin_door43counts_GetWordCounts extends Door43_Action_Plugin {
         }
 
         // get translation academy
-        $ta_count = $this->get_ta_count('https://api.unfoldingword.org/ta/txt/1/en/ta-en.json');
+        // 2016-07-01, Phil Hopper: updated for tA version 5
+        $ta_audio_count = $this->get_ta_count('https://api.unfoldingword.org/ta/txt/1/en/audio_2.json');
+        $ta_checking1_count = $this->get_ta_count('https://api.unfoldingword.org/ta/txt/1/en/checking_1.json');
+        $ta_checking2_count = $this->get_ta_count('https://api.unfoldingword.org/ta/txt/1/en/checking_2.json');
+        $ta_gl_count = $this->get_ta_count('https://api.unfoldingword.org/ta/txt/1/en/gateway_3.json');
+        $ta_intro_count = $this->get_ta_count('https://api.unfoldingword.org/ta/txt/1/en/intro_1.json');
+        $ta_process_count = $this->get_ta_count('https://api.unfoldingword.org/ta/txt/1/en/process_1.json');
+        $ta_translate1_count = $this->get_ta_count('https://api.unfoldingword.org/ta/txt/1/en/translate_1.json');
+        $ta_translate2_count = $this->get_ta_count('https://api.unfoldingword.org/ta/txt/1/en/translate_2.json');
+
+        $ta_counts = array();
+        $ta_counts[0] = array('Introduction', $ta_intro_count);
+        $ta_counts[1] = array('Process Manual', $ta_process_count);
+        $ta_counts[2] = array('Translation Manual vol 1', $ta_translate1_count);
+        $ta_counts[3] = array('Translation Manual vol 2', $ta_translate2_count);
+        $ta_counts[4] = array('Checking Manual vol 1', $ta_checking1_count);
+        $ta_counts[5] = array('Checking Manual vol 2', $ta_checking2_count);
+        $ta_counts[6] = array('Audio Manual', $ta_audio_count);
+        $ta_counts[7] = array('GL Manual', $ta_gl_count);
 
         $return_val = json_encode(array(
             'terms' => $this->bible_terms_count,
             'obs' => $obs_counts,
             'bible' => $bible_counts,
-            'ta' => $ta_count
+            'ta' => $ta_counts
         ));
 
         $cache->saveString($cacheFile, $return_val);
@@ -343,7 +361,7 @@ class action_plugin_door43counts_GetWordCounts extends Door43_Action_Plugin {
     }
 
     /**
-     * Returns the word caunt for translation academy
+     * Returns the word count for translation academy
      * @param string $ta_endpoint_url
      * @return int
      */
@@ -355,56 +373,23 @@ class action_plugin_door43counts_GetWordCounts extends Door43_Action_Plugin {
             $raw = file_get_contents($ta_endpoint_url);
             $ta = json_decode($raw, true);
 
-            foreach ($ta['chapters'] as $chapter) {
-                if (!empty($chapter['title'])) {
-                    $ta_count += str_word_count($chapter['title']);
+            foreach ($ta['articles'] as $article) {
+                if (!empty($article['title'])) {
+                    $ta_count += str_word_count($article['title']);
                 }
-                $ta_count += $this->process_ta_block($chapter);
+
+                if (!empty($article['question'])) {
+                    $ta_count += str_word_count($article['question']);
+                }
+
+                if (!empty($article['text'])) {
+                    $cleaned = str_replace('*', '', str_replace('#', '', $article['text']));
+                    $ta_count += str_word_count($cleaned);
+                }
             }
         }
 
         return $ta_count;
-    }
-
-    /**
-     * Each block in translation academy can have sub-blocks
-     * @param $block
-     * @return int
-     */
-    private function process_ta_block($block) {
-
-        $return_val = 0;
-
-        //loop through frames
-        if (!empty($block['frames'])) {
-            foreach($block['frames'] as $frame) {
-
-                if (!empty($frame['text'])) {
-                    $text = html_entity_decode(strip_tags($frame['text']));
-                    $return_val += str_word_count($text);
-                }
-
-                if (!empty($frame['title'])) {
-                    $return_val += str_word_count($frame['title']);
-                }
-
-                $return_val += $this->process_ta_block($frame);
-            }
-        }
-
-        // loop through sections
-        if (!empty($block['sections'])) {
-            foreach ($block['sections'] as $section) {
-
-                if (!empty($section['title'])) {
-                    $return_val += str_word_count($section['title']);
-                }
-
-                $return_val += $this->process_ta_block($section);
-            }
-        }
-
-        return $return_val;
     }
 
     private static function url_exists($url) {
