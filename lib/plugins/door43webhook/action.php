@@ -52,25 +52,46 @@ class action_plugin_door43webhook extends DokuWiki_Action_Plugin {
             print $command."\n";
             print shell_exec($command)."\n";
 
-            $files = array();
+            $curr_dir = getcwd(); // Save where I am now
+            chdir('/var/www/vhosts/door43.org/httpdocs/data/gitrepo/pages/en');
+
             foreach($payload->commits as $commit){
-                $files = array_merge($files, $commit->modified);
-                $files = array_merge($files, $commit->added);
-            }
-            foreach($files as $file){
-                $file_parts = explode('/', $file);
-                if(count($file_parts) == 2){
-                    $book = explode('-', $file_parts[0])[1];
-                    $chapter = explode('.',$file_parts[1])[0];
-                    print_r(array('repo'=>$repo, 'resource'=>$resource, 'book'=>$book));
-                    $command = "/var/www/vhosts/door43.org/tools/uwb/make_book_from_chapters.py -v draft -r $resource -b $book";
-                    print $command."\n";
-                    print shell_exec($command)."\n";
-                    $command = "/var/www/vhosts/door43.org/tools/uwb/put_chunks_into_notes.py -b $book -c $chapter";
-                    print $command."\n";
-                    print shell_exec($command)."\n";
+                $files = array_merge($commit->modified, $commit->added);
+                foreach($files as $file){
+                  $file_parts = explode('/', $file);
+                  if(count($file_parts) == 2){
+                      $book_with_number = $file_parts[0];
+                      $book = explode('-', $book_with_number)[1];
+                      $chapter = explode('.',$file_parts[1])[0];
+
+                      print_r(array('repo'=>$repo, 'resource'=>$resource, 'book'=>$book));
+
+                      $command = "/var/www/vhosts/door43.org/tools/uwb/make_book_from_chapters.py -v draft -r $resource -b $book";
+                      print $command."\n";
+                      print shell_exec($command)."\n";
+
+                      $command = "/var/www/vhosts/door43.org/tools/uwb/put_chunks_into_notes.py -b $book -c $chapter";
+                      print $command."\n";
+                      print shell_exec($command)."\n";
+
+                      $command = strtolower("/usr/bin/git add bible/notes/$book/$chapter");
+                      print $command."\n";
+                      print shell_exec($command);
+                  }
                 }
-            }
+
+                $commit_message = "GitHub Edit [{$commit->url}]: " . str_replace('"', '', $commit->message) . " [{$commit->author->username}: {$commit->author->name}]"; 
+
+                $command = '/usr/bin/git commit -m "' . $commit_message . '"';
+                print $command."\n";
+                print shell_exec($command);
+
+                $command = "/usr/bin/git push";
+                print $command."\n";
+                print shell_exec($command);
+           }
+ 
+           chdir($curr_dir); // Change back to where we were
         }
         else {
             print "No payload!!";
