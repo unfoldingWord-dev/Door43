@@ -9,7 +9,7 @@ php:
 node_js:
   - 0.10
 
-before_script:
+install:
   - composer install
   - npm install
 
