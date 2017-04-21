@@ -48,7 +48,8 @@ class action_plugin_door43webhook extends DokuWiki_Action_Plugin {
             $repo = $payload->repository->name;
             $resource = explode('-',$repo)[0];
 
-            $command = "cd /var/www/vhosts/door43.org/$repo && git reset --hard HEAD && git pull";
+            //$command = "cd /var/www/vhosts/door43.org/$repo && git reset --hard HEAD && git pull";
+            $command = "cd /var/www/vhosts/door43.org/$repo && git fetch --all && git reset --hard origin/master";
             print $command."\n";
             print shell_exec($command)."\n";
 
